@@ -183,7 +183,7 @@ button:focus {
   --zoom: 4;
   box-sizing: content-box;
   border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('/public/images/minecraft/ui/map.png');
+  border-image: url('../public/images/minecraft/ui/map.png');
   border-image-width: calc(var(--block-size) / var(--zoom));
   border-image-slice: 12.75% 15.75% fill;
   border-image-repeat: repeat;
@@ -195,7 +195,7 @@ button:focus {
   border-width: var(--size);
   border-style: solid;
   border-left-width: calc(var(--size) / 1.5);
-  border-image: url('/public/images/minecraft/ui/book.png');
+  border-image: url('../public/images/minecraft/ui/book.png');
   border-image-width: var(--size) var(--size) var(--size) calc(var(--size) / 1.5);
   border-image-slice: 8.5% 15% 12.75% 10% fill;
   border-image-repeat: stretch;
@@ -209,27 +209,27 @@ button:focus {
   cursor: pointer;
   image-rendering: pixelated;
   background-size: cover;
-  background-image: url('/public/images/minecraft/ui/button-inside.png');
+  background-image: url('../public/images/minecraft/ui/button-inside.png');
   border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('/public/images/minecraft/ui/button-border.png');
+  border-image: url('../public/images/minecraft/ui/button-border.png');
   border-image-width: calc(var(--block-size) / var(--zoom));
   border-image-slice: 10% 3%;
   border-image-repeat: stretch;
   color: #d1d5db;
 } .button:hover {
   background-size: cover;
-  background-image: url('/public/images/minecraft/ui/button-inside-hover.png');
+  background-image: url('../public/images/minecraft/ui/button-inside-hover.png');
   border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('/public/images/minecraft/ui/button-border-hover.png');
+  border-image: url('../public/images/minecraft/ui/button-border-hover.png');
   border-image-width: calc(var(--block-size) / var(--zoom));
   border-image-slice: 10% 3%;
   border-image-repeat: stretch;
   color: #fef08a;
 } .button:active {
   background-size: cover;
-  background-image: url('/public/images/minecraft/ui/button-inside-active.png');
+  background-image: url('../public/images/minecraft/ui/button-inside-active.png');
   border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('/public/images/minecraft/ui/button-border-active.png');
+  border-image: url('../public/images/minecraft/ui/button-border-active.png');
   border-image-width: calc(var(--block-size) / var(--zoom));
   border-image-slice: 10% 3%;
   border-image-repeat: contain;
@@ -241,7 +241,7 @@ button:focus {
 .scrollbar::-webkit-scrollbar-corner {
   --zoom: 24;
   border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('/public/images/minecraft/ui/raised-slot.png');
+  border-image: url('../public/images/minecraft/ui/raised-slot.png');
   border-image-width: calc(var(--block-size) / var(--zoom));
   border-image-slice: 33.5% 33.5% fill;
   border-image-repeat: stretch;
@@ -249,7 +249,7 @@ button:focus {
 .raised-slot-button:hover {
   --zoom: 24;
   border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('/public/images/minecraft/ui/raised-slot-hover.png');
+  border-image: url('../public/images/minecraft/ui/raised-slot-hover.png');
   border-image-width: calc(var(--block-size) / var(--zoom));
   border-image-slice: 33.5% 33.5% fill;
   border-image-repeat: stretch;
@@ -257,7 +257,7 @@ button:focus {
 .raised-slot-button:active {
   --zoom: 24;
   border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('/public/images/minecraft/ui/raised-slot-active.png');
+  border-image: url('../public/images/minecraft/ui/raised-slot-active.png');
   border-image-width: calc(var(--block-size) / var(--zoom));
   border-image-slice: 33.5% 33.5% fill;
   border-image-repeat: stretch;
@@ -267,7 +267,7 @@ button:focus {
 .enchanting-slot-button {
   --zoom: 24;
   border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('/public/images/minecraft/ui/enchanting-slot.png');
+  border-image: url('../public/images/minecraft/ui/enchanting-slot.png');
   border-image-width: calc(var(--block-size) / var(--zoom));
   border-image-slice: 33.5% 33.5% fill;
   border-image-repeat: stretch;
@@ -275,7 +275,7 @@ button:focus {
 .enchanting-slot-button:hover {
   --zoom: 24;
   border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('/public/images/minecraft/ui/enchanting-slot-hover.png');
+  border-image: url('../public/images/minecraft/ui/enchanting-slot-hover.png');
   border-image-width: calc(var(--block-size) / var(--zoom));
   border-image-slice: 33.5% 33.5% fill;
   border-image-repeat: stretch;
@@ -283,7 +283,7 @@ button:focus {
 .enchanting-slot-button:active {
   --zoom: 24;
   border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('/public/images/minecraft/ui/enchanting-slot-active.png');
+  border-image: url('../public/images/minecraft/ui/enchanting-slot-active.png');
   border-image-width: calc(var(--block-size) / var(--zoom));
   border-image-slice: 33.5% 33.5% fill;
   border-image-repeat: stretch;
@@ -292,7 +292,7 @@ button:focus {
 .anvil-textbox {
   --zoom: 16;
   border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('/public/images/minecraft/ui/anvil-textbox.png');
+  border-image: url('../public/images/minecraft/ui/anvil-textbox.png');
   border-image-width: calc(var(--block-size) / var(--zoom));
   border-image-slice: 40% 40% fill;
   border-image-repeat: stretch;
@@ -301,7 +301,7 @@ button:focus {
 .anvil-textbox:focus {
   --zoom: 16;
   border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('/public/images/minecraft/ui/anvil-textbox-active.png');
+  border-image: url('../public/images/minecraft/ui/anvil-textbox-active.png');
   border-image-width: calc(var(--block-size) / var(--zoom));
   border-image-slice: 40% 40% fill;
   border-image-repeat: stretch;
@@ -310,8 +310,8 @@ button:focus {
 
 // Scrollbar
 div ::-webkit-scrollbar { width: 0.5rem; }
-div ::-webkit-scrollbar-track { background: url("/public/images/minecraft/ui/xp-bar-empty.png"); border-radius: 0; } 
-div ::-webkit-scrollbar-thumb { background: url("/public/images/minecraft/ui/xp-bar-full.png"); border-radius: 0; }
+div ::-webkit-scrollbar-track { background: url("../public/images/minecraft/ui/xp-bar-empty.png"); border-radius: 0; } 
+div ::-webkit-scrollbar-thumb { background: url("../public/images/minecraft/ui/xp-bar-full.png"); border-radius: 0; }
 ::-webkit-scrollbar { width: 0.4rem; } 
 ::-webkit-scrollbar-track { background: var(--primary-color); border-radius: 0.6rem; } 
 ::-webkit-scrollbar-thumb { background: var(--general-color); border-radius: 0.6rem; }
@@ -322,7 +322,7 @@ footer::before {
   width: 100%;
   position: absolute;
   height: 50px;
-  background-image: url("/public/images/borders.webp");
+  background-image: url("../public/images/borders.webp");
   background-size: 960px;
   top: -50px;
   transform: scale(-1);
@@ -333,7 +333,7 @@ footer::after {
   width: 100%;
   position: absolute;
   height: 50px;
-  background-image: url("/public/images/borders.webp");
+  background-image: url("../public/images/borders.webp");
   background-size: 960px;
   top: 0px;
   z-index: -1;
@@ -345,7 +345,7 @@ footer::after {
   width: 100%;
   position: absolute;
   height: 50px;
-  background-image: url("/public/images/borders.webp");
+  background-image: url("../public/images/borders.webp");
   background-size: 960px;
   bottom: -50px;
   z-index: 700;
@@ -369,7 +369,7 @@ footer::after {
   width: 100%;
   position: absolute;
   height: 50px;
-  background-image: url("/public/images/borders.webp");
+  background-image: url("../public/images/borders.webp");
   background-size: 960px;
   z-index: 22;
   top: 0px;
@@ -380,7 +380,7 @@ footer::after {
   width: 100%;
   position: absolute;
   height: 50px;
-  background-image: url("/public/images/borders.webp");
+  background-image: url("../public/images/borders.webp");
   background-size: 960px;
   bottom: 0px;
   z-index: 22;
@@ -393,7 +393,7 @@ footer::after {
     width: 100%;
     position: absolute;
     height: 50px;
-    background-image: url("/public/images/borders.webp");
+    background-image: url("../public/images/borders.webp");
     background-size: 960px;
     z-index: 22;
     top: 0px;
@@ -403,7 +403,7 @@ footer::after {
     width: 100%;
     position: absolute;
     height: 50px;
-    background-image: url("/public/images/borders.webp");
+    background-image: url("../public/images/borders.webp");
     background-size: 960px;
     bottom: 0px;
     z-index: 22;
@@ -420,7 +420,7 @@ footer::after {
     width: 100%;
     position: absolute;
     height: 50px;
-    background-image: url("/public/images/borders.webp");
+    background-image: url("../public/images/borders.webp");
     background-size: 960px;
     z-index: 22;
     top: 0px;
@@ -430,7 +430,7 @@ footer::after {
     width: 100%;
     position: absolute;
     height: 50px;
-    background-image: url("/public/images/borders.webp");
+    background-image: url("../public/images/borders.webp");
     background-size: 960px;
     bottom: 0px;
     z-index: 22;
