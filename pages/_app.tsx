@@ -1,4 +1,5 @@
 import '@/styles/globals.scss'
+import "react-toastify/dist/ReactToastify.css";
 import Head from 'next/head'
 
 import { type ReactElement, type ReactNode} from 'react'
@@ -6,6 +7,7 @@ import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 
 import localFont from 'next/font/local'
+import { ToastContainer } from 'react-toastify';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -46,8 +48,10 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="preload" href="/fonts/Monocraft.otf" crossOrigin="" type="font/otf" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moqmar/weather.css/master/weather.min.css"/>
       </Head>
       <main className={font.className}>
+      <ToastContainer/>
         <Component {...pageProps} />
       </main>
     </>

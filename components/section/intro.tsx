@@ -48,18 +48,13 @@ export const IntroTitle = () => {
   return (
     <>
       <div className="full-screen-section flex flex-col items-start justify-center gap-y-6 group">
-        <div className="absolute top-0 right-0 left-0 z-10 bg-black/40 min-h-screen group-hover:bg-black/70 group-hover:transition group-hover:duration-500 transition duration-500" />
+        <div className="absolute top-0 right-0 left-0 z-10 bg-black/40 min-h-screen  group-hover:transition group-hover:duration-500 transition duration-500" />
         <div className="absolute top-0 right-0 left-0 overflow-hidden h-screen">
-          <div className="w-full h-full absolute top-0 right-0 left-0">
-            <video className="h-full object-cover scale-[1.7] md:scale-[1.3]" autoPlay muted poster="/images/preview/render_preview.png" loop controls tabIndex={0}>
-              <source
-                width="1920"
-                type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
-                height="1080"
-                src="https://dl.dropboxusercontent.com/scl/fi/ycka5k8zuhc6bukxzh9lf/render2.mp4?rlkey=wv9n4zvmo0yjh2etb9c0wxvdk&dl=0"
-              />
-            </video>
-          </div>
+          <div className="w-full h-full absolute top-0 right-0 left-0 bg-no-repeat bg-center bg-cover"
+            style={{
+              backgroundImage: `url("/images/preview/winter-wolf.jpg")`
+            }}
+          />
         </div>
         <div ref={sliderRef} className="keen-slider flex flex-row items-end z-20 px-8 md:px-16 lg:px-28 xl:px-32">
           {projectDesciption.map((item) => (

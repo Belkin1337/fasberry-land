@@ -1,7 +1,10 @@
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
+import Image from "next/image"
 
-const animation = { duration: 96000, easing: (t: number) => t }
+const animation = { 
+  duration: 96000, easing: (t: number) => t 
+}
 
 export const CarouselImages = () => {
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
@@ -52,7 +55,7 @@ export const CarouselImages = () => {
                   {item.title}
                 </p>
               </div>
-              <img src={item.src} className="object-contain h-max" />
+              <img src={item.src} alt={item.title} className="object-contain h-max" />
             </div>
           </div>
         ))}

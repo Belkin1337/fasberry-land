@@ -1,6 +1,7 @@
 import { useRouter } from "next/router"
 
 import { faq } from "@/shared/content";
+import Image from "next/image"
 
 export const FAQ = () => {
   const router = useRouter();
@@ -26,7 +27,7 @@ export const FAQ = () => {
               key={item.href}
               onClick={() => router.push(`/wiki/${item.href}`)}
               className="flex flex-row items-center text-white gap-2 hover:brightness-150 hover:underline hover:underline-offset-8 cursor-pointer">
-              <img
+              <Image
                 src={item.icon}
                 alt={item.name}
                 width={32}

@@ -1,8 +1,12 @@
 import { useRouter } from "next/router"
-import useTransliterate from "@/hooks/useTransliterate";
-
-import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTrigger } from "@/components/ui/dialog"
-
+import useTransliterate from "@/hooks/use-Transliterate";
+import { 
+  Dialog, 
+  DialogClose, 
+  DialogContent, 
+  DialogFooter, 
+  DialogTrigger 
+} from "@/components/ui/dialog"
 import { support } from "@/shared/content";
 
 interface SubscriptionItemProps {

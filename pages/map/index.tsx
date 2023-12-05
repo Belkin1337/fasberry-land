@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-
+import Image from "next/image"
 import { useRouter } from "next/navigation";
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default function Map() {
             onClick={() => router.push(`/${item.href}`)}
             className="flex flex-col transition bg-black hover:bg-opacity-90 bg-opacity-60 rounded-sm cursor-pointer"
           >
-            <img src={item.image} width={400} height={300} alt={item.name} />
+            <Image src={item.image} width={400} height={300} alt={item.name} />
             <h1 className="p-2 text-xl sm:text-2xl text-white">{item.name}</h1>
           </div>
         ))}

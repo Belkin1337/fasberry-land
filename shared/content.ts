@@ -259,7 +259,7 @@ const newsList = [
 const headerLinks = [
 	{ name: 'Главная', image: "/images/minecraft/icons/spawn_egg.webp", href: "/" },
 	{ name: 'Правила', image: "/images/minecraft/icons/warped_sign_big.webp", href: "/rules" },
-	{ name: "База знаний", image: "/images/minecraft/icons/book_big.webp", href: "/wiki" },
+	// { name: "Вики", image: "/images/minecraft/icons/book_big.webp", href: "/wiki" },
 	{ name: 'Подписки', image: "/images/minecraft/icons/bone_meal_big.webp", href: "/subscriptions" },
 	{ name: 'Комьюнити', image: "/images/minecraft/ui/Lime_Balloon.webp", href: "/community" },
 	{ name: 'Карта мира', image: "/images/minecraft/icons/locked_map_big.webp", href: "/map" },

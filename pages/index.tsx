@@ -8,11 +8,13 @@ import Layout from '@/components/layout/Layout';
 export default function General() {
   return (
     <>
-      <IntroTitle />
+      <div className="weather snow z-1000">
+        <IntroTitle />
+      </div>
       <Servers />
       <Gameplay />
       <ContactLink />
-      <CarouselImages/>
+      <CarouselImages />
     </>
   );
 }

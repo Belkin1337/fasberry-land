@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export const JoinToServer = () => {
   const actionsList = [
     "Просто имей у себя на ПК любой лаунчер майнкрафта (официальный предпочтительнее, в другом случае TL Legacy).",
@@ -9,7 +11,9 @@ export const JoinToServer = () => {
   return (
     <>
       <div className="flex justify-center items-center p-8 bg-repeat border-4 border-black"
-        style={{ backgroundImage: `url("/images/static/dirt.png")` }}>
+        style={{ 
+          backgroundImage: `url("/images/static/dirt.png")` 
+        }}>
         <div className="flex flex-col xl:flex-row gap-y-4 justify-between">
           <div className="flex flex-col gap-y-4 w-full xl:w-1/2">
             <h1 className="text-left text-xl text-shadow-xl text-gold">Как попасть на сервер?
@@ -37,7 +41,7 @@ export const JoinToServer = () => {
             </div>
           </div>
           <div className="overflow-hidden flex items-center justify-center">
-            <img className="object-cover w-[520px] h-[328px]" src="/images/camel.webp" alt="Как попасть на сервер?"/>
+            <Image className="object-cover" width={520} height={328} src="/images/camel.webp" alt="Как попасть на сервер?"/>
           </div>
         </div>
       </div>

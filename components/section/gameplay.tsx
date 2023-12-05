@@ -18,11 +18,16 @@ const GameplayData = [
 
 export const Gameplay = () => {
   return (
-    <div className="full-screen-section flex flex-col bg-right md:bg-center md:flex-row bg-no-repeat bg-cover items-center" style={{ backgroundImage: `url("/images/grass_screen.webp")` }}>
+    <div className="full-screen-section flex flex-col bg-right md:bg-center md:flex-row bg-no-repeat bg-cover items-center"
+      style={{
+        backgroundImage: `url("/images/grass_screen.webp")`
+      }}>
       <div className="flex flex-col lg:flex-row">
         {GameplayData.map((item, idx) => (
           <div key={idx} className="flex flex-col items-center justify-end w-full min-h-screen lg:w-1/3 bg-top relative bg-cover lg:bg-center border-0 lg:border-r-2 border-project-color"
-            style={{ backgroundImage: `url(${item.image})` }}>
+            style={{ 
+              backgroundImage: `url(${item.image})` 
+            }}>
             <div className="absolute right-0 left-0 bg-gradient-to-b from-[#0e0e12] to-25% to-transparent min-h-screen bg-opacity-70" />
             <div className="absolute right-0 left-0 bg-gradient-to-t from-[#0e0e12] to-35% to-transparent min-h-screen bg-opacity-70" />
             <div className="flex flex-col items-center justify-center gap-y-2 py-16 px-6 relative bg-black bg-opacity-60 h-[360px]">

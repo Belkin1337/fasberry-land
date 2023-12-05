@@ -1,4 +1,5 @@
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog"
+import Image from "next/image"
 
 interface ScreenshotItemProps {
   title: string,
@@ -15,7 +16,7 @@ export const ScreenshotItem = ({ title, description, createdDate, image }: Scree
       </div>
       <span className="text-left text-2xl p-2 text-md text-white transition ease-out duration-300">{title}</span>
       <div className="flex flex-row px-2 gap-x-1 mt-auto justify-end items-center">
-        <img src="/images/steve_looking.webp" width={20} height={20} alt={title} />
+        <Image src="/images/steve_looking.webp" width={20} height={20} alt={title} />
       </div>
     </div>
   )
@@ -27,10 +28,10 @@ export const ScreenshotItem = ({ title, description, createdDate, image }: Scree
       </DialogTrigger>
       <DialogContent className="bg-neutral-900 outline-none p-4 rounded-none border border-project-color">
         <div className="flex flex-col">
-          <img src={image} alt={title} width={1280} height={720} />
+          <Image src={image} alt={title} width={1280} height={720} />
           <span className="text-2xl py-2 text-md text-white transition ease-out duration-300">{title}</span>
           <div className="flex flex-row px-2 gap-x-1 mt-auto justify-end items-center">
-            <img src="/images/steve_looking.webp" width={20} height={20} alt={title} />
+            <Image src="/images/steve_looking.webp" width={20} height={20} alt={title} />
           </div>
         </div>
       </DialogContent>

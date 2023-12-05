@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export const PreLoader = () => {
   const gifs_arr: any[] = [
     "/images/loader/arara.webp", 
@@ -24,7 +26,7 @@ export const PreLoader = () => {
 
   return (
     <div className="flex min-h-screen bg-[#0e0e12] justify-center items-center">
-      <img
+      <Image
         width={256}
         height={256}
         src={gifs}
