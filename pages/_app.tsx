@@ -28,7 +28,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return getLayout(
     <>
       <Head>
-        <title>Fasberry</title>
+        <title>Fasberry Project - майнкрафт сервер</title>
         <meta name="title" content="Fasberry Project - майнкрафт сервер"/>
         <meta name="description" content="Официальная страница майнкрафт-проекта Fasberry. Жанр: RP, RPG, modern, SMP. Ждём тебя в нашем дискорде или телеграмме. Гы!" />
         <meta name="url" content="http://fasberry.ru/"/>
