@@ -13,10 +13,9 @@ export default function Document() {
         <Suspense fallback={(<PreLoader />)}>
           <Main />
           <NextScript />
-          <Script 
+          <script 
             type='text/javascript'
-            id="metrika-counter" 
-            strategy="afterInteractive"
+            id="metrika-counter"  
             dangerouslySetInnerHTML={{
               __html: `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
               m[i].l=1*new Date();
