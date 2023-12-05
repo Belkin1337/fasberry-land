@@ -65,8 +65,8 @@ export const Sidebar = () => {
   }
 
   return (
-    <motion.nav
-      className="xl:hidden fixed top-0 right-0 bottom-0"
+    <motion.div
+      className="xl:hidden fixed top-0 right-0 bottom-0 z-[2000] w-[230px]"
       initial={false}
       animate={isOpen ? "open" : "closed"}
       custom={height}
@@ -76,7 +76,7 @@ export const Sidebar = () => {
         className="fixed w-[220px] top-0 bottom-0 right-0 bg-black/90 shadow-[inset_2px_0px_0px_#C2CBFB]"
         variants={sidebar}
       />
-      <motion.ul className="absolute w-[242px] top-[120px]" variants={variants}>
+      <motion.ul className="absolute w-[242px] top-[180px]" variants={variants}>
         <motion.li
           variants={variantsMenuItem}
           whileHover={{ scale: 1.1 }}
@@ -100,6 +100,6 @@ export const Sidebar = () => {
         </motion.li>
       </motion.ul>
       <SidebarMenuToggle toggle={() => toggleOpen()} isOpen={isOpen} />
-    </motion.nav>
+    </motion.div>
   );
 }; 

@@ -1,4 +1,5 @@
-import '@/styles/globals.scss'
+import '@/styles/globals.css'
+import '@/styles/minecraft-weather.css'
 import "react-toastify/dist/ReactToastify.css";
 import Head from 'next/head'
 
@@ -48,7 +49,6 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="preload" href="/fonts/Monocraft.otf" crossOrigin="" type="font/otf" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moqmar/weather.css/master/weather.min.css"/>
       </Head>
       <main className={font.className}>
       <ToastContainer/>
