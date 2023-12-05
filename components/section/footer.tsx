@@ -1,10 +1,8 @@
 import { useRouter } from "next/navigation"
 import { Wrapper } from "../wrappers/main-wrapper";
-import { mediaLinks } from '@/shared/content';
 
 export const Footer = () => {
   const router = useRouter();
-
   return (
     <footer
       className="sticky flex justify-center items-center py-16 md:pb-6 md:pt-10"
@@ -15,7 +13,7 @@ export const Footer = () => {
       <Wrapper>
         <div className="flex flex-col justify-center items-center">
           <div className="w-full md:w-1/2">
-            <h3 className="text-purple-hue-3 text-center text-shadow-sm text-lg md:text-2xl">Что еще?</h3>
+            <p className="text-purple-hue-3 text-center text-shadow-sm text-lg md:text-2xl">Что еще?</p>
             <p className="text-white text-center text-shadow-sm text-base md:text-xl">
               Я буду рад любой помощи в разработке сервера. Писать&nbsp;
               <span

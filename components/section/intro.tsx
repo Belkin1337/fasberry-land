@@ -61,7 +61,7 @@ export const IntroTitle = () => {
             <div key={item.title} className="keen-slider__slide relative">
               <WrapperTitle>
                 <div className="flex flex-col w-full lg:max-w-xl items-center justify-start">
-                  <h1 className={`text-shadow-xl mb-4 text-4xl md:text-6xl`} style={{ color: `${item.descColor}` }}>
+                  <h1 className={`text-shadow-xl mb-4 text-4xl md:text-6xl `} style={{ color: `${item.descColor}` }}>
                     {item.title}
                   </h1>
                   <h2 className="mb-1 text-shadow-xl text-lg md:text-3xl">{item.desc}</h2>

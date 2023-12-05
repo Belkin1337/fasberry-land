@@ -75,38 +75,21 @@ export const RulesList = () => {
             value={searchKeyword}
             onChange={searchFindWords}
           />
-          <div className="flex flex-col gap-y-4 md:gap-y-2">
-            <div className="flex flex-col gap-y-2 md:gap-y-0 md:flex-row justify-between">
-              <div className="flex flex-row items-center">
-                <p className="text-neutral-400 text-xl md:text-2xl">Дата изменения:&nbsp;</p>
-                <p className="text-white text-xl md:text-2xl">01.10.2023</p>
-              </div>
-              <div className="flex flex-row items-center">
-                <p className="text-neutral-400 text-xl md:text-2xl">Отредактировал:&nbsp;</p>
-                <p className="text-white text-xl md:text-2xl">Belkkin_</p>
-              </div>
-            </div>
-            <div className="flex flex-row flex-wrap gap-2">
-              <Badge>#правила</Badge>
-              <Badge variant="blue">#база</Badge>
-              <Badge variant="red">#кодекс</Badge>
-              <Badge variant="violet">#никтонечитает</Badge>
-            </div>
+          <div className="flex flex-wrap gap-2">
+            <Badge>#правила</Badge>
+            <Badge variant="blue">#база</Badge>
+            <Badge>#кодекс</Badge>
+            <Badge variant="violet">#никтонечитает</Badge>
           </div>
           <Accordion type="single" collapsible>
             <AccordionItem value="termin">
-              <AccordionTrigger className="bg-white/10 border border-white/10 hover:-translate-y-1 hover:duration-500 hover:transition
-                transition duration-500 translate-y-0 py-2 px-4 w-full text-xl md:text-4xl 
+              <AccordionTrigger className="bg-white/10 border border-white/10 py-2 px-4 w-full text-xl md:text-4xl 
                 text-center text-white text-shadow-xl">
                 <p className="text-2xl md:text-3xl lg:text-4xl text-white hover:no-underline">Терминология...</p>
               </AccordionTrigger>
               <AccordionContent>
                 {wiki.map((item, idx) => (
-                  <div
-                    key={idx}
-                    id={item.sectionId}
-                    className="flex flex-col py-4 px-2 md:px-4 gap-y-4 border border-red bg-transparent overflow-hidden"
-                  >
+                  <div key={idx} id={item.sectionId} className="flex flex-col py-4 px-2 md:px-4 gap-y-4 border border-red bg-transparent overflow-hidden">
                     {item.content.map((paragraph, idx) => (
                       <div key={idx} className="flex flex-row flex-wrap">
                         <p className="text-red text-md md:text-lg">{paragraph.articleTitle}&nbsp;</p>
@@ -121,21 +104,12 @@ export const RulesList = () => {
           <hr />
           {rulesList.map((item, idx) =>
             item.content && item.content.length > 0 ? (
-              <div
-                key={idx}
-                id={item.sectionId}
-                className="flex flex-col py-4 px-2 md:px-4 border border-white bg-transparent"
-              >
-                <h2 className="text-gold text-xl md:text-4xl text-shadow-xl mb-6">{item.title}</h2>
+              <div key={idx} id={item.sectionId} className="flex flex-col py-4 px-2 md:px-4 border border-white bg-transparent">
+                <h1 className="text-gold text-xl md:text-4xl text-shadow-xl mb-6">{item.title}</h1>
                 {item.content.map((article, idx) => (
-                  <div
-                    key={idx}
-                    className="flex flex-col mb-4"
-                  >
+                  <div key={idx} className="flex flex-col mb-4">
                     <div className="flex flex-row flex-wrap lg:flex-nowrap">
-                      <p className="text-project-color text-md md:text-lg">
-                        {idx + 1}]&nbsp;
-                      </p>
+                      <p className="text-project-color text-md md:text-lg">{idx + 1}]&nbsp;</p>
                       <p className="text-md md:text-lg text-white" dangerouslySetInnerHTML={{
                         __html: article.article.replace(new RegExp(searchKeyword, 'gi'),
                           '<span class="bg-project-color rounded-sm">$&</span>'),

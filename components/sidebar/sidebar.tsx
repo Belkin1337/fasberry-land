@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useRef } from "react";
-import { motion, sync, useCycle } from "framer-motion";
+import { motion, useCycle } from "framer-motion";
 import { useDimensions } from "@/hooks/use-dimensions";
 import { SidebarMenuToggle } from "./sidebar-toggle";
 import { headerLinks } from "@/shared/content";
@@ -76,7 +76,7 @@ export const Sidebar = () => {
         className="fixed w-[220px] top-0 bottom-0 right-0 bg-black/90 shadow-[inset_2px_0px_0px_#C2CBFB]"
         variants={sidebar}
       />
-      <motion.ul className="absolute w-[242px] top-[180px]" variants={variants}>
+      <motion.ul className="relative flex h-screen items-center w-[242px]" variants={variants}>
         <motion.li
           variants={variantsMenuItem}
           whileHover={{ scale: 1.1 }}

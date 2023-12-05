@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     <>
       <Head>
         <title>Fasberry</title>
-        <meta property="description" content="Официальная страница майнкрафт-проекта Fasberry. Жанр: RP, RPG, modern, SMP. Ждём тебя в нашем дискорде или телеграмме. Гы!" />
+        <meta name="description" content="Официальная страница майнкрафт-проекта Fasberry. Жанр: RP, RPG, modern, SMP. Ждём тебя в нашем дискорде или телеграмме. Гы!" />
         <meta name="url" content="http://fasberry.ru/"/>
         <meta name="robots" content="index, follow"/>
         <meta name="author" content="pureawake"/>
@@ -43,11 +43,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         <meta property="twitter:image" content="/images/minecraft_screen_14.webp" />
         <meta property="og:url" content="http://fasberry.ru/" />
         <meta property="twitter:url" content="http://fasberry.ru/" />
-        <meta http-equiv="content-language" content="ru"/>
+        <meta httpEquiv="content-language" content="ru"/>
         <meta property="og:description" content="Сколько хороших и комфортных для вас майнкрафт-серверов вы знаете/знали? Теперь знаете на один больше."/>
         <meta property="og:site_name" content="Официальный сайт майнкрафт сервера Fasberry."/>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link rel="preload" href="/fonts/Monocraft.otf" crossOrigin="" type="font/otf" />
+        <link rel="preload" href="/fonts/Monocraft.otf" as="font" crossOrigin='' type="font/otf" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
       <main className={font.className}>
