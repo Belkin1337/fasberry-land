@@ -13,7 +13,6 @@ export default function Document() {
         <Suspense fallback={(<PreLoader />)}>
           <Main />
           <NextScript />
-          <Partytown debug={true} forward={['dataLayer.push']} />
           <Script 
             type="text/partytown"
             id="metrika-counter" 
