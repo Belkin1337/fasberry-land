@@ -10,7 +10,7 @@ export default function Wiki() {
   return (
     <>
       <Head>
-        <title>База знаний</title>
+        <title>Fasberry Project - майнкрафт сервер</title>
       </Head>
       <Wrapper>
         <div className="flex flex-col gap-y-4 py-32">
