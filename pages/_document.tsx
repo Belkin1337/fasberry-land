@@ -14,7 +14,7 @@ export default function Document() {
           <Main />
           <NextScript />
           <Script 
-            type="text/partytown"
+            type="text/javascript"
             id="metrika-counter" 
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
