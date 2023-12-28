@@ -41,10 +41,13 @@ export const CarouselImages = () => {
 
   const images = [
     { title: "Ночь на Бисквите.", src: "/images/minecraft_screen_10.webp" },
-    { title: "Капибара собственной персоной.", src: "/images/minecraft_screen_17.webp" },
+    { title: "Капибара собственной персоной.", src: "/images/minecraft_screen_5.png" },
     { title: "Именно такая у нас генерация.", src: "/images/village.webp" },
-    { title: "Отель Отиз. Город Оффенбург.", src: "/images/minecraft_screen_14.webp" },
-    { title: "R. T. X. (нет)", src: "/images/screen_11.webp" },
+    { title: "Отель «Отиз». Город Оффенбург.", src: "/images/minecraft_screen_14.webp" },
+    { title: "Столовая «Пятка».", src: "/images/minecraft_screen_21.png" },
+    { title: "Бар «Брат».", src: "/images/minecraft_screen_22.png" },
+    { title: "Торговец Амадей и Шок.", src: "/images/minecraft_screen_23.png" },
+    { title: "RTX в лужах (нет).", src: "/images/screen_11.webp" },
   ]
 
   return (

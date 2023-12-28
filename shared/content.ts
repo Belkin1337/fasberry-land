@@ -1,21 +1,3 @@
-const faq = [
-  { title: "Как установить моды?", content: "бла-бла-бла", whoPublished: "Belkkin_" },
-  { title: "Как пользоваться голосовым чатом?", content: "бла-быа", whoPublished: "Belkkin_" },
-]
-
-const problems = [
-  {
-    title: "Неправильное отображение предметов из ресурс-пака",
-    content: "бла-бла",
-    whoPublished: "Belkkin_",
-    solution: [
-      {
-        firstStep: ""
-      }
-    ]
-  }
-]
-
 const gallery = [
   { title: "Пеликан летит", href: "", picture: "/images/pelican.webp", whoPublished: "Belkkin_", datePublished: "30.09.2023", },
   { title: "Какой-то чел на свинье", href: "", picture: "/images/reze.png", whoPublished: "Belkkin_", datePublished: "30.09.2023", },
@@ -35,13 +17,13 @@ const rules = {
           content: [
             {
               article: "Запрещается оскорблять игроков.",
-              punish: "мут в чате на 12 часов | при повторе на 3 суток.",
+              punish: "мут в чате на 12 часов / при повторе на 3 суток.",
               description: "",
               subtitle: [""]
             },
             {
               article: "Запрещается упоминание родных лиц игроков.",
-              punish: "мут в чате на 12 часов | при повторе на 3 суток).",
+              punish: "мут в чате на 12 часов / при повторе на 3 суток).",
               description: "",
               subtitle: [""]
             },
@@ -53,7 +35,7 @@ const rules = {
             },
             {
               article: "Запрещен коллективный флуд однотипными сообщениями.",
-              punish: "мут в чате на 30 минут каждому | при повторе мут на 6 часов каждому.",
+              punish: "мут в чате на 30 минут каждому / при повторе мут на 6 часов каждому.",
               description: "",
               subtitle: [""]
             },
@@ -65,7 +47,7 @@ const rules = {
             },
             {
               article: "Запрещено обсуждать текущие политические события в мире в оскорбительном или унизительном/шуточном форматах, а также неуважительно относиться к игрокам сервера из-за мировой ситуации.",
-              punish: "мут в чате на 12 часов | при повторе бан аккаунта на сутки.",
+              punish: "мут в чате на 12 часов / при повторе бан аккаунта на сутки.",
               description: "",
               subtitle: [""]
             },
@@ -82,7 +64,7 @@ const rules = {
             {
               article: "Супер-фермы",
               description: "Запрещено строить огромные фермы, которые каким-либо образом могут нарушить производительность сервера или плохо влиять на геймплей других игроков.",
-              punish: "1 предупрежение + снос фермы | при повторе бан аккаунта на сутки."
+              punish: "1 предупрежение + снос фермы / при повторе бан аккаунта на сутки."
             },
             {
               article: "Огромные одноформенные и бессмысленные постройки.",
@@ -90,9 +72,14 @@ const rules = {
               punish: "1 предупреждение + снос постройки"
             },
             {
-              article: "ФЫВФЫВ",
-              description: "Здесь какое-то правило, но ты не знаешь какое. Ха-ха.",
-              punish: "наказание"
+              article: "Устраивать раздачи среди игроков.",
+              description: "",
+              punish: "1 предупреждение"
+            },
+            {
+              article: "Использование читов (стороннее ПО, позволяющее получить преимущество над другими игроками и не только).",
+              description: "",
+              punish: "перманентный бан аккаунта"
             },
           ]
         },
@@ -259,9 +246,7 @@ const newsList = [
 const headerLinks = [
 	{ name: 'Главная', image: "/images/minecraft/icons/spawn_egg.webp", href: "/" },
 	{ name: 'Правила', image: "/images/minecraft/icons/warped_sign_big.webp", href: "/rules" },
-	// { name: "Вики", image: "/images/minecraft/icons/book_big.webp", href: "/wiki" },
 	{ name: 'Подписки', image: "/images/minecraft/icons/bone_meal_big.webp", href: "/subscriptions" },
-	{ name: 'Комьюнити', image: "/images/minecraft/ui/Lime_Balloon.webp", href: "/community" },
 	{ name: 'Карта мира', image: "/images/minecraft/icons/locked_map_big.webp", href: "/map" },
 	{ name: 'Аккаунт', image: "/images/minecraft/icons/dark_oak_door_big.webp", href: "https://cp.fasberry.ru" }
 ]
@@ -271,4 +256,4 @@ const mediaLinks = [
   { name: "Сообщество в Telegram", href: "https://t.me/fasberry" },
 ]
 
-export { faq, problems, gallery, rules, support, headerLinks, mediaLinks, newsList }
+export { gallery, rules, support, headerLinks, mediaLinks, newsList }

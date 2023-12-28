@@ -10,8 +10,8 @@ export default function Map() {
   const router = useRouter();
 
   const serverMap = [
-    { name: "Bisquite Survival", href: "bisquite", image: "/images/map_bisquite.png" },
-    { name: "Muffin Survival", href: "muffin", image: "/images/map_muffin.png" }
+    { name: "Bisquite Survival", href: "http://map.fasberry.ru:80", image: "/images/map_bisquite.png" },
+    // { name: "Muffin Survival", href: "muffin", image: "/images/map_muffin.png" }
   ]
 
   return (
@@ -20,7 +20,7 @@ export default function Map() {
         {serverMap.map((item, idx) => (
           <div
             key={idx}
-            onClick={() => router.push(`/${item.href}`)}
+            onClick={() => router.push(`${item.href}`)}
             className="flex flex-col transition bg-black hover:bg-opacity-90 bg-opacity-60 rounded-sm cursor-pointer"
           >
             <Image src={item.image} width={400} height={300} alt={item.name} />

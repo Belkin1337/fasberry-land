@@ -11,13 +11,14 @@ const ServerItem = ({ image, title, description }: ServerItemProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div
-      className="flex full-page-section overflow-hidden items-center justify-center bg-background-dark"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <Image src={image} alt={title} width={1000} height={600} priority
+    <div className="flex full-page-section overflow-hidden items-center justify-center bg-background-dark" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+      <Image 
         className={`${image === "/images/muffin.webp" ? 'blur-md' : ''} h-screen cursor-pointer object-cover hover:scale-105 transition brightness-50 hover:brightness-100`}
+        src={image}
+        alt={title}
+        width={1000}
+        height={600}
+        priority
       />
       <div className={`flex xl:${isHovered ? 'visible' : 'hidden'} flex-col absolute z-2 self-end pb-12`}>
         <h2 className="font-bold text-shadow-xl text-center text-muffin-server-color 2xl:text-5xl text-xl md:text-3xl">{title}</h2>
