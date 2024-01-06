@@ -36,13 +36,6 @@ export const Gameplay = () => {
           ))}
         </div>
       </div>
-      <div className="h-[280px] w-full flex items-end justify-center bg-no-repeat bg-center relative" style={{ backgroundImage: `url("/images/minecraft_screen_20.png")` }}>
-        <div className='borders_up' />
-        <div className='borders_down' />
-        <div className="py-16 w-full flex flex-col gap-y-6 justify-center relative">
-          <p className="text-xl md:text-2xl 2xl:text-3xl text-white text-center">и много чего ещё...</p>
-        </div>
-      </div>
     </>
   )
 }

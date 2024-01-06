@@ -32,7 +32,7 @@ export const Servers = () => {
   return (
     <div className="full-screen-section flex flex-col lg:flex-row justify-center items-center">
       <h1 className="absolute z-50 text-project-color font-bold text-shadow-xl uppercase 2xl:text-7xl xl:text-6xl lg:text-5xl text-4xl">Сервера</h1>
-      <ServerItem image="/images/bisquite_prev.webp" title="Bisquite Survival" description="[1.19.2 - 1.20+]" />
+      <ServerItem image="/images/bisquite_prev.png" title="Bisquite Survival" description="[1.19.4 - 1.20+]" />
       <ServerItem image="/images/muffin.webp" title="Muffin Survival" description="[1.20+] [в разработке]" />
     </div>
   )

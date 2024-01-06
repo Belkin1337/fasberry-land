@@ -23,9 +23,9 @@ export const JoinServer = () => {
   return (
     <Dialog>
       <DialogTrigger className="w-full">
-        <div className="flex items-center justify-center relative w-full lg:w-[448px] h-[54px] lg:h-[64px] border border-white rounded-md
+        <div className="flex items-center justify-center relative w-full h-[54px] lg:h-[64px] border border-black rounded-md
           bg-black/10 z-20 cursor-pointer
-          hover:shadow-[inset_16px_0px_0px_#fff] hover:bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] hover:from-[#00cdb0] hover:via-[#a976f8] hover:to-[#ffc0cb] 
+          hover:shadow-[inset_24px_0px_0px_#fff] hover:bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] hover:from-[#00cdb0] hover:via-[#a976f8] hover:to-[#ffc0cb] 
           hover:duration-700 hover:transition transition hover:ease-out duration-500">
           <p className=" text-white text-shadow-xl font-bold text-xl lg:text-2xl">Присоединиться к проекту</p>
         </div>
