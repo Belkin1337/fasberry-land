@@ -65,41 +65,43 @@ export const Sidebar = () => {
   }
 
   return (
-    <motion.div
-      className="xl:hidden fixed top-0 right-0 bottom-0 z-[2000] w-[230px]"
-      initial={false}
-      animate={isOpen ? "open" : "closed"}
-      custom={height}
-      ref={containerRef}
-    >
+    <>
       <motion.div
-        className="fixed w-[220px] top-0 bottom-0 right-0 bg-black/90 shadow-[inset_2px_0px_0px_#C2CBFB]"
-        variants={sidebar}
-      />
-      <motion.ul className="relative flex h-screen items-center w-[242px]" variants={variants}>
-        <motion.li
-          variants={variantsMenuItem}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <div className={`${isOpen ? 'flex' : 'hidden'} flex-col justify-center items-start pl-6 gap-y-4`}>
-            {headerLinks.map((item) => (
-              <div
-                key={item.name}
-                onClick={() => toggleOnItem(item.href)}
-                className="flex gap-x-2 bg-neutral-900 hover:bg-neutral-800 cursor-pointer rounded-sm py-4 px-2 w-full"
-              >
-                <Image src={item.image} width={26} height={10} alt={item.name} />
-                <p className={`text-[1.1rem]
+        className={`${isOpen === false ? 'hidden' : 'fixed'} top-0 right-0 z-[2000] w-[230px]`}
+        initial={false}
+        animate={isOpen ? "open" : "closed"}
+        custom={height}
+        ref={containerRef}
+      >
+        <motion.div
+          className={`${isOpen === false ? 'hidden' : 'fixed'} w-[220px] top-0 bottom-0 right-0 bg-black/90 shadow-[inset_2px_0px_0px_#C2CBFB]`}
+          variants={sidebar}
+        />
+        <motion.ul className="relative flex h-screen items-center w-[242px]" variants={variants}>
+          <motion.li
+            variants={variantsMenuItem}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <div className={`${isOpen ? 'flex' : 'hidden'} flex-col justify-center items-start pl-6 gap-y-4`}>
+              {headerLinks.map((item) => (
+                <div
+                  key={item.name}
+                  onClick={() => toggleOnItem(item.href)}
+                  className="flex gap-x-2 bg-neutral-900 hover:bg-neutral-800 cursor-pointer rounded-sm py-4 px-2 w-full"
+                >
+                  <Image src={item.image} width={26} height={10} alt={item.name} />
+                  <p className={`text-[1.1rem]
                 ${item.name === "Подписки" ? 'text-gold' : 'text-project-color'}`}>
-                  {item.name}
-                </p>
-              </div>
-            ))}
-          </div>
-        </motion.li>
-      </motion.ul>
+                    {item.name}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.li>
+        </motion.ul>
+      </motion.div>
       <SidebarMenuToggle toggle={() => toggleOpen()} isOpen={isOpen} />
-    </motion.div>
+    </>
   );
 }; 

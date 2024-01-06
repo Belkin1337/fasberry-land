@@ -7,7 +7,7 @@ interface SidebarMenuToggleProps {
 }
 
 export const SidebarMenuToggle = ({ toggle, isOpen }: SidebarMenuToggleProps) => (
-  <button className="absolute top-[10px] right-[8px]" onClick={toggle}>
+  <button className="absolute top-[10px] right-[8px] z-[3000]" onClick={toggle}>
     <Image
       width={48}
       height={48}
