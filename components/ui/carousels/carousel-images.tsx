@@ -1,9 +1,32 @@
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import Image from "next/image"
+import { Dialog,  DialogContent, DialogTrigger } from "../dialog"
 
 const animation = {
-  duration: 96000, easing: (t: number) => t
+  duration: 72000, easing: (t: number) => t
+}
+
+interface ScreenItemProps {
+  title: string,
+  src: string
+}
+
+const ScreenItem = ({ title, src }: ScreenItemProps) => {
+  return (
+    <>
+      <div className="flex flex-row items-end justify-start p-2 absolute top-0 right-0 left-0 z-10 w-full h-full 
+        md:group-hover:opacity-100 md:group-hover:bg-black/40 md:group-hover:transition md:group-hover:duration-500 duration-500 transition opacity-0"
+      >
+        <p className="text-white text-lg xl:text-xl 2xl:text-2xl">
+          {title}
+        </p>
+      </div>
+      <div className="overflow-hidden w-[220px] h-[260px] sm:w-[220px] sm:h-[320px] md:w-[360px] md:h-[410px] lg:w-[440px] lg:h-[350px] rounded-xl">
+        <Image priority src={src} alt={title} fill />
+      </div>
+    </>
+  )
 }
 
 export const CarouselImages = () => {
@@ -55,13 +78,18 @@ export const CarouselImages = () => {
       <div className="borders_up" />
       {images.map((item, idx) => (
         <div key={idx} className="keen-slider__slide group cursor-pointer relative">
-          <div className="flex flex-row items-end justify-start p-2 absolute top-0 right-0 left-0 z-10 w-full h-full 
-          group-hover:opacity-100 group-hover:bg-black/40 group-hover:transition group-hover:duration-500 duration-500 transition opacity-0">
-            <p className="text-white text-lg xl:text-xl 2xl:text-2xl">{item.title}</p>
-          </div>
-          <div className="overflow-hidden w-[220px] h-[260px] sm:w-[220px] sm:h-[320px] md:w-[360px] md:h-[410px] lg:w-[440px] lg:h-[350px] rounded-xl">
-            <Image priority src={item.src} alt={item.title} fill  />
-          </div>
+          <Dialog modal>
+            <DialogTrigger>
+              <ScreenItem
+                title={item.title}
+                src={item.src}
+              />
+            </DialogTrigger>
+            <DialogContent className="bg-black/80 lg:max-w-3xl xl:max-w-4xl max-w-xl border-0 mx-auto">
+              <img src={item.src} alt={item.title} className="w-full h-full"/>
+              <p className="text-white text-base">{item.title}</p>
+            </DialogContent>
+          </Dialog>
         </div>
       ))}
     </div>

@@ -38,8 +38,7 @@ export const SubscriptionItem = ({ rate, name, description, commands, screenshot
       <DialogTrigger>
         {subscriptionElement}
       </DialogTrigger>
-      <DialogContent className="flex flex-col max-w-xl overflow-hidden 
-      justify-between items-center cursor-pointer bg-transparent border-none">
+      <DialogContent className="flex flex-col max-w-xl overflow-hidden justify-between items-center cursor-pointer bg-transparent border-none">
         <img
           src={screenshot}
           alt={name}

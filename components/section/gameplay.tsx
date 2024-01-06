@@ -32,6 +32,8 @@ export const Gameplay = () => {
                 <h1 className="text-2xl md:text-3xl 2xl:text-5xl text-red text-center">{item.name}</h1>
                 <p className="text-xl md:text-2xl 2xl:text-3xl text-white text-center">{item.description}</p>
               </div>
+              <div className="borders_up xl:hidden" />
+              <div className="borders_down xl:hidden" />
             </div>
           ))}
         </div>

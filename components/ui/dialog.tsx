@@ -43,11 +43,6 @@ const DialogContent = React.forwardRef<
       {...props}
     >
       {children}
-      <DialogPrimitive.Close 
-        className="absolute -right-2 -top-2 transition-opacity hover:opacity-100 focus:ring-neutral-950 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-neutral-100 data-[state=open]:text-neutral-500 dark:ring-offset-neutral-950 dark:focus:ring-neutral-300 dark:data-[state=open]:bg-neutral-800 dark:data-[state=open]:text-neutral-400">
-        <span className="text-wool-yellow text-shadow-xl font-bold text-5xl">&times;</span>
-        <span className="sr-only">Закрыть</span>
-      </DialogPrimitive.Close>
     </DialogPrimitive.Content>
   </DialogPortal>
 ))
