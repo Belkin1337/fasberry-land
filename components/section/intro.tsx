@@ -1,7 +1,7 @@
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 
-import { JoinServer } from '@/components/ui/dialogs/join-server';
+import { JoinServer } from '@/components/join-server';
 import { useState } from 'react';
 
 export const IntroTitle = () => {
@@ -47,7 +47,7 @@ export const IntroTitle = () => {
             </div>
             <div className="flex-col relative top-40 w-full lg:w-2/4 xl:w-2/5 2xl:w-2/6 lg:top-56 lg:flex-row gap-4 items-center md:hidden flex">
               <div className="flex items-center justify-center relative w-full h-[54px] lg:h-[64px] border border-black rounded-md
-                bg-black/10 z-20 cursor-pointer
+                bg-black/10 z-20 cursor-pointer 
                   hover:shadow-[inset_24px_0px_0px_#fff] hover:bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] 
                   hover:from-[#00cdb0] hover:via-[#a976f8] hover:to-[#ffc0cb] 
                   hover:duration-700 hover:transition transition hover:ease-out duration-500">

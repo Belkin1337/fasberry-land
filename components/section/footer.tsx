@@ -1,28 +1,47 @@
 import { useRouter } from "next/navigation"
 import { Wrapper } from "../wrappers/main-wrapper";
+import Image from "next/image"
 
 export const Footer = () => {
   const router = useRouter();
+
   return (
     <footer
-      className="sticky flex justify-center items-center py-16 md:pb-6 md:pt-10"
+      className="sticky flex justify-center items-center py-16 md:pb-6 md:pt-14"
       style={{
-        backgroundImage: `url("/images/static/bedrock.webp")`,
+        backgroundImage: `url("/images/static/bedrock.png")`,
         backgroundSize: '160px'
       }}>
       <Wrapper>
-        <div className="flex flex-col justify-center items-center">
-          <div className="w-full md:w-1/2">
-            <p className="text-purple-hue-3 text-center text-shadow-sm text-lg md:text-2xl">Что еще?</p>
-            <p className="text-white text-center text-shadow-sm text-base md:text-xl">
-              Я буду рад любой помощи в разработке сервера. Писать&nbsp;
-              <span
-                onClick={() => router.push("https://t.me/pureawake")}
-                className="cursor-pointer text-project-color hover:brightness-150"
-              >
-                мне
-              </span>.
-            </p>
+        <div className="flex flex-col lg:flex-row justify-between gap-y-6 items-center">
+          <div className="flex flex-col justify-center items-start rounded-xl w-full lg:w-4/5 xl:w-1/2 p-4 gap-y-4">
+            <div className="flex flex-col lg:flex-row gap-4">
+              <p
+                onClick={() => router.push('/info/privacy')}
+                className="cursor-pointer text-white text-md hover:underline hover:underline-offset-8 decoration-bisquite-server-color"
+              >Политика конфиденциальности</p>
+              <span className="text-white hidden lg:block">/</span>
+              <p
+                onClick={() => router.push('/info/terms')}
+                className="cursor-pointer text-white text-md hover:underline hover:underline-offset-8 decoration-bisquite-server-color"
+              >Пользовательское соглашение</p>
+              <span className="text-white hidden lg:block">/</span>
+              <p
+                onClick={() => router.push('/info/contacts')}
+                className="cursor-pointer text-white text-md hover:underline hover:underline-offset-8 decoration-bisquite-server-color"
+              >Контакты</p>
+            </div>
+            <p className="text-md">Все права защищены. Оригинальные права принадлежат Mojang AB | {new Date().getFullYear()}</p>
+          </div>
+          <div className="overflow-hidden">
+            <Image
+              width={316}
+              height={128}
+              alt="Fasberry Project Logo"
+              src="/images/fasberry_logo.png"
+              className="relative top-2 cursor-pointer"
+              onClick={() => router.push('/')}
+            />
           </div>
         </div>
       </Wrapper>

@@ -32,7 +32,7 @@ const networkData = [
 	}
 ]
 
-export const ContactLink = () => {
+export const Contacts = () => {
 	const router = useRouter();
 
 	return (
@@ -44,7 +44,7 @@ export const ContactLink = () => {
 					</h1>
 					<div className="flex flex-col md:flex-row gap-x-4 gap-y-6 justify-between">
 						{networkData.map((item) => (
-							<div key={item.name} className="flex p-1 flex-col justify-between bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#00cdb0] via-[#a976f8] to-[#ffc0cb]">
+							<div key={item.name} className="flex p-1 flex-col justify-between block-item">
 								<div className="bg-wool-black p-5">
 									<h1 className="text-3xl lg:text-4xl xl:text-5xl">{item.name}</h1>
 									<h1 className="text-green text-lg xl:text-3xl text-left">+:</h1>

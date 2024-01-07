@@ -1,9 +1,10 @@
-import { ContactLink } from '@/components/section/contacts';
+
+
+import { Contacts } from '@/components/section/contacts';
 import { IntroTitle } from '@/components/section/intro';
-import { Gameplay } from '@/components/section/gameplay';
-import { Servers } from '@/components/section/servers';
-import { CarouselImages } from '@/components/ui/carousels/carousel-images';
+import { CarouselImages } from '@/components/carousel-images';
 import Layout from '@/components/layout/Layout';
+import { News } from '@/components/section/news';
 
 export default function General() {
   return (
@@ -11,9 +12,8 @@ export default function General() {
       <div className="weather snow z-1000">
         <IntroTitle />
       </div>
-      <Servers />
-      <Gameplay />
-      <ContactLink />
+      <News/>
+      <Contacts/>
       <CarouselImages />
     </>
   );

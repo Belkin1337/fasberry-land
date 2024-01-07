@@ -24,6 +24,9 @@
   .grad-first-purple {
     @apply bg-gradient-to-r bg-opacity-25 from-[#382753] to-[#60438E] border border-[#9c3198]
   }
+  .block-item {
+    @apply bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#00cdb0] via-[#a976f8] to-[#ffc0cb]
+  }
 }
 
 :root {

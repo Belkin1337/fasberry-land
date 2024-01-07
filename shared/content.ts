@@ -56,28 +56,28 @@ const rules = {
         gameplay: {
           content: [
             {
-              article: "Независимость",
-              description: "Я ОФИЦИАЛЬНО утверждаю, что на всех серверах проекта Fasberry запрещен приют новичков. Ну а чё? Больше независимости = больше интереса.",
+              article: "Запрещен приют новичков",
+              description: "",
               punish: "1 предупреждение",
               subtitle: [""]
             },
             {
-              article: "Супер-фермы",
-              description: "Запрещено строить огромные фермы, которые каким-либо образом могут нарушить производительность сервера или плохо влиять на геймплей других игроков.",
+              article: "Запрещено строить огромные фермы",
+              description: "",
               punish: "1 предупрежение + снос фермы / при повторе бан аккаунта на сутки."
             },
             {
-              article: "Огромные одноформенные и бессмысленные постройки.",
-              description: "Уважайте пожалуйста перфекцеонизм других игроков. А еще экономьте территорию.",
+              article: "Запрещено строить огромные одноформенные и бессмысленные постройки.",
+              description: "",
               punish: "1 предупреждение + снос постройки"
             },
             {
-              article: "Устраивать раздачи среди игроков.",
+              article: "Запрещено устраивать раздачи среди игроков.",
               description: "",
               punish: "1 предупреждение"
             },
             {
-              article: "Использование читов (стороннее ПО, позволяющее получить преимущество над другими игроками и не только).",
+              article: "Запрещено использование читов (стороннее ПО, позволяющее получить преимущество над другими игроками и не только).",
               description: "",
               punish: "перманентный бан аккаунта"
             },
@@ -228,6 +228,7 @@ const newsList = [
 const headerLinks = [
 	{ name: 'Главная', image: "/images/minecraft/icons/spawn_egg.webp", href: "/" },
 	{ name: 'Правила', image: "/images/minecraft/icons/warped_sign_big.webp", href: "/rules" },
+  { name: 'Сервера', image: "/images/minecraft/icons/compass.webp", href: "/servers"},
 	{ name: 'Подписки', image: "/images/minecraft/icons/bone_meal_big.webp", href: "/subscriptions" },
   { name: 'Поддержка', image: "/images/minecraft/icons/experience_big.webp", href: "/support"},
 	{ name: 'Карта мира', image: "/images/minecraft/icons/locked_map_big.webp", href: "/map" },

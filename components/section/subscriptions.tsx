@@ -1,6 +1,6 @@
 import { support } from '@/shared/content';
-import { SubscriptionItem } from "../ui/dialogs/subscription-dialog";
-import { Title } from '../ui/title';
+import { SubscriptionItem } from "@/components/subscription-dialog";
+import { Title } from '@/components/ui/title';
 
 export const Subscriptions = () => {
   const subList = support.Support.content[0].donateElement.map((item) => ({
@@ -22,6 +22,7 @@ export const Subscriptions = () => {
           {subList.map((item) => (
             <SubscriptionItem
               key={item.level}
+              price={item.price}
               name={item.title}
               description={item.desc}
               rate={item.level}
