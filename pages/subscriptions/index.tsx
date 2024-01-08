@@ -13,7 +13,7 @@ export default function Donate() {
         <title>Подписки</title>
         <meta name="keywords" content="Приобретение подписок, подписки, fasberry донат, донат minecraft, minecraft fasberry" />
       </Head>
-      <div className="full-screen-section flex items-center justify-start bg-bottom md:bg-center" style={{ backgroundImage: `url("/images/minecraft_screen_5.png")` }}>
+      <div className="full-screen-section flex items-center justify-start bg-bottom md:bg-center" style={{ backgroundImage: `url("/images/minecraft_screen_5.webp")` }}>
         <Overlay />
         <WrapperTitle>
           <div className="flex flex-col w-full lg:max-w-4xl items-start justify-center px-8 md:px-16 lg:px-28 xl:px-32">

@@ -40,7 +40,7 @@ export default function Status(props: { status: Status }) {
           </div>
           <div className="flex flex-col p-3 rounded-b-xl overflow-y-auto gap-y-4 w-[350px] h-[496px] max-h-[496px] bg-black/80">
             <div className="flex flex-row items-center gap-x-1">
-              <img src="/images/minecraft/icons/search.webp" className="w-[26px] h-[26px]" />
+              <img alt="Список игроков" src="/images/minecraft/icons/search.webp" className="w-[26px] h-[26px]" />
               <p className="text-green-server-color text-xl text-shadow-xl">Сейчас играют:</p>
             </div>
             <div className="flex flex-col gap-y-1">

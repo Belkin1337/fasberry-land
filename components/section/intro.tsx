@@ -28,7 +28,7 @@ export const IntroTitle = () => {
         <div className="absolute top-0 right-0 left-0 overflow-hidden h-screen">
           <div className="w-full h-full absolute top-0 right-0 left-0 bg-no-repeat bg-center bg-cover"
             style={{
-              backgroundImage: `url("/images/winter.png")`
+              backgroundImage: `url("/images/winter.webp")`
             }}
           />
         </div>

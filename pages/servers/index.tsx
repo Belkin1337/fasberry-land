@@ -1,5 +1,6 @@
 import Layout from '@/components/layout/Layout';
 import Head from "next/head"
+import Image from "next/image"
 
 const serversList = [
   {
@@ -23,10 +24,14 @@ export default function ServersList() {
         <title>Сервера</title>
       </Head>
       <div className="full-screen-section flex flex-col 2xl:flex-row justify-center items-center">
-        <h1 className="absolute z-50 text-[#fabbfb] font-bold text-shadow-xl uppercase 22xl:text-7xl 2xl:text-6xl 2xl:text-5xl text-4xl">Сервера</h1>
+        <h1 className="absolute z-50 text-[#fabbfb] font-bold text-shadow-xl uppercase 22xl:text-7xl 2xl:text-5xl text-4xl">Сервера</h1>
         <div className="flex flex-col 2xl:flex-row items-center justify-between">
           <div className="flex flex-col h-screen overflow-hidden transform 2xl:rotate-6 2xl:scale-125 relative group w-full 2xl:w-1/2 2xl:border-r-4 2xl:border-[#00cdb0]">
-            <img src="/images/server_bisquite.png" className="object-cover h-screen 2xl:group-hover:blur-[2px] 2xl:group-hover:duration-300 2xl:duration-300 cursor-pointer" />
+            <img
+              alt="Bisquite Survival"
+              src="/images/server_bisquite.webp"
+              className="object-cover h-screen 2xl:group-hover:blur-[2px] 2xl:group-hover:duration-300 2xl:duration-300 cursor-pointer"
+            />
             <div className="flex flex-col items-center 2xl:-rotate-6 absolute bottom-0 right-0 left-0 2xl:bottom-[104px] 2xl:left-12 2xl:-right-4 px-14 py-12 bg-black/50 backdrop-filter backdrop-blur-md
             opacity-100 2xl:opacity-0 2xl:group-hover:duration-300 2xl:duration-300 2xl:group-hover:opacity-100 ">
               <p className="text-bisquite-server-color text-2xl text-center">Bisquite Survival</p>
@@ -35,7 +40,11 @@ export default function ServersList() {
             </div>
           </div>
           <div className="h-screen overflow-hidden w-full 2xl:w-1/2 2xl:scale-125 relative 2xl:left-28 group transform 2xl:rotate-6 2xl:border-l-4 2xl:border-[#00cdb0]">
-            <img src="/images/server_muffin.webp" className="object-cover h-screen 2xl:group-hover:blur-[2px] 2xl:group-hover:duration-300 duration-300 cursor-pointer"/>
+            <img
+              alt="Muffin Survival"
+              src="/images/server_muffin.webp"
+              className="object-cover h-screen 2xl:group-hover:blur-[2px] 2xl:group-hover:duration-300 duration-300 cursor-pointer"
+            />
             <div className="flex flex-col items-center 2xl:-rotate-6 absolute bottom-0 2xl:bottom-24 right-0 left-0 2xl:-left-4 2xl:right-16 px-14 py-12 bg-black/50 backdrop-filter backdrop-blur-md
             opacity-100 2xl:opacity-0 2xl:group-hover:duration-300 duration-300 2xl:group-hover:opacity-100 ">
               <p className="text-bisquite-server-color text-2xl text-center">Muffin</p>

@@ -14,7 +14,7 @@ export const ScreenshotItem = ({ title, description, createdDate, image }: Scree
       <Image src={image} alt={title} width={540} height={420} className="cursor-pointer object-cover hover:brightness-75 transition ease-in-out duration-300" />
       <span className="text-left text-2xl p-2 text-md text-white transition ease-out duration-300">{title}</span>
       <div className="flex flex-row px-2 gap-x-1 mt-auto justify-end items-center">
-        <Image src="/images/steve_looking.webp" width={20} height={20} alt={title} />
+        <Image layout="responsive" loading="lazy" src="/images/steve_looking.webp" width={20} height={20} alt={title} />
       </div>
     </div>
   )
@@ -29,7 +29,7 @@ export const ScreenshotItem = ({ title, description, createdDate, image }: Scree
           <Image src={image} alt={title} width={1280} height={720} />
           <span className="text-2xl py-2 text-md text-white transition ease-out duration-300">{title}</span>
           <div className="flex flex-row px-2 gap-x-1 mt-auto justify-end items-center">
-            <Image src="/images/steve_looking.webp" width={20} height={20} alt={title} />
+            <Image layout="responsive" loading="lazy" src="/images/steve_looking.webp" width={20} height={20} alt={title} />
           </div>
         </div>
       </DialogContent>
