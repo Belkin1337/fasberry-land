@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
 import { Community } from './community'
 import { Dialog, DialogContent, DialogTrigger } from '../ui/dialog'
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '../ui/hover-card'
+import { useRouter } from "next/navigation"
 
 const news = [
   {
@@ -22,19 +23,18 @@ const news = [
   }
 ]
 
-export const News = () => {
-  // const [data, setData] = useState(null)
-  // const [isLoading, setLoading] = useState(true)
+interface StatusProps {
+  online: boolean,
+  players: {
+    online: number,
+    max: number
+  }
+}
 
-  // useEffect(() => {
-  //   fetch('/api/news')
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setData(data)
-  //       setLoading(false)
-  //     })
-  // }, [])
+export const Home = ({ online, players }: StatusProps) => {
+  const router = useRouter();
 
+  let status_msg = online ? 'работает' : 'не работает';
   return (
     <div className="full-screen-section">
       <div className="flex lg:flex-row flex-col py-24 mx-auto gap-y-12 lg:gap-y-6 group gap-x-4 lg:gap-x-4 xl:gap-x-8 2xl:gap-x-12 w-[90%]">
@@ -78,9 +78,29 @@ export const News = () => {
         </div>
         <div className="flex flex-col gap-y-6 w-full lg:w-1/2">
           <p className="text-white text-4xl">Cообщество</p>
-          {/* <div className="flex flex-col bg-black/50 backdrop-filter backdrop-blur-md rounded-xl overflow-hidden h-max p-4 gap-y-8">
-          <p className="text-white text-2xl">Текущий онлайн</p>
-          <div className="flex flex-col gap-y-1">
+          <div className="block-item p-1 rounded-xl overflow-hidden">
+            <div className="flex flex-col bg-black rounded-xl h-max gap-y-8 p-3">
+              <div className="flex flex-row justify-between items-center">
+                <p className="text-white text-xl lg:text-2xl">Текущий онлайн</p>
+                <HoverCard openDelay={1} closeDelay={2}>
+                  <HoverCardTrigger>
+                    <p className="text-white text-xl lg:text-2xl cursor-pointer">
+                      {players?.online || 0} из {players?.max || 94}
+                    </p>
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-[400px] bg-black/50 backdrop-filter backdrop-blur-md border-none p-2 rounded-xl">
+                    <p className="text-neutral-400 text-lg">нужно ещё больше! зови друзей.</p>
+                  </HoverCardContent>
+                </HoverCard>
+              </div>
+              <div onClick={() => router.push('/status')} className="flex flex-row justify-between items-center">
+                <p className="text-white text-xl lg:text-2xl">Статус:</p>
+                <p className="text-white text-xl lg:text-2xl cursor-pointer">
+                  {status_msg}
+                </p>
+              </div>
+            </div>
+            {/* <div className="flex flex-col gap-y-1">
             <div className="w-full flex justify-between">
               <p className="text-white font-normal text-xl">Название</p>
               <p className="text-white font-normal text-xl">Онлайн</p>
@@ -94,8 +114,8 @@ export const News = () => {
           <div className="flex flex-row justify-between">
             <p className="text-white font-normal text-2xl">Muffin</p>
             <p className="text-white font-normal text-2xl">0</p>
+          </div> */}
           </div>
-        </div> */}
           <Community />
         </div>
       </div>

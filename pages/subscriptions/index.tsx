@@ -26,10 +26,7 @@ export default function Donate() {
           </div>
         </WrapperTitle>
       </div>
-      <div id="subscription" className="flex flex-col min-h-screen items-center bg-cover bg-no-repeat full-screen-section"
-        style={{
-          backgroundImage: `url("/images/chest_screen.webp")`
-        }}>
+      <div id="subscription" className="flex flex-col min-h-screen items-center bg-cover bg-no-repeat full-screen-section bg-background-dark">
         <Wrapper>
           <Subscriptions />
         </Wrapper>

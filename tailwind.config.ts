@@ -48,7 +48,7 @@ module.exports = {
 				'muffin-server-color': '#FFC0CB',
 				'bisquite-server-color': '#BEABF6',
 				'project-color': '#00cdb0',
-				'background-dark': '#0e0e12',
+				'background-dark': '#0D0D0D',
 				dark: {
 					'blue': '#0000AA',
 					'green': '#00AA00',

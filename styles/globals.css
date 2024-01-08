@@ -308,12 +308,12 @@ button:focus {
   border-image-repeat: stretch;
 }
 
-div ::-webkit-scrollbar { width: 0.5rem; }
+div ::-webkit-scrollbar { width: 0.46rem; }
 div ::-webkit-scrollbar-track { background: url("../public/images/minecraft/ui/xp-bar-empty.png"); border-radius: 0; } 
 div ::-webkit-scrollbar-thumb { background: url("../public/images/minecraft/ui/xp-bar-full.png"); border-radius: 0; }
-::-webkit-scrollbar { width: 0.5rem; } 
-::-webkit-scrollbar-track { background: var(--primary-color); border-radius: 0.6rem; } 
-::-webkit-scrollbar-thumb { background: var(--general-color); border-radius: 0.6rem; }
+::-webkit-scrollbar { width: 0.44rem; } 
+::-webkit-scrollbar-track { background: var(--primary-color); } 
+::-webkit-scrollbar-thumb { background: var(--general-color); }
 
 footer::before {
   content: "";

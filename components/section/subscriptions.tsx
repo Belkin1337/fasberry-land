@@ -5,12 +5,10 @@ import { Title } from '@/components/ui/title';
 export const Subscriptions = () => {
   const subList = support.Support.content[0].donateElement.map((item) => ({
     title: item.title,
-    level: item.level,
-    desc: item.description,
+    rate: item.rate,
+    description: item.description,
     commands: item.commands,
-    functions: item.functions,
     price: item.price,
-    linkToBuy: item.link,
     screenshot: item.screenshot
   }));
 
@@ -21,11 +19,11 @@ export const Subscriptions = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-4 ">
           {subList.map((item) => (
             <SubscriptionItem
-              key={item.level}
+              key={item.rate}
               price={item.price}
               name={item.title}
-              description={item.desc}
-              rate={item.level}
+              description={item.description}
+              rate={item.rate}
               commands={item.commands}
               screenshot={item.screenshot}
             />

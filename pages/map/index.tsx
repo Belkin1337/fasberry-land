@@ -1,12 +1,15 @@
 import { useRouter } from "next/navigation";
 
+const serverMap = [
+  {
+    name: "Bisquite Survival",
+    href: "http://map.fasberry.ru:80",
+    image: "/images/minecraft/icons/map_zoom.webp"
+  },
+]
+
 export default function Map() {
   const router = useRouter();
-
-  const serverMap = [
-    { name: "Bisquite Survival", href: "http://map.fasberry.ru:80", image: "/images/minecraft/icons/map_zoom.webp" },
-    // { name: "Muffin Survival", href: "muffin", image: "/images/map_muffin.png" }
-  ]
 
   return (
     <div className="bg-right lg:bg-center"

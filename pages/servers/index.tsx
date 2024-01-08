@@ -21,7 +21,6 @@ export default function ServersList() {
     <>
       <Head>
         <title>Сервера</title>
-        <meta name="keywords" content="Приобретение подписок, подписки, fasberry донат, донат minecraft, minecraft fasberry" />
       </Head>
       <div className="full-screen-section flex flex-col 2xl:flex-row justify-center items-center">
         <h1 className="absolute z-50 text-[#fabbfb] font-bold text-shadow-xl uppercase 22xl:text-7xl 2xl:text-6xl 2xl:text-5xl text-4xl">Сервера</h1>

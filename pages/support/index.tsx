@@ -15,7 +15,7 @@ export default function Support() {
       <div className="full-screen-section flex flex-col justify-center items-center bg-background-dark py-32 relative">
         <Wrapper>
           <div className="flex flex-col justify-center gap-y-12">
-            <Title variant="blue" className='text-[#00cdb0]'>Спасибо!</Title>
+            <Title variant="blue" className='text-[#00cdb0]'>Поддержка проекта</Title>
             <div className="p-1 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#00cdb0] via-[#a976f8] to-[#ffc0cb] w-full">
               <div className="flex flex-col lg:flex-row overflow-hidden lg:items-center items-start bg-wool-black py-4 px-2 gap-x-6 gap-y-4 w-full">
                 <img
@@ -30,18 +30,9 @@ export default function Support() {
                     <p>Ну, во-первых, это халявный трафик, хоть и малый.</p>
                     <p>А во-вторых, тебе же легко просто проголосовать за сервер, да?</p>
                   </p>
-                  <div className="flex flex-col">
-                    <Link
-                      target="_blank"
-                      className="text-white hover:underline hover:text-fuchsia-400 hover:transition hover:underline-offset-8 text-xl" href="https://hotmc.ru/minecraft-server-259308"
-                    >
-                      [#1] голосовать
-                    </Link>
-                    <Link
-                      target="_blank"
-                      className="text-white hover:underline hover:text-fuchsia-400 hover:transition hover:underline-offset-8 text-xl" href="https://minecraftrating.ru/server/fasberry/"
-                    >
-                      [#2] голосовать
+                  <div className="flex flex-col mt-4">
+                    <Link target="_blank" className="button px-8 py-1 text-white hover:text-fuchsia-400 hover:duration-200 duration-200 text-xl"  href="https://hotmc.ru/vote-259308">
+                      Проголосовать
                     </Link>
                   </div>
                 </div>
