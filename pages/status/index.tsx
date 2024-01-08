@@ -1,4 +1,4 @@
-import type { GetStaticProps } from "next"
+import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import Layout from "@/components/layout/Layout"
 
 interface Player {
@@ -12,15 +12,15 @@ type Status = {
   }
 }
 
-export const getStaticProps = (async (context) => {
+export const getServerSideProps = (async (context) => {
   const url = new URL('https://api.mcstatus.io/v2/status/java/play.fasberry.ru:25575');
-  url.searchParams.set('timeout', '30');
+  url.searchParams.set('timeout', '10');
 
   const res = await fetch(url);
   const status = await res.json()
 
   return { props: { status } }
-}) satisfies GetStaticProps<{
+}) satisfies GetServerSideProps<{
   status: Status
 }>
 
