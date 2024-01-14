@@ -807,7 +807,7 @@ export default function Wiki() {
             </div>
           </div>
           <Dialog>
-            <DialogTrigger className="lg:hidden fixed bottom-16 right-6 z-30 flex px-4 py-2 rounded-xl bg-[#fabbfb] border border-neutral-700">
+            <DialogTrigger className="lg:hidden fixed bottom-6 right-6 z-30 flex px-4 py-2 rounded-xl bg-[#fabbfb] border border-neutral-700">
               <p className="text-black text-2xl">Навигация</p>
             </DialogTrigger>
             <DialogContent className="lg:hidden bg-transparent border-none max-w-4xl">
