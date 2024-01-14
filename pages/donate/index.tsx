@@ -11,17 +11,17 @@ export default function Donate() {
     <>
       <Head>
         <title>Подписки</title>
-        <meta name="keywords" content="Приобретение подписок, подписки, fasberry донат, донат minecraft, minecraft fasberry" />
+        <meta name="keywords" content="Приобретение привилегий, подписки, fasberry донат, донат minecraft, minecraft fasberry" />
       </Head>
       <div className="full-screen-section flex items-center justify-start bg-bottom md:bg-center" style={{ backgroundImage: `url("/images/minecraft_screen_5.webp")` }}>
         <Overlay />
         <WrapperTitle>
           <div className="flex flex-col w-full lg:max-w-4xl items-start justify-center px-8 md:px-16 lg:px-28 xl:px-32">
             <h1 className="text-left text-5xl lg:text-6xl xl:text-8xl text-gold text-shadow-xl mb-2">
-              Покупка подписок
+              Покупка привилегий
             </h1>
             <p className="text-left text-xl xl:text-3xl">
-              Здесь можно купить подписки, ну или узнать о каждой больше.
+              Здесь можно купить привилегии, ну или узнать о каждой больше.
             </p>
           </div>
         </WrapperTitle>

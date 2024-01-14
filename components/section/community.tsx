@@ -5,7 +5,8 @@ const commuinity = [
   "/images/commuinity/gluckoz_3.png", "/images/commuinity/pureawake_1.png",
   "/images/commuinity/ded_inside_1.png", "/images/commuinity/kirill.webp",
   "/images/commuinity/camel.webp", "/images/commuinity/reze.png",
-  "/images/commuinity/schevchenko.webp"
+  "/images/commuinity/schevchenko.webp", "/images/commuinity/aurastepp.png",
+  "/images/commuinity/maxsal.png"
 ]
 
 export const Community = () => {

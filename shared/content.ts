@@ -215,8 +215,9 @@ const headerLinks = [
 	{ name: 'Главная', image: "/images/minecraft/icons/spawn_egg.webp", href: "/" },
 	{ name: 'Правила', image: "/images/minecraft/icons/warped_sign_big.webp", href: "/rules" },
   { name: 'Сервера', image: "/images/minecraft/icons/compass.webp", href: "/servers"},
-	{ name: 'Подписки', image: "/images/minecraft/icons/bone_meal_big.webp", href: "/subscriptions" },
+	{ name: 'Привилегии', image: "/images/minecraft/icons/bone_meal_big.webp", href: "/donate" },
   { name: 'Поддержка', image: "/images/minecraft/icons/experience_big.webp", href: "/support"},
+  { name: 'Вики', image: "/images/minecraft/icons/knowledge_book.webp", href: "/wiki" },
 	{ name: 'Карта мира', image: "/images/minecraft/icons/locked_map_big.webp", href: "/map" },
 	// { name: 'Аккаунт', image: "/images/minecraft/icons/dark_oak_door_big.webp", href: "https://cp.fasberry.ru" }
 ]

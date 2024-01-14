@@ -14,7 +14,7 @@ export const Subscriptions = () => {
 
   return (
     <div className="flex flex-col py-24" >
-      <Title className="text-3xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-16 text-gold text-center">Подписки сервера</Title>
+      <Title className="text-3xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-16 text-gold text-center">Привилегии сервера</Title>
       <div defaultValue="subscriptions" className="flex flex-col gap-y-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-4 ">
           {subList.map((item) => (

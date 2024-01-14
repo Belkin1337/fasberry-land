@@ -83,12 +83,12 @@ export const Sidebar = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className={`${isOpen ? 'flex' : 'hidden'} flex-col justify-center items-start pl-6 gap-y-4`}>
+            <div className={`${isOpen ? 'flex' : 'hidden'} flex-col justify-center items-start pl-8 gap-y-4`}>
               {headerLinks.map((item) => (
                 <div
                   key={item.name}
                   onClick={() => toggleOnItem(item.href)}
-                  className="flex gap-x-2 bg-neutral-900 hover:bg-neutral-800 cursor-pointer rounded-sm py-4 px-2 w-full"
+                  className="flex gap-x-4 bg-wool-black border border-neutral-800 hover:bg-neutral-800 cursor-pointer rounded-sm py-2 px-2 w-full"
                 >
                   <Image src={item.image} width={26} height={10} alt={item.name} />
                   <p className={`text-[1.1rem]

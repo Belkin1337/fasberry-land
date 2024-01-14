@@ -14,7 +14,7 @@ export const DesktopHeader = ({ onClick }: DesktopHeaderProps) => {
       {headerLinks.map((item, idx) => (
         <div onClick={() => onClick(item.href)} key={idx} className="flex flex-row items-center gap-1 text-lg cursor-pointer">
           <Image src={item.image} width={20} height={20} alt={item.name} />
-          <span className={`hover:brightness-150 ${router.pathname === item.href ? 'underline underline-offset-8 decoration-[#fabbfb] decoration-2' : ''} ${item.name == "Подписки" ? 'text-gold' : 'text-project-color'}`}>{item.name}</span>
+          <span className={`hover:brightness-150 ${router.pathname === item.href ? 'underline underline-offset-8 decoration-[#fabbfb] decoration-2' : ''} ${item.name == "Привилегии" ? 'text-gold' : 'text-project-color'}`}>{item.name}</span>
         </div>
       ))}
     </div>
