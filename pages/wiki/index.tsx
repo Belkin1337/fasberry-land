@@ -810,7 +810,7 @@ export default function Wiki() {
             <DialogTrigger className="lg:hidden fixed bottom-6 right-6 z-30 flex px-4 py-2 rounded-xl bg-[#fabbfb] border border-neutral-700">
               <p className="text-black text-2xl">Навигация</p>
             </DialogTrigger>
-            <DialogContent className="lg:hidden bg-transparent border-none max-w-4xl">
+            <DialogContent className="lg:hidden bg-transparent border-none max-w-4xl max-h-[50%] overflow-y-auto">
               <TabsList className="flex flex-col block-item p-1 rounded-xl w-full items-start">
                 <div className="flex flex-col p-2 bg-black gap-y-6 rounded-xl h-full w-full">
                   <div className="flex flex-col gap-y-2">

@@ -158,7 +158,7 @@ const support = {
             title: "Аутентик", 
             rate: 2, 
             price: "420 руб", 
-            description: `Аутентичная подписка, название говорит само за себя, не так ли?`,
+            description: `Аутентичная привилегия, название говорит само за себя, не так ли?`,
             commands: [
               "/feed - пополнение сытости",
               "/anvil - личная наковальня",
@@ -175,7 +175,7 @@ const support = {
             title: "Лоял", 
             rate: 3, 
             price: "640 руб",
-            description: `Лоял. Звучит гордо, верно? Если ты решил пропустить прошлую подписку, то добро пожаловать!`,
+            description: `Лоял. Звучит гордо, верно? Если ты решил пропустить прошлую привилегию, то добро пожаловать!`,
             commands: [
               "/distance - узнать расстояние между двумя игроками,",
               "/inv - просмотреть инвентарь любого игрока,",
@@ -223,6 +223,7 @@ const headerLinks = [
 ]
 
 const mediaLinks = [
+  { name: "Сообщество в VK", href: "https://vk.com/fasberry" },
   { name: "Сообщество в Discord", href: "https://discord.gg/vnqfVX4frH" },
   { name: "Сообщество в Telegram", href: "https://t.me/fasberry" },
 ]

@@ -12,7 +12,7 @@ interface SubscriptionItemProps {
 export const SubscriptionItem = ({ rate, name, description, commands, screenshot, price }: SubscriptionItemProps) => {
   const subscriptionElement = (
     <div className="flex flex-col book h-[520px] w-full hover:-translate-y-1 
-    transition ease-out duration-500 cursor-pointer justify-between">
+    transition ease-out duration-500 cursor-pointer justify-between overflow-hidden">
       <div className="flex flex-col gap-y-4">
         <h1 className='text-black text-lg xl:text-2xl text-right -top-2 relative'>{name}</h1>
         <div className="flex items-center">
