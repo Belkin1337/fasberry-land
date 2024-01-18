@@ -1,8 +1,8 @@
 import { ChangeEvent, useMemo, useState } from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Wrapper } from "@/components/wrappers/main-wrapper";
-import { rules } from "@/shared/content"
-import { Badge } from '@/components/ui/Badge';
+import { Badge } from '@/components/ui/badge';
+import { rulesList, termins } from "@/shared/content"
 
 export const RulesList = () => {
   const [searchKeyword, setSearchKeyword] = useState('');
@@ -11,58 +11,6 @@ export const RulesList = () => {
     () => (event: ChangeEvent<HTMLInputElement>) => {
       setSearchKeyword(event.target.value);
     }, [setSearchKeyword]);
-
-  const rulesList = [
-    {
-      title: "Правила",
-      description: "Правила? Да. На любом адекватном проекте существуют несколько фундаментальных правил, которым нужно придерживаться."
-    },
-    {
-      name: rules.Rules.sections,
-      title: "Правила в игровом чате",
-      sectionId: "rules-chat",
-      content: rules.Rules.sections[0].chat.content.map((item) => ({
-        article: item.article,
-        punishment: item.punish,
-        description: item.description,
-        subtitle: item.subtitle && item.subtitle.length > 0 ? item.subtitle[0] : ''
-      }))
-    },
-    {
-      name: rules.Rules.sections,
-      title: "Общие правила и положения",
-      sectionId: "rules-based",
-      content: rules.Rules.sections[0].based?.content?.map((item) => ({
-        article: item.article,
-        punishment: item.punish,
-        description: item.description,
-        subtitle: item.subtitle && item.subtitle.length > 0 ? item.subtitle[0] : ''
-      }))
-    },
-    {
-      name: rules.Rules.sections, title: "Непосредственная игра", sectionId: "rules-gameplay",
-      content: rules.Rules.sections[0].gameplay?.content?.map((item) => ({
-        article: item.article,
-        punishment: item.punish,
-        description: item.description,
-        subtitle: item.subtitle && item.subtitle.length > 0 ? item.subtitle[0] : ''
-      }))
-    }
-  ];
-
-  const wiki = [
-    {
-      title: "Терминология!", subtitle: "немного теории...", sectionId: "correction",
-      content: [
-        { articleTitle: "Кик", articleDesc: "временное отключение игрока от сервера." },
-        { articleTitle: "Варн", articleDesc: "предупреждение, которое выдаётся за первое нарушение одной из статей (3 предупреждения = бану)." },
-        { articleTitle: "Мут", articleDesc: "ограничение доступа к возможности писать в чат (не в лс)." },
-        { articleTitle: "Бан", articleDesc: "ограничение доступа к серверу на продолжительное время или навсегда (при условии, что вы натворили какую-то дичь)." },
-        { articleTitle: "Неадекватность", articleDesc: "состояние игрока, когда он не контролирует свои действия, и которые вредят игре других игроков." },
-        { articleTitle: "Притеснение", articleDesc: ["политическое притеснение (вражда), ", "социальное притеснение, ", "моральное притеснение.",] },
-      ]
-    }
-  ]
 
   return (
     <div className="full-screen-section py-24 bg-background-dark">
@@ -88,7 +36,7 @@ export const RulesList = () => {
                 <p className="text-2xl md:text-3xl lg:text-4xl text-white hover:no-underline">Терминология...</p>
               </AccordionTrigger>
               <AccordionContent>
-                {wiki.map((item, idx) => (
+                {termins.map((item, idx) => (
                   <div key={idx} id={item.sectionId} className="flex flex-col py-4 px-2 md:px-4 gap-y-4 border border-red bg-transparent overflow-hidden">
                     {item.content.map((paragraph, idx) => (
                       <div key={idx} className="flex flex-row flex-wrap">

@@ -2,17 +2,17 @@ const GameplayData = [
   {
     name: "Питомцы.",
     description: "Два вида питомцев со своей историей, способностями и характеристиками.",
-    image: "/images/pets.png"
+    image: "https://cdn.discordapp.com/attachments/904344676587417621/1197667815935713390/pets.png?ex=65bc1a12&is=65a9a512&hm=d4a5c2824ecbed03860d622f26ee70882f97d1f3b0230d0f3f4103c69a5c52f5&"
   },
   {
     name: "Репутация",
     description: "Чем выше репутация - тем лучше к вам будут относиться другие игроки (но это не точно).",
-    image: "/images/minecraft_3.webp",
+    image: "https://cdn.discordapp.com/attachments/903343341561847848/1197680924536615062/2024-01-19_02.15.49.png?ex=65bc2648&is=65a9b148&hm=befb93593b26914e2524e3a77e40b0653827109b9ebb66b2046f64d44ede8cda&",
   },
   {
     name: "Уникальные вещи",
     description: "Некоторые вещи, которые вы найдете или купите будут предоставлять уникальные возможности. Например: увеличение силы.",
-    image: "/images/minecraft_2.webp"
+    image: "https://cdn.discordapp.com/attachments/903343341561847848/1197676074750984253/image.png?ex=65bc21c3&is=65a9acc3&hm=640bb1377ea5938a653a07c0636187912112d2bcb03b1a03d4897e3331c6f18d&"
   },
 ]
 

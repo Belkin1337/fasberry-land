@@ -8,7 +8,13 @@ interface ImageAnnotationProps {
   height?: number
 }
 
-export const ImageAnnotation = ({ source, alt, annotation, width, height }: ImageAnnotationProps) => {
+export const ImageAnnotation = ({ 
+  source, 
+  alt, 
+  annotation, 
+  width, 
+  height 
+}: ImageAnnotationProps) => {
   return (
     <div className="flex flex-col items-center gap-y-4">
       <Image
@@ -18,7 +24,9 @@ export const ImageAnnotation = ({ source, alt, annotation, width, height }: Imag
         height={height || 360}
         loading="lazy"
       />  
-      <p className="text-md text-white md:text-lg">{annotation}</p>
+      <p className="text-md text-white md:text-lg">
+        {annotation}
+      </p>
     </div>
   )
 }

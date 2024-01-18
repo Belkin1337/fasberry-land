@@ -1,41 +1,30 @@
 
-import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import { Contacts } from '@/components/section/contacts';
 import { IntroTitle } from '@/components/section/intro';
 import { CarouselImages } from '@/components/carousel-images';
 import Layout from '@/components/layout/Layout';
-import { Home } from '@/components/section/news';
+import { Community } from '@/components/section/community';
+import { Status } from '@/components/status';
+import { News } from '@/components/news';
+import { Gameplay } from '@/components/section/gameplay';
 
-type Status = {
-  online: boolean,
-  players: {
-    online: number,
-    max: number
-  }
-}
-
-export const getServerSideProps = (async (context) => {
-  const url = new URL('https://api.mcstatus.io/v2/status/java/play.fasberry.ru');
-  url.searchParams.set('timeout', '10');
-
-  const res = await fetch(url);
-  const status = await res.json()
-
-  return { props: { status } }
-}) satisfies GetServerSideProps<{
-  status: Status
-}>
-
-export default function General({ status }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function General() {
   return (
     <>
       <div className="weather snow z-1000">
         <IntroTitle />
       </div>
-      <Home
-        online={status.online}
-        players={status.players}
-      />
+      <div className="full-screen-section">
+        <div className="flex xl:flex-row flex-col py-24 mx-auto gap-y-12 xl:gap-y-6 group gap-x-4 lg:gap-x-4 xl:gap-x-8 2xl:gap-x-12 w-[90%]">
+          <News />
+          <div className="flex flex-col gap-y-6 w-full xl:w-1/2">
+            <p className="text-white text-4xl">Cообщество</p>
+            <Status />
+            <Community />
+          </div>
+        </div>
+      </div>
+      <Gameplay/>
       <Contacts />
       <CarouselImages />
     </>

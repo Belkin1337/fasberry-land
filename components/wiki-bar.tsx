@@ -1,95 +1,9 @@
+import Image from "next/image"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import Image from "next/image"
-import { useRouter } from "next/navigation"
-
-const headers = [
-  {
-    aspect: [
-      {
-        title: "профиль",
-        value: "profile"
-      },
-      {
-        title: "регионы",
-        value: "regions"
-      },
-      {
-        title: "квесты",
-        value: "quests"
-      },
-      {
-        title: "валюты",
-        value: "wallets"
-      },
-      {
-        title: "кланы",
-        value: "clans"
-      },
-      {
-        title: "работы",
-        value: "jobs"
-      },
-      {
-        title: "бусты",
-        value: "boosts"
-      },
-      {
-        title: "репутация",
-        value: "reputation"
-      },
-      {
-        title: "питомцы",
-        value: "pets"
-      },
-      {
-        title: "новые мобы",
-        value: "mobs"
-      },
-      {
-        title: "новая броня",
-        value: "armor"
-      }
-    ],
-  },
-  {
-    links: [
-      {
-        title: "Защита аккаунта",
-        value: "safety"
-      },
-      {
-        title: "Технические проблемы",
-        value: "problems"
-      },
-      {
-        title: "Жалобы на игроков",
-        value: "reports"
-      },
-      {
-        title: "Донат",
-        value: "donate"
-      },
-    ]
-  },
-  {
-    servers: [
-      {
-        title: "Bisquite Survival",
-        href: "bisquite"
-      },
-      {
-        title: "Muffin RP",
-        href: "muffin"
-      }
-    ],
-  }
-]
-
+import { headers } from "@/shared/content"
 
 export const WikiBar = () => {
-  const router = useRouter();
-
   return (
     <div className="flex flex-col block-item p-1 rounded-xl w-1/3">
       <Tabs defaultValue="general">
@@ -117,7 +31,7 @@ export const WikiBar = () => {
                     </p>
                   </AccordionTrigger>
                   <AccordionContent className="relative top-3">
-                    {headers.map((item, idx) => (
+                    {headers.map((item) => (
                       item.aspect?.map((item, idx) => (
                         <div className="group cursor-pointer" key={idx}>
                           <TabsTrigger value={item.value} className="text-white text-xl group-hover:text-[#FABBFB] group-hover:duration-300 duration-300">
@@ -129,7 +43,7 @@ export const WikiBar = () => {
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
-              {headers.map((item, idx) => (
+              {headers.map((item) => (
                 item.links?.map((item, idx) => (
                   <div key={idx} className="flex flex-row justify-between group cursor-pointer">
                     <p className="text-white text-xl group-hover:text-[#FABBFB] group-hover:duration-300 duration-300">

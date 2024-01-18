@@ -8,12 +8,16 @@ export default function Document() {
     <Html lang="ru" suppressHydrationWarning>
       <Head />
       <body>
-        <Suspense fallback={(<PreLoader />)}>
+        <Suspense fallback={
+          (
+            <PreLoader />
+          )
+        }>
           <Main />
           <NextScript />
-          <script 
+          <script
             type="text/javascript"
-            id="metrika-counter" 
+            id="metrika-counter"
             dangerouslySetInnerHTML={{
               __html: `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
               m[i].l=1*new Date();

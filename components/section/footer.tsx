@@ -31,14 +31,16 @@ export const Footer = () => {
                 className="cursor-pointer text-white text-md hover:underline hover:underline-offset-8 decoration-bisquite-server-color"
               >Контакты</p>
             </div>
-            <p className="text-md">Все права защищены. Оригинальные права принадлежат Mojang AB | {new Date().getFullYear()}</p>
+            <p className="text-md">
+              Все права защищены. Оригинальные права принадлежат Mojang AB | {new Date().getFullYear()}
+            </p>
           </div>
           <div className="overflow-hidden">
             <Image
               width={316}
               height={128}
               alt="Fasberry Project Logo"
-              src="/images/fasberry_logo.png"
+              src="https://cdn.discordapp.com/attachments/904344676587417621/1190002158591029268/fasberry_logo.png?ex=65b2abdf&is=65a036df&hm=c16e7ad541151dae9288c99b354d81b9f44df931c2da7d69e59dc96238bfb62e&"
               className="relative top-2 cursor-pointer"
               onClick={() => router.push('/')}
             />

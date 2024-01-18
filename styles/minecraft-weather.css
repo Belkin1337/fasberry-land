@@ -55,8 +55,8 @@
   animation-duration: 12s;
 }
 .weather.snow:after {
-  -webkit-animation-duration: 8.5s;
-  animation-duration: 8.5s;
+  -webkit-animation-duration: 16.5s;
+  animation-duration: 16.5s;
 }
 @-webkit-keyframes weather {
   from {

@@ -1,9 +1,9 @@
 import Head from "next/head"
-
+import Link from "next/link"
+import Image from "next/image"
 import Layout from '@/components/layout/Layout';
 import { Wrapper } from "@/components/wrappers/main-wrapper";
 import { Title } from "@/components/ui/title";
-import Link from "next/link"
 
 export default function Support() {
   return (
@@ -18,9 +18,12 @@ export default function Support() {
             <Title variant="blue" className='text-[#00cdb0]'>Поддержка проекта</Title>
             <div className="p-1 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#00cdb0] via-[#a976f8] to-[#ffc0cb] w-full">
               <div className="flex flex-col lg:flex-row overflow-hidden lg:items-center items-start bg-wool-black py-4 px-2 gap-x-6 gap-y-4 w-full">
-                <img
+                <Image
+                  width={512}
+                  height={512}
+                  alt="Monitoring Steve"
                   className="md:w-[322px] md:h-[322px] xl:w-[456px] xl:h-[456px]"
-                  src="/images/steve.webp" alt="monitoring Fasberry Project"
+                  src="https://cdn.discordapp.com/attachments/904344676587417621/1197635139186999297/steve.webp?ex=65bbfba4&is=65a986a4&hm=60935ca158754837168e80f8fa57dc10b96ff6afce741af3826529fe1b823d59&"
                 />
                 <div className="flex flex-col items-start p-2 gap-y-2 md:p-0 lg:w-1/2 w-full">
                   <h1 className='text-xl lg:text-6xl text-fuchsia-400 mb-4'>Мониторинг</h1>
@@ -31,7 +34,10 @@ export default function Support() {
                     <p>А во-вторых, тебе же легко просто проголосовать за сервер, да?</p>
                   </p>
                   <div className="flex flex-col mt-4">
-                    <Link target="_blank" className="button px-8 py-1 text-white hover:text-fuchsia-400 hover:duration-200 duration-200 text-xl"  href="https://hotmc.ru/vote-259308">
+                    <Link
+                      target="_blank"
+                      className="button px-8 py-1 text-white hover:text-fuchsia-400 hover:duration-200 duration-200 text-xl"
+                      href="https://hotmc.ru/vote-259308">
                       Проголосовать
                     </Link>
                   </div>
@@ -40,9 +46,12 @@ export default function Support() {
             </div>
             <div className="p-1 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#00cdb0] via-[#a976f8] to-[#ffc0cb] w-full">
               <div className="flex flex-col lg:flex-row overflow-hidden lg:items-center items-start bg-wool-black py-4 px-2 gap-x-6 gap-y-4 w-full">
-                <img
+                <Image
+                  width={512}
+                  height={512}
                   className="md:w-[322px] md:h-[322px] xl:w-[456px] xl:h-[456px]"
-                  src="/images/alex.webp" alt="share Fasberry Project"
+                  src="https://cdn.discordapp.com/attachments/904344676587417621/1197635138834669660/alex.webp?ex=65bbfba4&is=65a986a4&hm=7758613055827a6ca612150af5e90da354732c718146d91cc9cc8cf6fea287d4&"
+                  alt="share Fasberry Project"
                 />
                 <div className="flex flex-col items-start p-2 gap-y-2 md:p-0 lg:w-1/2 w-full">
                   <h1 className='text-xl lg:text-6xl text-fuchsia-400 mb-4'>Знакомый знакомому</h1>
@@ -61,5 +70,9 @@ export default function Support() {
 }
 
 Support.getLayout = function getLayout(page: React.ReactNode) {
-  return <Layout>{page}</Layout>
+  return (
+    <Layout>
+      {page}
+    </Layout>
+  )
 }

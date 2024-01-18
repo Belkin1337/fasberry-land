@@ -1,7 +1,9 @@
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
 import { useRouter } from "next/navigation"
-
-interface StatusProps {
+import { useEffect } from 'react'
+import useSWR from "swr"
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
+ 
+type Status = {
   online: boolean,
   players: {
     online: number,
@@ -9,10 +11,23 @@ interface StatusProps {
   }
 }
 
-export const Status = ({ online, players }: StatusProps) => {
-  const router = useRouter();
+const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
-  let status_msg = online ? 'работает' : 'не работает';
+export const Status = () => {
+  const { data, mutate, isLoading } = useSWR<Status>("https://api.mcstatus.io/v2/status/java/play.fasberry.ru", fetcher);
+  const router = useRouter();
+  
+  useEffect(() => {
+    if (data) {
+      mutate();
+    }
+  }, [data, mutate])
+  
+  if (isLoading) {
+    return (
+      <p>загружаем...</p>
+    )
+  }
 
   return (
     <HoverCard openDelay={4} closeDelay={1}>
@@ -22,20 +37,22 @@ export const Status = ({ online, players }: StatusProps) => {
             <div className="flex flex-row justify-between items-center">
               <p className="text-white text-xl lg:text-2xl">Текущий онлайн</p>
               <p className="text-white text-xl lg:text-2xl cursor-pointer">
-                {players?.online || 0} из {players?.max || 94}
+                {data?.players?.online || 0} из {data?.players?.max || 94}
               </p>
             </div>
             <div className="flex flex-row justify-between items-center">
               <p className="text-white text-xl lg:text-2xl">Статус:</p>
               <p className="text-white text-xl lg:text-2xl cursor-pointer">
-                {status_msg}
+                {data?.online ? 'работает' : 'не работает'}
               </p>
             </div>
           </div>
         </div>
       </HoverCardTrigger>
       <HoverCardContent className="w-[400px] relative -top-44 bg-black/50 backdrop-filter backdrop-blur-md border-none p-2 rounded-xl">
-        <p className="text-neutral-400 text-lg">Перейти на страницу мониторинга</p>
+        <p className="text-neutral-400 text-lg">
+          Перейти на страницу мониторинга
+        </p>
       </HoverCardContent>
     </HoverCard>
   )

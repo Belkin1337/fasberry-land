@@ -142,5 +142,9 @@ export default function Terms() {
 }
 
 Terms.getLayout = function getLayout(page: React.ReactNode) {
-  return <Layout>{page}</Layout>
+  return (
+    <Layout>
+      {page}
+    </Layout>
+  )
 }

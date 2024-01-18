@@ -91,8 +91,7 @@ export const Sidebar = () => {
                   className="flex gap-x-4 bg-wool-black border border-neutral-800 hover:bg-neutral-800 cursor-pointer rounded-sm py-2 px-2 w-full"
                 >
                   <Image src={item.image} width={26} height={10} alt={item.name} />
-                  <p className={`text-[1.1rem]
-                ${item.name === "Подписки" ? 'text-gold' : 'text-project-color'}`}>
+                  <p className={`text-[1.1rem] ${item.name === "Подписки" ? 'text-gold' : 'text-project-color'}`}>
                     {item.name}
                   </p>
                 </div>

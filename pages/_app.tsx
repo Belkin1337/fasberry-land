@@ -1,14 +1,12 @@
-import '@/styles/globals.css'
-import '@/styles/minecraft-weather.css'
-import "react-toastify/dist/ReactToastify.css";
 import Head from 'next/head'
-
+import localFont from 'next/font/local'
 import { type ReactElement, type ReactNode} from 'react'
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
-
-import localFont from 'next/font/local'
 import { ToastContainer } from 'react-toastify';
+import '@/styles/globals.css'
+import '@/styles/minecraft-weather.css'
+import "react-toastify/dist/ReactToastify.css";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -56,7 +54,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
       <main className={font.className}>
-      <ToastContainer/>
+        <ToastContainer/>
         <Component {...pageProps} />
       </main>
     </>

@@ -1,106 +1,15 @@
 import Layout from "@/components/layout/Layout"
 import Head from "next/head"
+import Link from "next/link"
+import Image from "next/image"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import Image from "next/image"
 import { useRouter } from "next/router"
 import { Dialog, DialogContent, DialogClose, DialogTrigger } from "@/components/ui/dialog"
-
-import Link from "next/link"
-import { ImageAnnotation } from "@/components/ui/image-annotation"
+import { ImageAnnotation } from "@/components/image-annotation"
 import { useEffect, useState } from "react"
-import { CommandLine } from "@/components/ui/command-line"
-
-const headers = [
-  {
-    aspect: [
-      {
-        title: "профиль",
-        value: "profile"
-      },
-      {
-        title: "регионы",
-        value: "regions"
-      },
-      {
-        title: "диалоги и квесты",
-        value: "quests"
-      },
-      {
-        title: "навыки",
-        value: "skills"
-      },
-      {
-        title: "экономика",
-        value: "economic"
-      },
-      {
-        title: "кланы",
-        value: "clans"
-      },
-      {
-        title: "работы",
-        value: "jobs"
-      },
-      {
-        title: "бусты",
-        value: "boosts"
-      },
-      {
-        title: "репутация",
-        value: "reputation"
-      },
-      {
-        title: "питомцы",
-        value: "pets"
-      },
-      {
-        title: "система метро",
-        value: "metro"
-      },
-      {
-        title: "новые мобы",
-        value: "mobs"
-      },
-      {
-        title: "новая броня",
-        value: "armor"
-      }
-    ],
-  },
-  {
-    links: [
-      {
-        title: "Защита аккаунта",
-        value: "safety"
-      },
-      {
-        title: "Технические проблемы",
-        value: "problems"
-      },
-      {
-        title: "Жалобы на игроков",
-        value: "reports"
-      },
-      {
-        title: "Донат",
-        value: "donate"
-      },
-    ]
-  },
-  {
-    servers: [
-      {
-        title: "Bisquite Survival",
-        value: "server-bisquite"
-      },
-      {
-        title: "Muffin RP",
-        value: "server-muffin"
-      }
-    ],
-  }
-]
+import { CommandLine } from "@/components/command-line"
+import { headers } from "@/shared/content"
 
 export default function Wiki() {
   const router = useRouter();
@@ -109,7 +18,11 @@ export default function Wiki() {
 
   const handleTabChange = (value: string) => {
     setActiveTab(value);
-    router.push({ pathname: "/wiki", query: { tab: value } }, undefined, { shallow: true });
+    router.push({ pathname: "/wiki", query: { 
+      tab: value 
+    } }, undefined, { 
+      shallow: true 
+    });
   };
 
   useEffect(() => {
@@ -121,6 +34,8 @@ export default function Wiki() {
     <>
       <Head>
         <title>Вики</title>
+        <meta name="description" content="Вики проекта Fasberry. Здесь можно узнать о всех аспектах игры на нашем сервере." />
+        <meta property="keywords" content="википедия, fasberry, справочник по серверу, minecraft wiki, fasberry wiki, wiki fasberry, вики fasberry, вики фасберри, фасберри сервер"/>
       </Head>
       <div className="min-h-screen w-[90%] mx-auto py-36">
         <Tabs
@@ -977,5 +892,9 @@ export default function Wiki() {
 }
 
 Wiki.getLayout = function getLayout(page: React.ReactNode) {
-  return <Layout>{page}</Layout>
+  return (
+    <Layout>
+      {page}
+    </Layout>
+  )
 }
