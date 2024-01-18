@@ -1,7 +1,7 @@
 import { ChangeEvent, useMemo, useState } from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Wrapper } from "@/components/wrappers/main-wrapper";
-import { Badge } from '@/components/ui/badge';
+import { Badge } from '@/components/ui/Badge';
 import { rulesList, termins } from "@/shared/content"
 
 export const RulesList = () => {
