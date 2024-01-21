@@ -7,7 +7,7 @@ export const WikiBar = () => {
   return (
     <div className="flex flex-col block-item p-1 rounded-xl w-1/3">
       <Tabs defaultValue="general">
-        <div className="flex flex-col p-4 bg-black gap-y-12 rounded-xl h-full">
+        <div className="flex flex-col p-4 gap-y-12 rounded-xl h-full">
           <div className="flex flex-col gap-y-4">
             <p className="text-white text-3xl">Общая информация</p>
             <TabsList className="flex flex-col gap-y-2">

@@ -9,7 +9,7 @@ const safelist_array = [];
 const fs = require('fs');
 
 module.exports = {
-	darkMode: ["class"],
+	darkMode: "class",
 	important: true,
 	content: [
 		'./pages/**/*.{js,ts,jsx,tsx,mdx}',

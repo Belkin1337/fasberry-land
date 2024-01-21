@@ -1,5 +1,4 @@
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
-
 import Image from "next/image"
 
 const news = [
@@ -33,19 +32,19 @@ const news = [
 export const News = () => {
   return (
     <div className="flex flex-col gap-y-6">
-      <p className="text-white text-4xl">Новости</p>
+      <p className="text-black dark:text-white text-4xl">Новости</p>
       {news.map((item) => (
         <Dialog key={item.id}>
           <DialogTrigger className="flex flex-col rounded-xl block-item p-1 overflow-hidden">
             <div className="h-[220px] w-full sm:h-[360px] md:h-[420px] xl:w-[920px] xl:h-[500px] overflow-hidden rounded-t-xl bg-black">
               <Image layout="responsive" loading="lazy" width={920} height={220} src={item.image} className="w-full h-full object-cover" alt="News" />
             </div>
-            <div className="flex flex-col items-start relative rounded-b-xl self-end bg-black py-2 px-2 lg:py-4 lg:px-4 w-full gap-y-2 max-h-[96px] lg:h-[114px]">
+            <div className="flex flex-col items-start relative rounded-b-xl self-end bg-black/80 dark:bg-black py-2 px-2 lg:py-4 lg:px-4 w-full gap-y-2 max-h-[96px] lg:h-[114px]">
               <p className="text-white text-left font-normal text-base lg:text-3xl">{item.title}</p>
               <p className="text-neutral-400 text-sm lg:text-lg font-normal">{item.date}</p>
             </div>
           </DialogTrigger>
-          <DialogContent className="flex flex-col xl:flex-row bg-black/50 rounded-xl px-4 py-8 w-6xl border-none backdrop-filter backdrop-blur-md overflow-hidden gap-x-6">
+          <DialogContent className="flex flex-col xl:flex-row bg-black/80 border border-neutral-900 rounded-xl px-4 py-8 w-6xl backdrop-filter backdrop-blur-md overflow-hidden gap-x-6">
             <div className="h-[220px] sm:h-[360px] md:h-[420px] xl:w-2/3 xl:h-6/7 w-full overflow-hidden">
               <Image layout="responsive" loading="lazy" width={1024} height={220} src={item.image} className="object-cover w-full h-full" alt="News" />
             </div>

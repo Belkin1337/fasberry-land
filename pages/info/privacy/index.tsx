@@ -1,4 +1,6 @@
-import Layout from "@/components/layout/Layout"
+
+import { Footer } from "@/components/section/footer"
+import { Header } from "@/components/section/header"
 import Head from "next/head"
 
 export default function Privacy() {
@@ -7,12 +9,13 @@ export default function Privacy() {
       <Head>
         <title>Политика обработки персональных данных</title>
       </Head>
+      <Header/>
       <div className="flex flex-col min-h-screen w-[90%] mx-auto py-36 gap-y-6">
-        <p className="text-white text-3xl">
+        <p className="text-black dark:text-white text-3xl">
           Политика обработки персональных данных
         </p>
-        <div className="flex flex-col gap-y-8">
-          <div className="flex flex-col gap-y-4 border border-transparent hover:border-white hover:duration-500 duration-500 p-4">
+        <div className="flex flex-col gap-y-8 ">
+          <div className="flex flex-col gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4 bg-black/80 dark:bg-transparent rounded-md">
             <p className="text-project-color text-xl">1. Общие положения</p>
             <div className="flex flex-col text-white text-md lg:text-lg gap-y-4">
               <span>
@@ -30,7 +33,7 @@ export default function Privacy() {
               </span>
             </div>
           </div>
-          <div className="flex flex-col gap-y-4 border border-transparent hover:border-white hover:duration-500 duration-500 p-4">
+          <div className="flex flex-col gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4 bg-black/80 dark:bg-transparent rounded-md">
             <p className="text-project-color text-xl">2. Основные понятия, используемые в Политике</p>
             <div className="flex flex-col text-white text-md lg:text-lg gap-y-4">
               <span>
@@ -91,7 +94,7 @@ export default function Privacy() {
               </span>
             </div>
           </div>
-          <div className="flex flex-col gap-y-4 border border-transparent hover:border-white hover:duration-500 duration-500 p-4">
+          <div className="flex flex-col gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4 bg-black/80 dark:bg-transparent rounded-md">
             <p className="text-project-color text-xl">3. Оператор может обрабатывать следующие персональные данные Пользователя</p>
             <div className="flex flex-col text-white text-md lg:text-lg gap-y-4">
               <span>
@@ -106,7 +109,7 @@ export default function Privacy() {
               </span>
             </div>
           </div>
-          <div className="flex flex-col gap-y-4 border border-transparent hover:border-white hover:duration-500 duration-500 p-4">
+          <div className="flex flex-col gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4 bg-black/80 dark:bg-transparent rounded-md">
             <p className="text-project-color text-xl">4. Цели обработки персональных данных</p>
             <div className="flex flex-col text-white text-md lg:text-lg gap-y-4">
               <span>
@@ -124,7 +127,7 @@ export default function Privacy() {
               </span>
             </div>
           </div>
-          <div className="flex flex-col gap-y-4 border border-transparent hover:border-white hover:duration-500 duration-500 p-4">
+          <div className="flex flex-col gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4 bg-black/80 dark:bg-transparent rounded-md">
             <p className="text-project-color text-xl">5. Правовые основания обработки персональных данных</p>
             <div className="flex flex-col text-white text-md lg:text-lg gap-y-4">
               <span>
@@ -138,7 +141,7 @@ export default function Privacy() {
               </span>
             </div>
           </div>
-          <div className="flex flex-col gap-y-4 border border-transparent hover:border-white hover:duration-500 duration-500 p-4">
+          <div className="flex flex-col gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4 bg-black/80 dark:bg-transparent rounded-md">
             <p className="text-project-color text-xl">6. Порядок сбора, хранения, передачи и других видов обработки персональных данных</p>
             <div className="flex flex-col text-white text-md lg:text-lg gap-y-4">
               <span>
@@ -162,7 +165,7 @@ export default function Privacy() {
               </span>
             </div>
           </div>
-          <div className="flex flex-col gap-y-4 border border-transparent hover:border-white hover:duration-500 duration-500 p-4">
+          <div className="flex flex-col gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4 bg-black/80 dark:bg-transparent rounded-md">
             <p className="text-project-color text-xl">7. Трансграничная передача персональных данных</p>
             <div className="flex flex-col text-white text-md lg:text-lg gap-y-4">
               <span>
@@ -177,7 +180,7 @@ export default function Privacy() {
               </span>
             </div>
           </div>
-          <div className="flex flex-col gap-y-4 border border-transparent hover:border-white hover:duration-500 duration-500 p-4">
+          <div className="flex flex-col gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4 bg-black/80 dark:bg-transparent rounded-md">
             <p className="text-project-color text-xl">8. Заключительные положения</p>
             <div className="flex flex-col text-white text-md lg:text-lg gap-y-4">
               <span>
@@ -195,10 +198,7 @@ export default function Privacy() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   )
-}
-
-Privacy.getLayout = function getLayout(page: React.ReactNode) {
-  return <Layout>{page}</Layout>
 }

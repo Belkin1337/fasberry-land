@@ -1,13 +1,5 @@
 import { BsDiscord, BsTelegram } from "react-icons/bs"
 
-const gallery = [
-  { title: "Пеликан летит", href: "", picture: "/images/pelican.webp", whoPublished: "Belkkin_", datePublished: "30.09.2023", },
-  { title: "Какой-то чел на свинье", href: "", picture: "/images/reze.png", whoPublished: "Belkkin_", datePublished: "30.09.2023", },
-  { title: "Волков", href: "", picture: "/images/kirill.webp", whoPublished: "Belkkin_", datePublished: "30.09.2023", },
-  { title: "Под водой", href: "", picture: "/images/underwater.png", whoPublished: "Belkkin_", datePublished: "30.09.2023", },
-  { title: "Шевченко", href: "", picture: "/images/schevchenko.webp", whoPublished: "Belkkin_", datePublished: "30.09.2023", },
-]
-
 const termins = [{
     title: "Терминология!", 
     subtitle: "немного теории...", 
@@ -250,13 +242,35 @@ const support = {
 }
 
 const headerLinks = [
-	{ name: 'Главная', image: "/images/minecraft/icons/spawn_egg.webp", href: "/" },
-	{ name: 'Правила', image: "/images/minecraft/icons/warped_sign_big.webp", href: "/rules" },
-	{ name: 'Привилегии', image: "/images/minecraft/icons/bone_meal_big.webp", href: "/donate" },
-  { name: 'Поддержка', image: "/images/minecraft/icons/experience_big.webp", href: "/support"},
-  { name: 'Вики', image: "/images/minecraft/icons/knowledge_book.webp", href: "/wiki" },
-	{ name: 'Карта мира', image: "/images/minecraft/icons/locked_map_big.webp", href: "/map" },
-	// { name: 'Аккаунт', image: "/images/minecraft/icons/dark_oak_door_big.webp", href: "https://cp.fasberry.ru" }
+	{ 
+    name: 'Главная', 
+    image: "/images/minecraft/icons/spawn_egg.webp", href: "/" 
+  }, { 
+    name: 'Правила', 
+    image: "/images/minecraft/icons/warped_sign_big.webp", 
+    href: "/rules" 
+  }, { 
+    name: 'Привилегии', 
+    image: "/images/minecraft/icons/bone_meal_big.webp", 
+    href: "/donate" 
+  }, { 
+    name: 'Поддержка', 
+    image: "/images/minecraft/icons/experience_big.webp", 
+    href: "/support"
+  }, { 
+    name: 'Вики', 
+    image: "/images/minecraft/icons/knowledge_book.webp", 
+    href: "/wiki" 
+  }, { 
+    name: 'Карта мира', 
+    image: "/images/minecraft/icons/locked_map_big.webp", 
+    href: "/map" 
+  }, 
+  // { 
+  //   name: 'Аккаунт', 
+  //   image: "/images/minecraft/icons/dark_oak_door_big.webp", 
+  //   href: "https://cp.fasberry.ru" 
+  // }
 ]
 
 const mediaLinks = [
@@ -277,8 +291,8 @@ const headers = [ {
         title: "квесты",
         value: "quests"
       }, {
-        title: "валюты",
-        value: "wallets"
+        title: "экономика",
+        value: "economic"
       }, {
         title: "кланы",
         value: "clans"
@@ -320,10 +334,10 @@ const headers = [ {
   }, {
     servers: [ {
         title: "Bisquite Survival",
-        value: "bisquite"
+        value: "server-bisquite"
       }, {
         title: "Muffin RP",
-        value: "muffin"
+        value: "server-muffin"
       }
     ],
   }
@@ -362,7 +376,6 @@ const rulesList = [ {
 
 
 export { 
-  gallery, 
   termins,
   rules, 
   support, 

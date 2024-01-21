@@ -8,12 +8,6 @@
   font-display: swap;
 }
 
-@layer base {
-  body {
-    @apply bg-background-dark
-  }
-}
-
 @layer components {
   .btn-primary {
     @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
@@ -27,7 +21,32 @@
   .block-item {
     @apply bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#00cdb0] via-[#a976f8] to-[#ffc0cb]
   }
+
+  div::-webkit-scrollbar {
+    @apply bg-neutral-900 rounded-md w-[6px]
+  }
+
+  div::-webkit-scrollbar-thumb {
+    @apply bg-neutral-600 rounded-xl
+  }
+
+  div::-webkit-scrollbar-track {
+    @apply bg-neutral-950
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-[8px]
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply  dark:bg-neutral-900
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#00cdb0] 
+  }
 }
+
 
 :root {
   --block-size: 48px;
@@ -307,13 +326,6 @@ button:focus {
   border-image-slice: 40% 40% fill;
   border-image-repeat: stretch;
 }
-
-div ::-webkit-scrollbar { width: 0.46rem; }
-div ::-webkit-scrollbar-track { background: url("../public/images/minecraft/ui/xp-bar-empty.png"); border-radius: 0; } 
-div ::-webkit-scrollbar-thumb { background: url("../public/images/minecraft/ui/xp-bar-full.png"); border-radius: 0; }
-::-webkit-scrollbar { width: 0.44rem; } 
-::-webkit-scrollbar-track { background: var(--primary-color); } 
-::-webkit-scrollbar-thumb { background: var(--general-color); }
 
 footer::before {
   content: "";

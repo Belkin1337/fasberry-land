@@ -4,7 +4,7 @@ import { networkData } from "@/shared/content";
 
 export const Contacts = () => {
 	return (
-		<div className="full-screen-section flex flex-col items-center justify-center bg-background-dark py-24 xl:py-0">
+		<div className="full-screen-section flex flex-col items-center justify-center py-32 xl:py-0">
 			<Wrapper>
 				<div className="flex flex-col gap-y-12">
 					<h1 className="text-3xl md:text-6xl lg:text-6xl xl:text-7xl text-rose-500 text-center">

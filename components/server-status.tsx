@@ -50,7 +50,7 @@ export const ServerStatus = () => {
               <p className="py-2 px-4 text-lg md:text-xl">загружаем...</p>
             ) : (
               <>
-                {data?.players.list.map((player: Player) => (
+                {data?.players?.list.map((player: Player) => (
                   <div className="text-white text-xl cursor-pointer rounded-none hover:duration-200 duration-200 hover:bg-neutral-900 py-2 px-4" key={player.uuid}>
                     {player.name_raw}
                   </div>

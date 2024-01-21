@@ -35,10 +35,20 @@ export const IntroTitle = () => {
         <div className="w-[90%] flex justify-start mx-auto">
           <div ref={sliderRef} className="fader flex items-center relative z-20 w-full">
             {projectDesciption.map((item, idx) => (
-              <div key={item.title} className="fader__slide w-full lg:w-2/4 xl:w-2/5 2xl-w-2/6 cursor-pointer absolute" style={{ opacity: opacities[idx] }}>
+              <div key={item.title} className="fader__slide w-full lg:w-2/4 xl:w-2/5 2xl-w-2/6 cursor-pointer absolute"
+                style={{
+                  opacity: opacities[idx]
+                }}>
                 <div className="flex flex-col w-full lg:max-w-xl justify-start h-[260px] md:h-[280px] lg:h-[360px] bg-black/60 rounded-xl p-4 lg:p-6">
-                  <h1 className="text-shadow-xl mb-4 text-4xl lg:text-6xl" style={{ color: `${item.descColor}` }}>{item.title}</h1>
-                  <h2 className="mb-1 text-shadow-xl text-lg lg:text-3xl">{item.desc}</h2>
+                  <h1 className="text-shadow-xl mb-4 text-4xl lg:text-6xl"
+                    style={{
+                      color: `${item.descColor}`
+                    }}>
+                    {item.title}
+                  </h1>
+                  <h2 className="mb-1 text-shadow-xl text-lg lg:text-3xl">
+                    {item.desc}
+                  </h2>
                 </div>
               </div>
             ))}
@@ -51,7 +61,10 @@ export const IntroTitle = () => {
                   hover:shadow-[inset_24px_0px_0px_#fff] hover:bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] 
                   hover:from-[#00cdb0] hover:via-[#a976f8] hover:to-[#ffc0cb] 
                   hover:duration-700 hover:transition transition hover:ease-out duration-500">
-                <p className="text-white text-shadow-xl font-bold text-xl lg:text-2xl" onClick={() => navigator.clipboard.writeText('play.fasberry.ru')}>
+                <p
+                  className="text-white text-shadow-xl font-bold text-xl lg:text-2xl"
+                  onClick={() => navigator.clipboard.writeText('play.fasberry.ru')}
+                >
                   IP: play.fasberry.ru
                 </p>
               </div>

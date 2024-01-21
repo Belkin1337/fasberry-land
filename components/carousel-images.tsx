@@ -90,7 +90,7 @@ export const CarouselImages = () => {
   ]
 
   return (
-    <div ref={sliderRef} className="flex flex-row items-center justify-start py-24 lg:py-16 overflow-hidden relative">
+    <div ref={sliderRef} className="flex flex-row items-center justify-start py-24 lg:py-16 overflow-hidden relative bg-background-dark">
       <div className="borders_up" />
       {images.map((item, idx) => (
         <div key={idx} className="keen-slider__slide group cursor-pointer relative">

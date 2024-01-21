@@ -1,5 +1,5 @@
 import { ChangeEvent, useMemo, useState } from 'react';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+// import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Wrapper } from "@/components/wrappers/main-wrapper";
 import { Badge } from '@/components/ui/Badge';
 import { rulesList, termins } from "@/shared/content"
@@ -13,23 +13,25 @@ export const RulesList = () => {
     }, [setSearchKeyword]);
 
   return (
-    <div className="full-screen-section py-24 bg-background-dark">
+    <div className="full-screen-section py-32">
       <Wrapper>
-        <div className="flex flex-col gap-y-6">
-          <input
-            type="search"
-            className="anvil-textbox p-2 self-center text-neutral-200 w-full md:w-[50%] text-xl placeholder:text-neutral-600 focus:placeholder:text-neutral-900"
-            placeholder="Поиск по ключевому слову..."
-            value={searchKeyword}
-            onChange={searchFindWords}
-          />
-          <div className="flex flex-wrap gap-2">
-            <Badge>#правила</Badge>
-            <Badge variant="blue">#база</Badge>
-            <Badge>#кодекс</Badge>
-            <Badge variant="violet">#никтонечитает</Badge>
+        <div className="flex flex-col gap-y-14">
+          <div className="flex flex-col md:flex-row gap-y-6 bg-black/80 dark:bg-transparent p-2 lg:p-4 rounded-md justify-between">
+            <div className="flex flex-wrap gap-2">
+              <Badge>#правила</Badge>
+              <Badge variant="destructive">#база</Badge>
+              <Badge>#кодекс</Badge>
+              <Badge variant="violet">#никтонечитает</Badge>
+            </div>
+            <input
+              type="search"
+              className="anvil-textbox p-2 text-neutral-200 w-full md:w-[50%] text-md md:text-lg xl:text-xl placeholder:text-neutral-600 focus:placeholder:text-neutral-900"
+              placeholder="Поиск по ключевому слову..."
+              value={searchKeyword}
+              onChange={searchFindWords}
+            />
           </div>
-          <Accordion type="single" collapsible>
+          {/* <Accordion type="single" collapsible>
             <AccordionItem value="termin">
               <AccordionTrigger className="bg-wool-black border border-white/10 py-2 px-4 w-full text-xl md:text-4xl 
                 text-center text-white text-shadow-xl">
@@ -48,11 +50,10 @@ export const RulesList = () => {
                 ))}
               </AccordionContent>
             </AccordionItem>
-          </Accordion>
-          <hr />
+          </Accordion> */}
           {rulesList.map((item, idx) =>
             item.content && item.content.length > 0 ? (
-              <div key={idx} id={item.sectionId} className="flex flex-col py-4 px-2 md:px-4 border border-transparent hover:border-white hover:duration-500 duration-500 bg-transparent">
+              <div key={idx} id={item.sectionId} className="flex flex-col py-4 px-2 md:px-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 bg-black/80 dark:bg-transparent rounded-md">
                 <h1 className="text-gold text-xl md:text-4xl text-shadow-xl mb-6">{item.title}</h1>
                 {item.content.map((article, idx) => (
                   <div key={idx} className="flex flex-col mb-4">

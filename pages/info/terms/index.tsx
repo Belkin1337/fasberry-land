@@ -1,4 +1,5 @@
-import Layout from "@/components/layout/Layout"
+import { Footer } from "@/components/section/footer"
+import { Header } from "@/components/section/header"
 import Head from "next/head"
 
 export default function Terms() {
@@ -7,12 +8,13 @@ export default function Terms() {
       <Head>
         <title>Пользовательское соглашение</title>
       </Head>
+      <Header/>
       <div className="flex flex-col min-h-screen w-[90%] mx-auto py-36 gap-y-6">
-        <p className="text-white text-3xl">
+        <p className="text-black dark:text-white text-3xl">
           Пользовательское соглашение
         </p>
         <div className="flex flex-col gap-y-8">
-          <div className="flex flex-col text-white text-md lg:text-lg gap-y-4 border border-transparent hover:border-white hover:duration-500 duration-500 p-4">
+          <div className="flex flex-col text-white text-md lg:text-lg gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4 bg-black/80 dark:bg-transparent rounded-md">
             <span>
               Настоящее Пользовательское Соглашение (далее соглашение) регулирует отношения между владельцем fasberry.ru
               (далее FasberryProject) с одной стороны и пользователем сайта с другой.
@@ -24,7 +26,7 @@ export default function Terms() {
               Используя сайт, Вы соглашаетесь с условиями данного соглашения. Если Вы не согласны с условиями данного соглашения, не используйте сайт FasberryProject!
             </span>
           </div>
-          <div className="flex flex-col text-white text-md lg:text-lg gap-y-4 border border-transparent hover:border-white hover:duration-500 duration-500 p-4 ">
+          <div className="flex flex-col text-white text-md lg:text-lg gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4 bg-black/80 dark:bg-transparent rounded-md">
             <p className="text-project-color text-xl">Предмет соглашения</p>
             <div className="flex flex-col text-white text-md lg:text-lg gap-y-4 ">
               <span>
@@ -33,7 +35,7 @@ export default function Terms() {
               </span>
             </div>
           </div>
-          <div className="flex flex-col text-white text-md lg:text-lg gap-y-4 border border-transparent hover:border-white hover:duration-500 duration-500 p-4">
+          <div className="flex flex-col text-white text-md lg:text-lg gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4 bg-black/80 dark:bg-transparent rounded-md">
             <p className="text-project-color text-xl">Права и обязанности сторон</p>
             <div className="flex flex-col text-white text-md lg:text-lg gap-y-4">
               <span>
@@ -57,7 +59,7 @@ export default function Terms() {
               </span>
             </div>
           </div>
-          <div className="flex flex-col text-white text-md lg:text-lg gap-y-4 border border-transparent hover:border-white hover:duration-500 duration-500 p-4">
+          <div className="flex flex-col text-white text-md lg:text-lg gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4 bg-black/80 dark:bg-transparent rounded-md">
             <p className="text-project-color text-xl">Пользователь обязуется:</p>
             <div className="flex flex-col text-white text-md lg:text-lg gap-y-4">
               <span>
@@ -84,7 +86,7 @@ export default function Terms() {
               </span>
             </div>
           </div>
-          <div className="flex flex-col text-white text-md lg:text-lg gap-y-4 border border-transparent hover:border-white hover:duration-500 duration-500 p-4">
+          <div className="flex flex-col text-white text-md lg:text-lg gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4 bg-black/80 dark:bg-transparent rounded-md">
             <p className="text-project-color text-xl">Администрация обязуется:</p>
             <div className="flex flex-col text-white text-md lg:text-lg gap-y-4">
               <span>
@@ -95,7 +97,7 @@ export default function Terms() {
               </span>
             </div>
           </div>
-          <div className="flex flex-col text-white text-md lg:text-lg gap-y-4 border border-transparent hover:border-white hover:duration-500 duration-500 p-4">
+          <div className="flex flex-col text-white text-md lg:text-lg gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4 bg-black/80 dark:bg-transparent rounded-md">
             <p className="text-project-color text-xl">Ответственность сторон</p>
             <div className="flex flex-col text-white text-md lg:text-lg gap-y-4">
               <span>
@@ -118,7 +120,7 @@ export default function Terms() {
               </span>
             </div>
           </div>
-          <div className="flex flex-col text-white text-md lg:text-lg gap-y-4 border border-transparent hover:border-white hover:duration-500 duration-500 p-4">
+          <div className="flex flex-col text-white text-md lg:text-lg gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4 bg-black/80 dark:bg-transparent rounded-md">
             <p className="text-project-color text-xl">Условия действия Соглашения</p>
             <div className="flex flex-col text-white text-md lg:text-lg gap-y-4">
               <span>
@@ -137,14 +139,7 @@ export default function Terms() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
-  )
-}
-
-Terms.getLayout = function getLayout(page: React.ReactNode) {
-  return (
-    <Layout>
-      {page}
-    </Layout>
   )
 }

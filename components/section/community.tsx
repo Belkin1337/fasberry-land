@@ -13,16 +13,17 @@ export const Community = () => {
     "https://cdn.discordapp.com/attachments/904344676587417621/1197250387560910918/camel.webp?ex=65ba9550&is=65a82050&hm=128657405a5aeb60860be416cc21052936d95509dc9aff4083bc40468fd245db&", 
     "https://cdn.discordapp.com/attachments/904344676587417621/1197250394477297695/reze.png?ex=65ba9551&is=65a82051&hm=205bdc66d0882174ebd3d09f167bf73f047962d1209a61a8cac8cf3fa365db90&",
     "https://cdn.discordapp.com/attachments/904344676587417621/1197250387149856918/aurastepp.png?ex=65ba9550&is=65a82050&hm=9cfec230e5609f016e6f5bb9b92ea7b797a7947bc297f7d5e9fd58fcc2a8bd4b&",
-    "https://cdn.discordapp.com/attachments/904344676587417621/1197250390727610438/maxsal.png?ex=65ba9550&is=65a82050&hm=9dd55a9f909398b0e3c78de09646e4cad70c414df37e5ee99c143dc40a21b02f&"
+    "https://cdn.discordapp.com/attachments/904344676587417621/1197250390727610438/maxsal.png?ex=65ba9550&is=65a82050&hm=9dd55a9f909398b0e3c78de09646e4cad70c414df37e5ee99c143dc40a21b02f&",
+    "https://cdn.discordapp.com/attachments/903343341561847848/1197680924536615062/2024-01-19_02.15.49.png?ex=65bc2648&is=65a9b148&hm=befb93593b26914e2524e3a77e40b0653827109b9ebb66b2046f64d44ede8cda&"
   ]
 
   return ( 
     <div className="block-item p-1 rounded-xl overflow-hidden">
-      <div className="flex flex-col p-3 bg-black rounded-xl h-max gap-y-8">
+      <div className="flex flex-col p-3 bg-black/80 dark:bg-black rounded-xl h-max gap-y-8">
         <p className="text-white text-2xl">
           Скриншоты от игроков
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-4 xl:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 auto-rows-auto gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-4 xl:grid-cols-2 2xl:grid-cols-3 auto-rows-auto gap-2">
           {images.map((item, idx) => (
             <Dialog key={idx}>
               <DialogTrigger>
