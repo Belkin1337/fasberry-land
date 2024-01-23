@@ -2,10 +2,10 @@ import { useMemo, useState } from 'react';
 import { usePathname } from 'next/navigation'
 import { useRouter } from "next/router"
 import { toast, Zoom } from 'react-toastify';
-import Image from "next/image"
 import { headerLinks } from '@/shared/content';
-import { ThemeToggle } from '../theme-toggle';
-import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
+import { ThemeToggle } from './theme-toggle';
+import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
+import Image from "next/image"
 
 export const Header = () => {
 	const [open, setOpen] = useState(false);
@@ -86,7 +86,7 @@ export const Header = () => {
 							alt="toggle"
 						/>
 					</SheetTrigger>
-					<SheetContent side="top" className="xl:hidden flex flex-col items-start justify-between bg-neutral-950 h-[400px] p-4 w-full">
+					<SheetContent side="top" className="xl:hidden flex flex-col items-start justify-between bg-neutral-950 h-[420px] p-4 w-full">
 						<div className="flex flex-row justify-between items-center w-full">
 							<div onClick={() => router.push('/')} className="bg-transparent cursor-pointer relative top-2 right-4">
 								<Image
@@ -108,7 +108,7 @@ export const Header = () => {
 								/>
 							</div>
 						</div>
-						<div className="flex flex-col items-center justify-center w-full gap-y-1">
+						<div className="flex flex-col items-center justify-center w-full gap-y-2 px-4">
 							{headerLinks.map((item) => (
 								<div
 									key={item.name}
@@ -116,7 +116,7 @@ export const Header = () => {
 										router.push(item.href);
 										setOpen(false);
 									}}
-									className="flex border border-neutral-800 hover:bg-neutral-800 cursor-pointer rounded-md gap-x-6 shadow-[inset_42px_0px_0px_#00cdb0] py-2 px-2 w-full">
+									className="flex border border-neutral-800 hover:bg-neutral-800 cursor-pointer rounded-md gap-x-6 shadow-[inset_42px_0px_0px_#553C7D] py-2 px-2 w-full">
 									<Image
 										src={item.image}
 										width={26}

@@ -180,6 +180,29 @@ button:focus {
     outline: none;
 }
 
+/* .panel,
+.table,
+.markdown table {
+    --zoom: 10;
+    border-width: calc(var(--block-size) / var(--zoom));
+    border-image: url('../public/images/minecraft/ui/panel.png');
+    border-image-width: calc(var(--block-size) / var(--zoom));
+    border-image-slice: 43% 43% fill;
+    border-image-repeat: stretch;
+}
+
+.slot,
+.table td,
+.markdown td,
+.scrollbar::-webkit-scrollbar-track {
+    --zoom: 24;
+    border-width: calc(var(--block-size) / var(--zoom));
+    border-image: url('../public/images/minecraft/ui/slot.png');
+    border-image-width: calc(var(--block-size) / var(--zoom));
+    border-image-slice: 33.5% 33.5% fill;
+    border-image-repeat: stretch;
+} */
+
 .text-shadow-none { text-shadow: none; } 
 .text-shadow-xs { text-shadow: 0.75px 0.75px #000; }
 .text-shadow-sm { text-shadow: 1px 1px #000; } 
@@ -207,6 +230,42 @@ button:focus {
   border-image-width: calc(var(--block-size) / var(--zoom));
   border-image-slice: 12.75% 15.75% fill;
   border-image-repeat: repeat;
+}
+
+/* .table, .markdown table {
+  border-collapse: separate;
+  padding: 0.5rem;
+} .table th, .markdown th {
+  font-weight: normal;
+  font-size: var(--fluid-2);
+  color: #3d3c3d;
+} .table td, .markdown td {
+  position: relative;
+  padding: 0 0.25rem;
+  color: #fff;
+} */
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+    margin: 0.75rem 0;
+}
+
+.markdown h1 {
+    font-size: var(--fluid-7);
+} .markdown h2 {
+    font-size: var(--fluid-6);
+} .markdown h3 {
+    font-size: var(--fluid-5);
+} .markdown h4 {
+    font-size: var(--fluid-4);
+} .markdown h5 {
+    font-size: var(--fluid-3);
+} .markdown h6 {
+    font-size: var(--fluid-2);
 }
 
 .book {

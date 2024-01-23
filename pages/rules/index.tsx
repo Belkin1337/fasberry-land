@@ -1,9 +1,10 @@
 import Head from "next/head"
 import { Overlay } from '@/components/ui/overlay';
 import { WrapperTitle } from '@/components/wrappers/wrapper-title';
-import { RulesList } from '@/components/section/rules-list';
-import { Footer } from "@/components/section/footer";
-import { Header } from "@/components/section/header";
+import { RulesList } from '@/components/rules-list';
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { Typography } from "@/components/ui/typography";
 
 export default function RulesPage() {
   return (
@@ -20,12 +21,12 @@ export default function RulesPage() {
         <WrapperTitle>
           <div className="flex flex-col w-full lg:max-w-4xl items-start justify-center px-8 md:px-16 lg:px-28 xl:px-32">
             <div className="bg-black/60 rounded-xl p-4 lg:p-6">
-              <h1 className="text-left text-5xl lg:text-6xl xl:text-8xl text-gold text-shadow-xl mb-2">
+              <Typography variant="page_title" position="left" shadow="xl" className="text-gold mb-2">
                 Правила
-              </h1>
-              <p className="text-left text-xl xl:text-3xl">
-                правила созданы для чего? Правильно, чтобы их не читать.
-              </p>
+              </Typography>
+              <Typography position="left" className="text-xl xl:text-2xl">
+                Правила созданы для чего? Правильно, чтобы их не читать.
+              </Typography>
             </div>
           </div>
         </WrapperTitle>

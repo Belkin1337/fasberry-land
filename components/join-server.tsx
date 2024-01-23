@@ -40,8 +40,8 @@ export const JoinServer = () => {
           </p>
         </div>
       </DialogTrigger>
-      <DialogContent className="max-w-6xl h-3/4 bg-transparent border-none">
-        <div className="flex justify-center items-center p-12 bg-repeat border-4 border-black h-full w-full"
+      <DialogContent className="max-w-6xl h-3/4 bg-transparent border-none p-0">
+        <div className="flex justify-center items-center bg-repeat border-4 border-black h-full w-full"
           style={{
             backgroundImage: `url("/images/static/dirt.png")`
           }}>

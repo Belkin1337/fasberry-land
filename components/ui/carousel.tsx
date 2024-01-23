@@ -206,16 +206,23 @@ const CarouselPrevious = React.forwardRef<
       className={cn(
         "absolute  h-8 w-8 border-none",
         orientation === "horizontal"
-          ? "-left-8 top-1/2 -translate-y-1/2"
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+          ? "lg:-left-12 -bottom-20 lg:top-1/2 -translate-y-1/2"
+          : "lg:-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <Image src="/images/minecraft/icons/large-arrow-left-hover.png" width={26} height={26} alt="Previous" />
-      <span className="sr-only">Previous slide</span>
+      <Image
+        src="/images/minecraft/icons/large-arrow-left-hover.png"
+        width={26}
+        height={26}
+        alt="Previous"
+      />
+      <span className="sr-only">
+        Previous slide
+      </span>
     </Button>
   )
 })
@@ -235,16 +242,23 @@ const CarouselNext = React.forwardRef<
       className={cn(
         "absolute h-8 w-8 border-none",
         orientation === "horizontal"
-          ? "-right-8 top-1/2 -translate-y-1/2"
-          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
+          ? "-right-0 lg:-right-12 -bottom-20 lg:top-1/2 -translate-y-1/2"
+          : "lg:-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <Image src="/images/minecraft/icons/large-arrow-right-hover.png" width={26} height={26} alt="Next" />
-      <span className="sr-only">Next slide</span>
+      <Image
+        src="/images/minecraft/icons/large-arrow-right-hover.png"
+        width={26}
+        height={26}
+        alt="Next"
+      />
+      <span className="sr-only">
+        Next slide
+      </span>
     </Button>
   )
 })

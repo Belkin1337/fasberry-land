@@ -2,7 +2,7 @@ import { ChangeEvent, useMemo, useState } from 'react';
 // import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Wrapper } from "@/components/wrappers/main-wrapper";
 import { Badge } from '@/components/ui/Badge';
-import { rulesList, termins } from "@/shared/content"
+import { rulesList } from "@/shared/content"
 
 export const RulesList = () => {
   const [searchKeyword, setSearchKeyword] = useState('');
@@ -53,8 +53,13 @@ export const RulesList = () => {
           </Accordion> */}
           {rulesList.map((item, idx) =>
             item.content && item.content.length > 0 ? (
-              <div key={idx} id={item.sectionId} className="flex flex-col py-4 px-2 md:px-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 bg-black/80 dark:bg-transparent rounded-md">
-                <h1 className="text-gold text-xl md:text-4xl text-shadow-xl mb-6">{item.title}</h1>
+              <div 
+              key={idx} 
+              id={item.sectionId} 
+              className="flex flex-col py-4 px-2 md:px-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 bg-black/80 dark:bg-transparent rounded-md">
+                <h1 className="text-gold text-xl md:text-4xl text-shadow-xl mb-6">
+                  {item.title}
+                </h1>
                 {item.content.map((article, idx) => (
                   <div key={idx} className="flex flex-col mb-4">
                     <div className="flex flex-row flex-wrap lg:flex-nowrap">

@@ -31,7 +31,7 @@ export const Status = () => {
             <div className="flex flex-row justify-between items-center">
               <p className="text-white text-xl lg:text-2xl">Текущий онлайн</p>
               {isLoading ? (
-                <p className="text-white text-xl lg:text-2xl cursor-pointer">загружаем...</p>
+                <p className="text-white text-xl lg:text-2xl cursor-pointer">0</p>
               ) : (
                 <p className="text-white text-xl lg:text-2xl cursor-pointer">
                   {data?.players?.online || 0} из {data?.players?.max || 94}

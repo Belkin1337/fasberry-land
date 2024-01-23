@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation"
-import { Wrapper } from "../wrappers/main-wrapper";
+import { Wrapper } from "./wrappers/main-wrapper";
 import Image from "next/image"
 
 export const Footer = () => {

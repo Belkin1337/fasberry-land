@@ -47,7 +47,7 @@ export const ServerStatus = () => {
           </div>
           <div className="flex flex-col gap-y-1">
             {isLoading ? (
-              <p className="py-2 px-4 text-lg md:text-xl">загружаем...</p>
+              <p className="py-2 px-4 text-lg md:text-xl">0</p>
             ) : (
               <>
                 {data?.players?.list.map((player: Player) => (

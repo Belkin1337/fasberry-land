@@ -1,20 +1,30 @@
 import Head from "next/head"
-import { Subscriptions } from "@/components/section/subscriptions";
 import { Wrapper } from '@/components/wrappers/main-wrapper';
 import { WrapperTitle } from '@/components/wrappers/wrapper-title';
-import { Title } from "@/components/ui/title";
 import { Overlay } from "@/components/ui/overlay";
-import { Header } from "@/components/section/header";
-import { Footer } from "@/components/section/footer";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { SubscriptionItem } from "@/components/subscription-item";
+import { support } from "@/shared/content";
+import { Typography } from "@/components/ui/typography";
 
 export default function Donate() {
+  const subList = support.Support.content[0].donateElement.map((item) => ({
+    title: item.title,
+    rate: item.rate,
+    description: item.description,
+    commands: item.commands,
+    price: item.price,
+    screenshot: item.screenshot
+  }));
+
   return (
     <>
       <Head>
         <title>Подписки</title>
         <meta name="keywords" content="Приобретение привилегий, подписки, fasberry донат, донат minecraft, minecraft fasberry" />
       </Head>
-      <Header/>
+      <Header />
       <div className="full-screen-section flex items-center justify-start bg-bottom md:bg-center bg-no-repeat bg-cover"
         style={{
           backgroundImage:
@@ -24,12 +34,12 @@ export default function Donate() {
         <WrapperTitle>
           <div className="flex flex-col items-start justify-center w-full lg:max-w-4xl px-8 md:px-16 lg:px-28 xl:px-32">
             <div className="bg-black/60 rounded-xl p-4 lg:p-6">
-              <h1 className="text-left text-5xl lg:text-6xl xl:text-8xl text-gold text-shadow-xl mb-2">
+              <Typography variant="page_title" position="left" shadow="xl" className="text-gold mb-2">
                 Покупка привилегий
-              </h1>
-              <p className="text-left text-xl xl:text-3xl">
+              </Typography>
+              <Typography position="left" className="text-xl xl:text-2xl">
                 Здесь можно купить привилегии, ну или узнать о каждой больше.
-              </p>
+              </Typography>
             </div>
           </div>
         </WrapperTitle>
@@ -38,16 +48,32 @@ export default function Donate() {
         <Wrapper>
           <div className="flex flex-col py-32">
             <div className="flex flex-col items-center justify-center mb-6">
-              <Title className="text-black dark:text-white">
+              <Typography text_color="black" position="center" variant="block_title">
                 Привилегии сервера
-              </Title>
-              <p className="text-xl text-xl text-dark-red dark:text-gold md:text-xl text-center">привилегии и всё, что с ними связано</p>
+              </Typography>
+              <Typography size="xl" position="center" className="text-dark-red dark:text-gold">
+                привилегии и всё, что с ними связано
+              </Typography>
             </div>
-            <Subscriptions />
+            <div defaultValue="subscriptions" className="flex flex-col">
+              <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-4">
+                {subList.map((item, idx) => (
+                  <SubscriptionItem 
+                    key={idx}
+                    name={item.title} 
+                    description={item.description} 
+                    commands={item.commands}
+                    rate={item.rate}
+                    screenshot={item.screenshot}
+                    price={item.price}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </Wrapper>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

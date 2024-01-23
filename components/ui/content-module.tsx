@@ -1,7 +1,7 @@
 import { VariantProps, cva } from "class-variance-authority"
 import { TabsContent } from "./tabs"
 
-const contentModuleVariants = cva("flex flex-col gap-y-4", {
+const contentModuleVariants = cva("flex flex-col gap-y-4 overflow-x-auto", {
   variants: {
     variant: {
       started: "items-start",

@@ -1,5 +1,5 @@
-import { Footer } from "@/components/section/footer"
-import { Header } from "@/components/section/header"
+import { Footer } from "@/components/footer"
+import { Header } from "@/components/header"
 import Head from "next/head"
 
 export default function Terms() {

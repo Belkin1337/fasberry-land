@@ -34,7 +34,7 @@ const AccordionTrigger = React.forwardRef<
       {...props}
     >
       {children}
-      <Image src="/images/minecraft/icons/knowledge_book.webp" width={26} height={18} alt="chevron book"/>
+      <Image src="/images/minecraft/icons/knowledge_book.webp" className="w-[16px] h-[20px]" width={26} height={18} alt="chevron book"/>
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ))
@@ -52,7 +52,7 @@ const AccordionContent = React.forwardRef<
     )}
     {...props}
   >
-    <div className="pb-4 pt-0">{children}</div>
+    {children}
   </AccordionPrimitive.Content>
 ))
 AccordionContent.displayName = AccordionPrimitive.Content.displayName

@@ -1,7 +1,7 @@
 import Image from "next/image"
 
-export const PreLoader = () => {
-  const gifs_arr: any[] = [
+export const Preloader = () => {
+  const gifs_arr = [
     "/images/loader/arara.webp", 
     "/images/loader/minecraft-fox-jump.webp", 
     "/images/loader/moose-moosecraft.webp", 
@@ -13,12 +13,13 @@ export const PreLoader = () => {
     "/images/loader/ghast.gif", 
   ];
 
-  function randomGif<T>(array: T[]): T | undefined {
+  const randomGif = (array: string[]) => {
     if (array.length === 0) {
-      return undefined;
+      return null;
     }
 
     const randomIndex = Math.floor(Math.random() * array.length);
+    
     return array[randomIndex];
   }
 
@@ -29,7 +30,7 @@ export const PreLoader = () => {
       <Image
         width={256}
         height={256}
-        src={gifs}
+        src={`${gifs}`}
         draggable="false"
         alt="Подождите... идёт загрузка."
       />

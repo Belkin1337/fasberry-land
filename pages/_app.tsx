@@ -8,7 +8,7 @@ import '@/styles/globals.css'
 import '@/styles/minecraft-weather.css'
 import "react-toastify/dist/ReactToastify.css";
 import { ThemeProvider } from 'next-themes';
-import { PreLoader } from '@/components/ui/preloader/pre-loader';
+import { Preloader } from '@/components/ui/preloader';
 
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -52,7 +52,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         <link rel="preload" href="/fonts/Monocraft.otf" as="font" crossOrigin='' type="font/otf" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
-      <Suspense fallback={(<PreLoader />)}>
+      <Suspense fallback={(<Preloader />)}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
