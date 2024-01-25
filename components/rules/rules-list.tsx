@@ -2,9 +2,9 @@ import { ChangeEvent, useMemo, useState } from 'react';
 // import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Wrapper } from "@/components/wrappers/main-wrapper";
 import { rulesList } from "@/shared/content"
-import { Badge } from '@/components/ui/badge';
 import { Typography } from '@/components/ui/typography';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Badge } from '../ui/Badge';
 
 export const RulesList = () => {
   const [searchKeyword, setSearchKeyword] = useState('');

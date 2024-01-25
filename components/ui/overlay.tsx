@@ -20,6 +20,9 @@ export interface OverlayVariantsProps
 
 export const Overlay = ({ className, variant, ...props }: OverlayVariantsProps) => {
   return (
-    <div className={overlayVariants({ className, variant })} />
+    <div className={overlayVariants({ 
+      className, 
+      variant 
+    })}/>
   )
 }
