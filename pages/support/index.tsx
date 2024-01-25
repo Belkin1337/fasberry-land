@@ -2,8 +2,8 @@ import Head from "next/head"
 import Link from "next/link"
 import Image from "next/image"
 import { Wrapper } from "@/components/wrappers/main-wrapper";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 import { Typography } from "@/components/ui/typography";
 import { Block } from "@/components/ui/block";
 

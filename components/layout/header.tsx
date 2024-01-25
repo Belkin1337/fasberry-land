@@ -3,8 +3,9 @@ import { usePathname } from 'next/navigation'
 import { useRouter } from "next/router"
 import { toast, Zoom } from 'react-toastify';
 import { headerLinks } from '@/shared/content';
-import { ThemeToggle } from './theme-toggle';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
+import { ThemeToggle } from '@/components/tools/theme-toggle';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Typography } from '@/components/ui/typography';
 import Image from "next/image"
 
 export const Header = () => {
@@ -36,12 +37,14 @@ export const Header = () => {
 
 	return (
 		<>
-			<div className={`header flex items-center justify-between absolute top-0 transition w-full bg-repeat-x z-50`}
+			<div className={`header flex items-center justify-between sticky lg:absolute top-0 transition w-full bg-repeat-x z-50`}
 				style={{
 					backgroundImage: `url("/images/static/cracked_polished_blacked.webp")`,
 					backgroundSize: '160px',
 				}}>
-				<div onClick={() => router.push('/')} className="bg-transparent cursor-pointer relative top-3 xl:-right-20">
+				<div 
+					onClick={() => router.push('/')} 
+					className="bg-transparent cursor-pointer relative top-3 xl:-right-20">
 					<Image
 						width={224}
 						height={64}
@@ -51,26 +54,23 @@ export const Header = () => {
 				</div>
 				<div className="hidden xl:flex gap-x-4 items-center justify-start pr-[128px]">
 					{headerLinks.map((item, idx) => (
-						<div
-							key={idx}
-							onClick={() => pathDetect(item.href)}
-							className="flex flex-row items-center gap-1 text-lg cursor-pointer"
-						>
+						<div key={idx} onClick={() => pathDetect(item.href)}
+							className="flex flex-row items-center gap-1 text-lg cursor-pointer">
 							<Image
 								src={item.image}
 								width={20}
 								height={20}
 								alt={item.name}
 							/>
-							<span className={`hover:brightness-150 
-          					${router.pathname === item.href
-									? 'underline underline-offset-8 decoration-[#fabbfb] decoration-2'
-									: ''} 
-          					${item.name == "Привилегии"
-									? 'text-gold'
-									: 'text-project-color'}`}>
+							<Typography className={`hover:brightness-[1.8] hover:duration-300 duration-300 ease-in
+          				${router.pathname === item.href
+										? 'underline underline-offset-8 decoration-[#fabbfb] decoration-2'
+										: ''} 
+          				${item.name == "Привилегии"
+										? 'text-gold'
+										: 'text-project-color'}`}>
 								{item.name}
-							</span>
+							</Typography>
 						</div>
 					))}
 					<div className="w-[36px] h-[36px] overflow-hidden">
@@ -110,12 +110,10 @@ export const Header = () => {
 						</div>
 						<div className="flex flex-col items-center justify-center w-full gap-y-2 px-4">
 							{headerLinks.map((item) => (
-								<div
-									key={item.name}
-									onClick={() => {
-										router.push(item.href);
-										setOpen(false);
-									}}
+								<div key={item.name} onClick={() => {	
+									router.push(item.href); 
+									setOpen(false); 
+								}}
 									className="flex border border-neutral-800 hover:bg-neutral-800 cursor-pointer rounded-md gap-x-6 shadow-[inset_42px_0px_0px_#553C7D] py-2 px-2 w-full">
 									<Image
 										src={item.image}
@@ -124,9 +122,11 @@ export const Header = () => {
 										alt={item.name}
 										loading="lazy"
 									/>
-									<p className={`text-[1.1rem] ${item.name === "Привилегии" ? 'text-gold' : 'text-project-color'}`}>
+									<Typography size="lg"	className={`${item.name === "Привилегии" 
+										? 'text-gold' 
+										: 'text-project-color'}`}>
 										{item.name}
-									</p>
+									</Typography>
 								</div>
 							))}
 						</div>

@@ -1,27 +1,53 @@
 import { useState } from 'react';
 import { useKeenSlider } from 'keen-slider/react';
-import { CarouselImages } from '@/components/carousel-images';
-import { Status } from '@/components/status';
-import { Footer } from '@/components/footer';
-import { Header } from '@/components/header';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { CarouselImages } from '@/components/intro/carousel-images';
+import { Status } from '@/components/status/status';
+import { Footer } from '@/components/layout/footer';
+import { Header } from '@/components/layout/header';
+import { Dialog, DialogContent, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { commuinityGallery, contacts, gameplay, news, projectDesciption } from '@/shared/content';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Wrapper } from '@/components/wrappers/main-wrapper';
-import { JoinServer } from '@/components/join-server';
 import { Typography } from '@/components/ui/typography';
 import { Block } from '@/components/ui/block';
+import { Zoom, toast } from "react-toastify"
 import Image from "next/image"
 import Link from "next/link"
 
 export default function General() {
-  const [opacities, setOpacities] = useState<number[]>([])
+  const [opacities, setOpacities] = useState<number[]>([]);
+  const toast_custom_id = "alert_duplicate_toast";
+
+  const actionCopyboard = () => {
+    navigator.clipboard.writeText('play.fasberry.ru')
+
+    toast.success('IP успешно скопирован!', {
+      toastId: toast_custom_id,
+      className: "bg-black text-white text-[0.9rem]",
+      autoClose: 1900,
+      role: "alert",
+      position: toast.POSITION.TOP_RIGHT,
+      transition: Zoom,
+      icon: ({ theme, type }) =>
+        <Image
+          width={40}
+          height={40}
+          alt="Toast Pic"
+          loading="lazy"
+          src="/images/minecraft/icons/book_big.webp"
+        />,
+    })
+  }
 
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     slides: projectDesciption.length,
     loop: true,
     detailsChanged(s) {
-      const new_opacities = s.track.details.slides.map((slide) => slide.portion)
+      const new_opacities = s.track
+        .details
+        .slides
+        .map((slide) => slide.portion)
       setOpacities(new_opacities)
     },
   })
@@ -42,28 +68,100 @@ export default function General() {
           <div className="w-[90%] flex justify-start mx-auto">
             <div ref={sliderRef} className="fader flex items-center relative z-20 w-full">
               {projectDesciption.map((item, idx) => (
-                <div
-                  key={item.title}
-                  className="fader__slide w-full lg:w-2/4 xl:w-2/5 2xl-w-2/6 cursor-pointer absolute"
+                <div key={item.title} className="fader__slide w-full lg:w-2/4 xl:w-2/5 2xl-w-2/6 cursor-pointer absolute"
                   style={{
                     opacity: opacities[idx]
                   }}
                 >
                   <div className="flex flex-col w-full lg:max-w-xl justify-start h-[260px] md:h-[280px] lg:h-[360px] bg-black/60 rounded-xl p-4 lg:p-6">
-                    <h1 className="text-shadow-xl mb-4 text-4xl lg:text-6xl"
-                      style={{
-                        color: `${item.descColor}`
-                      }}>
+                    <Typography className={`text-[#fabbfb] mb-4 text-4xl lg:text-6xl`}>
                       {item.title}
-                    </h1>
-                    <h2 className="mb-1 text-shadow-xl text-lg lg:text-3xl">
+                    </Typography>
+                    <Typography shadow="xl" className="text-white text-lg lg:text-3xl">
                       {item.desc}
-                    </h2>
+                    </Typography>
                   </div>
                 </div>
               ))}
               <div className="flex-col relative top-40 w-full lg:w-2/4 xl:w-2/5 2xl:w-2/6 md:top-44 lg:top-56 lg:flex-row gap-4 items-center hidden md:flex">
-                <JoinServer />
+                <Dialog>
+                  <DialogTrigger className="w-full">
+                    <div className="flex items-center justify-center relative w-full h-[54px] lg:h-[64px] rounded-md
+                    bg-black/10 z-20 cursor-pointer backdrop-filter backdrop-blur-md
+                      hover:shadow-[inset_24px_0px_0px_#fff] hover:bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] 
+                      hover:from-[#00cdb0] hover:via-[#a976f8] hover:to-[#ffc0cb] 
+                      hover:duration-700 hover:transition transition hover:ease-out duration-500">
+                      <Typography className="text-white text-2xl text-shadow-xl">
+                        Начать играть
+                      </Typography>
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-6xl h-3/4 bg-transparent border-none p-0">
+                    <div className="flex justify-center items-center bg-repeat border-4 border-black h-full w-full"
+                      style={{
+                        backgroundImage: `url("/images/static/dirt.png")`
+                      }}>
+                      <div className="flex flex-col gap-y-6 justify-between">
+                        <div className="flex flex-col gap-y-2">
+                          <Typography className="text-neutral-400" size="base">
+                            Название сервера
+                          </Typography>
+                          <div className="bg-black py-2 px-2 border-2 border-neutral-500 w-100 md:w-96">
+                            <Typography size="base" position="left" className="text-white">
+                              Сервер Minecraft
+                            </Typography>
+                          </div>
+                          <Typography size="base" className="text-neutral-400">
+                            Адрес сервера
+                          </Typography>
+                          <TooltipProvider delayDuration={1}>
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <Typography
+                                  size="base"
+                                  position="left"
+                                  onClick={() => actionCopyboard()}
+                                  className="cursor-pointer bg-black py-2 px-2 border-2 text-white border-neutral-500 w-100 md:w-96">
+                                  play.fasberry.ru
+                                </Typography>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <Typography size="lg" className="text-neutral-400">
+                                  Скопировать IP
+                                </Typography>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </div>
+                        <div className="flex flex-col gap-y-2">
+                          <TooltipProvider delayDuration={1}>
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <div className="button w-full md:w-96 px-2 py-1">
+                                  <Typography shadow="xl" className="text-shadow-xl text-[0.8rem] lg:text-base text-white" position="center">
+                                    Наборы ресурсов: Включены
+                                  </Typography>
+                                </div>
+                              </TooltipTrigger>
+                              <TooltipContent className="w-[460px]">
+                                <Typography size="lg" className="text-neutral-400">
+                                  На сервере используется свой ресурспак. Эту опцию рекомендуется оставить включенной!
+                                </Typography>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                          <DialogClose>
+                            <div className="button w-full md:w-96 px-2 py-1">
+                              <Typography className="text-shadow-xl text-[0.8rem] text-white lg:text-base" position="center">
+                                Готово
+                              </Typography>
+                            </div>
+                          </DialogClose>
+                        </div>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </div>
               <div className="flex-col relative top-40 w-full lg:w-2/4 xl:w-2/5 2xl:w-2/6 lg:top-56 lg:flex-row gap-4 items-center md:hidden flex">
                 <div className="flex items-center justify-center relative w-full h-[54px] lg:h-[64px] border border-black rounded-md
@@ -71,7 +169,8 @@ export default function General() {
                   hover:shadow-[inset_24px_0px_0px_#fff] hover:bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] 
                   hover:from-[#00cdb0] hover:via-[#a976f8] hover:to-[#ffc0cb] 
                   hover:duration-700 hover:transition transition hover:ease-out duration-500">
-                  <p className="text-white text-shadow-xl font-bold text-xl lg:text-2xl" onClick={() => navigator.clipboard.writeText('play.fasberry.ru')}>
+                  <p className="text-white text-shadow-xl font-bold text-xl lg:text-2xl"
+                    onClick={() => navigator.clipboard.writeText('play.fasberry.ru')}>
                     IP: play.fasberry.ru
                   </p>
                 </div>
@@ -90,17 +189,27 @@ export default function General() {
               <Dialog key={item.id}>
                 <DialogTrigger className="flex flex-col rounded-xl block-item p-1 overflow-hidden">
                   <div className="h-[220px] w-full sm:h-[360px] md:h-[420px] xl:w-[920px] xl:h-[500px] overflow-hidden rounded-t-xl bg-black">
-                    <Image layout="responsive" loading="lazy" width={920} height={220} src={item.image} className="w-full h-full object-cover" alt="News" />
+                    <Image
+                      loading="lazy"
+                      width={920}
+                      height={220}
+                      src={item.image}
+                      className="w-full h-full object-cover"
+                      alt="News"
+                    />
                   </div>
                   <div className="flex flex-col items-start relative rounded-b-xl self-end bg-black/80 dark:bg-black py-2 px-2 lg:py-4 lg:px-4 w-full gap-y-2 max-h-[96px] lg:h-[114px]">
-                    <p className="text-white text-left font-normal text-base lg:text-3xl">{item.title}</p>
-                    <p className="text-neutral-400 text-sm lg:text-lg font-normal">{item.date}</p>
+                    <p className="text-white text-left font-normal text-base lg:text-3xl">
+                      {item.title}
+                    </p>
+                    <p className="text-neutral-400 text-sm lg:text-lg font-normal">
+                      {item.date}
+                    </p>
                   </div>
                 </DialogTrigger>
                 <DialogContent className="flex flex-col w-[90%] mx-auto xl:flex-row bg-black/80 border border-neutral-900 rounded-xl p-2 w-6xl backdrop-filter backdrop-blur-md overflow-hidden gap-x-6">
                   <div className="h-[220px] sm:h-[360px] md:h-[420px] xl:w-2/3 xl:h-6/7 w-full overflow-hidden">
                     <Image
-                      layout="responsive"
                       loading="lazy"
                       width={1024}
                       height={220}
@@ -111,10 +220,16 @@ export default function General() {
                   </div>
                   <div className="flex flex-col justify-between w-full xl:w-3/4 py-4">
                     <div className="flex flex-col gap-y-4">
-                      <p className="text-project-color font-normal text-xl lg:text-3xl">{item.title}</p>
-                      <p className="text-white font-normal text-md lg:text-xl">{item.body}</p>
+                      <p className="text-project-color font-normal text-xl lg:text-3xl">
+                        {item.title}
+                      </p>
+                      <p className="text-white font-normal text-md lg:text-xl">
+                        {item.body}
+                      </p>
                     </div>
-                    <p className="text-neutral-400 text-sm self-end lg:text-base font-normal">{item.date}</p>
+                    <p className="text-neutral-400 text-sm self-end lg:text-base font-normal">
+                      {item.date}
+                    </p>
                   </div>
                 </DialogContent>
               </Dialog>
@@ -176,7 +291,8 @@ export default function General() {
       <div className="full-screen-section flex flex-col items-center">
         <div className="flex flex-col lg:flex-row">
           {gameplay.map((item, idx) => (
-            <div key={idx} className="flex flex-col items-center justify-end w-full min-h-screen lg:w-1/3 bg-top relative bg-cover lg:bg-center border-0 lg:border-r-2 border-project-color"
+            <div key={idx} className="flex flex-col items-center justify-end w-full min-h-screen lg:w-1/3 bg-top 
+            relative bg-cover lg:bg-center border-0 lg:border-r-2 border-project-color"
               style={{
                 backgroundImage: `url(${item.image})`
               }}>
@@ -227,7 +343,9 @@ export default function General() {
                     ))}
                     <Link href={item.href} className="flex flex-row items-center gap-x-4 brightness-110 mt-4 py-4 cursor-pointer group">
                       <item.icon className="fill-white" size={32} />
-                      <span className="text-white text-lg">Перейти в {item.name}!</span>
+                      <span className="text-white text-lg">
+                        Перейти в {item.name}!
+                      </span>
                     </Link>
                   </Block>
                 </div>

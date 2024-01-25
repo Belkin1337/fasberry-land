@@ -299,7 +299,7 @@ const support = {
               "бесплатные наборы питомцев,",
               "увеличение лимитов для работ,",
             ],
-            screenshot: "/images/donates/authentic.png",
+            screenshot: "https://media.discordapp.net/attachments/904344676587417621/1199804676753850368/authentic.png?ex=65c3e02e&is=65b16b2e&hm=ad42b494e71199967b6c2e2050cc95879ff546261d80ff9e7db4f90d4c05efbd&=&format=webp&quality=lossless&width=436&height=671",
           },
           {
             title: "Лоял",
@@ -314,7 +314,7 @@ const support = {
               "бесплатные наборы питомцев,",
               "увеличение лимитов для работ,",
             ],
-            screenshot: "/images/donates/loyal.png",
+            screenshot: "https://media.discordapp.net/attachments/904344676587417621/1199804677030686832/loyal.png?ex=65c3e02e&is=65b16b2e&hm=63650f6313c45b768bb3b5640a2ebce07570aa89142e652501836f94d953d658&=&format=webp&quality=lossless",
           },
           {
             title: "Архонт",
@@ -328,7 +328,7 @@ const support = {
               "вас жаждут видеть на сервере,",
               "все возможности прошлых подписок",
             ],
-            screenshot: "/images/donates/arkhont.png",
+            screenshot: "https://media.discordapp.net/attachments/904344676587417621/1199804676422508604/arkhont.png?ex=65c3e02e&is=65b16b2e&hm=3ab549c55c2162f6bf6e5552d6de990bb9851e02ffb9eafd654237525e5534d3&=&format=webp&quality=lossless&width=562&height=671",
           },
         ],
       },

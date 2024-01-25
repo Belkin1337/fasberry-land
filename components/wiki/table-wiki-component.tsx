@@ -8,7 +8,7 @@ interface TableProps {
   table_caption?: string
 }
 
-export const TableComponent = ({ 
+export const WikiTableComponent = ({ 
   array_name, 
   columns, 
   table_caption 

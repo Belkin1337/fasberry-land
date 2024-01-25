@@ -1,9 +1,9 @@
 import Image from "next/image"
 import { useKeenSlider } from "keen-slider/react"
-import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog"
+import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog"
 import "keen-slider/keen-slider.min.css"
 import { gallery } from "@/shared/content"
-import { Typography } from "./ui/typography"
+import { Typography } from "../ui/typography"
 
 const ScreenItem = ({ title, src }: { title: string, src: string }) => {
   return (

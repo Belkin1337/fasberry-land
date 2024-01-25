@@ -1,9 +1,9 @@
 import Head from "next/head"
 import { Overlay } from '@/components/ui/overlay';
 import { WrapperTitle } from '@/components/wrappers/wrapper-title';
-import { RulesList } from '@/components/rules-list';
-import { Footer } from "@/components/footer";
-import { Header } from "@/components/header";
+import { RulesList } from '@/components/rules/rules-list';
+import { Footer } from "@/components/layout/footer";
+import { Header } from "@/components/layout/header";
 import { Typography } from "@/components/ui/typography";
 
 export default function RulesPage() {

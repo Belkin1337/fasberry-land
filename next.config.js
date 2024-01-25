@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   async rewrites() {
-    return [
-      {
+    return [{
         source: '/api/:path*',
         destination: 'https://api.mcstatus.io/v2/status/java/play.fasberry.ru',
       },
@@ -13,6 +12,30 @@ module.exports = {
     return config;
   },
   images: {
-    domains: ["avatars.githubusercontent.com", "cdn.discordapp.com", "lh3.googleusercontent.com"],
+    remotePatterns: [{
+      protocol: "https",
+      hostname: "avatars.githubusercontent.com",
+      port: '',
+      pathname: "/**"
+    }, 
+    {
+      protocol: "https",
+      hostname: "cdn.discordapp.com",
+      port: '',
+      pathname: "/**"
+    },
+    {
+      protocol: "https",
+      hostname: "lh3.googleusercontent.com",
+      port: '',
+      pathname: "/**"
+    },
+     {
+      protocol: "https",
+      hostname: "media.discordapp.net",
+      port: '',
+      pathname: "/**"
+    }
+    ]
   },
 };

@@ -1,6 +1,6 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion"
-import { Block } from "./ui/block"
-import { Dialog, DialogClose, DialogContent, DialogTrigger } from "./ui/dialog"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion"
+import { Block } from "../ui/block"
+import { Dialog, DialogClose, DialogContent, DialogTrigger } from "../ui/dialog"
 import Image from "next/image"
 
 interface SubscriptionItemProps {

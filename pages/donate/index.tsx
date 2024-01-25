@@ -2,9 +2,9 @@ import Head from "next/head"
 import { Wrapper } from '@/components/wrappers/main-wrapper';
 import { WrapperTitle } from '@/components/wrappers/wrapper-title';
 import { Overlay } from "@/components/ui/overlay";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
-import { SubscriptionItem } from "@/components/subscription-item";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { SubscriptionItem } from "@/components/subs/subscription-item";
 import { support } from "@/shared/content";
 import { Typography } from "@/components/ui/typography";
 

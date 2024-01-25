@@ -20,7 +20,13 @@ export interface ContentModule
   value: string,
 }
 
-export const ContentModule = ({ id, value, className, variant, ...props }: ContentModule) => {
+export const ContentModule = ({ 
+  id, 
+  value, 
+  className, 
+  variant, 
+  ...props 
+}: ContentModule) => {
   return (
     <TabsContent
       id={id}

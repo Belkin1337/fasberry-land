@@ -1,22 +1,22 @@
 import { cn } from "@/lib/utils"
 import { VariantProps, cva } from "class-variance-authority"
 
-const typographyVariants = cva("group-hover:duration-300 duration-300 transition ease-in", {
+const typographyVariants = cva("group-hover:duration-300 duration-300 transition ease-in text-white", {
   variants: {
     variant: {
       page_title: "text-5xl lg:text-6xl xl:text-7xl",
       block_title: "text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl",
-      block_paragraph: "text-md lg:text-lg xl:text-xl 2xl:text-2xl",
+      block_paragraph: "text-md lg:text-lg xl:text-xl 2xl:text-2xl text-white",
       block_subtitle: "text-2xl md:text-3xl text-project-color"
     },
     size: {
       md: "text-sm lg:text-md",
       base: "text-base lg:text-lg",
       lg: "text-base lg:text-lg",
-      xl: "text-lg lg:text-xl",
+      xl: "text-md lg:text-xl",
     },
     text_color: {
-      none: "text-white",
+      none: "dark:text-white text-white",
       black: "text-black dark:text-white",
       pink: "text-[#FABBFB]",
       dark_red: "text-dark-red",

@@ -9,49 +9,30 @@
 }
 
 @layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
-  }
-  .grad-first-teal {
-    @apply bg-gradient-to-r from-[#143632] to-[#074f45] rounded-sm
-  }
-  .grad-first-purple {
-    @apply bg-gradient-to-r bg-opacity-25 from-[#382753] to-[#60438E] border border-[#9c3198]
-  }
   .block-item {
     @apply bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#00cdb0] via-[#a976f8] to-[#ffc0cb]
   }
 
   div::-webkit-scrollbar {
     @apply bg-neutral-900 rounded-md w-[6px]
-  }
-
-  div::-webkit-scrollbar-thumb {
+  } div::-webkit-scrollbar-thumb {
     @apply bg-neutral-600 rounded-xl
-  }
-
-  div::-webkit-scrollbar-track {
+  } div::-webkit-scrollbar-track {
     @apply bg-neutral-950
-  }
-
+  } 
+  
   ::-webkit-scrollbar {
     @apply w-[8px]
-  }
-
-  ::-webkit-scrollbar-track {
+  } ::-webkit-scrollbar-track {
     @apply  dark:bg-neutral-900
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-[#00cdb0] 
+  } ::-webkit-scrollbar-thumb {
+    @apply bg-[#fabbfb] 
   }
 }
 
-
 :root {
-  --block-size: 48px;
+    --block-size: 48px;
     --zoom: 1;
-    
     --1\/16--block: calc(var(--block-size) / 16);
     --1\/8-block: calc(var(--block-size) / 8);
     --1\/4-block: calc(var(--block-size) / 4);
@@ -88,7 +69,6 @@
     --30-block: calc(var(--block-size) * 30);
     --31-block: calc(var(--block-size) * 31);
     --32-block: calc(var(--block-size) * 32);
-
     --fluid-0: clamp(0.72rem, calc(0.67rem + 0.24vw), 0.87rem);
     --fluid-1: clamp(0.91rem, calc(0.87rem + 0.22vw), 1.04rem);
     --fluid-2: clamp(1.09rem, calc(1.04rem + 0.26vw), 1.25rem);
@@ -99,37 +79,30 @@
     --fluid-7: clamp(2.72rem, calc(2.59rem + 0.65vw), 3.11rem);
     --fluid-8: clamp(3.27rem, calc(3.11rem + 0.78vw), 3.73rem);
     --fluid-9: clamp(3.73rem, calc(3.48rem + 1.24vw), 4.48rem);
-
-  --primary-color: #0b0f18;
-  --secondary-color: #1d1f23;
-  --tertiary-color: #181d28;
-  --background-color: #414141;
-  --white: #fff;
-  --discord-color: #7289da;
-  --purple-hue-1: #B8AFF7;
-  --purple-hue-2: #B99CF3;
-  --purple-hue-3: #A976F8;
-  --purple-hue-4: #FABBFB;
-  --discord-server-color: #68FBAC;
-  --blue-color: #C2CBFB;
-  --green-color: #8FFD8F;
-  --red-color: #FB3E3E;
-  --general-color: #00cdb0;
+    --primary-color: #0b0f18;
+    --secondary-color: #1d1f23;
+    --tertiary-color: #181d28;
+    --background-color: #414141;
+    --white: #fff;
+    --discord-color: #7289da;
+    --purple-hue-1: #B8AFF7;
+    --purple-hue-2: #B99CF3;
+    --purple-hue-3: #A976F8;
+    --purple-hue-4: #FABBFB;
+    --discord-server-color: #68FBAC;
+    --blue-color: #C2CBFB;
+    --green-color: #8FFD8F;
+    --red-color: #FB3E3E;
+    --general-color: #00cdb0;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   font-family: Monocraft;
-  font-display: sans;
 }
 
 ::selection {
   background: black;
-}
-
-::-moz-selection {
+} ::-moz-selection {
   background: black; 
 }
 
@@ -141,249 +114,12 @@ html {
 
 body {
   letter-spacing: normal;
-  overflow-x: hidden;
 }
 
 button,
 input,
 textarea {
   font-family: inherit !important;
-}
-
-li {
-  list-style-type: none;
-}
-
-p,
-ul,
-ol {
-  color: white;
-  margin: 0;
-  padding: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: white;
-  margin: 0;
-  padding: 0;
-}
-
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
-
-/* .panel,
-.table,
-.markdown table {
-    --zoom: 10;
-    border-width: calc(var(--block-size) / var(--zoom));
-    border-image: url('../public/images/minecraft/ui/panel.png');
-    border-image-width: calc(var(--block-size) / var(--zoom));
-    border-image-slice: 43% 43% fill;
-    border-image-repeat: stretch;
-}
-
-.slot,
-.table td,
-.markdown td,
-.scrollbar::-webkit-scrollbar-track {
-    --zoom: 24;
-    border-width: calc(var(--block-size) / var(--zoom));
-    border-image: url('../public/images/minecraft/ui/slot.png');
-    border-image-width: calc(var(--block-size) / var(--zoom));
-    border-image-slice: 33.5% 33.5% fill;
-    border-image-repeat: stretch;
-} */
-
-.text-shadow-none { text-shadow: none; } 
-.text-shadow-xs { text-shadow: 0.75px 0.75px #000; }
-.text-shadow-sm { text-shadow: 1px 1px #000; } 
-.text-shadow, .text-shadow-md,
-.table td,
-.button,
-.markdown > p,
-.markdown h1,
-.markdown h2,
-.markdown h3,
-.markdown h4,
-.markdown h5,
-.markdown h6,
-.markdown ul,
-.markdown :not(pre) code,
-.markdown td { text-shadow: 1.5px 1.5px #000; } 
-.text-shadow-lg { text-shadow: 1.75px 1.75px #000; } 
-.text-shadow-xl { text-shadow: 2px 2px #000; }
-
-.map {
-  --zoom: 4;
-  box-sizing: content-box;
-  border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('../public/images/minecraft/ui/map.png');
-  border-image-width: calc(var(--block-size) / var(--zoom));
-  border-image-slice: 12.75% 15.75% fill;
-  border-image-repeat: repeat;
-}
-
-/* .table, .markdown table {
-  border-collapse: separate;
-  padding: 0.5rem;
-} .table th, .markdown th {
-  font-weight: normal;
-  font-size: var(--fluid-2);
-  color: #3d3c3d;
-} .table td, .markdown td {
-  position: relative;
-  padding: 0 0.25rem;
-  color: #fff;
-} */
-
-.markdown h1,
-.markdown h2,
-.markdown h3,
-.markdown h4,
-.markdown h5,
-.markdown h6 {
-    margin: 0.75rem 0;
-}
-
-.markdown h1 {
-    font-size: var(--fluid-7);
-} .markdown h2 {
-    font-size: var(--fluid-6);
-} .markdown h3 {
-    font-size: var(--fluid-5);
-} .markdown h4 {
-    font-size: var(--fluid-4);
-} .markdown h5 {
-    font-size: var(--fluid-3);
-} .markdown h6 {
-    font-size: var(--fluid-2);
-}
-
-.book {
-  --zoom: 4;
-  --size: calc((var(--block-size) / var(--zoom) * 3));
-  border-width: var(--size);
-  border-style: solid;
-  border-left-width: calc(var(--size) / 1.5);
-  border-image: url('../public/images/minecraft/ui/book.png');
-  border-image-width: var(--size) var(--size) var(--size) calc(var(--size) / 1.5);
-  border-image-slice: 8.5% 15% 12.75% 10% fill;
-  border-image-repeat: stretch;
-  color: #000;
-  text-shadow: none;
-}
-
-.button {
-  --zoom: 10;
-  user-select: none;
-  cursor: pointer;
-  image-rendering: pixelated;
-  background-size: cover;
-  background-image: url('../public/images/minecraft/ui/button-inside.png');
-  border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('../public/images/minecraft/ui/button-border.png');
-  border-image-width: calc(var(--block-size) / var(--zoom));
-  border-image-slice: 10% 3%;
-  border-image-repeat: stretch;
-  color: #d1d5db;
-} .button:hover {
-  background-size: cover;
-  background-image: url('../public/images/minecraft/ui/button-inside-hover.png');
-  border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('../public/images/minecraft/ui/button-border-hover.png');
-  border-image-width: calc(var(--block-size) / var(--zoom));
-  border-image-slice: 10% 3%;
-  border-image-repeat: stretch;
-  color: #fef08a;
-} .button:active {
-  background-size: cover;
-  background-image: url('../public/images/minecraft/ui/button-inside-active.png');
-  border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('../public/images/minecraft/ui/button-border-active.png');
-  border-image-width: calc(var(--block-size) / var(--zoom));
-  border-image-slice: 10% 3%;
-  border-image-repeat: contain;
-  color: #a8a29e;
-}
-
-.raised-slot,
-.raised-slot-button,
-.scrollbar::-webkit-scrollbar-corner {
-  --zoom: 24;
-  border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('../public/images/minecraft/ui/raised-slot.png');
-  border-image-width: calc(var(--block-size) / var(--zoom));
-  border-image-slice: 33.5% 33.5% fill;
-  border-image-repeat: stretch;
-} .raised-slot-hover,
-.raised-slot-button:hover {
-  --zoom: 24;
-  border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('../public/images/minecraft/ui/raised-slot-hover.png');
-  border-image-width: calc(var(--block-size) / var(--zoom));
-  border-image-slice: 33.5% 33.5% fill;
-  border-image-repeat: stretch;
-} .raised-slot-active,
-.raised-slot-button:active {
-  --zoom: 24;
-  border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('../public/images/minecraft/ui/raised-slot-active.png');
-  border-image-width: calc(var(--block-size) / var(--zoom));
-  border-image-slice: 33.5% 33.5% fill;
-  border-image-repeat: stretch;
-}
-
-.enchanting-slot,
-.enchanting-slot-button {
-  --zoom: 24;
-  border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('../public/images/minecraft/ui/enchanting-slot.png');
-  border-image-width: calc(var(--block-size) / var(--zoom));
-  border-image-slice: 33.5% 33.5% fill;
-  border-image-repeat: stretch;
-} .enchanting-slot-hover,
-.enchanting-slot-button:hover {
-  --zoom: 24;
-  border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('../public/images/minecraft/ui/enchanting-slot-hover.png');
-  border-image-width: calc(var(--block-size) / var(--zoom));
-  border-image-slice: 33.5% 33.5% fill;
-  border-image-repeat: stretch;
-} .enchanting-slot-active,
-.enchanting-slot-button:active {
-  --zoom: 24;
-  border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('../public/images/minecraft/ui/enchanting-slot-active.png');
-  border-image-width: calc(var(--block-size) / var(--zoom));
-  border-image-slice: 33.5% 33.5% fill;
-  border-image-repeat: stretch;
-}
-
-.anvil-textbox {
-  --zoom: 16;
-  border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('../public/images/minecraft/ui/anvil-textbox.png');
-  border-image-width: calc(var(--block-size) / var(--zoom));
-  border-image-slice: 40% 40% fill;
-  border-image-repeat: stretch;
-} .anvil-textbox-active,
-.anvil-textbox:active,
-.anvil-textbox:focus {
-  --zoom: 16;
-  border-width: calc(var(--block-size) / var(--zoom));
-  border-image: url('../public/images/minecraft/ui/anvil-textbox-active.png');
-  border-image-width: calc(var(--block-size) / var(--zoom));
-  border-image-slice: 40% 40% fill;
-  border-image-repeat: stretch;
 }
 
 footer::before {
@@ -395,9 +131,7 @@ footer::before {
   background-size: 960px;
   top: -50px;
   transform: scale(-1);
-}
-
-footer::after {
+} footer::after {
   content: "";
   width: 100%;
   position: absolute;
@@ -428,9 +162,7 @@ footer::after {
   background-size: 960px;
   z-index: 22;
   top: 0px;
-}
-
-.borders_down {
+} .borders_down {
   content: "";
   width: 100%;
   position: absolute;
@@ -456,9 +188,7 @@ footer::after {
     background-size: 960px;
     z-index: 22;
     top: 0px;
-}
-
-.full-screen-section::after {
+} .full-screen-section::after {
     content: "";
     width: 100%;
     position: absolute;
@@ -468,24 +198,4 @@ footer::after {
     bottom: 0px;
     z-index: 22;
     transform: scale(-1);
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  } 100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    transform: translateY(0px);
-  } 100% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
 }

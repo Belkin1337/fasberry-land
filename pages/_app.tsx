@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 
 import '@/styles/globals.css'
 import '@/styles/minecraft-weather.css'
+import '@/styles/minecraft-theme.css'
 import "react-toastify/dist/ReactToastify.css";
 import { ThemeProvider } from 'next-themes';
 import { Preloader } from '@/components/ui/preloader';

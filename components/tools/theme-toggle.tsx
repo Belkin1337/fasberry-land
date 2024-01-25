@@ -1,8 +1,9 @@
 
-import Image from "next/image"
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { useEffect, useState } from "react";
+import { Typography } from "@/components/ui/typography";
+import Image from "next/image"
 
 export const ThemeToggle = () => {
   const { setTheme, theme } = useTheme();
@@ -19,36 +20,48 @@ export const ThemeToggle = () => {
   return (
     <>
       <TooltipProvider>
-        <Tooltip>
+        <Tooltip delayDuration={1}>
           <TooltipTrigger>
             {theme === "light" && (
               <div onClick={() => {
                 setTheme("dark")
               }}>
-                <Image src="/images/minecraft/icons/black_baloon.webp" width={36} height={36} alt="Dark Theme" />
+                <Image
+                  src="/images/minecraft/icons/black_baloon.webp"
+                  width={36}
+                  height={36}
+                  alt="Dark Theme"
+                  loading="lazy"
+                />
               </div>
             )}
           </TooltipTrigger>
-          <TooltipContent className="z-[1000] bg-black/80 rounded-md">
-            <p className="text-neutral-400 text-base">
+          <TooltipContent className="z-[1000]">
+            <Typography className="text-neutral-400" size="md">
               Тёмная тема
-            </p>
+            </Typography>
           </TooltipContent>
         </Tooltip>
-        <Tooltip>
+        <Tooltip delayDuration={1}>
           <TooltipTrigger>
             {theme === "dark" && (
               <div onClick={() => {
                 setTheme("light")
               }}>
-                <Image src="/images/minecraft/icons/white_baloon.webp" width={36} height={36} alt="Light Theme" />
+                <Image
+                  src="/images/minecraft/icons/white_baloon.webp"
+                  width={36}
+                  height={36}
+                  loading="lazy"
+                  alt="Light Theme"
+                />
               </div>
             )}
           </TooltipTrigger>
-          <TooltipContent className="z-[1000] bg-black/80 rounded-md">
-            <p className="text-neutral-400 text-base">
+          <TooltipContent className="z-[1000]">
+            <Typography className="text-neutral-400" size="md">
               Светлая тема
-            </p>
+            </Typography>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
