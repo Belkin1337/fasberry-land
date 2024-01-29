@@ -2,15 +2,12 @@ import Head from 'next/head'
 import { Suspense, type ReactElement, type ReactNode } from 'react'
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
-import { ToastContainer } from 'react-toastify';
-
+import { ThemeProvider } from 'next-themes';
+import { Preloader } from '@/components/ui/preloader';
+import { Toaster } from '@/components/ui/toaster';
 import '@/styles/globals.css'
 import '@/styles/minecraft-weather.css'
 import '@/styles/minecraft-theme.css'
-import "react-toastify/dist/ReactToastify.css";
-import { ThemeProvider } from 'next-themes';
-import { Preloader } from '@/components/ui/preloader';
-
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -33,8 +30,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         <meta name="robots" content="index, follow" />
         <meta name="author" content="pureawake" />
         <meta name="owner" content="pureawake" />
-        <meta name="copyright" content="pureawake" />
-        <meta name="reply-to" content="fank.tomphson@gmail.com" />
+        <meta name="copyright" content="Fasberry" />
+        <meta name="reply-to" content="support@fasberry.ru" />
         <meta property="keywords" content="
         fasberry, фесберри, фесберри проект, фасберри, fasberryproject, minecraft, майнкрафт, майнкрафт играть, minecraft play, сервера майнкрафт бесплатно, список серверов майнкрафта, 
         полу-ванильные сервера майнкрафта, полуванила майнкрафт, rp сервер майнкрафт, rpg сервер майнкрафт, rp rpg сервер майнкрафт, город в майнкрафте сервер,
@@ -60,7 +57,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
           disableTransitionOnChange
           enableSystem
         >
-          <ToastContainer />
+          <Toaster />
           <Component {...pageProps} />
         </ThemeProvider>
       </Suspense>

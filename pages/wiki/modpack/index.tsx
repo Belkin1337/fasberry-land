@@ -1,9 +1,8 @@
-import { Footer } from "@/components/layout/footer"
-import { Header } from "@/components/layout/header"
-import { Block } from "@/components/ui/block"
-import { Typography } from "@/components/ui/typography"
 import Head from "next/head"
 import Link from "next/link"
+import { MainLayoutPage } from "@/components/layout/main-layout-page"
+import { Block } from "@/components/ui/block"
+import { Typography } from "@/components/ui/typography"
 
 const modsList = [
   {
@@ -28,7 +27,7 @@ export default function Modpack() {
       <Head>
         <title>Сборки модов</title>
       </Head>
-      <Header />
+      <MainLayoutPage variant="with_section">
       <div className="min-h-screen w-[90%] mx-auto py-36">
         <div className="flex flex-col justify-center items-center mb-6">
           <Typography variant="block_title">
@@ -71,7 +70,7 @@ export default function Modpack() {
           ))}
         </div>
       </div>
-      <Footer />
+      </MainLayoutPage>
     </>
   )
 }

@@ -1,39 +1,34 @@
+import Image from "next/image"
 import { useMemo, useState } from 'react';
 import { usePathname } from 'next/navigation'
 import { useRouter } from "next/router"
-import { toast, Zoom } from 'react-toastify';
 import { headerLinks } from '@/shared/content';
 import { ThemeToggle } from '@/components/tools/theme-toggle';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Typography } from '@/components/ui/typography';
-import Image from "next/image"
+import { useToast } from '../ui/use-toast';
 
 export const Header = () => {
 	const [open, setOpen] = useState(false);
+	const { toast } = useToast();
 	const router = useRouter();
 	const pathname = usePathname();
-	const toast_custom_id = "alert_duplicate_toast";
 
 	const pathDetect = useMemo(
 		() => (href: string) => {
 			if (pathname === href) {
-				toast.warn('Вы уже на этой странице!', {
-					toastId: toast_custom_id,
-					className: "bg-black text-white text-[0.9rem]",
-					autoClose: 1900,
-					role: "alert",
-					position: toast.POSITION.TOP_RIGHT,
-					transition: Zoom,
-					icon: ({ theme, type }) =>
-						<Image
-							alt="Toast Pic"
-							width={42}
-							height={42}
-							src="/images/minecraft/icons/bell.webp"
-						/>,
+				toast({
+					title: "Вы уже на этой странице!",
+					variant: "neutral",
+					action: <Image
+						alt="Toast Pic"
+						width={42}
+						height={42}
+						src="/images/minecraft/icons/bell.webp"
+					/>
 				})
 			} else router.push(href);
-		}, [router, pathname])
+		}, [router, pathname, toast])
 
 	return (
 		<>
@@ -42,9 +37,7 @@ export const Header = () => {
 					backgroundImage: `url("/images/static/cracked_polished_blacked.webp")`,
 					backgroundSize: '160px',
 				}}>
-				<div 
-					onClick={() => router.push('/')} 
-					className="bg-transparent cursor-pointer relative top-3 xl:-right-20">
+				<div className="bg-transparent cursor-pointer relative top-3 xl:-right-20" onClick={() => router.push('/')}>
 					<Image
 						width={224}
 						height={64}
@@ -64,11 +57,11 @@ export const Header = () => {
 							/>
 							<Typography className={`hover:brightness-[1.8] hover:duration-300 duration-300 ease-in
           				${router.pathname === item.href
-										? 'underline underline-offset-8 decoration-[#fabbfb] decoration-2'
-										: ''} 
+									? 'underline underline-offset-8 decoration-[#fabbfb] decoration-2'
+									: ''} 
           				${item.name == "Привилегии"
-										? 'text-gold'
-										: 'text-project-color'}`}>
+									? 'text-gold'
+									: 'text-project-color'}`}>
 								{item.name}
 							</Typography>
 						</div>
@@ -110,9 +103,9 @@ export const Header = () => {
 						</div>
 						<div className="flex flex-col items-center justify-center w-full gap-y-2 px-4">
 							{headerLinks.map((item) => (
-								<div key={item.name} onClick={() => {	
-									router.push(item.href); 
-									setOpen(false); 
+								<div key={item.name} onClick={() => {
+									router.push(item.href);
+									setOpen(false);
 								}}
 									className="flex border border-neutral-800 hover:bg-neutral-800 cursor-pointer rounded-md gap-x-6 shadow-[inset_42px_0px_0px_#553C7D] py-2 px-2 w-full">
 									<Image
@@ -122,8 +115,8 @@ export const Header = () => {
 										alt={item.name}
 										loading="lazy"
 									/>
-									<Typography size="lg"	className={`${item.name === "Привилегии" 
-										? 'text-gold' 
+									<Typography size="lg" className={`${item.name === "Привилегии"
+										? 'text-gold'
 										: 'text-project-color'}`}>
 										{item.name}
 									</Typography>

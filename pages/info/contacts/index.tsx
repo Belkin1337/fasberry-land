@@ -1,6 +1,5 @@
-import { Footer } from "@/components/layout/footer";
-import { Header } from "@/components/layout/header";
 import Head from "next/head"
+import { MainLayoutPage } from "@/components/layout/main-layout-page";
 import { useRouter } from "next/navigation"
 
 export default function Contacts() {
@@ -11,7 +10,7 @@ export default function Contacts() {
       <Head>
         <title>Контакты</title>
       </Head>
-      <Header/>
+      <MainLayoutPage variant="with_section">
       <div className="flex flex-col min-h-screen w-[90%] mx-auto py-36 gap-y-6">
         <p className="text-black dark:text-white text-3xl">
           Контакты
@@ -41,7 +40,7 @@ export default function Contacts() {
           </div>
         </div>
       </div>
-      <Footer/>
+      </MainLayoutPage>
     </> 
   )
 }

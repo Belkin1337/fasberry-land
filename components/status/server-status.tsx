@@ -47,11 +47,11 @@ export const ServerStatus = () => {
           </div>
           <div className="flex flex-col gap-y-1">
             {isLoading ? (
-              <p className="py-2 px-4 text-lg md:text-xl">0</p>
+              <p className="py-2 px-4 text-lg md:text-xl">...</p>
             ) : (
               <>
                 {data?.players?.list.map((player: Player) => (
-                  <div className="text-white text-xl cursor-pointer rounded-none hover:duration-200 duration-200 hover:bg-neutral-900 py-2 px-4" key={player.uuid}>
+                  <div key={player.uuid} className="text-white text-xl cursor-pointer rounded-none hover:duration-200 duration-200 hover:bg-neutral-900 py-2 px-4">
                     {player.name_raw}
                   </div>
                 ))}

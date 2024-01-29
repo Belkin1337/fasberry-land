@@ -43,8 +43,12 @@ const DialogContent = React.forwardRef<
       {...props}
     >
       {children}
+      <DialogPrimitive.Close className="absolute text-xl right-4 top-4 ring-offset-background transition-opacity hover:opacity-100 disabled:pointer-events-none data-[state=open]:text-muted-foreground">
+        &times;
+        <span className="sr-only">&times;</span>
+      </DialogPrimitive.Close>
     </DialogPrimitive.Content>
-  </DialogPortal>
+  </DialogPortal >
 ))
 DialogContent.displayName = DialogPrimitive.Content.displayName
 

@@ -113,6 +113,7 @@ html {
 }
 
 body {
+  overflow-x: hidden;
   letter-spacing: normal;
 }
 

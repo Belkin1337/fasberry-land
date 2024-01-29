@@ -1,6 +1,6 @@
+import useSWR from "swr"
 import { useRouter } from "next/navigation"
 import { useEffect } from 'react'
-import useSWR from "swr"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
 
 type Status = {
@@ -31,17 +31,17 @@ export const Status = () => {
             <div className="flex flex-row justify-between items-center">
               <p className="text-white text-xl lg:text-2xl">Текущий онлайн</p>
               {isLoading ? (
-                <p className="text-white text-xl lg:text-2xl cursor-pointer">0</p>
+                <p className="text-white text-xl lg:text-2xl cursor-pointer">0 из 200</p>
               ) : (
                 <p className="text-white text-xl lg:text-2xl cursor-pointer">
-                  {data?.players?.online || 0} из {data?.players?.max || 94}
+                  {data?.players?.online || 0} из {data?.players?.max || 200}
                 </p>
               )}
             </div>
             <div className="flex flex-row justify-between items-center">
               <p className="text-white text-xl lg:text-2xl">Статус:</p>
               {isLoading ? (
-                <p className="text-white text-xl lg:text-2xl cursor-pointer">загружаем...</p>
+                <p className="text-white text-xl lg:text-2xl cursor-pointer">работает?</p>
               ) : (
                 <p className="text-white text-xl lg:text-2xl cursor-pointer">
                   {data?.online ? 'работает' : 'не работает'}

@@ -1,5 +1,4 @@
-import { Footer } from "@/components/layout/footer"
-import { Header } from "@/components/layout/header"
+import { MainLayoutPage } from "@/components/layout/main-layout-page"
 import Head from "next/head"
 
 export default function Terms() {
@@ -8,7 +7,7 @@ export default function Terms() {
       <Head>
         <title>Пользовательское соглашение</title>
       </Head>
-      <Header/>
+      <MainLayoutPage variant="with_section">
       <div className="flex flex-col min-h-screen w-[90%] mx-auto py-36 gap-y-6">
         <p className="text-black dark:text-white text-3xl">
           Пользовательское соглашение
@@ -139,7 +138,7 @@ export default function Terms() {
           </div>
         </div>
       </div>
-      <Footer/>
+      </MainLayoutPage>
     </>
   )
 }

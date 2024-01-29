@@ -4,6 +4,28 @@
 //   icon: string,
 // }
 
+type RulesList = {
+  id: string;
+  name: string;
+  content: Array<{
+    title: string;
+    punishment?: string;
+    description?: string;
+    subtitle?: string | Array<string>;
+  }>;
+};
+
+type DonateItem = {
+  name: string;
+  rating: number;
+  description: {
+    screen: string;
+    text: string;
+  };
+  commands: Array<string>;
+  price: number;
+};
+
 type ArmorItem = {
   attribute: {
     name: string;
@@ -50,37 +72,29 @@ type ArmorItem = {
   armor?: {
     helmet: {
       generic: number;
-      points?: number;
     };
     chestplate: {
       generic: number;
-      points?: number;
     };
     leggings: {
       generic: number;
-      points?: number;
     };
     boots: {
       generic: number;
-      points?: number;
     };
   };
   armorThougness?: {
     helmet: {
       generic: number;
-      points?: number;
     };
     chestplate: {
       generic: number;
-      points?: number;
     };
     leggings: {
       generic: number;
-      points?: number;
     };
     boots: {
       generic: number;
-      points?: number;
     };
   };
 };

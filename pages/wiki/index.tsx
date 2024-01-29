@@ -1,28 +1,49 @@
+import Link from "next/link"
+import Head from "next/head"
+import Image from "next/image"
 import { useCallback, useEffect, useState } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Dialog, DialogContent, DialogClose, DialogTrigger } from "@/components/ui/dialog"
-import { armorList, headers } from "@/shared/content"
-import { Header } from "@/components/layout/header"
-import { Footer } from "@/components/layout/footer"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@/components/ui/accordion"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from "@/components/ui/tooltip"
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger
+} from "@/components/ui/tabs"
+import {
+  Dialog,
+  DialogContent,
+  DialogClose,
+  DialogTrigger
+} from "@/components/ui/dialog"
+import {
+  armorColumnsArmor,
+  armorColumnsDurability,
+  armorColumnsEffects,
+  armorColumnsPopulators,
+  armorColumnsToughness
+} from "@/shared/column-models"
+import {
+  armorList,
+  headers
+} from "@/shared/content"
 import { Block } from "@/components/ui/block"
 import { Typography } from "@/components/ui/typography"
 import { ImageAnnotation } from "@/components/wiki/image-annotation"
 import { CommandLine } from "@/components/ui/command-line"
 import { ContentModule } from "@/components/ui/content-module"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { WikiTableComponent } from "@/components/wiki/table-wiki-component"
-import { 
-  armorColumnsArmor, 
-  armorColumnsDurability, 
-  armorColumnsEffects, 
-  armorColumnsPopulators, 
-  armorColumnsToughness 
-} from "@/shared/column-models"
-import Link from "next/link"
-import Head from "next/head"
-import Image from "next/image"
+import { MainLayoutPage } from "@/components/layout/main-layout-page"
 
 export default function Wiki() {
   const router = useRouter();
@@ -56,8 +77,7 @@ export default function Wiki() {
         <meta property="keywords" content="википедия, fasberry, справочник по серверу, minecraft wiki, fasberry wiki, 
         wiki fasberry, вики fasberry, вики фасберри, фасберри сервер" />
       </Head>
-      <Header />
-      <div className="min-h-screen w-[90%] mx-auto py-36">
+      <MainLayoutPage>
         <Tabs
           value={valueTab}
           onValueChange={handleTabChange}
@@ -760,67 +780,6 @@ export default function Wiki() {
                 современность и полностью RP-составляющую и не только.
               </Typography>
             </ContentModule>
-            <ContentModule value="donate" role="tab" id="donate">
-              <Typography className="text-5xl mb-8">
-                Донат на сервере
-              </Typography>
-              <Typography size="xl">
-                Донатом на сервере являются привилегии.
-                Они дают больше возможностей во всех сферах игры, одновременно не превалируя над игроком настолько сильно.
-              </Typography>
-              <Typography size="xl">
-                Подробнее можно узнать здесь -&nbsp;
-                <Link href="https://fasberry.ru/donate" className="text-gold">
-                  привилегии
-                </Link>.
-              </Typography>
-            </ContentModule>
-            <ContentModule value="problems" role="tab" id="problems" className="flex flex-col gap-y-4 ">
-              <Typography className="text-5xl mb-8">
-                Технические проблемы
-              </Typography>
-              <Typography size="xl" className="mb-6">
-                Бывает такое, что возникает какая-либо проблема.
-                На нашем сервере - это ресурспак.
-              </Typography>
-              <Typography variant="block_subtitle" shadow="xl" className="text-project-color">
-                Ресурспак не включается
-              </Typography>
-              <Typography size="xl" className="mb-6">
-                Попробуйте перезайти на сервер. Если всё равно не активируется,
-                то включите опцию "Наборы ресурсов" перед входом на сервер.
-              </Typography>
-              <Typography variant="block_subtitle" shadow="xl" className="text-project-color">
-                Везде белые прямоугольники
-              </Typography>
-              <Typography size="xl" className="mb-6">
-                Это означает, что у вас не применился ресурспак или он
-                применился некорректно относительно ваших настроек языка. Одним из решений будет выключить опцию
-                "Шрифт Unicode" в настройках Языка майнкрафта.
-              </Typography>
-              <Typography variant="block_subtitle" shadow="xl" className="text-project-color">
-                Долго грузится ресурспак
-              </Typography>
-              <Typography size="xl" className="mb-6">
-                Ресурспак сервера весит относительно немного, так что не должно быть веских причин его
-                не загружать постоянно (при входе/выходе). Если у вас возникают проблемы с загрузкой РП,
-                то проверьте скорость интернета и пинга. А также перезагрузите клиент игры.
-              </Typography>
-              <Typography variant="block_subtitle" shadow="xl" className="text-project-color">
-                На сервере не используется PlasmoVoice
-              </Typography>
-              <Typography size="xl" className="mb-6">
-                Нет, на сервере используется PlasmoVoice, это ошибка на клиенте, то есть у вас.
-                Попробуйте перезайти на сервер несколько раз до включения мода. Это не наша ошибка, а мода.
-              </Typography>
-              <Typography variant="block_subtitle" shadow="xl" className="text-project-color">
-                Лагает на спавне
-              </Typography>
-              <Typography size="xl" className="mb-6">
-                Снизьте дальность прорисовки теней, если у вас малый фпс на спавне.
-                А также уменьшите дальность прорисовки, если она у вас очень большая.
-              </Typography>
-            </ContentModule>
             <ContentModule value="reports" role="tab" id="reports" className="flex flex-col gap-y-4 ">
               <Typography className="text-5xl mb-8">
                 Жалобы на игроков
@@ -1197,11 +1156,11 @@ export default function Wiki() {
                 Навигация
               </Typography>
             </DialogTrigger>
-            <DialogContent className="xl:hidden bg-transparent border-none max-w-4xl max-h-[68%] overflow-y-auto">
+            <DialogContent className="xl:hidden bg-transparent border-none p-0 max-w-4xl max-h-[68%] overflow-y-auto">
               <TabsList className="flex flex-col p-0 rounded-xl w-full items-start">
                 <Block border="mini_gray" className="gap-y-12 h-full" size="normal" rounded="big" type="column">
-                  <div className="flex flex-col gap-y-2">
-                    <Typography className="text-3xl">
+                  <div className="flex flex-col">
+                    <Typography className="text-xl mb-4">
                       Общая информация
                     </Typography>
                     <div className="flex flex-col gap-y-2">
@@ -1230,7 +1189,7 @@ export default function Wiki() {
                             {headers.map((item) => (
                               item.aspect?.map((item, idx) => (
                                 <div key={idx} className="group cursor-pointer">
-                                  <DialogClose>
+                                  <DialogClose asChild>
                                     <TabsTrigger value={item.value}>
                                       <Typography size="base" hover_effects="pink_drop">
                                         &nbsp;&nbsp;{item.title}
@@ -1246,12 +1205,20 @@ export default function Wiki() {
                       {headers.map((item) => (
                         item.links?.map((item, idx) => (
                           <div key={idx} className="flex flex-row items-center justify-between group cursor-pointer">
-                            <DialogClose>
-                              <TabsTrigger value={item.value}>
-                                <Typography size="xl" hover_effects="pink_drop">
-                                  {item.title}
-                                </Typography>
-                              </TabsTrigger>
+                            <DialogClose asChild>
+                              {item.isTab ? (
+                                <TabsTrigger value={item.value}>
+                                  <Typography size="xl" hover_effects="pink_drop">
+                                    {item.title}
+                                  </Typography>
+                                </TabsTrigger>
+                              ) : (
+                                <div onClick={() => router.push(`${item.value}`)}>
+                                  <Typography size="xl" hover_effects="pink_drop">
+                                    {item.title}
+                                  </Typography>
+                                </div>
+                              )}
                             </DialogClose>
                             <Image
                               src="/images/minecraft/icons/spyglass_big.webp"
@@ -1265,8 +1232,8 @@ export default function Wiki() {
                       ))}
                     </div>
                   </div>
-                  <div className="flex flex-col gap-y-2">
-                    <Typography className="text-3xl">
+                  <div className="flex flex-col">
+                    <Typography className="text-xl mb-4">
                       Прочее
                     </Typography>
                     <div className="flex flex-col gap-y-4">
@@ -1281,7 +1248,7 @@ export default function Wiki() {
                             {headers.map((item) => (
                               item.servers?.map((item, idx) => (
                                 <div className="group cursor-pointer" key={idx}>
-                                  <DialogClose>
+                                  <DialogClose asChild>
                                     <TabsTrigger value={item.value}>
                                       <Typography size="xl" hover_effects="pink_drop">
                                         &nbsp;&nbsp;{item.title}
@@ -1295,7 +1262,9 @@ export default function Wiki() {
                         </AccordionItem>
                       </Accordion>
                     </div>
-                    <Link href="https://fasberry.ru/wiki/modpack" className="group cursor-pointer">
+                    <Link
+                      href="https://fasberry.ru/wiki/modpack"
+                      className="group cursor-pointer">
                       <Typography size="base" hover_effects="pink_drop">
                         Сборки модов
                       </Typography>
@@ -1351,11 +1320,19 @@ export default function Wiki() {
                   {headers.map((item) => (
                     item.links?.map((item, idx) => (
                       <div key={idx} className="flex flex-row items-center justify-between group cursor-pointer">
-                        <TabsTrigger value={item.value}>
-                          <Typography size="xl" hover_effects="pink_drop">
-                            {item.title}
-                          </Typography>
-                        </TabsTrigger>
+                        {item.isTab ? (
+                          <TabsTrigger value={item.value}>
+                            <Typography size="xl" hover_effects="pink_drop">
+                              {item.title}
+                            </Typography>
+                          </TabsTrigger>
+                        ) : (
+                          <div onClick={() => router.push(`${item.value}`)}>
+                            <Typography size="xl" hover_effects="pink_drop">
+                              {item.title}
+                            </Typography>
+                          </div>
+                        )}
                         <Image
                           src="/images/minecraft/icons/spyglass_big.webp"
                           className="group-hover:rotate-45 w-[16px] h-[20px] group-hover:duration-300 duration-300"
@@ -1405,8 +1382,7 @@ export default function Wiki() {
             </Block>
           </TabsList>
         </Tabs>
-      </div>
-      <Footer />
+      </MainLayoutPage>
     </>
   )
 }

@@ -42,166 +42,108 @@ const termins = [
   },
 ];
 
-const rules = {
-  Rules: {
-    sections: [
+const ruless: RulesList[] = [
+  {
+    id: "chat",
+    name: "Игровой чат",
+    content: [
       {
-        chat: {
-          id: "Игровой чат",
-          title: "Правила в игровом чате",
-          content: [
-            {
-              article: "Запрещается оскорблять игроков.",
-              punish: "мут в чате на 12 часов / при повторе на 3 суток.",
-              description: "",
-              subtitle: [""],
-            },
-            {
-              article: "Запрещается упоминание родных лиц игроков.",
-              punish: "мут в чате на 12 часов / при повторе на 3 суток).",
-              description: "",
-              subtitle: [""],
-            },
-            {
-              article:
-                "Запрещен флуд/спам (уточнение: 3+ сообщения более чем за 2 секунды).",
-              punish: "мут в чате на 30 минут.",
-              description: "",
-              subtitle: [""],
-            },
-            {
-              article: "Запрещен коллективный флуд однотипными сообщениями.",
-              punish:
-                "мут в чате на 30 минут каждому / при повторе мут на 6 часов каждому.",
-              description: "",
-              subtitle: [""],
-            },
-            {
-              article:
-                "Запрещено выдавать себя за представителя администрации (даже в шутку).",
-              punish: "мут в чате на 2 часа.",
-              description: "",
-              subtitle: [""],
-            },
-            {
-              article: `Запрещено обсуждать текущие политические события в мире в оскорбительном или 
-              унизительном/шуточном форматах, а также неуважительно относиться к игрокам сервера 
-              из-за мировой ситуации.`,
-              punish:
-                "мут в чате на 12 часов / при повторе бан аккаунта на сутки.",
-              description: "",
-              subtitle: [""],
-            },
-          ],
-        },
-        gameplay: {
-          content: [
-            {
-              article: "Запрещен приют новичков",
-              description: "",
-              punish: "1 предупреждение",
-              subtitle: [""],
-            },
-            {
-              article: "Запрещено строить огромные фермы",
-              description: "",
-              punish:
-                "1 предупрежение + снос фермы / при повторе бан аккаунта на сутки.",
-            },
-            {
-              article:
-                "Запрещено строить огромные одноформенные и бессмысленные постройки.",
-              description: "",
-              punish: "1 предупреждение + снос постройки",
-            },
-            {
-              article: "Запрещено устраивать раздачи среди игроков.",
-              description: "",
-              punish: "1 предупреждение",
-            },
-            {
-              article: `Запрещено использование читов (стороннее ПО, 
-              позволяющее получить преимущество над другими игроками и не только).`,
-              description: "",
-              punish: "перманентный бан аккаунта",
-            },
-          ],
-        },
-        based: {
-          content: [
-            {
-              article:
-                "Незнание правил не освобождает вас от ответственности (базированное правило.)",
-              punish: "",
-              subtitle: "",
-              description: "",
-            },
-            {
-              article:
-                "Независимо от статуса игрока - все равны и все понесут наказание за нарушение правил.",
-              punish: "",
-              subtitle: "",
-            },
-            {
-              article: `Игрок сам несёт ответственность за безопасность своего аккаунта. 
-              В случае взлома, администрация имеет полное право отказать в восстановлении доступа к аккаунту.`,
-              punish: "",
-              subtitle: "",
-            },
-            {
-              article: "Запрещено регистрировать некорректные никнеймы.",
-              punish: "",
-              subtitle: [
-                "Содержащие мат, оскорбления, нецензурную или неприемлемую в приличном обществе лексику и т.д.",
-                "Содержащие слова никнеймы администрации и должностей на сервере: «модератор», «админ».",
-                "Носящие рекламный характер",
-              ],
-            },
-            {
-              article: "Запрещена продажа и передача игровых аккаунтов.",
-              punish: "",
-              subtitle: "",
-            },
-            {
-              article:
-                "Главная администрация управляет проектом строго по своему усмотрению и опирается на общие формулировки правил.",
-              punish: "",
-              subtitle: "",
-            },
-            {
-              article: `Игра на сервере является бесплатной и 
-              предоставляется без каких-либо гарантий правильной работы. 
-              Администраторы не возвращают вещи, потерянные в результате бага, отката и т.п (естественно в редких исключениях возвращают).`,
-              punish: "",
-              subtitle: "",
-            },
-            {
-              article:
-                "Администрация может в любой момент изменить правила, заведомо уведомив игроков (обязательно уведомит об этом везде!).",
-              punish: "",
-              subtitle: "",
-            },
-            {
-              article: `Если игрок получил блокировку на одном из своих аккаунтов и администрация 
-              установит данный факт, то бан будет перенесен и на иные аккаунты, 
-              которые имеют причастность к аккаунту, нарушавшему правило.`,
-              punish: "",
-              subtitle: "",
-            },
-            {
-              article:
-                "Обжаловать наказание можно в течении 24 часов с момента нарушения.",
-              punish: "",
-              subtitle: [
-                "Для этого есть специальный канал в Дискорде проекта.",
-              ],
-            },
-          ],
-        },
+        title: "Запрещается оскорблять игроков.",
+        punishment: "мут в чате на 12 часов / при повторе на 3 суток",
+      },
+      {
+        title: "Запрещается упоминание родных лиц игроков.",
+        punishment: "мут в чате на 12 часов / при повторе на 3 суток)",
+      },
+      {
+        title:
+          "Запрещен флуд/спам (уточнение: 3+ сообщения более чем за 2 секунды).",
+        punishment: "мут в чате на 30 минут",
+      },
+      {
+        title: "Запрещен коллективный флуд однотипными сообщениями.",
+        punishment:
+          "мут в чате на 30 минут каждому / при повторе мут на 6 часов каждому",
+      },
+      {
+        title:
+          "Запрещено выдавать себя за представителя администрации (даже в шутку).",
+        punishment: "мут в чате на 2 часа",
+      },
+      {
+        title: `Запрещено обсуждать текущие политические события в мире в оскорбительном или 
+          унизительном/шуточном форматах, а также неуважительно относиться к игрокам сервера 
+          из-за мировой ситуации.`,
+        punishment:
+          "мут в чате на 12 часов / при повторе бан аккаунта на сутки.",
       },
     ],
   },
-};
+  {
+    id: "game",
+    name: "Непосредственная игра",
+    content: [
+      {
+        title: "Запрещено строить огромные фермы, которые каким-либо образом влияют на производительность сервера.",
+        punishment: "1 предупрежение + снос фермы / при повторе бан на сутки",
+      },
+      {
+        title:
+          "Запрещено строить огромные одноформенные и бессмысленные постройки.",
+        punishment: "1 предупреждение + снос постройки",
+      },
+      {
+        title: `Запрещено использование читов (стороннее ПО, 
+          позволяющее получить преимущество над другими игроками и не только).`,
+        description: "Пример: любые иксреи, автокликеры, фрикамы или специальные клиенты.",
+        punishment: "перманентный бан аккаунта",
+      },
+    ],
+  },
+  {
+    id: "based",
+    name: "Основное положение",
+    content: [
+      {
+        title:
+          "Незнание правил не освобождает вас от ответственности (базированное правило.)",
+      },
+      {
+        title:
+          "Независимо от привилегии игрока - все равны и все понесут одинаковое наказание за нарушение правил.",
+      },
+      {
+        title: `Игрок сам несёт ответственность за безопасность своего аккаунта.
+        В случае взлома, администрация имеет право отказать в восстановлении доступа к аккаунту.`,
+      },
+      {
+        title: "Запрещено регистрировать некорректные никнеймы.",
+        description: 
+          "Содержащие мат, оскорбления, нецензурную или неприемлемую в приличном обществе лексику",
+      },
+      {
+        title: "Запрещена продажа и передача игровых аккаунтов.",
+      },
+      {
+        title: `Игра на сервере является бесплатной и 
+        предоставляется без каких-либо гарантий правильной работы. 
+        Администраторы не возвращают вещи, потерянные в результате бага, отката и т.п (естественно в редких исключениях возвращают).`,
+      },
+      {
+        title:
+          "Администрация может в любой момент изменить правила, заведомо уведомив игроков (обязательно уведомит об этом везде!).",
+      },
+      {
+        title: `Если игрок получил блокировку на одном из своих аккаунтов и администрация 
+        установит данный факт, то бан будет перенесен и на иные аккаунты, которые имеют причастность к аккаунту, нарушавшему правило.`,
+      },
+      {
+        title:
+          "Обжаловать наказание можно в течении 48 часов с момента нарушения.",
+      },
+    ],
+  },
+];
 
 const gallery = [
   {
@@ -279,62 +221,64 @@ const contacts = [
   },
 ];
 
-const support = {
-  Support: {
-    content: [
-      {
-        donateElement: [
-          {
-            title: "Аутентик",
-            rate: 2,
-            price: 420,
-            description: `Аутентичная привилегия, название говорит само за себя, не так ли?`,
-            commands: [
-              "/feed - пополнение сытости",
-              "/anvil - личная наковальня",
-              "/ender - личный эндер-чест",
-              "/workbench - личный верстак",
-              "/disc burn - возможность заливать на пластиник любые треки с Youtube, Twitch и др,",
-              "увеличение лимитов для регионов,",
-              "бесплатные наборы питомцев,",
-              "увеличение лимитов для работ,",
-            ],
-            screenshot: "https://media.discordapp.net/attachments/904344676587417621/1199804676753850368/authentic.png?ex=65c3e02e&is=65b16b2e&hm=ad42b494e71199967b6c2e2050cc95879ff546261d80ff9e7db4f90d4c05efbd&=&format=webp&quality=lossless&width=436&height=671",
-          },
-          {
-            title: "Лоял",
-            rate: 3,
-            price: 640,
-            description: `Лоял. Звучит гордо, верно? Если ты решил пропустить прошлую привилегию, то добро пожаловать!`,
-            commands: [
-              "/distance - узнать расстояние между двумя игроками,",
-              "/inv - просмотреть инвентарь любого игрока,",
-              "/heal - восполнять здоровье,",
-              "увеличение лимитов для регионов,",
-              "бесплатные наборы питомцев,",
-              "увеличение лимитов для работ,",
-            ],
-            screenshot: "https://media.discordapp.net/attachments/904344676587417621/1199804677030686832/loyal.png?ex=65c3e02e&is=65b16b2e&hm=63650f6313c45b768bb3b5640a2ebce07570aa89142e652501836f94d953d658&=&format=webp&quality=lossless",
-          },
-          {
-            title: "Архонт",
-            rate: 4,
-            price: 1240,
-            description:
-              "Архонт ещё и зеленый? Это не случайно поверь, зеленый - к удаче.",
-            commands: [
-              "/weather - побыть немного шаманом, изменяя погоду у всех,",
-              "больше влияния",
-              "вас жаждут видеть на сервере,",
-              "все возможности прошлых подписок",
-            ],
-            screenshot: "https://media.discordapp.net/attachments/904344676587417621/1199804676422508604/arkhont.png?ex=65c3e02e&is=65b16b2e&hm=3ab549c55c2162f6bf6e5552d6de990bb9851e02ffb9eafd654237525e5534d3&=&format=webp&quality=lossless&width=562&height=671",
-          },
-        ],
-      },
+const donateList = [
+  {
+    name: "Аутентик",
+    rating: 2,
+    price: 420,
+    description: {
+      screen:
+        "https://cdn.discordapp.com/attachments/904344676587417621/1200901695450910760/Screenshot_1.png?ex=65c7dddb&is=65b568db&hm=45c7e0967dd676b3bd6769520c85f8444063d68cb4cd0a4ac2bd114c9a4b149f&",
+      text: "Аутентичная привилегия, название говорит само за себя, не так ли?",
+    },
+    commands: [
+      "/feed - пополнение сытости",
+      "/anvil - личная наковальня",
+      "/ender - личный эндер-чест",
+      "/workbench - личный верстак",
+      "/grindstone - виртуальное точило,",
+      "/ext - потушить себя,",
+      "бесплатные наборы питомцев,",
+      "увеличение лимитов для работ,",
     ],
   },
-};
+  {
+    name: "Лоял",
+    rating: 3,
+    price: 640,
+    description: {
+      screen:
+        "https://media.discordapp.net/attachments/904344676587417621/1200901695748710450/Screenshot_2.png?ex=65c7dddb&is=65b568db&hm=14d3e93af5e9d08a11412a3151b2355aa6db7327db6ea30ae59025120576dd84&=&format=webp&quality=lossless&width=499&height=671",
+      text: "Лоял. Звучит гордо, верно? Если ты решил пропустить прошлую привилегию, то добро пожаловать!",
+    },
+    commands: [
+      "/distance - узнать расстояние между двумя игроками,",
+      "/inv - просмотреть инвентарь любого игрока,",
+      "/heal - восполнять здоровье,",
+      "/itemname - изменять название предмета,",
+      "/itemlore - изменять описание предмета",
+      "/down - опуститься в ближайшее под вами место",
+      "бесплатные наборы питомцев,",
+      "увеличение лимитов для работ,",
+    ],
+  },
+  {
+    name: "Архонт",
+    rating: 4,
+    price: 1240,
+    description: {
+      screen:
+        "https://media.discordapp.net/attachments/904344676587417621/1200901696130388071/Screenshot_3.png?ex=65c7dddc&is=65b568dc&hm=7de2485f956d1dd6ee9468e8622c222f19d1673577ee89a7406c61064a2b886a&=&format=webp&quality=lossless",
+      text: "Архонт ещё и зеленый? Это не случайно поверь, зеленый - к удаче.",
+    },
+    commands: [
+      "/weather - побыть немного шаманом, изменяя погоду у всех,",
+      "/notarget - неуязвимость от мобов",
+      "вас жаждут видеть на сервере,",
+      "все возможности прошлых подписок",
+    ],
+  },
+];
 
 const headerLinks = [
   {
@@ -432,20 +376,24 @@ const headers = [
   {
     links: [
       {
+        isTab: true,
         title: "Защита аккаунта",
         value: "safety",
       },
       {
-        title: "Тех. проблемы",
-        value: "problems",
-      },
-      {
+        isTab: true,
         title: "Жалобы на игроков",
         value: "reports",
       },
       {
+        isTab: false,
+        title: "Тех. проблемы",
+        value: "wiki/problems",
+      },
+      {
+        isTab: false,
         title: "Донат",
-        value: "donate",
+        value: "/donate",
       },
     ],
   },
@@ -460,45 +408,6 @@ const headers = [
         value: "server-muffin",
       },
     ],
-  },
-];
-
-const rulesList = [
-  {
-    name: rules.Rules.sections,
-    title: "Правила в игровом чате",
-    sectionId: "rules-chat",
-    content: rules.Rules.sections[0].chat.content.map((item) => ({
-      article: item.article,
-      punishment: item.punish,
-      description: item.description,
-      subtitle:
-        item.subtitle && item.subtitle.length > 0 ? item.subtitle[0] : "",
-    })),
-  },
-  {
-    name: rules.Rules.sections,
-    title: "Общие правила и положения",
-    sectionId: "rules-based",
-    content: rules.Rules.sections[0].based?.content?.map((item) => ({
-      article: item.article,
-      punishment: item.punish,
-      description: item.description,
-      subtitle:
-        item.subtitle && item.subtitle.length > 0 ? item.subtitle[0] : "",
-    })),
-  },
-  {
-    name: rules.Rules.sections,
-    title: "Непосредственная игра",
-    sectionId: "rules-gameplay",
-    content: rules.Rules.sections[0].gameplay?.content?.map((item) => ({
-      article: item.article,
-      punishment: item.punish,
-      description: item.description,
-      subtitle:
-        item.subtitle && item.subtitle.length > 0 ? item.subtitle[0] : "",
-    })),
   },
 ];
 
@@ -586,38 +495,6 @@ const news = [
   },
 ];
 
-// const armorList_recipe_helmet: ArmorRecipeItem[] = [
-//   {
-//     name: "Шлем",
-//     material: "адамантитовый слиток",
-//     icon: "https://cdn.discordapp.com/attachments/904344676587417621/1199352622956687422/Screenshot_18.png?ex=65c23b2c&is=65afc62c&hm=907833a8f90e25688e1b485d79b1f64e0718746ff3f4c0aee4004533d22adca4&",
-//   },
-// ];
-
-// const armorList_recipe_chestplate: ArmorRecipeItem[] = [
-//   {
-//     name: "Нагрудник",
-//     material: "адамантитовый слиток",
-//     icon: "https://cdn.discordapp.com/attachments/904344676587417621/1198924491800195083/Screenshot_2.png?ex=65c0ac71&is=65ae3771&hm=d2f9a92c9151b6888189cf03b5e94a2d16604ae5fb3217b76f483b6a524252ef&",
-//   },
-// ];
-
-// const armorList_recipe_leggings: ArmorRecipeItem[] = [
-//   {
-//     name: "Поножи",
-//     material: "адамантитовый слиток",
-//     icon: "https://cdn.discordapp.com/attachments/904344676587417621/1198924492328669284/Screenshot_4.png?ex=65c0ac71&is=65ae3771&hm=7d3299af4186db5ed15ab5ea68ad245d698f686df93e6f14f601c1b218569ab8&",
-//   },
-// ];
-
-// const armorList_recipe_boots: ArmorRecipeItem[] = [
-//   {
-//     name: "Ботинки",
-//     material: "адамантитовый слиток",
-//     icon: "https://cdn.discordapp.com/attachments/904344676587417621/1198924492064423976/Screenshot_3.png?ex=65c0ac71&is=65ae3771&hm=92478a4d0057553ff8a6820fcb46b001c58266081bbf0fafecd74fc56d4b7561&",
-//   },
-// ];
-
 const armorList: ArmorItem[] = [
   {
     attribute: {
@@ -644,37 +521,29 @@ const armorList: ArmorItem[] = [
     armor: {
       helmet: {
         generic: 4,
-        points: 2,
       },
       chestplate: {
         generic: 6,
-        points: 3,
       },
       leggings: {
         generic: 5,
-        points: 2.5,
       },
       boots: {
         generic: 4,
-        points: 2,
       },
     },
     armorThougness: {
       helmet: {
         generic: 2,
-        points: 1,
       },
       chestplate: {
         generic: 6,
-        points: 3,
       },
       leggings: {
         generic: 4,
-        points: 2,
       },
       boots: {
         generic: 4,
-        points: 2,
       },
     },
   },
@@ -724,37 +593,29 @@ const armorList: ArmorItem[] = [
     armor: {
       helmet: {
         generic: 5,
-        points: 2.5,
       },
       chestplate: {
         generic: 8,
-        points: 4,
       },
       leggings: {
-        generic: 5,
-        points: 2.5,
+        generic: 4,
       },
       boots: {
         generic: 2,
-        points: 1,
       },
     },
     armorThougness: {
       helmet: {
         generic: 2,
-        points: 1,
       },
       chestplate: {
         generic: 6,
-        points: 3,
       },
       leggings: {
         generic: 4,
-        points: 2,
       },
       boots: {
-        generic: 4,
-        points: 2,
+        generic: 2,
       },
     },
   },
@@ -831,37 +692,29 @@ const armorList: ArmorItem[] = [
     armor: {
       helmet: {
         generic: 2,
-        points: 1,
       },
       chestplate: {
         generic: 6,
-        points: 3,
       },
       leggings: {
         generic: 5,
-        points: 2.5,
       },
       boots: {
         generic: 2,
-        points: 1,
       },
     },
     armorThougness: {
       helmet: {
         generic: 2,
-        points: 1,
       },
       chestplate: {
         generic: 4,
-        points: 2,
       },
       leggings: {
         generic: 2,
-        points: 1,
       },
       boots: {
-        generic: 1,
-        points: 0.5,
+        generic: 2,
       },
     },
   },
@@ -939,37 +792,29 @@ const armorList: ArmorItem[] = [
     armor: {
       helmet: {
         generic: 5,
-        points: 2.5,
       },
       chestplate: {
         generic: 10,
-        points: 5,
       },
       leggings: {
         generic: 5,
-        points: 2.5,
       },
       boots: {
         generic: 2,
-        points: 1,
       },
     },
     armorThougness: {
       helmet: {
         generic: 4,
-        points: 2,
       },
       chestplate: {
         generic: 6,
-        points: 3,
       },
       leggings: {
         generic: 4,
-        points: 2,
       },
       boots: {
         generic: 2,
-        points: 1,
       },
     },
   },
@@ -1065,37 +910,29 @@ const armorList: ArmorItem[] = [
     armor: {
       helmet: {
         generic: 3,
-        points: 1.5,
       },
       chestplate: {
-        generic: 6,
-        points: 3,
+        generic: 7,
       },
       leggings: {
-        generic: 4,
-        points: 2,
+        generic: 5,
       },
       boots: {
         generic: 3,
-        points: 1.5,
       },
     },
     armorThougness: {
       helmet: {
         generic: 1,
-        points: 0.5,
       },
       chestplate: {
         generic: 1,
-        points: 0.5,
       },
       leggings: {
         generic: 1,
-        points: 0.5,
       },
       boots: {
         generic: 1,
-        points: 0.5,
       },
     },
   },
@@ -1103,14 +940,13 @@ const armorList: ArmorItem[] = [
 
 export {
   termins,
-  rules,
-  support,
+  ruless,
+  donateList,
   headerLinks,
   news,
   mediaLinks,
   contacts,
   headers,
-  rulesList,
   armorList,
   gameplay,
   gallery,
