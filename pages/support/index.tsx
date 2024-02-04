@@ -86,35 +86,27 @@ export default function Support() {
                           </Typography>
                         </div>
                       </DialogTrigger>
-                      <DialogContent className="bg-black/80 border border-neutral-900 rounded-xl p-4 max-w-2xl">
-                        <Typography position="center" className="text-[#00cdb0] text-lg sm:text-xl lg:text-2xl mb-4 lg:mb-8">
+                      <DialogContent className="border border-neutral-900 rounded-xl p-4 max-w-2xl">
+                        <Typography position="center" className="!text-[#00cdb0] text-shadow-xs text-lg sm:text-xl lg:text-2xl mb-4 lg:mb-8">
                           Вы можете поддержать проект разными способами:
                         </Typography>
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
-                          <Typography size="xl">
-                            DonationAlerts:
-                          </Typography>
                           <Link
                             target="_blank"
-                            className="px-1 py-1 block-item rounded-md"
                             href="https://www.donationalerts.com/r/fasberry"
                           >
-                            <p className="bg-black px-3 py-1 rounded-md">
-                              Поддержать
-                            </p>
+                            <Typography size="xl" className="text-black dark:text-white">
+                              DonationAlerts:
+                            </Typography>
                           </Link>
                         </div>
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
-                          <Typography size="xl">
-                            YooMoney (Юмани):
-                          </Typography>
                           <Link
                             target="_blank"
-                            href="https://yoomoney.ru/to/4100116751824060"
-                            className="px-1 py-1 block-item rounded-md">
-                            <p className="bg-black px-3 py-1 rounded-md">
-                              Поддержать
-                            </p>
+                            href="https://yoomoney.ru/to/4100116751824060">
+                            <Typography size="xl" className="text-black dark:text-white">
+                              YooMoney (Юмани):
+                            </Typography>
                           </Link>
                         </div>
                       </DialogContent>

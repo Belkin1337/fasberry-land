@@ -23,14 +23,14 @@ export const NewsItem = ({ image, title, body, date }: NewsItemProps) => {
       </div>
       <div className="flex flex-col justify-between w-full xl:w-3/4 py-4">
         <div className="flex flex-col gap-y-4">
-          <Typography className="text-project-color text-xl lg:text-3xl">
+          <Typography className="!text-project-color shadow-black text-shadow-xs text-xl lg:text-3xl">
             {title}
           </Typography>
-          <Typography className="text-white text-md lg:text-xl">
+          <Typography className="text-black dark:text-white text-md lg:text-xl">
             {body}
           </Typography>
         </div>
-        <Typography className="text-neutral-400 text-sm self-end lg:text-base">
+        <Typography className="text-black dark:text-white text-sm self-end lg:text-base">
           {date}
         </Typography>
       </div>

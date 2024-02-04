@@ -1,57 +1,96 @@
+/* eslint-disable no-console */
 import Image from "next/image"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion"
 import { Block } from "../ui/block"
-import { Dialog, DialogClose, DialogContent, DialogTrigger } from "../ui/dialog"
 import { Typography } from "../ui/typography"
 import { SubForm } from "./sub-form"
-import { useState } from "react"
+import { useCallback, useState } from "react"
+import { useRouter } from "next/router"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "../ui/accordion"
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTrigger
+} from "../ui/dialog"
+import { useToast } from "../ui/use-toast"
 
-export const SubscriptionItem = ({
-  name,
-  rating,
-  description,
-  commands,
-  price,
-}: DonateItem) => {
+// type PaymentResponse = {
+//   message: string
+// }
+
+export const SubscriptionItem = ({ name, id, description, price, image }: SubItem) => {
   const [state, setState] = useState<boolean>(false);
+  const router = useRouter();
+  const { toast } = useToast();
 
-  const toggleDialogState = (newState: boolean) => {
-    setState(newState);
-  }
+  const handlePayment = useCallback(async (values: Payment) => {
+    const paymentObject = {
+      paymentId: id,
+        amount: price,
+        phone: values.phone,
+        email: values.email,
+        us_subscription: name,
+        us_nickname: values.nickname,
+    }
 
-  const closeDialog = () => {
-    toggleDialogState(false);
-  };
+    async function postPayment(values: Payment) {
+      const res = await fetch("/api/create-payment", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(paymentObject)
+      })
+
+      if (!res.ok) {
+        throw new Error("Ошибка: проблемы с подключением...");
+      }
+
+      const data = await res.json()
+
+      return data;
+    }
+
+    try {
+      const data = await postPayment(values);
+      const href = data.message;
+
+      if (data) {
+        toast({
+          title: "Переадресация на страницу оплаты...",
+          variant: "neutral",
+          className: "border border-green"
+        });
+
+        router.push(href);
+      }
+    } catch (error) {
+      toast({
+        title: "Ошибка при создании оплаты",
+        variant: "neutral",
+        className: "border border-red"
+      });
+    }
+  }, [router, toast, price, id, name]);
 
   return (
-    <Dialog modal open={state} onOpenChange={toggleDialogState}>
+    <Dialog modal open={state} onOpenChange={setState}>
       <DialogTrigger className="flex flex-col book h-[540px] w-full hover:-translate-y-1 transition ease-out duration-500 cursor-pointer justify-between">
         <div className="flex flex-col gap-y-4">
           <h1 className='text-black text-lg xl:text-2xl text-right -top-2 relative'>
             {name}
           </h1>
-          <div className="flex items-center">
-            <Typography size="xl" className="text-water-meadow">
-              Уровень:
-            </Typography>
-            <span className="text-black text-xl">
-              &nbsp;{rating}
-            </span>
-          </div>
           <div className="flex flex-col items-start">
             <Typography size="xl" position="left" className="text-water-meadow">
               Описание:
             </Typography>
             <Typography size="lg" className="text-black" position="left">
-              {description.text}
-            </Typography>
-          </div>
-          <div className="flex flex-col">
-            <Typography size="xl" position="left" className="text-water-meadow">
-              Команды:
-            </Typography>
-            <Typography position="left" className="text-black whitespace-pre-line">
-              {commands.slice(0, 3).map(command => `> ${command}`).join('\n') + '...'}
+              {description}
             </Typography>
           </div>
         </div>
@@ -83,7 +122,7 @@ export const SubscriptionItem = ({
                   <Image
                     width={600}
                     height={1000}
-                    src={description.screen}
+                    src={image}
                     alt={name}
                     loading="lazy"
                     draggable="true"
@@ -104,7 +143,7 @@ export const SubscriptionItem = ({
                 <Typography size="xl" position="center" className="mb-4 lg:mb-8">
                   Покупка привилегии ({name})
                 </Typography>
-                <SubForm dialogState={closeDialog} />
+                <SubForm handlePayment={handlePayment} />
               </Block>
             </DialogContent>
           </Dialog>

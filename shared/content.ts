@@ -178,6 +178,26 @@ const gallery = [
     title: "RTX в лужах (нет).",
     src: "https://cdn.discordapp.com/attachments/904344676587417621/1197634181019222206/screen_11.webp?ex=65bbfabf&is=65a985bf&hm=7eb66fb74a2a6c6aad038d9caac2fb8c564eac0025e3e38e0dc483c96014012f&",
   },
+  {
+    title: "Вид города 1",
+    src: "https://cdn.discordapp.com/attachments/904344676587417621/1203011846588731505/2024-01-31_17.40.44.png?ex=65cf8b17&is=65bd1617&hm=4872799e19bd56d816812fee0497e76221f4b39aa84ce999b77e64821f6b8c21&"
+  },
+  {
+    title: "Вид города 2",
+    src: "https://cdn.discordapp.com/attachments/904344676587417621/1203011851760443455/2024-01-31_17.40.38.png?ex=65cf8b18&is=65bd1618&hm=f5d28d77a761e99651dccf73a5cd0fe48d8a920ddbf43cfc926c24923bd490c1&"
+  },
+  {
+    title: "Рынок",
+    src: "https://cdn.discordapp.com/attachments/904344676587417621/1203011850166468689/2024-01-31_17.40.13.png?ex=65cf8b17&is=65bd1617&hm=6265f4940304ceebe23b9c6bf98ba33948762213f286f87e1d41914bc46ca08d&"
+  },
+  {
+    title: "Генерация 1",
+    src: "https://cdn.discordapp.com/attachments/904344676587417621/1203011848845135942/2024-01-19_22.30.44.png?ex=65cf8b17&is=65bd1617&hm=7e6d0a64dede776c7197c1d00a06803225967cb670ae0605df2d6d92ffb03085&"
+  },
+  {
+    title: "Генерация 2",
+    src: "https://cdn.discordapp.com/attachments/904344676587417621/1203011847977050192/2024-01-31_17.52.47.png?ex=65cf8b17&is=65bd1617&hm=2bf7fb5b9931c59804d1f19eb4db2dde572ecc3839e77cccea333941fbe95e4b&"
+  }
 ];
 
 const contacts = [
@@ -223,6 +243,7 @@ const contacts = [
 
 const donateList = [
   {
+    id: 5565733,
     name: "Аутентик",
     rating: 2,
     price: 420,
@@ -243,6 +264,7 @@ const donateList = [
     ],
   },
   {
+    id: 5565734,
     name: "Лоял",
     rating: 3,
     price: 640,
@@ -263,6 +285,7 @@ const donateList = [
     ],
   },
   {
+    id: 5565735,
     name: "Архонт",
     rating: 4,
     price: 1240,
@@ -413,42 +436,42 @@ const headers = [
 
 const gameplay = [
   {
-    name: "Питомцы.",
+    name: "Развитая система экономики",
     description:
-      "Два вида питомцев со своей историей, способностями и характеристиками.",
-    image:
-      "https://cdn.discordapp.com/attachments/904344676587417621/1197667815935713390/pets.png?ex=65bc1a12&is=65a9a512&hm=d4a5c2824ecbed03860d622f26ee70882f97d1f3b0230d0f3f4103c69a5c52f5&",
-  },
-  {
-    name: "Репутация",
-    description:
-      "Чем выше репутация - тем лучше к вам будут относиться другие игроки (но это не точно).",
+      "Несколько валют + система репутации, которая даёт тебе дополнительные возможности в игре.",
     image:
       "https://cdn.discordapp.com/attachments/903343341561847848/1197680924536615062/2024-01-19_02.15.49.png?ex=65bc2648&is=65a9b148&hm=befb93593b26914e2524e3a77e40b0653827109b9ebb66b2046f64d44ede8cda&",
   },
   {
-    name: "Уникальные вещи",
+    name: "Питомцы",
     description:
-      "Некоторые вещи, которые вы найдете или купите будут предоставлять уникальные возможности. Например: увеличение силы.",
+      "Два вида питомцев со своей историей, способностями, характеристиками и поведением.",
     image:
-      "https://cdn.discordapp.com/attachments/903343341561847848/1197676074750984253/image.png?ex=65bc21c3&is=65a9acc3&hm=640bb1377ea5938a653a07c0636187912112d2bcb03b1a03d4897e3331c6f18d&",
+      "https://cdn.discordapp.com/attachments/904344676587417621/1197667815935713390/pets.png?ex=65bc1a12&is=65a9a512&hm=d4a5c2824ecbed03860d622f26ee70882f97d1f3b0230d0f3f4103c69a5c52f5&",
+  },
+  {
+    name: "Кастомные вещи",
+    description:
+      "Новые наборы брони, клинки и многое другое.",
+    image:
+      "https://cdn.discordapp.com/attachments/904344676587417621/1203011850975846450/2024-01-31_17.40.24.png?ex=65cf8b18&is=65bd1618&hm=ce1bc6ab0360bb273d2faf6a6487215024b20b593c2b3d8032f5562ab546eb87&",
   },
 ];
 
 const projectDesciption = [
+  {
+    title: "Тематика сервера",
+    desc: "Здесь сочетаются элементы RPG, немного RP, а также отчасти немного анархии. Ждём тебя!",
+    descColor: "#8FFD8F",
+  },
   {
     title: "Атмосферный сервер",
     desc: "При создании сервера я учитывал множество факторов, основное из них - придание атмосферы и души.",
     descColor: "#00cdb0",
   },
   {
-    title: "Тематика сервера",
-    desc: "Здесь сочетаются элементы RP, RPG, а также немножко анархии.",
-    descColor: "#8FFD8F",
-  },
-  {
-    title: "Релиз",
-    desc: "Релиз уже настал и я могу тебе честно сказать - это круто!",
+    title: "Версия",
+    desc: "Сервер всегда доступен с версии 1.19.4 по 1.20+.",
     descColor: "#FABBFB",
   },
 ];
@@ -941,13 +964,13 @@ const armorList: ArmorItem[] = [
 export {
   termins,
   ruless,
-  donateList,
   headerLinks,
   news,
   mediaLinks,
   contacts,
   headers,
   armorList,
+  donateList,
   gameplay,
   gallery,
   projectDesciption,

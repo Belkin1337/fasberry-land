@@ -1,11 +1,12 @@
+
 import Head from "next/head"
 import { Wrapper } from '@/components/wrappers/main-wrapper';
 import { WrapperTitle } from '@/components/wrappers/wrapper-title';
 import { Overlay } from "@/components/ui/overlay";
 import { SubscriptionItem } from "@/components/subs/subscription-item";
 import { Typography } from "@/components/ui/typography";
-import { donateList } from "@/shared/content";
 import { MainLayoutPage } from "@/components/layout/main-layout-page";
+import { donateList } from "@/shared/content";
 
 export default function Donate() {
   return (
@@ -47,14 +48,14 @@ export default function Donate() {
               </div>
               <div defaultValue="subscriptions" className="flex flex-col">
                 <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-4">
-                  {donateList.map((item) => (
+                  {donateList.map((item, idx) => (
                     <SubscriptionItem
-                      key={item.name}
+                      key={idx}
+                      id={item.id}
                       name={item.name}
-                      description={item.description}
-                      commands={item.commands}
-                      rating={item.rating}
+                      description={item.description.text}
                       price={item.price}
+                      image={item.description.screen}
                     />
                   ))}
                 </div>

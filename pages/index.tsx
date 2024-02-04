@@ -23,7 +23,6 @@ import {
   TooltipProvider,
   TooltipTrigger
 } from '@/components/ui/tooltip';
-import { Wrapper } from '@/components/wrappers/main-wrapper';
 import { Typography } from '@/components/ui/typography';
 import { Block } from '@/components/ui/block';
 import { MainLayoutPage } from '@/components/layout/main-layout-page';
@@ -48,7 +47,7 @@ export default function General() {
         src="/images/minecraft/icons/book_big.webp"
       />
     })
-  } 
+  }
 
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     slides: projectDesciption.length,
@@ -89,7 +88,7 @@ export default function General() {
                   <Dialog>
                     <DialogTrigger asChild className="w-full">
                       <Button variant="blurred" shadow="swipe" className="w-full h-[54px] lg:h-[64px] hover:from-[#00cdb0] hover:via-[#a976f8] hover:to-[#ffc0cb]">
-                        <Typography className="text-white text-2xl text-shadow-xl">
+                        <Typography className="!text-white text-2xl text-shadow-xl">
                           Начать играть
                         </Typography>
                       </Button>
@@ -176,6 +175,28 @@ export default function General() {
             </div>
           </div>
         </div>
+        <div className="full-screen-section flex flex-col items-center">
+          <div className="flex flex-col lg:flex-row">
+            {gameplay.map((item, idx) => (
+              <div key={idx} className="flex flex-col items-center justify-end w-full min-h-screen 
+              lg:w-1/3 relative bg-top bg-cover lg:bg-center border-0 lg:border-r-2 border-project-color"
+                style={{ backgroundImage: `url(${item.image})` }}>
+                <div className="absolute right-0 left-0 bg-gradient-to-b from-background-dark to-25% to-transparent min-h-screen bg-opacity-70" />
+                <div className="absolute right-0 left-0 bg-gradient-to-t from-background-dark to-transparent min-h-screen bg-opacity-70" />
+                <div className="flex flex-col items-center justify-center gap-y-2 py-16 px-6 relative bg-black bg-opacity-60 h-[360px]">
+                  <h1 className="text-2xl md:text-3xl 2xl:text-5xl text-red text-center">
+                    {item.name}
+                  </h1>
+                  <Typography position="center" className="text-xl md:text-2xl 2xl:text-3xl">
+                    {item.description}
+                  </Typography>
+                </div>
+                <div className="borders_up xl:hidden" />
+                <div className="borders_down xl:hidden" />
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="full-screen-section">
           <div className="flex xl:flex-row flex-col py-24 mx-auto gap-y-12 xl:gap-y-6 group gap-x-4 lg:gap-x-4 xl:gap-x-6 2xl:gap-x-8 w-[90%]">
             <div className="flex flex-col gap-y-6">
@@ -196,15 +217,15 @@ export default function General() {
                       />
                     </div>
                     <div className="flex flex-col items-start relative rounded-b-xl self-end bg-black/80 dark:bg-black py-2 px-2 lg:py-4 lg:px-4 w-full gap-y-2 max-h-[96px] lg:h-[114px]">
-                      <Typography position="left" className="text-base lg:text-3xl">
+                      <Typography color="black" position="left" className="text-base lg:text-3xl">
                         {item.title}
                       </Typography>
-                      <Typography className="text-neutral-400 text-sm lg:text-lg">
+                      <Typography color="black" className="text-sm lg:text-lg">
                         {item.date}
                       </Typography>
                     </div>
                   </DialogTrigger>
-                  <DialogContent className="flex flex-col w-[90%] mx-auto xl:flex-row bg-black/80 border border-neutral-900 rounded-xl p-2 w-6xl backdrop-filter backdrop-blur-md overflow-hidden gap-x-6">
+                  <DialogContent className="flex flex-col w-[90%] mx-auto xl:flex-row border border-neutral-900 rounded-xl p-2 w-6xl backdrop-filter backdrop-blur-md overflow-hidden gap-x-6">
                     <NewsItem
                       image={item.image}
                       body={item.body}
@@ -239,7 +260,7 @@ export default function General() {
                           />
                         </div>
                       </DialogTrigger>
-                      <DialogContent className="w-4xl mx-auto w-[90%] bg-black/80 border p-2 border-neutral-900 rounded-xl">
+                      <DialogContent className="w-4xl mx-auto w-[90%] border p-2 border-neutral-900 rounded-xl">
                         <Image
                           src={item}
                           width={1280}
@@ -256,69 +277,45 @@ export default function General() {
             </div>
           </div>
         </div>
-        <div className="full-screen-section flex flex-col items-center">
-          <div className="flex flex-col lg:flex-row">
-            {gameplay.map((item, idx) => (
-              <div key={idx} className="flex flex-col items-center justify-end w-full min-h-screen 
-              lg:w-1/3 relative bg-top bg-cover lg:bg-center border-0 lg:border-r-2 border-project-color"
-                style={{ backgroundImage: `url(${item.image})` }}>
-                <div className="absolute right-0 left-0 bg-gradient-to-b from-background-dark to-25% to-transparent min-h-screen bg-opacity-70" />
-                <div className="absolute right-0 left-0 bg-gradient-to-t from-background-dark to-transparent min-h-screen bg-opacity-70" />
-                <div className="flex flex-col items-center justify-center gap-y-2 py-16 px-6 relative bg-black bg-opacity-60 h-[360px]">
-                  <h1 className="text-2xl md:text-3xl 2xl:text-5xl text-red text-center">
-                    {item.name}
-                  </h1>
-                  <Typography position="center" className="text-xl md:text-2xl 2xl:text-3xl">
-                    {item.description}
-                  </Typography>
-                </div>
-                <div className="borders_up xl:hidden" />
-                <div className="borders_down xl:hidden" />
-              </div>
-            ))}
-          </div>
-        </div>
         <div className="full-screen-section flex flex-col items-center justify-center py-32 xl:py-0">
-          <Wrapper>
-            <div className="flex flex-col gap-y-12">
-              <h2 className="text-3xl md:text-6xl lg:text-6xl xl:text-7xl text-center">
-                Где ещё существует проект?
-              </h2>
-              <div className="flex flex-col md:flex-row gap-x-4 gap-y-6 justify-between">
-                {contacts.map((item) => (
-                  <div key={item.name} className="flex p-0 flex-col justify-between rounded-xl block-item">
-                    <Block blockItem rounded="big" size="big" type="column">
-                      <Typography className="text-[#fabbfb] text-3xl lg:text-4xl xl:text-5xl mb-4">
-                        {item.name}
-                      </Typography>
-                      <h1 className="text-green text-lg xl:text-3xl text-left">+:</h1>
-                      {item.content.map((item) => (
-                        item.pluses && item.pluses.map((plus, plusIndex) => (
-                          <Typography key={plusIndex} size="lg">
-                            &gt;&nbsp;{plus}
-                          </Typography>
-                        ))
-                      ))}
-                      <h1 className="mt-2 xl:mt-3 text-rose-500 text-lg xl:text-3xl text-left">-:</h1>
-                      {item.content.map((item) => (
-                        item.minuses && item.minuses.map((minus, minusIndex) => (
-                          <Typography key={minusIndex} size="xl">
-                            &gt;&nbsp;{minus}
-                          </Typography>
-                        ))
-                      ))}
-                      <Link href={item.href} className="flex flex-row items-center gap-x-4 brightness-110 mt-4 py-4 cursor-pointer group">
-                        <item.icon className="fill-white" size={32} />
-                        <span className="text-white text-lg">
-                          Перейти в {item.name}!
-                        </span>
-                      </Link>
-                    </Block>
-                  </div>
-                ))}
-              </div>
+          <div className="flex flex-col gap-y-12 w-[90%] mx-auto">
+            <h2 className="text-3xl md:text-6xl lg:text-6xl xl:text-7xl text-center text-red">
+              Где ещё существует проект?
+            </h2>
+            <div className="flex flex-col md:flex-row gap-x-4 gap-y-6 justify-between">
+              {contacts.map((item) => (
+                <div key={item.name} className="flex p-0 flex-col justify-between rounded-xl block-item">
+                  <Block blockItem rounded="big" size="big" type="column">
+                    <Typography className="text-[#fabbfb] text-3xl lg:text-4xl xl:text-5xl mb-4">
+                      {item.name}
+                    </Typography>
+                    <h1 className="text-green text-lg xl:text-3xl text-left">+:</h1>
+                    {item.content.map((item) => (
+                      item.pluses && item.pluses.map((plus, plusIndex) => (
+                        <Typography key={plusIndex} size="lg">
+                          &gt;&nbsp;{plus}
+                        </Typography>
+                      ))
+                    ))}
+                    <h1 className="mt-2 xl:mt-3 text-rose-500 text-lg xl:text-3xl text-left">-:</h1>
+                    {item.content.map((item) => (
+                      item.minuses && item.minuses.map((minus, minusIndex) => (
+                        <Typography key={minusIndex} size="xl">
+                          &gt;&nbsp;{minus}
+                        </Typography>
+                      ))
+                    ))}
+                    <Link href={item.href} className="flex flex-row items-center gap-x-4 brightness-110 mt-4 py-4 cursor-pointer group">
+                      <item.icon className="fill-white" size={32} />
+                      <span className="text-white text-lg">
+                        Перейти в {item.name}!
+                      </span>
+                    </Link>
+                  </Block>
+                </div>
+              ))}
             </div>
-          </Wrapper>
+          </div>
         </div>
         <CarouselImages />
       </MainLayoutPage>

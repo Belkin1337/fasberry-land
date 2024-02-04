@@ -1,7 +1,13 @@
 import Head from 'next/head'
 import { Suspense, type ReactElement, type ReactNode } from 'react'
 import type { NextPage } from 'next'
+import React from "react"
 import type { AppProps } from 'next/app'
+import {
+  HydrationBoundary,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 import { ThemeProvider } from 'next-themes';
 import { Preloader } from '@/components/ui/preloader';
 import { Toaster } from '@/components/ui/toaster';
@@ -18,6 +24,7 @@ type AppPropsWithLayout = AppProps & {
 }
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
+  const [queryClient] = React.useState(() => new QueryClient())
   const getLayout = Component.getLayout ?? ((page) => page)
 
   return getLayout(
@@ -58,7 +65,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
           enableSystem
         >
           <Toaster />
-          <Component {...pageProps} />
+          <QueryClientProvider client={queryClient}>
+            <HydrationBoundary state={pageProps.dehydratedState}>
+              <Component {...pageProps} />
+            </HydrationBoundary>
+          </QueryClientProvider>
         </ThemeProvider>
       </Suspense>
     </>

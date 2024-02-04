@@ -4,6 +4,51 @@
 //   icon: string,
 // }
 
+type Products = {
+  response: Array<{
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    image: string;
+    rating: number;
+  }>;
+};
+
+type Player = {
+  uuid: string;
+  name_raw: string;
+};
+
+type Status = {
+  online: boolean;
+  players: {
+    online: number;
+    max: number;
+    list: Player[];
+  };
+};
+
+type Payment = {
+  paymentId?: number,
+  amount?: number,
+  phone?: string,
+  email?: string,
+  nickname: string,
+  us_subscription?: string,
+}
+
+type SubItem = {
+  id?: number;
+  name: string;
+  description: string;
+  price: number;
+  old_price?: number;
+  servers?: Array<string>;
+  updated_at?: string;
+  image: string;
+};
+
 type RulesList = {
   id: string;
   name: string;

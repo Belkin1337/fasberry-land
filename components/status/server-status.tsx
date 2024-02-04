@@ -1,28 +1,8 @@
-import { useEffect } from 'react';
 import Image from "next/image"
-import useSWR from 'swr';
-
-interface Player {
-  uuid: string;
-  name_raw: string;
-}
-
-type Status = {
-  players: {
-    list: Player[]
-  }
-}
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+import { GetStatus } from '@/hooks/get-status';
 
 export const ServerStatus = () => {
-  const { data, isLoading, mutate } = useSWR<Status>("https://api.mcstatus.io/v2/status/java/play.fasberry.ru:25575", fetcher);
-
-  useEffect(() => {
-    if (data) {
-      mutate();
-    }
-  }, [data, mutate])
+  const { data, isLoading } = GetStatus({ port: "25575"})
 
   return (
     <div className="rounded-xl p-1 block-item">

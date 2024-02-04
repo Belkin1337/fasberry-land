@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { useMemo, useState } from 'react';
 import { usePathname } from 'next/navigation'
 import { useRouter } from "next/router"
@@ -6,7 +5,8 @@ import { headerLinks } from '@/shared/content';
 import { ThemeToggle } from '@/components/tools/theme-toggle';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Typography } from '@/components/ui/typography';
-import { useToast } from '../ui/use-toast';
+import { useToast } from '@/components/ui/use-toast';
+import Image from "next/image"
 
 export const Header = () => {
 	const [open, setOpen] = useState(false);
@@ -20,7 +20,8 @@ export const Header = () => {
 				toast({
 					title: "Вы уже на этой странице!",
 					variant: "neutral",
-					action: <Image
+					action: 
+					<Image
 						alt="Toast Pic"
 						width={42}
 						height={42}
@@ -33,11 +34,8 @@ export const Header = () => {
 	return (
 		<>
 			<div className={`header flex items-center justify-between sticky lg:absolute top-0 transition w-full bg-repeat-x z-50`}
-				style={{
-					backgroundImage: `url("/images/static/cracked_polished_blacked.webp")`,
-					backgroundSize: '160px',
-				}}>
-				<div className="bg-transparent cursor-pointer relative top-3 xl:-right-20" onClick={() => router.push('/')}>
+				style={{ backgroundImage: `url("/images/static/cracked_polished_blacked.webp")`, backgroundSize: '160px' }}>
+				<div onClick={() => router.push('/')} className="bg-transparent cursor-pointer relative top-3 xl:-right-20">
 					<Image
 						width={224}
 						height={64}
@@ -47,21 +45,12 @@ export const Header = () => {
 				</div>
 				<div className="hidden xl:flex gap-x-4 items-center justify-start pr-[128px]">
 					{headerLinks.map((item, idx) => (
-						<div key={idx} onClick={() => pathDetect(item.href)}
-							className="flex flex-row items-center gap-1 text-lg cursor-pointer">
-							<Image
-								src={item.image}
-								width={20}
-								height={20}
-								alt={item.name}
-							/>
-							<Typography className={`hover:brightness-[1.8] hover:duration-300 duration-300 ease-in
-          				${router.pathname === item.href
-									? 'underline underline-offset-8 decoration-[#fabbfb] decoration-2'
-									: ''} 
-          				${item.name == "Привилегии"
-									? 'text-gold'
-									: 'text-project-color'}`}>
+						<div key={idx} onClick={() => pathDetect(item.href)} className="flex flex-row items-center gap-1 text-lg cursor-pointer">
+							<Image src={item.image} width={20} height={20} alt={item.name} />
+							<Typography className={`hover:brightness-150 text-project-color
+          			${router.pathname === item.href && 'brightness-[1.8]'} 
+          			${item.name == "Привилегии" && 'text-gold'}`}
+							>
 								{item.name}
 							</Typography>
 						</div>
@@ -76,7 +65,7 @@ export const Header = () => {
 							width={48}
 							height={48}
 							src={open ? "/images/minecraft/icons/chest_opened.png" : "/images/minecraft/icons/chest_closed.png"}
-							alt="toggle"
+							alt="Chest"
 						/>
 					</SheetTrigger>
 					<SheetContent side="top" className="xl:hidden flex flex-col items-start justify-between bg-neutral-950 h-[420px] p-4 w-full">
@@ -108,16 +97,8 @@ export const Header = () => {
 									setOpen(false);
 								}}
 									className="flex border border-neutral-800 hover:bg-neutral-800 cursor-pointer rounded-md gap-x-6 shadow-[inset_42px_0px_0px_#553C7D] py-2 px-2 w-full">
-									<Image
-										src={item.image}
-										width={26}
-										height={10}
-										alt={item.name}
-										loading="lazy"
-									/>
-									<Typography size="lg" className={`${item.name === "Привилегии"
-										? 'text-gold'
-										: 'text-project-color'}`}>
+									<Image src={item.image}	width={26} height={10} alt={item.name} loading="lazy"	/>
+									<Typography size="lg" className={`text-project-color ${item.name === "Привилегии" && 'text-gold'}`}>
 										{item.name}
 									</Typography>
 								</div>

@@ -1,11 +1,25 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   async rewrites() {
-    return [{
+    return [
+      {
         source: '/api/:path*',
         destination: 'https://api.mcstatus.io/v2/status/java/play.fasberry.ru',
       },
     ]
+  },
+  async headers() {
+    return [
+      {
+        source: '/api/:path*',
+        headers: [
+          { 
+            key: 'Access-Control-Allow-Origin', 
+            value: '*' 
+          },
+        ],
+      },
+    ];
   },
   webpack: (config) => {
     config.externals = [...config.externals, "canvas", "jsdom"];
@@ -32,7 +46,7 @@ module.exports = {
     },
      {
       protocol: "https",
-      hostname: "media.discordapp.net",
+      hostname: "storage.easyx.ru",
       port: '',
       pathname: "/**"
     }

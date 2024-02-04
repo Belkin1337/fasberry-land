@@ -3,52 +3,60 @@ import Image from "next/image"
 import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { SubmitHandler, useForm } from "react-hook-form"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from "@/components/ui/form"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from "@/components/ui/tooltip"
 import { Input } from "@/components/ui/input"
 import { Typography } from "@/components/ui/typography"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { useToast } from "@/components/ui/use-toast"
-import { ToastAction } from "@/components/ui/toast"
 
 const formSchema = z
   .object({
-    nickname: z.string().min(1, {
+    nickname: z.string().transform(value => value.replace(/\s+/g, '')).pipe(z.string().min(1, {
       message: "Никнейм должен состоять из минимум 1 символов."
-    }),
+    })),
     privacy: z.boolean().refine((value) => value === true, {
       message: 'Вы должны ознакомиться с правилами!',
     }),
+    email: z.string().email({
+      message: "Поле обязательно!"
+    }).min(5, {
+      message: "Почта должна состоять из минимум 5 символов"
+    }),
+    phone: z.string().optional(),
   })
   .required()
 
 type FormFields = z.infer<typeof formSchema>;
 
-export const SubForm = ({
-  dialogState
-}: { dialogState: () => void }) => {
-  const { toast } = useToast();
+type SubForm = {
+  handlePayment: (values: Payment) => void;
+}
 
+export const SubForm = ({ handlePayment }: SubForm) => {
   const form = useForm<FormFields>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       nickname: "",
-      privacy: false
+      privacy: false,
+      email: "",
+      phone: ""
     },
   })
 
   const onSubmit: SubmitHandler<FormFields> = (values) => {
-    // console.log(values);
-    dialogState();
-    toast({
-      title: "Тест",
-      variant: "neutral",
-      description: "Стоп. Это тестовое уведомление!",
-      action:
-        <ToastAction altText="Try again">
-          Ок
-        </ToastAction>,
-    })
+    handlePayment(values);
   };
 
   return (
@@ -72,13 +80,15 @@ export const SubForm = ({
                         src="/images/minecraft/icons/minecart_chest_big.webp"
                         width={16}
                         height={16}
-                        alt="Nickname Requirement"
+                        alt="Nickname Requirements"
                       />
                     </TooltipTrigger>
-                    <TooltipContent>
-                      <Typography
-                        size="md" className="text-red">
+                    <TooltipContent className="flex flex-col gap-y-1">
+                      <Typography size="md" className="text-red">
                         Пожалуйста, перепроверьте ник перед оплатой!
+                      </Typography>
+                      <Typography size="md" className="text-red">
+                        А также запрещены пробелы в нике!
                       </Typography>
                     </TooltipContent>
                   </Tooltip>
@@ -87,6 +97,46 @@ export const SubForm = ({
               <FormControl>
                 <Input
                   placeholder="Введите никнейм"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <div className="flex items-start gap-x-2">
+                <FormLabel className="text-lg text-white">
+                  Почта
+                </FormLabel>
+              </div>
+              <FormControl>
+                <Input
+                  placeholder="Почта"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="phone"
+          render={({ field }) => (
+            <FormItem>
+              <div className="flex items-start gap-x-2">
+                <FormLabel className="text-lg text-white">
+                  Телефон (опционально)
+                </FormLabel>
+              </div>
+              <FormControl>
+                <Input
+                  placeholder="Телефон"
                   {...field}
                 />
               </FormControl>
@@ -113,9 +163,7 @@ export const SubForm = ({
             </FormItem>
           )}
         />
-        <button
-          className={`text-green-server-color text-lg w-full button px-4 py-1`}
-          type="submit">
+        <button className={`text-green-server-color text-lg w-full button px-4 py-1`} type="submit">
           Купить
         </button>
       </form>
