@@ -8,6 +8,13 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  if (req.method === "GET") {
+    res.status(405).json({
+      success: false,
+      message: "Method Not Allowed",
+    });
+  }
+
   if (req.method === "POST") {
     try {
       const {
@@ -38,7 +45,7 @@ export default async function handler(
       }
 
       if (SIGN == signature && merchantId == MERCHANT_ID) {
-        const redirectUrl = `http://localhost:3005?success=true&MERCHANT_ID=${MERCHANT_ID}&MERCHANT_ORDER_ID=${MERCHANT_ORDER_ID}&us_nickname=${us_nickname}&us_subscription=${us_subscription}`
+        const redirectUrl = `http://fasberry.ru/?success=true&MERCHANT_ID=${MERCHANT_ID}&MERCHANT_ORDER_ID=${MERCHANT_ORDER_ID}&us_nickname=${us_nickname}&us_subscription=${us_subscription}`
 
         res.status(200).json({
           message: "success",
@@ -58,10 +65,5 @@ export default async function handler(
         message: "Internal Server Error",
       });
     }
-  } else {
-    res.status(405).json({
-      success: false,
-      message: "Method Not Allowed",
-    });
-  }
+  } 
 }
