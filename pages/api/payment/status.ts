@@ -7,11 +7,11 @@ const merchantSecret = "QwWKOc04uZzef25Z";
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     try {
-      const { MERCHANT_ID, AMOUNT, MERCHANT_ORDER_ID, SIGN, us_nickname, us_subscription } = req.body;
+      const { MERCHANT_ID, AMOUNT, MERCHANT_ORDER_ID, SIGN, us_nickname, us_subscription } = req.query;
 
-      res.redirect(`/?MERCHANT_ID=${MERCHANT_ID}&MERCHAND_ORDER_ID=${MERCHANT_ORDER_ID}&us_nickname=${us_nickname}&us_subscription=${us_subscription}`);
       res.status(200).send('YES');
-
+      
+      res.redirect(`/?MERCHANT_ID=${MERCHANT_ID}&MERCHANT_ORDER_ID=${MERCHANT_ORDER_ID}&us_nickname=${us_nickname}&us_subscription=${us_subscription}`);
     } catch (error) {
 
 
