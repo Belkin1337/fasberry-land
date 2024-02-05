@@ -7,6 +7,7 @@ export function middleware(request: NextRequest) {
     "168.119.60.227",
     "138.201.88.124",
     "178.154.197.79",
+    "89.23.177.171",
   ];
 
   const existingXForwardedFor = request.headers.get("x-forwarded-for") || "";

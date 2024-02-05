@@ -39,7 +39,7 @@ export const SubscriptionItem = ({ name, id, description, price, image }: SubIte
     }
 
     async function postPayment(values: Payment) {
-      const res = await fetch("/api/create-payment", {
+      const res = await fetch("/api/payment/create", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
