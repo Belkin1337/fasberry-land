@@ -29,6 +29,7 @@ import { MainLayoutPage } from '@/components/layout/main-layout-page';
 import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import { NewsItem } from "@/components/intro/news-item";
+import { ReqProvider } from "@/providers/request-provider";
 
 export default function General() {
   const { toast } = useToast();
@@ -69,6 +70,7 @@ export default function General() {
                 style={{ backgroundImage: `url("/images/winter.webp")` }}
               />
             </div>
+            <ReqProvider/>
             <div className="w-[90%] mx-auto">
               <div ref={sliderRef} className="fader flex items-center relative z-20 w-full ">
                 {projectDesciption.map((item, idx) => (

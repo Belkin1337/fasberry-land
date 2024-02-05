@@ -44,6 +44,7 @@ import { CommandLine } from "@/components/ui/command-line"
 import { ContentModule } from "@/components/ui/content-module"
 import { WikiTableComponent } from "@/components/wiki/table-wiki-component"
 import { MainLayoutPage } from "@/components/layout/main-layout-page"
+import { ReqProvider } from "@/providers/request-provider"
 
 export default function Wiki() {
   const router = useRouter();
