@@ -46,7 +46,6 @@ export default async function handler(
       if (SIGN == signature && merchantId == MERCHANT_ID) {
         const redirectUrl = `http://fasberry.ru/?success=true&MERCHANT_ID=${MERCHANT_ID}&MERCHANT_ORDER_ID=${MERCHANT_ORDER_ID}&us_nickname=${us_nickname}&us_subscription=${us_subscription}`;
       
-        res.status(200).send('YES');
         res.redirect(redirectUrl);
       }
       
