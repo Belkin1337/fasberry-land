@@ -77,7 +77,7 @@ export default async function handler(
         });
       }
 
-      if (SIGN.toString() === signature && MERCHANT_ID === merchantId) {
+      if (SIGN.toString() === signature && MERCHANT_ID.toString() === merchantId) {
         await server.authenticate(rcon_password);
         server.execute(`lp user ${us_nickname} parent add ${us_subscription}`);
         await server.disconnect();
