@@ -47,12 +47,16 @@ export default async function handler(
           message:
             "Merchant mismatch: The provided merchant does not match the expected value.",
         });
+
+        return
       } else if (SIGN !== signature) {
         res.status(400).json({
           success: false,
           message:
             "Signature mismatch: The provided signature does not match the expected value.",
         });
+
+        return
       } else if (SIGN == signature && merchantId == MERCHANT_ID) {
         await server.authenticate(rcon_password);
         await server.execute(
@@ -70,6 +74,8 @@ export default async function handler(
         success: false,
         message: "Internal Server Error",
       });
+
+      return
     }
   }
 }
