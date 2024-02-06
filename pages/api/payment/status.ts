@@ -52,7 +52,7 @@ export default async function handler(
       err: Error | null;
       fields: any;
     }>((resolve, reject) => {
-      formidable().parse(req, (err: Error, fields) => {
+      formidable({ keepExtensions: true }).parse(req, (err: Error, fields) => {
         if (err) reject(err);
         resolve({ err, fields });
       });
