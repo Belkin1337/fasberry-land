@@ -8,6 +8,7 @@ type DataMessage = {
   SIGN: string;
   P_EMAIL?: string;
   P_PHONE?: number;
+  AMOUNT?: number
 };
 
 const token = process.env.TELEGRAM_BOT_TOKEN;
@@ -25,6 +26,7 @@ export async function report({
   SIGN,
   P_EMAIL,
   P_PHONE,
+  AMOUNT,
 }: DataMessage,
 success: boolean
 ) {
@@ -34,16 +36,15 @@ await bot.sendMessage(
   `
   Время: ${new Date()} 
   Статус: ${status} 
-  Ник: ${us_nickname} 
-  Привилегия: ${us_subscription} 
-  Магазин: ${MERCHANT_ID}
   Заказ: #${MERCHANT_ORDER_ID} 
+  Ник: ${us_nickname} 
+  Привилегия: ${us_subscription} ${AMOUNT} 
+  Магазин: ${MERCHANT_ID}
   Подпись: ${SIGN} 
   Почта: ${P_EMAIL} 
   Телефон: ${P_PHONE}`
 );
 }
-
 
 export async function bad(text: string) {
   await bot.sendMessage(ownerID, text)

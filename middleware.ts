@@ -2,8 +2,6 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  const requestHeaders = new Headers(request.headers)
-
   const allowedIPs = [
     "168.119.157.136",
     "168.119.60.227",
@@ -11,12 +9,10 @@ export function middleware(request: NextRequest) {
     "178.154.197.79",
   ];
 
-  const existingXForwardedFor = requestHeaders.get("x-real-ip") || "";
-  const existingIPs = existingXForwardedFor.split(",").map((ip) => ip.trim());
-  const isValidIP = existingIPs.every((ip) => allowedIPs.includes(ip));
+  const clientIP = request.headers.get("x-real-ip") || "";
 
-  if (!isValidIP) {
-    return Response.json(
+  if (!allowedIPs.includes(clientIP)) {
+    return NextResponse.json(
       { 
         success: false, 
         message: "Access denied!" 
@@ -27,13 +23,7 @@ export function middleware(request: NextRequest) {
     );
   }
 
-  const response = NextResponse.next({
-    request: {
-      headers: requestHeaders,
-    },
-  });
-
-  return response;
+  return NextResponse.next();
 }
 
 export const config = {
