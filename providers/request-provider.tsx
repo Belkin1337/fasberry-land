@@ -56,23 +56,6 @@ export const ReqProvider = () => {
                 #{paymentState?.MERCHANT_ORDER_ID}
               </span>
             </Typography>
-            <Typography size="xl">
-              Привилегия: <span className="text-project-color">
-                {paymentState?.us_subscription}
-              </span>
-            </Typography>
-            <Typography size="xl">
-              Выдано игроку: <span className="text-project-color">
-                {paymentState?.us_nickname}
-              </span>
-            </Typography>
-            {paymentState?.P_EMAIL && (
-              <Typography size="xl">
-                Почта, куда придёт уведомление: <span className="text-project-color">
-                  {paymentState?.P_EMAIL}
-                </span>
-              </Typography>
-            )}
             <Typography size="xl" className="mt-6 text-[#fabbfb]">
               Спасибо за покупку. Приятной игры!
             </Typography>

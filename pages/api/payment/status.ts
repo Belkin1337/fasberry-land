@@ -66,16 +66,15 @@ export default async function handler(
 
           await server.disconnect();
 
-
-          res.status(200).json({
-            success: true,
-            message: "Issued successfully.",
-          });
-
           // res.redirect(redirectUrl);
         } catch (e) {
           throw new Error("Something wrong error!");
         }
+
+        res.status(200).json({
+          success: true,
+          message: "Issued successfully.",
+        });
       }
     } catch (error) {
       res.status(500).json({
