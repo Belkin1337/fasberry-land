@@ -77,20 +77,35 @@ export default async function handler(
         });
       }
 
-      if (SIGN.toString() === signature && MERCHANT_ID.toString() === merchantId) {
-        await server.authenticate(rcon_password);
-        server.execute(`lp user ${us_nickname} parent add ${us_subscription}`);
-        await server.disconnect();
+      try {
+        if (
+          SIGN.toString() === signature &&
+          MERCHANT_ID.toString() === merchantId
+        ) {
+          await server.authenticate(rcon_password);
+          server.execute(
+            `lp user ${us_nickname} parent add ${us_subscription}`
+          );
+          await server.disconnect();
 
-        return res.status(200).send({
-          success: true,
-          message: "Issued successfully.",
+          return res.status(200).send({
+            success: true,
+            message: "Issued successfully.",
+          });
+        }
+      } catch (e: any) {
+        res.status(400).send({
+          error: e.toString(),
+          message: "Don't given subscription for player.",
         });
       }
 
       return res.status(200).send("YES");
-    } catch {
-      res.status(500).send("Internal Server Error")
+    } catch (e: any) {
+      res.status(500).send({
+        error: e.toString(),
+        message: "Internal Server Error",
+      });
     }
   }
 }
