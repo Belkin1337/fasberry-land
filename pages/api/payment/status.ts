@@ -64,20 +64,6 @@ export default async function handler(
       return res.status(400).send("Error parsing form data.");
     }
 
-    if (
-      !fields ||
-      !fields.MERCHANT_ID ||
-      !fields.SIGN ||
-      !fields.AMOUNT ||
-      !fields.MERCHANT_ORDER_ID ||
-      !fields.us_nickname ||
-      !fields.us_subscription
-    ) {
-      bad("Не все есть в форме");
-
-      return res.status(400).send("Not all form fields were received.");
-    }
-
     bad("данные пришли? пришли");
 
     const MERCHANT_ID = Array.isArray(fields.MERCHANT_ID)
