@@ -3,9 +3,9 @@ import { usePathname } from 'next/navigation'
 import { useRouter } from "next/router"
 import { headerLinks } from '@/shared/content';
 import { ThemeToggle } from '@/components/tools/theme-toggle';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Typography } from '@/components/ui/typography';
-import { useToast } from '@/components/ui/use-toast';
+import { Sheet, SheetContent, SheetTrigger } from '@/ui/sheet';
+import { Typography } from '@/ui/typography';
+import { useToast } from '@/ui/use-toast';
 import Image from "next/image"
 
 export const Header = () => {

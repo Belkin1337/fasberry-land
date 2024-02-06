@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog"
+import { Dialog, DialogTrigger, DialogContent } from "@/ui/dialog"
 
 interface ScreenshotItemProps {
   title: string,

@@ -2,9 +2,9 @@ import Head from "next/head"
 import Link from "next/link"
 import Image from "next/image"
 import { Wrapper } from "@/components/wrappers/main-wrapper";
-import { Typography } from "@/components/ui/typography";
-import { Block } from "@/components/ui/block";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Typography } from "@/ui/typography";
+import { Block } from "@/ui/block";
+import { Dialog, DialogContent, DialogTrigger } from "@/ui/dialog";
 import { MainLayoutPage } from "@/components/layout/main-layout-page";
 
 export default function Support() {

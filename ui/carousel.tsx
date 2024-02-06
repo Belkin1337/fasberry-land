@@ -10,7 +10,7 @@ import {
 } from 'embla-carousel';
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/ui/button"
 
 type CarouselProps = {
   opts?: CarouselOptions

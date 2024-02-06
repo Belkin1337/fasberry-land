@@ -8,24 +8,24 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger
-} from "@/components/ui/accordion"
+} from "@/ui/accordion"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger
-} from "@/components/ui/tooltip"
+} from "@/ui/tooltip"
 import {
   Tabs,
   TabsList,
   TabsTrigger
-} from "@/components/ui/tabs"
+} from "@/ui/tabs"
 import {
   Dialog,
   DialogContent,
   DialogClose,
   DialogTrigger
-} from "@/components/ui/dialog"
+} from "@/ui/dialog"
 import {
   armorColumnsArmor,
   armorColumnsDurability,
@@ -37,11 +37,11 @@ import {
   armorList,
   headers
 } from "@/shared/content"
-import { Block } from "@/components/ui/block"
-import { Typography } from "@/components/ui/typography"
+import { Block } from "@/ui/block"
+import { Typography } from "@/ui/typography"
 import { ImageAnnotation } from "@/components/wiki/image-annotation"
-import { CommandLine } from "@/components/ui/command-line"
-import { ContentModule } from "@/components/ui/content-module"
+import { CommandLine } from "@/ui/command-line"
+import { ContentModule } from "@/ui/content-module"
 import { WikiTableComponent } from "@/components/wiki/table-wiki-component"
 import { MainLayoutPage } from "@/components/layout/main-layout-page"
 import { ReqProvider } from "@/providers/request-provider"

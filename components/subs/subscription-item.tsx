@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import Image from "next/image"
-import { Block } from "../ui/block"
-import { Typography } from "../ui/typography"
+import { Block } from "../../ui/block"
+import { Typography } from "../../ui/typography"
 import { SubForm } from "./sub-form"
 import { useCallback, useState } from "react"
 import { useRouter } from "next/router"
@@ -10,14 +10,14 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger
-} from "../ui/accordion"
+} from "../../ui/accordion"
 import {
   Dialog,
   DialogClose,
   DialogContent,
   DialogTrigger
-} from "../ui/dialog"
-import { useToast } from "../ui/use-toast"
+} from "../../ui/dialog"
+import { useToast } from "../../ui/use-toast"
 
 // type PaymentResponse = {
 //   message: string

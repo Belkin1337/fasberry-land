@@ -1,16 +1,16 @@
-import { Block } from "@/components/ui/block";
+import { Block } from "@/ui/block";
 import {
   Dialog,
   DialogClose,
   DialogContent,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "@/ui/dialog";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/ui/tooltip";
 import { createColumnHelper } from "@tanstack/react-table";
 import Image from "next/image";
 

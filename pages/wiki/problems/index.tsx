@@ -1,6 +1,6 @@
 import Head from "next/head"
 import { MainLayoutPage } from "@/components/layout/main-layout-page";
-import { Typography } from "@/components/ui/typography";
+import { Typography } from "@/ui/typography";
 
 export default function ProblemsPage() {
   return (

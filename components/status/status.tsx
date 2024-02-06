@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation"
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
-import { Typography } from "../ui/typography"
-import { Block } from "../ui/block"
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/ui/hover-card'
+import { Typography } from "../../ui/typography"
+import { Block } from "../../ui/block"
 import { GetStatus } from "@/hooks/get-status"
 
 export const Status = () => {

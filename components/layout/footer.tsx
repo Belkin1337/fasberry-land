@@ -1,5 +1,5 @@
 import { Wrapper } from "@/components/wrappers/main-wrapper";
-import { Typography } from "@/components/ui/typography";
+import { Typography } from "@/ui/typography";
 import Image from "next/image"
 import Link from "next/link"
 

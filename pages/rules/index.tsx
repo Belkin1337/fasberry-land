@@ -1,8 +1,8 @@
 import Head from "next/head"
-import { Overlay } from '@/components/ui/overlay';
+import { Overlay } from '@/ui/overlay';
 import { WrapperTitle } from '@/components/wrappers/wrapper-title';
 import { RulesList } from '@/components/rules/rules-list';
-import { Typography } from "@/components/ui/typography";
+import { Typography } from "@/ui/typography";
 import { MainLayoutPage } from "@/components/layout/main-layout-page";
 
 export default function RulesPage() {

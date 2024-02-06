@@ -1,6 +1,6 @@
 import Image from "next/image"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/ui/accordion"
+import { Tabs, TabsList, TabsTrigger } from "@/ui/tabs"
 import { headers } from "@/shared/content"
 
 export const WikiBar = () => {

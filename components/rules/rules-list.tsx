@@ -1,13 +1,13 @@
 import { Wrapper } from "@/components/wrappers/main-wrapper";
 import { ruless } from "@/shared/content"
-import { Typography } from '@/components/ui/typography';
+import { Typography } from '@/ui/typography';
 import { 
   Tooltip, 
   TooltipContent, 
   TooltipProvider, 
   TooltipTrigger
-} from '@/components/ui/tooltip';
-import { Badge } from '../ui/Badge';
+} from '@/ui/tooltip';
+import { Badge } from '../../ui/Badge';
 
 export const RulesList = () => {
   return (

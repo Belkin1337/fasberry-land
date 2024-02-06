@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { toast } from "@/components/ui/use-toast";
-import { Typography } from "@/components/ui/typography";
+import { Dialog, DialogContent } from "@/ui/dialog";
+import { toast } from "@/ui/use-toast";
+import { Typography } from "@/ui/typography";
 import Image from "next/image"
 
 type QueryParameters = {

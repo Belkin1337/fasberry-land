@@ -1,8 +1,8 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Typography } from "@/components/ui/typography";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/ui/tooltip";
+import { Typography } from "@/ui/typography";
 import Image from "next/image"
 
 export const ThemeToggle = () => {

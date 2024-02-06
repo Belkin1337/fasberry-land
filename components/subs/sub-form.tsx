@@ -10,16 +10,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from "@/components/ui/form"
+} from "@/ui/form"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger
-} from "@/components/ui/tooltip"
-import { Input } from "@/components/ui/input"
-import { Typography } from "@/components/ui/typography"
-import { Checkbox } from "@/components/ui/checkbox"
+} from "@/ui/tooltip"
+import { Input } from "@/ui/input"
+import { Typography } from "@/ui/typography"
+import { Checkbox } from "@/ui/checkbox"
 
 const formSchema = z
   .object({

@@ -9,7 +9,7 @@ import {
   DialogContent,
   DialogTrigger,
   DialogClose
-} from '@/components/ui/dialog';
+} from '@/ui/dialog';
 import {
   commuinityGallery,
   contacts,
@@ -22,12 +22,12 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger
-} from '@/components/ui/tooltip';
-import { Typography } from '@/components/ui/typography';
-import { Block } from '@/components/ui/block';
+} from '@/ui/tooltip';
+import { Typography } from '@/ui/typography';
+import { Block } from '@/ui/block';
 import { MainLayoutPage } from '@/components/layout/main-layout-page';
-import { useToast } from "@/components/ui/use-toast";
-import { Button } from "@/components/ui/button";
+import { useToast } from "@/ui/use-toast";
+import { Button } from "@/ui/button";
 import { NewsItem } from "@/components/intro/news-item";
 import { ReqProvider } from "@/providers/request-provider";
 

@@ -1,4 +1,4 @@
-import { Typography } from "../ui/typography"
+import { Typography } from "../../ui/typography"
 import Image from "next/image"
 
 interface NewsItemProps {
