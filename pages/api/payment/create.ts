@@ -12,7 +12,7 @@ export default async function handler(
 
   freekassa.secret1 = process.env.FREEKASSA_SECRET_1;
   freekassa.secret2 = process.env.FREEKASSA_SECRET_2;
-  freekassa.shopId = process.env.FREEKASSA_SHOP_ID;
+  freekassa.shopId = process.env.FREEKASSA_MERCHANT_ID;
   freekassa.key = process.env.FREEKASSA_API_KEY;
   freekassa.paymentId = req.body.paymentId;
   freekassa.amount = req.body.amount;
