@@ -35,7 +35,7 @@ export default async function handler(
         SIGN,
         us_nickname,
         us_subscription,
-      } = req.query;
+      } = req.body;
 
       const signature = md5(
         `${MERCHANT_ID}:${AMOUNT}:${merchantSecret}:${MERCHANT_ORDER_ID}`
