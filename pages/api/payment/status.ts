@@ -14,6 +14,8 @@ export default async function handler(
       success: false,
       message: "Method Not Allowed",
     });
+
+    return
   }
 
   const server = new Rcon({
@@ -45,31 +47,18 @@ export default async function handler(
           message:
             "Merchant mismatch: The provided merchant does not match the expected value.",
         });
-      }
-
-      if (SIGN !== signature) {
+      } else if (SIGN !== signature) {
         res.status(400).json({
           success: false,
           message:
             "Signature mismatch: The provided signature does not match the expected value.",
         });
-      }
-      if (SIGN == signature && merchantId == MERCHANT_ID) {
-        const redirectUrl = `http://fasberry.ru/?success=true&MERCHANT_ID=${MERCHANT_ID}&MERCHANT_ORDER_ID=${MERCHANT_ORDER_ID}&us_nickname=${us_nickname}&us_subscription=${us_subscription}`;
-
-        try {
-          await server.authenticate(rcon_password);
-
-          await server.execute(
-            `say выдано ${us_nickname} parent add ${us_subscription}`
-          );
-
-          await server.disconnect();
-
-          // res.redirect(redirectUrl);
-        } catch (e) {
-          throw new Error("Something wrong error!");
-        }
+      } else if (SIGN == signature && merchantId == MERCHANT_ID) {
+        await server.authenticate(rcon_password);
+        await server.execute(
+          `say выдано ${us_nickname} parent add ${us_subscription}`
+        );
+        await server.disconnect();
 
         res.status(200).json({
           success: true,
