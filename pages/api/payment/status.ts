@@ -2,6 +2,22 @@ import { NextApiRequest, NextApiResponse } from "next";
 import md5 from "md5";
 import Rcon from "rcon-srcds";
 import formidable from "formidable";
+import TelegramBot from "node-telegram-bot-api";
+
+type DataMessage = {
+  us_nickname: string;
+  us_subscription: string;
+  MERCHANT_ID: number;
+  MERCHANT_ORDER_ID: number;
+  SIGN: string;
+  P_EMAIL?: string;
+  P_PHONE?: number;
+};
+
+const token = "6387813452:AAG-rRe5PwNZ9m2TgpK9wrgCZXDn-O4wq00";
+const ownerID = "1114061179";
+
+const bot = new TelegramBot(token, { polling: false });
 
 export const config = {
   api: {
@@ -11,21 +27,20 @@ export const config = {
 };
 
 const server = new Rcon({
-  host: '89.23.177.171',
+  host: "89.23.177.171",
   port: 25934,
   encoding: "utf8",
 });
 
-const rcon_password = process.env.RCON_PASSWORD as string;
-const merchantId = process.env.FREEKASSA_MERCHANT_ID;
-const merchantSecret = process.env.FREEKASSA_SECRET_2 as string;
+const merchantId = "46028";
+const merchantSecret = "QwWKOc04uZzef25Z";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   if (req.method !== "POST") {
-    return res.status(405).send("Method Not Allowed");
+    return res.status(405).send("Method Not Allowed.");
   }
 
   if (req.method === "POST") {
@@ -40,19 +55,35 @@ export default async function handler(
     });
 
     if (err) {
-      return res.status(400).send("Ошибка при парсинге данных формы");
+      return res.status(400).send("Error parsing form data.");
     }
 
-    if (!fields || !fields.MERCHANT_ID || !fields.SIGN || !fields.AMOUNT || !fields.MERCHANT_ORDER_ID || !fields.us_nickname || !fields.us_subscription) {
-      return res.status(400).send("Не все поля формы были получены");
+    if (
+      !fields ||
+      !fields.MERCHANT_ID ||
+      !fields.SIGN ||
+      !fields.AMOUNT ||
+      !fields.MERCHANT_ORDER_ID ||
+      !fields.us_nickname ||
+      !fields.us_subscription
+    ) {
+      return res.status(400).send("Not all form fields were received.");
     }
 
-    const MERCHANT_ID = Array.isArray(fields.MERCHANT_ID) ? fields.MERCHANT_ID[0] : '';
-    const SIGN: string = Array.isArray(fields.SIGN) ? fields.SIGN[0] : '';
-    const AMOUNT: string = Array.isArray(fields.AMOUNT) ? fields.AMOUNT[0] : '';
-    const MERCHANT_ORDER_ID: string = Array.isArray(fields.MERCHANT_ORDER_ID) ? fields.MERCHANT_ORDER_ID[0] : '';
-    const us_nickname: string = Array.isArray(fields.us_nickname) ? fields.us_nickname[0] : '';
-    const us_subscription: string = Array.isArray(fields.us_subscription) ? fields.us_subscription[0] : '';
+    const MERCHANT_ID = Array.isArray(fields.MERCHANT_ID)
+      ? fields.MERCHANT_ID[0]
+      : "";
+    const SIGN: string = Array.isArray(fields.SIGN) ? fields.SIGN[0] : "";
+    const AMOUNT: string = Array.isArray(fields.AMOUNT) ? fields.AMOUNT[0] : "";
+    const MERCHANT_ORDER_ID: string = Array.isArray(fields.MERCHANT_ORDER_ID)
+      ? fields.MERCHANT_ORDER_ID[0]
+      : "";
+    const us_nickname: string = Array.isArray(fields.us_nickname)
+      ? fields.us_nickname[0]
+      : "";
+    const us_subscription: string = Array.isArray(fields.us_subscription)
+      ? fields.us_subscription[0]
+      : "";
 
     const signature = md5(
       `${MERCHANT_ID}:${AMOUNT}:${merchantSecret}:${MERCHANT_ORDER_ID}`
@@ -75,16 +106,47 @@ export default async function handler(
     }
 
     if (SIGN === signature && MERCHANT_ID === merchantId) {
-      await server.authenticate('t016qBPmx5K9ax6n1cU4W9N3nRNjSS1A');
+      await server.authenticate("t016qBPmx5K9ax6n1cU4W9N3nRNjSS1A");
       server.execute(`lp user ${us_nickname} parent add ${us_subscription}`);
       await server.disconnect();
+
+      report(fields, true);
 
       return res.status(200).send({
         success: true,
         message: "Issued successfully.",
       });
+    } else {
+      report(fields, false);
     }
 
     return res.status(200).send("YES");
   }
+}
+
+async function report({
+    us_nickname,
+    us_subscription,
+    MERCHANT_ID,
+    MERCHANT_ORDER_ID,
+    SIGN,
+    P_EMAIL,
+    P_PHONE,
+  }: DataMessage,
+  success: boolean
+) {
+  const status = success ? "✅" : "❌";
+  await bot.sendMessage(
+    ownerID,
+    `
+    Время: ${new Date()} 
+    Статус: ${status} 
+    Ник: ${us_nickname} 
+    Привилегия: ${us_subscription} 
+    Магазин: ${MERCHANT_ID}
+    Заказ: #${MERCHANT_ORDER_ID} 
+    Подпись: ${SIGN} 
+    Почта: ${P_EMAIL} 
+    Телефон: ${P_PHONE}`
+  );
 }
