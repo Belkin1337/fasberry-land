@@ -11,13 +11,13 @@ export function middleware(request: NextRequest) {
     "178.154.197.79",
   ];
 
-  const clientIP = requestHeaders.get("x-real-ip") || "";
+  const checkClientIP = requestHeaders.get("x-real-ip") || "";
 
-  if (!allowedIPs.includes(clientIP)) {
+  if (!allowedIPs.includes(checkClientIP)) {
     return NextResponse.json(
       { 
         success: false, 
-        message: "Access denied!" 
+        message: "Access denied!",
       },
       { 
         status: 403 
