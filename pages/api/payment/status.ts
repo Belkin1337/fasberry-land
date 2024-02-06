@@ -17,8 +17,8 @@ const server = new Rcon({
 });
 
 const rcon_password = process.env.RCON_PASSWORD as string;
-const merchantId = 46028;
-const merchantSecret = "QwWKOc04uZzef25Z";
+const merchantId = process.env.FREEKASSA_MERCHANT_ID as string;
+const merchantSecret = process.env.FREEKASSA_SECRET_2 as string;
 
 export default async function handler(
   req: NextApiRequest,
@@ -28,79 +28,67 @@ export default async function handler(
     return res.status(405).send("Method Not Allowed");
   }
 
-  if (
-    req.method === "POST" &&
-    req.headers["content-type"]?.startsWith("multipart/form-data")
-  ) {
-    try {
-      const { err, fields } = await new Promise<{
-        err: Error | null;
-        fields: any;
-      }>((resolve, reject) => {
-        formidable().parse(req, (err: Error, fields) => {
-          if (err) reject(err);
-          resolve({ err, fields });
-        });
+  if (req.method === "POST") {
+    const { err, fields } = await new Promise<{
+      err: Error | null;
+      fields: any;
+    }>((resolve, reject) => {
+      formidable().parse(req, (err: Error, fields) => {
+        if (err) reject(err);
+        resolve({ err, fields });
       });
+    });
 
-      if (err) {
-        return res.status(400).send("Ошибка при парсинге данных формы");
-      }
-
-      if (!fields) {
-        return res.status(400).send("Поля формы не были получены");
-      }
-
-      const {
-        MERCHANT_ID,
-        SIGN,
-        AMOUNT,
-        MERCHANT_ORDER_ID,
-        us_nickname,
-        us_subscription,
-      } = fields;
-
-      const signature = md5(
-        `${MERCHANT_ID}:${AMOUNT}:${merchantSecret}:${MERCHANT_ORDER_ID}`
-      );
-
-      if (parseInt(MERCHANT_ID) !== merchantId) {
-        res.status(400).send({
-          success: false,
-          message:
-            "Merchant mismatch: The provided merchant does not match the expected value.",
-        });
-      }
-
-      if (SIGN.toString() !== signature) {
-        res.status(400).send({
-          success: false,
-          message:
-            "Signature mismatch: The provided signature does not match the expected value.",
-        });
-      }
-
-      if (
-        SIGN.toString() === signature &&
-        parseInt(MERCHANT_ID) === merchantId
-      ) {
-        await server.authenticate(rcon_password);
-        server.execute(
-          `say выдано ${us_nickname} parent add ${us_subscription}`
-        );
-        await server.disconnect();
-
-        return res.status(200).send({
-          success: true,
-          message: "Issued successfully.",
-        });
-      }
-
-      return res.status(200).json({
-        status: "ok",
-      });
-    } catch {
-      return res.status(500).send("Internal Server Error");
+    if (err) {
+      return res.status(400).send("Ошибка при парсинге данных формы");
     }
+
+    if (!fields) {
+      return res.status(400).send("Поля формы не были получены");
+    }
+
+    const {
+      MERCHANT_ID,
+      SIGN,
+      AMOUNT,
+      MERCHANT_ORDER_ID,
+      us_nickname,
+      us_subscription,
+    } = fields;
+
+    const signature = md5(
+      `${MERCHANT_ID}:${AMOUNT}:${merchantSecret}:${MERCHANT_ORDER_ID}`
+    );
+
+    if (MERCHANT_ID.toString() !== merchantId) {
+      res.status(400).send({
+        success: false,
+        message:
+          "Merchant mismatch: The provided merchant does not match the expected value.",
+      });
+    }
+
+    if (SIGN.toString() !== signature) {
+      res.status(400).send({
+        success: false,
+        message:
+          "Signature mismatch: The provided signature does not match the expected value.",
+      });
+    }
+
+    if (SIGN.toString() === signature && MERCHANT_ID === merchantId) {
+      await server.authenticate(rcon_password);
+      server.execute(`say выдано ${us_nickname} parent add ${us_subscription}`);
+      await server.disconnect();
+
+      return res.status(200).send({
+        success: true,
+        message: "Issued successfully.",
+      });
+    }
+
+    return res.status(200).json({
+      status: "ok",
+    });
   }
 }
