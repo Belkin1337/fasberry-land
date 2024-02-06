@@ -32,19 +32,18 @@ import {
   armorColumnsEffects,
   armorColumnsPopulators,
   armorColumnsToughness
-} from "@/shared/column-models"
+} from "@/shared/models/table"
 import {
   armorList,
   headers
-} from "@/shared/content"
+} from "@/shared/data"
 import { Block } from "@/ui/block"
 import { Typography } from "@/ui/typography"
-import { ImageAnnotation } from "@/components/wiki/image-annotation"
+import { ImageAnnotation } from "@/components/wiki/annotation/item"
 import { CommandLine } from "@/ui/command-line"
 import { ContentModule } from "@/ui/content-module"
-import { WikiTableComponent } from "@/components/wiki/table-wiki-component"
-import { MainLayoutPage } from "@/components/layout/main-layout-page"
-import { ReqProvider } from "@/providers/request-provider"
+import { WikiTableComponent } from "@/components/wiki/table/item"
+import { MainLayoutPage } from "@/components/layout"
 
 export default function Wiki() {
   const router = useRouter();
@@ -281,7 +280,7 @@ export default function Wiki() {
                       ...
                     </Typography>
                   </TooltipTrigger>
-                  <TooltipContent className="bg-black/50 backdrop-filter backdrop-blur-md border-none p-2 rounded-xl">
+                  <TooltipContent className="bg-black border-none p-2 rounded-xl">
                     <p className="text-neutral-400 text-lg">Страница дополняется</p>
                   </TooltipContent>
                 </Tooltip>
@@ -521,7 +520,7 @@ export default function Wiki() {
                       ...
                     </Typography>
                   </TooltipTrigger>
-                  <TooltipContent className="bg-black/50 backdrop-filter backdrop-blur-md border-none p-2 rounded-xl">
+                  <TooltipContent className="bg-black border-none p-2 rounded-xl">
                     <p className="text-neutral-400 text-lg">Страница дополняется</p>
                   </TooltipContent>
                 </Tooltip>
@@ -706,7 +705,7 @@ export default function Wiki() {
                       ...
                     </Typography>
                   </TooltipTrigger>
-                  <TooltipContent className="bg-black/50 backdrop-filter backdrop-blur-md border-none p-2 rounded-xl">
+                  <TooltipContent className="bg-black border-none p-2 rounded-xl">
                     <p className="text-neutral-400 text-lg">Страница дополняется</p>
                   </TooltipContent>
                 </Tooltip>

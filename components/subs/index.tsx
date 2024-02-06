@@ -2,7 +2,7 @@
 import Image from "next/image"
 import { Block } from "../../ui/block"
 import { Typography } from "../../ui/typography"
-import { SubForm } from "./sub-form"
+import { SubForm } from "./form"
 import { useCallback, useState } from "react"
 import { useRouter } from "next/router"
 import {
@@ -98,7 +98,7 @@ export const SubscriptionItem = ({ name, id, description, price, image }: SubIte
           узнать больше
         </Typography>
       </DialogTrigger>
-      <DialogContent className="max-w-[520px] max-h-[80%] p-0 overflow-y-auto bg-transparent border-none gap-y-2 m-0">
+      <DialogContent className="max-w-[520px] max-h-[80%] p-0 overflow-y-auto !bg-transparent border-none gap-y-2 m-0">
         <Block type="column" className="gap-x-2 gap-y-2" rounded="big" blockItem>
           <div className="flex flex-col w-full gap-y-2 justify-center h-full">
             <Typography size="xl">
@@ -138,7 +138,7 @@ export const SubscriptionItem = ({ name, id, description, price, image }: SubIte
             <DialogTrigger className="button px-2 py-1 h-max w-full lg:w-2/3 text-center lg:px-2 text-md lg:text-lg text-green-server-color">
               Перейти к покупке
             </DialogTrigger>
-            <DialogContent className="max-w-[600px] h-auto bg-transparent p-0 overflow-y-auto border-none gap-0 rounded-xl w-[90%] mx-auto">
+            <DialogContent className="max-w-[600px] h-auto !bg-transparent p-0 overflow-y-auto border-none gap-0">
               <Block blockItem type="column" rounded="big" className="h-full w-full">
                 <Typography size="xl" position="center" className="mb-4 lg:mb-8">
                   Покупка привилегии ({name})

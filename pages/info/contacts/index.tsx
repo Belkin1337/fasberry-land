@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { MainLayoutPage } from "@/components/layout/main-layout-page";
+import { MainLayoutPage } from "@/components/layout";
 import { useRouter } from "next/navigation"
 
 export default function Contacts() {

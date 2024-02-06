@@ -1,14 +1,17 @@
 import Image from "next/image"
 import { Dialog, DialogTrigger, DialogContent } from "@/ui/dialog"
 
-interface ScreenshotItemProps {
+type ScreenshotItem = {
   title: string,
   description?: string,
   createdDate: string,
   image: string,
 }
 
-export const ScreenshotItem = ({ title, description, createdDate, image }: ScreenshotItemProps) => {
+export const ScreenshotItem = ({ 
+  title, 
+  image 
+}: ScreenshotItem) => {
   const screenItem = (
     <div className="flex flex-col overflow-hidden justify-between grad-first-purple">
       <Image

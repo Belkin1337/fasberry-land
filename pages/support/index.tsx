@@ -1,11 +1,10 @@
 import Head from "next/head"
 import Link from "next/link"
 import Image from "next/image"
-import { Wrapper } from "@/components/wrappers/main-wrapper";
 import { Typography } from "@/ui/typography";
 import { Block } from "@/ui/block";
 import { Dialog, DialogContent, DialogTrigger } from "@/ui/dialog";
-import { MainLayoutPage } from "@/components/layout/main-layout-page";
+import { MainLayoutPage } from "@/components/layout";
 
 export default function Support() {
   return (
@@ -15,8 +14,7 @@ export default function Support() {
         <meta name="keywords" content="поддержка сервера, саппорт, fasberry, minecraft, minecraft fasberry" />
       </Head>
       <MainLayoutPage variant="with_section">
-        <div className="full-screen-section flex flex-col justify-center items-center relative py-24 lg:py-36">
-          <Wrapper>
+        <div className="full-screen-section flex flex-col justify-center items-center relative py-24 lg:py-36 w-[90%] mx-auto">
             <div className="flex flex-col justify-center gap-y-6">
               <div className="flex flex-col justify-center items-center mb-6">
                 <Typography variant="block_title" className="text-black dark:text-white">
@@ -149,7 +147,6 @@ export default function Support() {
                 </div>
               </Block>
             </div>
-          </Wrapper>
         </div>
       </MainLayoutPage>
     </>

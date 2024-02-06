@@ -1,4 +1,4 @@
-import { MainLayoutPage } from "@/components/layout/main-layout-page"
+import { MainLayoutPage } from "@/components/layout"
 import Head from "next/head"
 
 export default function Terms() {

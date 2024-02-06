@@ -13,6 +13,13 @@
     @apply bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#00cdb0] via-[#a976f8] to-[#ffc0cb]
   }
 
+  ::-webkit-progress-bar,
+  ::-moz-progress-bar,
+  ::-webkit-progress-inner-element,
+  ::-webkit-progress-value {
+    @apply bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#00cdb0] via-[#a976f8] to-[#ffc0cb]
+  }
+
   div::-webkit-scrollbar {
     @apply bg-neutral-900 rounded-md w-[6px]
   } div::-webkit-scrollbar-thumb {
@@ -23,9 +30,11 @@
   
   ::-webkit-scrollbar {
     @apply w-[8px]
-  } ::-webkit-scrollbar-track {
+  } 
+  ::-webkit-scrollbar-track {
     @apply  dark:bg-neutral-900
-  } ::-webkit-scrollbar-thumb {
+  } 
+  ::-webkit-scrollbar-thumb {
     @apply bg-[#fabbfb] 
   }
 }
@@ -79,21 +88,6 @@
     --fluid-7: clamp(2.72rem, calc(2.59rem + 0.65vw), 3.11rem);
     --fluid-8: clamp(3.27rem, calc(3.11rem + 0.78vw), 3.73rem);
     --fluid-9: clamp(3.73rem, calc(3.48rem + 1.24vw), 4.48rem);
-    --primary-color: #0b0f18;
-    --secondary-color: #1d1f23;
-    --tertiary-color: #181d28;
-    --background-color: #414141;
-    --white: #fff;
-    --discord-color: #7289da;
-    --purple-hue-1: #B8AFF7;
-    --purple-hue-2: #B99CF3;
-    --purple-hue-3: #A976F8;
-    --purple-hue-4: #FABBFB;
-    --discord-server-color: #68FBAC;
-    --blue-color: #C2CBFB;
-    --green-color: #8FFD8F;
-    --red-color: #FB3E3E;
-    --general-color: #00cdb0;
 }
 
 * {

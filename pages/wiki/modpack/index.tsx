@@ -1,6 +1,6 @@
 import Head from "next/head"
 import Link from "next/link"
-import { MainLayoutPage } from "@/components/layout/main-layout-page"
+import { MainLayoutPage } from "@/components/layout"
 import { Block } from "@/ui/block"
 import { Typography } from "@/ui/typography"
 

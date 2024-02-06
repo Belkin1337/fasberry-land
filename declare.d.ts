@@ -1,2 +1,2 @@
 declare module "md5"
-declare module "multer"
+declare module "@types/formidable"

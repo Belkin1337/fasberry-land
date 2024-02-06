@@ -1,5 +1,5 @@
-import { ServerStatus } from "@/components/status/server-status";
-import { MainLayoutPage } from "@/components/layout/main-layout-page";
+import { ServerStatus } from "@/components/status/widget/server-status";
+import { MainLayoutPage } from "@/components/layout";
 
 export default function Status() {
   return (

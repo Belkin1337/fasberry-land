@@ -2,7 +2,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image"
 import Head from "next/head"
 import { Typography } from "@/ui/typography";
-import { MainLayoutPage } from "@/components/layout/main-layout-page";
+import { MainLayoutPage } from "@/components/layout";
 
 const serverMap = [
   {

@@ -1,12 +1,14 @@
 import { useRouter } from "next/navigation"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/ui/hover-card'
-import { Typography } from "../../ui/typography"
-import { Block } from "../../ui/block"
+import { Typography } from "../../../ui/typography"
+import { Block } from "../../../ui/block"
 import { GetStatus } from "@/hooks/get-status"
 
 export const Status = () => {
   const router = useRouter();
-  const { data, isLoading } = GetStatus({ port: "25565" });
+  const { data, isLoading } = GetStatus({ 
+    port: "25565" 
+  });
 
   return (
     <HoverCard openDelay={4} closeDelay={1}>
@@ -54,7 +56,7 @@ export const Status = () => {
           </div>
         </Block>
       </HoverCardTrigger>
-      <HoverCardContent className="w-[400px] relative -top-40 bg-black/50 backdrop-filter backdrop-blur-md border-none p-2 rounded-xl">
+      <HoverCardContent className="w-[400px] relative bg-black border-none p-2 rounded-xl">
         <p className="text-neutral-400 text-lg">
           Перейти на страницу мониторинга
         </p>
