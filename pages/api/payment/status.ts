@@ -43,16 +43,16 @@ export default async function handler(
       return res.status(400).send("Ошибка при парсинге данных формы");
     }
 
-    if (!fields) {
-      return res.status(400).send("Поля формы не были получены");
+    if (!fields || !fields.MERCHANT_ID || !fields.SIGN || !fields.AMOUNT || !fields.MERCHANT_ORDER_ID || !fields.us_nickname || !fields.us_subscription) {
+      return res.status(400).send("Не все поля формы были получены");
     }
 
-    const MERCHANT_ID = fields.MERCHANT_ID[0];
-    const SIGN: string = fields.SIGN[0];
-    const AMOUNT: string = fields.AMOUNT[0];
-    const MERCHANT_ORDER_ID: string = fields.MERCHANT_ORDER_ID[0];
-    const us_nickname: string = fields.us_nickname[0];
-    const us_subscription: string = fields.us_subscription[0];
+    const MERCHANT_ID = Array.isArray(fields.MERCHANT_ID) ? fields.MERCHANT_ID[0] : '';
+    const SIGN: string = Array.isArray(fields.SIGN) ? fields.SIGN[0] : '';
+    const AMOUNT: string = Array.isArray(fields.AMOUNT) ? fields.AMOUNT[0] : '';
+    const MERCHANT_ORDER_ID: string = Array.isArray(fields.MERCHANT_ORDER_ID) ? fields.MERCHANT_ORDER_ID[0] : '';
+    const us_nickname: string = Array.isArray(fields.us_nickname) ? fields.us_nickname[0] : '';
+    const us_subscription: string = Array.isArray(fields.us_subscription) ? fields.us_subscription[0] : '';
 
     const signature = md5(
       `${MERCHANT_ID}:${AMOUNT}:${merchantSecret}:${MERCHANT_ORDER_ID}`
