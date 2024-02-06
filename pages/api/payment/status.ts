@@ -61,7 +61,7 @@ export default async function handler(
     );
 
     if (MERCHANT_ID.toString() !== merchantId) {
-      res.status(400).send({
+      return res.status(400).send({
         success: false,
         message:
           "Merchant mismatch: The provided merchant does not match the expected value.",
@@ -69,7 +69,7 @@ export default async function handler(
     }
 
     if (SIGN.toString() !== signature) {
-      res.status(400).send({
+      return res.status(400).send({
         success: false,
         message:
           "Signature mismatch: The provided signature does not match the expected value.",
@@ -87,8 +87,6 @@ export default async function handler(
       });
     }
 
-    return res.status(200).json({
-      status: "ok",
-    });
+    return res.status(200).send("ok");
   }
 }
