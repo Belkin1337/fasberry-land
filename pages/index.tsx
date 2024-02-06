@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import dynamic from 'next/dynamic'
 import { useState } from 'react';
 import { useKeenSlider } from 'keen-slider/react';
 import { CarouselImages } from '@/components/intro/carousel-images';
@@ -29,7 +30,10 @@ import { MainLayoutPage } from '@/components/layout/main-layout-page';
 import { useToast } from "@/ui/use-toast";
 import { Button } from "@/ui/button";
 import { NewsItem } from "@/components/intro/news-item";
-import { ReqProvider } from "@/providers/request-provider";
+
+const ReqProvider = dynamic(() => 
+  import('../providers/request-provider').then((mod) => ({ default: mod.ReqProvider }))
+)
 
 export default function General() {
   const { toast } = useToast();
