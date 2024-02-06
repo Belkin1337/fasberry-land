@@ -29,64 +29,68 @@ export default async function handler(
   }
 
   if (req.method === "POST") {
-    const { err, fields } = await new Promise<{
-      err: Error | null;
-      fields: any;
-    }>((resolve, reject) => {
-      formidable().parse(req, (err: Error, fields) => {
-        if (err) reject(err);
-        resolve({ err, fields });
+    try {
+      const { err, fields } = await new Promise<{
+        err: Error | null;
+        fields: any;
+      }>((resolve, reject) => {
+        formidable().parse(req, (err: Error, fields) => {
+          if (err) reject(err);
+          resolve({ err, fields });
+        });
       });
-    });
 
-    if (err) {
-      return res.status(400).send("Ошибка при парсинге данных формы");
+      if (err) {
+        return res.status(400).send("Ошибка при парсинге данных формы");
+      }
+
+      if (!fields) {
+        return res.status(400).send("Поля формы не были получены");
+      }
+
+      const {
+        MERCHANT_ID,
+        SIGN,
+        AMOUNT,
+        MERCHANT_ORDER_ID,
+        us_nickname,
+        us_subscription,
+      } = fields;
+
+      const signature = md5(
+        `${MERCHANT_ID}:${AMOUNT}:${merchantSecret}:${MERCHANT_ORDER_ID}`
+      );
+
+      if (MERCHANT_ID.toString() !== merchantId) {
+        return res.status(400).send({
+          success: false,
+          message:
+            "Merchant mismatch: The provided merchant does not match the expected value.",
+        });
+      }
+
+      if (SIGN.toString() !== signature) {
+        return res.status(400).send({
+          success: false,
+          message:
+            "Signature mismatch: The provided signature does not match the expected value.",
+        });
+      }
+
+      if (SIGN.toString() === signature && MERCHANT_ID === merchantId) {
+        await server.authenticate(rcon_password);
+        server.execute(`lp user ${us_nickname} parent add ${us_subscription}`);
+        await server.disconnect();
+
+        return res.status(200).send({
+          success: true,
+          message: "Issued successfully.",
+        });
+      }
+
+      return res.status(200).send("YES");
+    } catch {
+      res.status(500).send("Internal Server Error")
     }
-
-    if (!fields) {
-      return res.status(400).send("Поля формы не были получены");
-    }
-
-    const {
-      MERCHANT_ID,
-      SIGN,
-      AMOUNT,
-      MERCHANT_ORDER_ID,
-      us_nickname,
-      us_subscription,
-    } = fields;
-
-    const signature = md5(
-      `${MERCHANT_ID}:${AMOUNT}:${merchantSecret}:${MERCHANT_ORDER_ID}`
-    );
-
-    if (MERCHANT_ID.toString() !== merchantId) {
-      return res.status(400).send({
-        success: false,
-        message:
-          "Merchant mismatch: The provided merchant does not match the expected value.",
-      });
-    }
-
-    if (SIGN.toString() !== signature) {
-      return res.status(400).send({
-        success: false,
-        message:
-          "Signature mismatch: The provided signature does not match the expected value.",
-      });
-    }
-
-    if (SIGN.toString() === signature && MERCHANT_ID === merchantId) {
-      await server.authenticate(rcon_password);
-      server.execute(`say выдано ${us_nickname} parent add ${us_subscription}`);
-      await server.disconnect();
-
-      return res.status(200).send({
-        success: true,
-        message: "Issued successfully.",
-      });
-    }
-
-    return res.status(200).send("ok");
   }
 }
