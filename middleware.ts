@@ -37,5 +37,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/api/status']
+  matcher: ['/api/payment/status']
 }

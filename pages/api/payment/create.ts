@@ -8,7 +8,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  const freekassa = require("@alex-kondakov/freekassa").init();
+  const freekassa = require("@/lib/freekassa").init();
 
   freekassa.secret1 = process.env.FREEKASSA_SECRET_1;
   freekassa.secret2 = process.env.FREEKASSA_SECRET_2;
