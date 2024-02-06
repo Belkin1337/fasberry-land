@@ -40,10 +40,14 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method !== "POST") {
+    bad("метод не разрешен");
+
     return res.status(405).send("Method Not Allowed.");
   }
 
   if (req.method === "POST") {
+    bad("пост запрос выполняется...");
+
     const { err, fields } = await new Promise<{
       err: Error | null;
       fields: any;
@@ -55,6 +59,8 @@ export default async function handler(
     });
 
     if (err) {
+      bad("не получилось распарсить форму");
+
       return res.status(400).send("Error parsing form data.");
     }
 
@@ -67,8 +73,12 @@ export default async function handler(
       !fields.us_nickname ||
       !fields.us_subscription
     ) {
+      bad("Не все есть в форме");
+
       return res.status(400).send("Not all form fields were received.");
     }
+
+    bad("данные пришли? пришли");
 
     const MERCHANT_ID = Array.isArray(fields.MERCHANT_ID)
       ? fields.MERCHANT_ID[0]
@@ -90,6 +100,8 @@ export default async function handler(
     );
 
     if (MERCHANT_ID !== merchantId) {
+      bad("Заказ неправильный");
+
       return res.status(400).send({
         success: false,
         message:
@@ -98,6 +110,8 @@ export default async function handler(
     }
 
     if (SIGN !== signature) {
+      bad("Сигнатура неправильный");
+
       return res.status(400).send({
         success: false,
         message:
@@ -106,6 +120,8 @@ export default async function handler(
     }
 
     if (SIGN === signature && MERCHANT_ID === merchantId) {
+      bad("Норм все до ркона есть коннект");
+
       await server.authenticate("t016qBPmx5K9ax6n1cU4W9N3nRNjSS1A");
       server.execute(`lp user ${us_nickname} parent add ${us_subscription}`);
       await server.disconnect();
@@ -122,6 +138,10 @@ export default async function handler(
 
     return res.status(200).send("YES");
   }
+}
+
+async function bad(text: string) {
+  await bot.sendMessage(ownerID, text)
 }
 
 async function report({
