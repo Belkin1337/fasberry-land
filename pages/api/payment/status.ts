@@ -87,6 +87,7 @@ export default async function handler(
 
     if (MERCHANT_ID !== merchantId) {
       bad("Заказ неправильный");
+      
 
       return res.status(400).send({
         success: false,
