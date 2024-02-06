@@ -17,7 +17,7 @@ const server = new Rcon({
 });
 
 const rcon_password = process.env.RCON_PASSWORD as string;
-const merchantId = process.env.FREEKASSA_MERCHANT_ID as string;
+const merchantId = process.env.FREEKASSA_MERCHANT_ID;
 const merchantSecret = process.env.FREEKASSA_SECRET_2 as string;
 
 export default async function handler(
@@ -48,20 +48,18 @@ export default async function handler(
         return res.status(400).send("Поля формы не были получены");
       }
 
-      const {
-        MERCHANT_ID,
-        SIGN,
-        AMOUNT,
-        MERCHANT_ORDER_ID,
-        us_nickname,
-        us_subscription,
-      } = fields;
+      const MERCHANT_ID = fields.MERCHANT_ID[0];
+      const SIGN: string = fields.SIGN[0];
+      const AMOUNT: string = fields.AMOUNT[0];
+      const MERCHANT_ORDER_ID: string = fields.MERCHANT_ORDER_ID[0];
+      const us_nickname: string = fields.us_nickname[0];
+      const us_subscription: string = fields.us_subscription[0];
 
       const signature = md5(
         `${MERCHANT_ID}:${AMOUNT}:${merchantSecret}:${MERCHANT_ORDER_ID}`
       );
-
-      if (MERCHANT_ID.toString() !== merchantId) {
+      
+      if (MERCHANT_ID !== merchantId) {
         return res.status(400).send({
           success: false,
           message:
@@ -69,7 +67,7 @@ export default async function handler(
         });
       }
 
-      if (SIGN.toString() !== signature) {
+      if (SIGN !== signature) {
         return res.status(400).send({
           success: false,
           message:
@@ -79,8 +77,8 @@ export default async function handler(
 
       try {
         if (
-          SIGN.toString() === signature &&
-          MERCHANT_ID.toString() === merchantId
+          SIGN === signature &&
+          MERCHANT_ID === merchantId
         ) {
           await server.authenticate(rcon_password);
           server.execute(
@@ -93,17 +91,15 @@ export default async function handler(
             message: "Issued successfully.",
           });
         }
-      } catch (e: any) {
-        res.status(400).send({
-          error: e.toString(),
+      } catch (e) {
+        return res.status(400).send({
           message: "Don't given subscription for player.",
         });
       }
 
       return res.status(200).send("YES");
-    } catch (e: any) {
-      res.status(500).send({
-        error: e.toString(),
+    } catch (e) {
+      return res.status(500).send({
         message: "Internal Server Error",
       });
     }
