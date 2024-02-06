@@ -8,6 +8,9 @@ export const config = {
     bodyParser: false,
     externalResolver: true,
   },
+  runtime: 'edge', // this is a pre-requisite
+  // execute this function on iad1 or hnd1, based on the connecting client location
+  regions: ['fra1'],
 };
 
 const server = new Rcon({
