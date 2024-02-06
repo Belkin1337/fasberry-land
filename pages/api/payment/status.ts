@@ -29,79 +29,62 @@ export default async function handler(
   }
 
   if (req.method === "POST") {
-    try {
-      const { err, fields } = await new Promise<{
-        err: Error | null;
-        fields: any;
-      }>((resolve, reject) => {
-        formidable().parse(req, (err: Error, fields) => {
-          if (err) reject(err);
-          resolve({ err, fields });
-        });
+    const { err, fields } = await new Promise<{
+      err: Error | null;
+      fields: any;
+    }>((resolve, reject) => {
+      formidable().parse(req, (err: Error, fields) => {
+        if (err) reject(err);
+        resolve({ err, fields });
       });
+    });
 
-      if (err) {
-        return res.status(400).send("Ошибка при парсинге данных формы");
-      }
+    if (err) {
+      return res.status(400).send("Ошибка при парсинге данных формы");
+    }
 
-      if (!fields) {
-        return res.status(400).send("Поля формы не были получены");
-      }
+    if (!fields) {
+      return res.status(400).send("Поля формы не были получены");
+    }
 
-      const MERCHANT_ID = fields.MERCHANT_ID[0];
-      const SIGN: string = fields.SIGN[0];
-      const AMOUNT: string = fields.AMOUNT[0];
-      const MERCHANT_ORDER_ID: string = fields.MERCHANT_ORDER_ID[0];
-      const us_nickname: string = fields.us_nickname[0];
-      const us_subscription: string = fields.us_subscription[0];
+    const MERCHANT_ID = fields.MERCHANT_ID[0];
+    const SIGN: string = fields.SIGN[0];
+    const AMOUNT: string = fields.AMOUNT[0];
+    const MERCHANT_ORDER_ID: string = fields.MERCHANT_ORDER_ID[0];
+    const us_nickname: string = fields.us_nickname[0];
+    const us_subscription: string = fields.us_subscription[0];
 
-      const signature = md5(
-        `${MERCHANT_ID}:${AMOUNT}:${merchantSecret}:${MERCHANT_ORDER_ID}`
-      );
-      
-      if (MERCHANT_ID !== merchantId) {
-        return res.status(400).send({
-          success: false,
-          message:
-            "Merchant mismatch: The provided merchant does not match the expected value.",
-        });
-      }
+    const signature = md5(
+      `${MERCHANT_ID}:${AMOUNT}:${merchantSecret}:${MERCHANT_ORDER_ID}`
+    );
 
-      if (SIGN !== signature) {
-        return res.status(400).send({
-          success: false,
-          message:
-            "Signature mismatch: The provided signature does not match the expected value.",
-        });
-      }
-
-      try {
-        if (
-          SIGN === signature &&
-          MERCHANT_ID === merchantId
-        ) {
-          await server.authenticate(rcon_password);
-          server.execute(
-            `lp user ${us_nickname} parent add ${us_subscription}`
-          );
-          await server.disconnect();
-
-          return res.status(200).send({
-            success: true,
-            message: "Issued successfully.",
-          });
-        }
-      } catch (e) {
-        return res.status(400).send({
-          message: "Don't given subscription for player.",
-        });
-      }
-
-      return res.status(200).send("YES");
-    } catch (e) {
-      return res.status(500).send({
-        message: "Internal Server Error",
+    if (MERCHANT_ID !== merchantId) {
+      return res.status(400).send({
+        success: false,
+        message:
+          "Merchant mismatch: The provided merchant does not match the expected value.",
       });
     }
+
+    if (SIGN !== signature) {
+      return res.status(400).send({
+        success: false,
+        message:
+          "Signature mismatch: The provided signature does not match the expected value.",
+      });
+    }
+
+    if (SIGN === signature && MERCHANT_ID === merchantId) {
+      await server.authenticate(rcon_password);
+      server.execute(`lp user ${us_nickname} parent add ${us_subscription}`);
+      await server.disconnect();
+
+      return res.status(200).send({
+        success: true,
+        message: "Issued successfully.",
+      });
+    }
+
+    return res.status(200).send("YES");
   }
 }
