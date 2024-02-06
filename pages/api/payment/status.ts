@@ -11,7 +11,7 @@ export const config = {
 };
 
 const server = new Rcon({
-  host: process.env.RCON_HOST,
+  host: '89.23.177.171',
   port: 25934,
   encoding: "utf8",
 });
@@ -75,7 +75,7 @@ export default async function handler(
     }
 
     if (SIGN === signature && MERCHANT_ID === merchantId) {
-      await server.authenticate(rcon_password);
+      await server.authenticate('t016qBPmx5K9ax6n1cU4W9N3nRNjSS1A');
       server.execute(`lp user ${us_nickname} parent add ${us_subscription}`);
       await server.disconnect();
 
