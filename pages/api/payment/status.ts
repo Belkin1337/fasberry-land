@@ -27,7 +27,7 @@ async function rcon_connect({ us_nickname, us_subscription }: RconConn) {
 
   await server.execute(`lp user ${us_nickname} parent add ${us_subscription}`);
 
-  server.disconnect();
+  await server.disconnect();
 }
 
 export default async function handler(
