@@ -98,7 +98,7 @@ export default async function handler(
           message: "Issued successfully.",
         });
       } catch (e) {
-        return res.status(400).send(e)
+        return res.status(400).send("Чето пошло не так при отправке запроса на RCON")
       }
     } else {
       report(fields, false);
