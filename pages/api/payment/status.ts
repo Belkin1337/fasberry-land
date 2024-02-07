@@ -10,6 +10,7 @@ export const config = {
     bodyParser: false,
     externalResolver: true,
   },
+  runtime: "edge",
 };
 
 const merchantId = process.env.FREEKASSA_MERCHANT_ID;
