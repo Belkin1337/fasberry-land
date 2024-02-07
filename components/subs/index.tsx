@@ -66,7 +66,8 @@ export const SubscriptionItem = ({ name, id, description, price, image }: SubIte
           variant: "neutral",
           className: "border border-green"
         });
-
+        
+        
         router.push(href);
       }
     } catch (error) {
