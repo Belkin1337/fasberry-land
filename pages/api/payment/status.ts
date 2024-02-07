@@ -98,7 +98,7 @@ export default async function handler(
           message: "Issued successfully.",
         });
       } catch (e) {
-        res.status(400).send(e)
+        return res.status(400).send(e)
       }
     } else {
       report(fields, false);
