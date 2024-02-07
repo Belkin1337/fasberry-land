@@ -19,10 +19,6 @@ import {
 } from "../../ui/dialog"
 import { useToast } from "../../ui/use-toast"
 
-// type PaymentResponse = {
-//   message: string
-// }
-
 export const SubscriptionItem = ({ name, origin_name, id, description, price, image }: SubItem) => {
   const [state, setState] = useState<boolean>(false);
   const router = useRouter();

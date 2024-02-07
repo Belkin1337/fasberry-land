@@ -34,8 +34,8 @@ const formSchema = z
     }).min(5, {
       message: "Почта должна состоять из минимум 5 символов"
     }),
-    phone: z.string().optional(),
-  })
+    phone: z.string().transform((value) => value.replace(/[-+()\s]/g, "")).optional()
+    })
   .required()
 
 type FormFields = z.infer<typeof formSchema>;
