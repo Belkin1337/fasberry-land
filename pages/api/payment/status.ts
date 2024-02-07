@@ -93,7 +93,7 @@ export default async function handler(
           return res.status(400).send("Privilege unknown.");
         } else {
           try {
-            rcon_connect(rcon_conn_data)
+            await rcon_connect(rcon_conn_data)
               .then(() => {
                 console.log(
                   "The connection was successfully established and terminated. ✅"
