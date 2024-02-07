@@ -40,6 +40,7 @@ type Payment = {
 
 type SubItem = {
   id?: number;
+  origin_name: string,
   name: string;
   description: string;
   price: number;

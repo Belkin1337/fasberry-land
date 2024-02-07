@@ -1,6 +1,7 @@
 export const donateList = [
   {
     id: 5565733,
+    origin_name: "authentic",
     name: "Аутентик",
     rating: 2,
     price: 420,
@@ -22,6 +23,7 @@ export const donateList = [
   },
   {
     id: 5565734,
+    origin_name: "loyal",
     name: "Лоял",
     rating: 3,
     price: 640,
@@ -43,6 +45,7 @@ export const donateList = [
   },
   {
     id: 5565735,
+    origin_name: "arkhont",
     name: "Архонт",
     rating: 4,
     price: 1240,

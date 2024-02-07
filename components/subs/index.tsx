@@ -23,7 +23,7 @@ import { useToast } from "../../ui/use-toast"
 //   message: string
 // }
 
-export const SubscriptionItem = ({ name, id, description, price, image }: SubItem) => {
+export const SubscriptionItem = ({ name, origin_name, id, description, price, image }: SubItem) => {
   const [state, setState] = useState<boolean>(false);
   const router = useRouter();
   const { toast } = useToast();
@@ -34,7 +34,7 @@ export const SubscriptionItem = ({ name, id, description, price, image }: SubIte
         amount: price,
         phone: values.phone,
         email: values.email,
-        us_subscription: name,
+        us_subscription: origin_name,
         us_nickname: values.nickname,
     }
 
@@ -67,7 +67,7 @@ export const SubscriptionItem = ({ name, id, description, price, image }: SubIte
           className: "border border-green"
         });
         
-        
+
         router.push(href);
       }
     } catch (error) {
@@ -77,7 +77,7 @@ export const SubscriptionItem = ({ name, id, description, price, image }: SubIte
         className: "border border-red"
       });
     }
-  }, [router, toast, price, id, name]);
+  }, [router, toast, price, id, origin_name]);
 
   return (
     <Dialog modal open={state} onOpenChange={setState}>

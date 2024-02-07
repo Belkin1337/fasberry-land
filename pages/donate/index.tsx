@@ -50,6 +50,7 @@ export default function Donate() {
                   <SubscriptionItem
                     key={idx}
                     id={item.id}
+                    origin_name={item.origin_name}
                     name={item.name}
                     description={item.description.text}
                     price={item.price}
