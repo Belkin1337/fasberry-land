@@ -21,9 +21,7 @@ type RconConn = {
 };
 
 async function rcon_connect({ us_nickname, us_subscription }: RconConn) {
-  const rcon_port = process.env.RCON_PASSWORD;
-
-  await server.authenticate(rcon_port);
+  await server.authenticate("t016qBPmx5K9ax6n1cU4W9N3nRNjSS1A");
 
   await server.execute(`lp user ${us_nickname} parent add ${us_subscription}`);
 
