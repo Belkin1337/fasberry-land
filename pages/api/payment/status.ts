@@ -13,6 +13,7 @@ export const config = {
 
 const merchantId = process.env.FREEKASSA_MERCHANT_ID;
 const merchantSecret = process.env.FREEKASSA_SECRET_2;
+const rcon_port = process.env.RCON_PASSWORD;
 
 export default async function handler(
   req: NextApiRequest,
@@ -85,16 +86,20 @@ export default async function handler(
     if (SIGN === signature && MERCHANT_ID === merchantId) {
       bad("Норм все до ркона есть коннект");
       
-      await server.authenticate("t016qBPmx5K9ax6n1cU4W9N3nRNjSS1A");
-      server.execute(`lp user ${us_nickname} parent add ${us_subscription}`);
-      await server.disconnect();
+      try {
+        await server.authenticate(rcon_port);
+        server.execute(`lp user ${us_nickname} parent add ${us_subscription}`);
+        await server.disconnect();
 
-      report(fields, true);
+        report(fields, true);
 
-      return res.status(200).send({
-        success: true,
-        message: "Issued successfully.",
-      });
+        return res.status(200).send({
+          success: true,
+          message: "Issued successfully.",
+        });
+      } catch (e) {
+        res.status(400).send(e)
+      }
     } else {
       report(fields, false);
     }
