@@ -14,7 +14,6 @@ export const config = {
 
 const merchantId = process.env.FREEKASSA_MERCHANT_ID;
 const merchantSecret = process.env.FREEKASSA_SECRET_2;
-const rcon_port = process.env.RCON_PASSWORD;
 
 type RconConn = {
   us_nickname: string;
@@ -22,6 +21,8 @@ type RconConn = {
 };
 
 async function rcon_connect({ us_nickname, us_subscription }: RconConn) {
+  const rcon_port = process.env.RCON_PASSWORD;
+  
   await server.authenticate(rcon_port);
 
   server.execute(`lp user ${us_nickname} parent add ${us_subscription}`);
