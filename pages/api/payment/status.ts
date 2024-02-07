@@ -106,7 +106,7 @@ export default async function handler(
 
             report(fields, true);
           } catch (e) {
-            return res.status(400).send("Something went wrong during the connection to RCON.");
+            return res.status(400).send("Something went wrong during the connection to RCON. ❌");
           }
         }
       }
