@@ -34,9 +34,8 @@ import {
   armorColumnsToughness
 } from "@/shared/models/table"
 import {
-  armorList,
-  headers
-} from "@/shared/data"
+  armorList
+} from "@/shared/data/wiki"
 import { Block } from "@/ui/block"
 import { Typography } from "@/ui/typography"
 import { ImageAnnotation } from "@/components/wiki/annotation/item"
@@ -44,6 +43,7 @@ import { CommandLine } from "@/ui/command-line"
 import { ContentModule } from "@/ui/content-module"
 import { WikiTableComponent } from "@/components/wiki/table/item"
 import { MainLayoutPage } from "@/components/layout"
+import { headers } from "@/shared/data/configs"
 
 export default function Wiki() {
   const router = useRouter();

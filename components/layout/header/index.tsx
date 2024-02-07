@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { usePathname } from 'next/navigation'
 import { useRouter } from "next/router"
-import { headerLinks } from '@/shared/data';
+import { headerLinks } from '@/shared/data/configs';
 import { ThemeToggle } from '@/features/theme-switch';
 import { Sheet, SheetContent, SheetTrigger } from '@/ui/sheet';
 import { Typography } from '@/ui/typography';

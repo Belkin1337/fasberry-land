@@ -1,4 +1,3 @@
-import { ruless } from "@/shared/data"
 import { Typography } from '@/ui/typography';
 import {
   Tooltip,
@@ -7,6 +6,7 @@ import {
   TooltipTrigger
 } from '@/ui/tooltip';
 import { Badge } from '../../ui/Badge';
+import { ruless } from '@/shared/data/rules';
 
 export const RulesList = () => {
   return (

@@ -14,7 +14,6 @@ import {
   contacts,
   gallery,
   gameplay,
-  news,
   projectDesciption
 } from '@/shared/data';
 import {
@@ -33,6 +32,7 @@ import { Overlay } from "@/ui/overlay";
 import { ScreenItem } from "@/components/intro/item";
 import "keen-slider/keen-slider.min.css"
 import { Status } from "@/components/intro/status/item";
+import { news } from "@/shared/data/news";
 
 const ReqProvider = dynamic(() =>
   import('../providers/request-provider')

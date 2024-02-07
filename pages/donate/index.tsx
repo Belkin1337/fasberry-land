@@ -5,7 +5,7 @@ import { Overlay } from "@/ui/overlay";
 import { SubscriptionItem } from "@/components/subs";
 import { Typography } from "@/ui/typography";
 import { MainLayoutPage } from "@/components/layout";
-import { donateList } from "@/shared/data";
+import { donateList } from "@/shared/data/donate";
 
 export default function Donate() {
   return (
