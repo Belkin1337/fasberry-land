@@ -38,7 +38,7 @@ await bot.sendMessage(
   Статус: ${status} 
   Заказ: #${MERCHANT_ORDER_ID} 
   Ник: ${us_nickname} 
-  Привилегия: ${us_subscription} ${AMOUNT} 
+  Привилегия: ${us_subscription} (кол-во: ${AMOUNT}) 
   Магазин: ${MERCHANT_ID}
   Подпись: ${SIGN} 
   Почта: ${P_EMAIL} 

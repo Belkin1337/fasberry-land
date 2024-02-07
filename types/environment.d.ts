@@ -5,7 +5,7 @@ declare global {
     interface ProcessEnv {
       FREEKASSA_SECRET_1: string;
       FREEKASSA_SECRET_2: string;
-      FREEKASSA_MERCHANT_ID: number;
+      FREEKASSA_MERCHANT_ID: string;
       FREEKASSA_API_KEY: string
       RCON_HOST: string;
       RCON_PORT: number;

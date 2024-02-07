@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 import { NextApiRequest, NextApiResponse } from "next";
-import { bad, report } from "@/lib/telegram-bot";
+import { report } from "@/lib/telegram-bot";
 import { server } from "@/lib/rcon-protocol";
 import md5 from "md5";
 import formidable from "formidable";
@@ -15,6 +16,19 @@ const merchantId = process.env.FREEKASSA_MERCHANT_ID;
 const merchantSecret = process.env.FREEKASSA_SECRET_2;
 const rcon_port = process.env.RCON_PASSWORD;
 
+type RconConn = {
+  us_nickname: string;
+  us_subscription: string;
+};
+
+async function rcon_connect({ us_nickname, us_subscription }: RconConn) {
+  await server.authenticate(rcon_port);
+
+  server.execute(`lp user ${us_nickname} parent add ${us_subscription}`);
+
+  await server.disconnect();
+}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -24,8 +38,6 @@ export default async function handler(
   }
 
   if (req.method === "POST") {
-    bad("пост запрос выполняется...");
-
     const { err, fields } = await new Promise<{
       err: Error | null;
       fields: any;
@@ -37,68 +49,67 @@ export default async function handler(
     });
 
     if (err) {
-      bad("не получилось распарсить форму");
-
       return res.status(400).send("Error parsing form data.");
     }
 
-    bad("данные пришли? пришли");
+    const MERCHANT_ID = String(Array(fields.MERCHANT_ID)[0]);
+    const SIGN = String(Array(fields.SIGN)[0]);
+    const AMOUNT = String(Array(fields.AMOUNT)[0]);
+    const MERCHANT_ORDER_ID = String(Array(fields.MERCHANT_ORDER_ID)[0]);
+    const us_nickname = String(Array(fields.us_nickname)[0]);
+    const us_subscription = String(Array(fields.us_subscription)[0]);
 
-    const MERCHANT_ID = Array.isArray(fields.MERCHANT_ID)
-      ? fields.MERCHANT_ID[0]
-      : "";
-    const SIGN: string = Array.isArray(fields.SIGN) ? fields.SIGN[0] : "";
-    const AMOUNT: string = Array.isArray(fields.AMOUNT) ? fields.AMOUNT[0] : "";
-    const MERCHANT_ORDER_ID: string = Array.isArray(fields.MERCHANT_ORDER_ID)
-      ? fields.MERCHANT_ORDER_ID[0]
-      : "";
-    const us_nickname: string = Array.isArray(fields.us_nickname)
-      ? fields.us_nickname[0]
-      : "";
-    const us_subscription: string = Array.isArray(fields.us_subscription)
-      ? fields.us_subscription[0]
-      : "";
+    const donateList = ["loyal", "authentic", "arkhont"];
 
     const signature = md5(
       `${MERCHANT_ID}:${AMOUNT}:${merchantSecret}:${MERCHANT_ORDER_ID}`
     );
 
-    if (MERCHANT_ID !== merchantId) {
-      bad("Заказ неправильный");
+    const rcon_conn_data = {
+      us_nickname: us_nickname,
+      us_subscription: us_subscription,
+    };
 
+    if (MERCHANT_ID !== merchantId) {
       return res.status(400).send({
         success: false,
-        message:
-          "Merchant mismatch: The provided merchant does not match the expected value.",
+        message: "The specified merchant does not exist. ❌",
       });
     }
 
     if (SIGN !== signature) {
-      bad("Сигнатура неправильный");
-
       return res.status(400).send({
         success: false,
-        message:
-          "Signature mismatch: The provided signature does not match the expected value.",
+        message: "The provided signature does not match the expected value. ❌",
       });
     }
 
     if (SIGN === signature && MERCHANT_ID === merchantId) {
-      bad("Норм все до ркона есть коннект");
-      
-      try {
-        await server.authenticate(rcon_port);
-        server.execute(`lp user ${us_nickname} parent add ${us_subscription}`);
-        await server.disconnect();
+      if (us_nickname === "" || undefined) {
+        return res.status(400).send("Nickname unknown.");
+      } else {
+        if (!donateList.includes(us_subscription)) {
+          return res.status(400).send("Privilege unknown.");
+        } else {
+          try {
+            rcon_connect(rcon_conn_data)
+              .then(() => {
+                console.log(
+                  "The connection was successfully established and terminated. ✅"
+                );
+              })
+              .catch((error) => {
+                console.error(
+                  "An error occurred while establishing or terminating the connection. ❌",
+                  error
+                );
+              });
 
-        report(fields, true);
-
-        return res.status(200).send({
-          success: true,
-          message: "Issued successfully.",
-        });
-      } catch (e) {
-        return res.status(400).send("Чето пошло не так при отправке запроса на RCON")
+            report(fields, true);
+          } catch (e) {
+            return res.status(400).send("Something went wrong during the connection to RCON.");
+          }
+        }
       }
     } else {
       report(fields, false);
