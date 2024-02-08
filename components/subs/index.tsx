@@ -19,7 +19,7 @@ import {
 } from "../../ui/dialog"
 import { useToast } from "../../ui/use-toast"
 
-export const SubscriptionItem = ({ name, origin_name, id, description, price, image }: SubItem) => {
+export const SubscriptionItem = ({ name, origin_name, commands, id, rating, description, price, image }: SubItem) => {
   const [state, setState] = useState<boolean>(false);
   const router = useRouter();
   const { toast } = useToast();
@@ -27,11 +27,11 @@ export const SubscriptionItem = ({ name, origin_name, id, description, price, im
   const handlePayment = useCallback(async (values: Payment) => {
     const paymentObject = {
       paymentId: id,
-        amount: price,
-        phone: values.phone,
-        email: values.email,
-        us_subscription: origin_name,
-        us_nickname: values.nickname,
+      amount: price,
+      phone: values.phone,
+      email: values.email,
+      us_subscription: origin_name,
+      us_nickname: values.nickname,
     }
 
     async function postPayment(values: Payment) {
@@ -62,7 +62,7 @@ export const SubscriptionItem = ({ name, origin_name, id, description, price, im
           variant: "neutral",
           className: "border border-green"
         });
-        
+
 
         router.push(href);
       }
@@ -78,10 +78,18 @@ export const SubscriptionItem = ({ name, origin_name, id, description, price, im
   return (
     <Dialog modal open={state} onOpenChange={setState}>
       <DialogTrigger className="flex flex-col book h-[540px] w-full hover:-translate-y-1 transition ease-out duration-500 cursor-pointer justify-between">
-        <div className="flex flex-col gap-y-4">
+        <div className="flex flex-col gap-y-2">
           <h1 className='text-black text-lg xl:text-2xl text-right -top-2 relative'>
             {name}
           </h1>
+          <div className="flex items-center">
+            <Typography size="xl" position="left" className="text-water-meadow">
+              Рейтинг:&nbsp;
+            </Typography>
+            <Typography size="xl" className="text-black" position="left">
+              {rating}
+            </Typography>
+          </div>
           <div className="flex flex-col items-start">
             <Typography size="xl" position="left" className="text-water-meadow">
               Описание:
@@ -89,6 +97,16 @@ export const SubscriptionItem = ({ name, origin_name, id, description, price, im
             <Typography size="lg" className="text-black" position="left">
               {description}
             </Typography>
+          </div>
+          <div className="flex flex-col items-start">
+            <Typography size="xl" position="left" className="text-water-meadow">
+              Команды:
+            </Typography>
+            {commands.slice(0, 3).map((item, idx) => (
+              <Typography key={idx} size="lg" className="text-black" position="left">
+                {item}
+              </Typography>
+            ))}
           </div>
         </div>
         <Typography className="text-black cursor-pointer w-max self-end">
@@ -99,21 +117,21 @@ export const SubscriptionItem = ({ name, origin_name, id, description, price, im
         <Block type="column" className="gap-x-2 gap-y-2" rounded="big" blockItem>
           <div className="flex flex-col w-full gap-y-2 justify-center h-full">
             <Typography size="xl">
-              {name}
+              Привилегия: {name}
             </Typography>
-            <Typography size="lg" className="text-[#fabbfb]">
+            <Typography size="lg" className="text-water-meadow">
               Цена:
               <span className="text-white">
                 &nbsp;{price + ' руб'}
               </span>
             </Typography>
-            <Typography size="lg" className="text-[#fabbfb]">
+            <Typography size="lg" className="text-water-meadow">
               Возможности, команды и бонусы
             </Typography>
             <Accordion type="single" collapsible>
               <AccordionItem value="sub-description">
                 <AccordionTrigger className="text-xl text-white">
-                  описание
+                  Описание:
                 </AccordionTrigger>
                 <AccordionContent>
                   <Image

@@ -108,125 +108,123 @@ export default function General() {
 
   return (
     <MainLayoutPage variant="with_section">
-      <div className="weather snow z-1000">
-        <div className="full-screen-section flex flex-col items-start justify-center group">
-          <Overlay />
-          <div className="absolute top-0 right-0 left-0 overflow-hidden h-screen">
-            <div className="w-full h-full absolute top-0 right-0 left-0 bg-no-repeat bg-center bg-cover"
-              style={{ backgroundImage: `url("/images/winter.webp")` }}
-            />
-          </div>
-          <ReqProvider />
-          <div className="w-[90%] mx-auto">
-            <div ref={sliderRef_commuinity} className="fader flex items-center relative z-20 w-full ">
-              {projectDesciption.map((item, idx) => (
-                <div key={item.title} className="fader__slide w-full lg:w-2/4 xl:w-2/5 2xl-w-2/6 cursor-pointer absolute"
-                  style={{ opacity: opacities[idx] }}>
-                  <div className="flex flex-col w-full lg:max-w-xl justify-start h-[260px] md:h-[280px] lg:h-[360px] bg-black/60 rounded-xl p-4 lg:p-6">
-                    <Typography className={`text-[#fabbfb] mb-4 text-4xl lg:text-6xl`}>
-                      {item.title}
-                    </Typography>
-                    <Typography shadow="xl" className="text-white text-lg lg:text-3xl">
-                      {item.desc}
-                    </Typography>
-                  </div>
+      <div className="full-screen-section flex flex-col items-start justify-center group">
+        <div className="absolute top-0 right-0 left-0 overflow-hidden h-screen">
+          <div className="w-full h-full absolute top-0 right-0 left-0 bg-no-repeat bg-center bg-cover"
+            style={{ backgroundImage: `url("/images/winter.webp")` }}
+          />
+          <Overlay variant="default" />
+        </div>
+        <ReqProvider />
+        <div className="w-[90%] mx-auto">
+          <div ref={sliderRef_commuinity} className="fader flex items-center relative z-20 w-full ">
+            {projectDesciption.map((item, idx) => (
+              <div key={item.title} className="fader__slide max-w-xl cursor-pointer absolute"
+                style={{ opacity: opacities[idx] }}>
+                <div className="flex flex-col w-full lg:max-w-xl justify-start h-[260px] md:h-[280px] lg:h-[360px] bg-black/80 rounded-xl p-4 lg:p-6">
+                  <Typography className="text-project-color-pink mb-4 text-4xl lg:text-6xl">
+                    {item.title}
+                  </Typography>
+                  <Typography shadow="xl" className="text-white text-lg lg:text-3xl">
+                    {item.desc}
+                  </Typography>
                 </div>
-              ))}
-              <div className="flex-col relative top-40 w-full lg:w-2/4 xl:w-2/5 2xl:w-2/6 md:top-44 lg:top-56 lg:flex-row gap-4 items-center hidden md:flex">
-                <Dialog>
-                  <DialogTrigger asChild className="w-full">
-                    <Button
-                      variant="blurred"
-                      shadow="swipe"
-                      className="w-full h-[54px] lg:h-[64px] hover:from-[#00cdb0] hover:via-[#a976f8] hover:to-[#ffc0cb]"
-                    >
-                      <Typography className="!text-white text-2xl text-shadow-xl">
-                        Начать играть
-                      </Typography>
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-6xl h-3/4 bg-transparent border-none p-0">
-                    <div className="flex justify-center items-center bg-repeat border-4 border-black h-full w-full"
-                      style={{ backgroundImage: `url("/images/static/dirt.png")` }}>
-                      <div className="flex flex-col gap-y-6 justify-between">
-                        <div className="flex flex-col gap-y-2">
-                          <Typography className="text-neutral-400" size="base">
-                            Название сервера
+              </div>
+            ))}
+            <div className="flex-col relative top-40 w-full lg:w-2/4 xl:w-2/5 2xl:w-2/6 md:top-44 lg:top-56 lg:flex-row gap-4 items-center hidden md:flex">
+              <Dialog>
+                <DialogTrigger asChild className="w-full">
+                  <Button
+                    variant="blurred"
+                    shadow="swipe"
+                    className="w-full h-[54px] lg:h-[64px] hover:from-[#00cdb0] hover:via-[#a976f8] hover:to-[#ffc0cb]"
+                  >
+                    <Typography className="!text-white text-2xl text-shadow-xl">
+                      Начать играть
+                    </Typography>
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-6xl h-3/4 bg-transparent border-none p-0">
+                  <div className="flex justify-center items-center bg-repeat border-4 border-black h-full w-full"
+                    style={{ backgroundImage: `url("/images/static/dirt.png")` }}>
+                    <div className="flex flex-col gap-y-6 justify-between">
+                      <div className="flex flex-col gap-y-2">
+                        <Typography className="text-neutral-400" size="base">
+                          Название сервера
+                        </Typography>
+                        <div className="bg-black py-2 px-2 border-2 border-neutral-500 w-100 md:w-96">
+                          <Typography size="base" position="left" className="text-white">
+                            Сервер Minecraft
                           </Typography>
-                          <div className="bg-black py-2 px-2 border-2 border-neutral-500 w-100 md:w-96">
-                            <Typography size="base" position="left" className="text-white">
-                              Сервер Minecraft
+                        </div>
+                        <Typography size="base" className="text-neutral-400">
+                          Адрес сервера
+                        </Typography>
+                        <TooltipProvider delayDuration={1}>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <Typography
+                                size="base"
+                                position="left"
+                                onClick={() => actionCopyboard()}
+                                className="cursor-pointer bg-black py-2 px-2 border-2 text-white border-neutral-500 w-100 md:w-96"
+                              >
+                                play.fasberry.ru
+                              </Typography>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <Typography size="lg" className="text-neutral-400">
+                                Скопировать IP
+                              </Typography>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
+                      <div className="flex flex-col gap-y-2">
+                        <TooltipProvider delayDuration={1}>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <div className="button w-full md:w-96 px-2 py-1">
+                                <Typography
+                                  shadow="xl"
+                                  className="text-shadow-xl text-[0.8rem] lg:text-base text-white"
+                                  position="center"
+                                >
+                                  Наборы ресурсов: Включены
+                                </Typography>
+                              </div>
+                            </TooltipTrigger>
+                            <TooltipContent className="w-[460px]">
+                              <Typography size="lg" className="text-neutral-400">
+                                На сервере используется свой ресурспак. Эту опцию рекомендуется оставить включенной!
+                              </Typography>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                        <DialogClose>
+                          <div className="button w-full md:w-96 px-2 py-1">
+                            <Typography className="text-shadow-xl text-[0.8rem] text-white lg:text-base" position="center">
+                              Готово
                             </Typography>
                           </div>
-                          <Typography size="base" className="text-neutral-400">
-                            Адрес сервера
-                          </Typography>
-                          <TooltipProvider delayDuration={1}>
-                            <Tooltip>
-                              <TooltipTrigger>
-                                <Typography
-                                  size="base"
-                                  position="left"
-                                  onClick={() => actionCopyboard()}
-                                  className="cursor-pointer bg-black py-2 px-2 border-2 text-white border-neutral-500 w-100 md:w-96"
-                                >
-                                  play.fasberry.ru
-                                </Typography>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <Typography size="lg" className="text-neutral-400">
-                                  Скопировать IP
-                                </Typography>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                        </div>
-                        <div className="flex flex-col gap-y-2">
-                          <TooltipProvider delayDuration={1}>
-                            <Tooltip>
-                              <TooltipTrigger>
-                                <div className="button w-full md:w-96 px-2 py-1">
-                                  <Typography
-                                    shadow="xl"
-                                    className="text-shadow-xl text-[0.8rem] lg:text-base text-white"
-                                    position="center"
-                                  >
-                                    Наборы ресурсов: Включены
-                                  </Typography>
-                                </div>
-                              </TooltipTrigger>
-                              <TooltipContent className="w-[460px]">
-                                <Typography size="lg" className="text-neutral-400">
-                                  На сервере используется свой ресурспак. Эту опцию рекомендуется оставить включенной!
-                                </Typography>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                          <DialogClose>
-                            <div className="button w-full md:w-96 px-2 py-1">
-                              <Typography className="text-shadow-xl text-[0.8rem] text-white lg:text-base" position="center">
-                                Готово
-                              </Typography>
-                            </div>
-                          </DialogClose>
-                        </div>
+                        </DialogClose>
                       </div>
                     </div>
-                  </DialogContent>
-                </Dialog>
-              </div>
-              <div className="flex-col relative top-40 w-full lg:w-2/4 xl:w-2/5 2xl:w-2/6 lg:top-56 lg:flex-row gap-4 items-center md:hidden flex">
-                <Button
-                  onClick={() => actionCopyboard()}
-                  variant="blurred"
-                  shadow="swipe"
-                  className="w-full h-[54px] lg:h-[64px] hover:from-[#00cdb0] hover:via-[#a976f8] hover:to-[#ffc0cb]"
-                >
-                  <Typography shadow="xl" className="font-bold text-xl">
-                    IP: play.fasberry.ru
-                  </Typography>
-                </Button>
-              </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </div>
+            <div className="flex-col relative top-40 w-full lg:w-2/4 xl:w-2/5 2xl:w-2/6 lg:top-56 lg:flex-row gap-4 items-center md:hidden flex">
+              <Button
+                onClick={() => actionCopyboard()}
+                variant="blurred"
+                shadow="swipe"
+                className="w-full h-[54px] lg:h-[64px] hover:from-[#00cdb0] hover:via-[#a976f8] hover:to-[#ffc0cb]"
+              >
+                <Typography shadow="xl" className="font-bold text-xl">
+                  IP: play.fasberry.ru
+                </Typography>
+              </Button>
             </div>
           </div>
         </div>
@@ -342,7 +340,7 @@ export default function General() {
           <div className="flex flex-col md:flex-row gap-x-4 gap-y-6 justify-between">
             {contacts.map((item) => (
               <Block key={item.name} blockItem rounded="big" size="big" type="column">
-                <Typography className="text-[#fabbfb] text-3xl lg:text-4xl xl:text-5xl mb-4">
+                <Typography className="text-project-color-pink text-3xl lg:text-4xl xl:text-5xl mb-4">
                   {item.name}
                 </Typography>
                 <h1 className="text-green text-lg xl:text-3xl">

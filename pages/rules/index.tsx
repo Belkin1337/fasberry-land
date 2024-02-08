@@ -18,9 +18,9 @@ export default function RulesPage() {
           }}>
           <Overlay variant="default" />
           <WrapperTitle>
-            <div className="flex flex-col w-full lg:max-w-4xl items-start justify-center px-8 md:px-16 lg:px-28 xl:px-32">
-              <div className="bg-black/60 rounded-xl p-4 lg:p-6">
-                <Typography variant="page_title" position="left" shadow="xl" className="text-gold mb-2">
+            <div className="flex flex-col w-full lg:max-w-xl items-start justify-center">
+              <div className="bg-black/80 rounded-xl p-4 lg:p-6">
+                <Typography position="left" shadow="xl" className="text-2xl lg:text-3xl xl:text-4xl text-gold mb-2">
                   Правила
                 </Typography>
                 <Typography position="left" className="text-xl xl:text-2xl">

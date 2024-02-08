@@ -22,20 +22,20 @@ export default function Donate() {
           }}>
           <Overlay />
           <WrapperTitle>
-            <div className="flex flex-col items-start justify-center w-full lg:max-w-4xl px-4 sm:px-8 md:px-16 lg:px-28 xl:px-32">
-              <div className="bg-black/60 rounded-xl p-4 lg:p-6">
-                <Typography variant="page_title" position="left" shadow="lg" className="text-gold mb-2">
+            <div className="flex flex-col items-start justify-center w-full lg:max-w-xl">
+              <div className="bg-black/80 rounded-xl p-4 lg:p-6 w-full">
+                <Typography position="left" className="text-2xl lg:text-3xl xl:text-4xl text-gold mb-2">
                   Покупка привилегий
                 </Typography>
-                <Typography position="left" className="text-lg xl:text-2xl">
+                <Typography position="left" className="text-xl xl:text-2xl">
                   Здесь можно купить привилегии, ну или узнать о каждой больше.
                 </Typography>
               </div>
             </div>
           </WrapperTitle>
         </div>
-        <div className="full-screen-section flex flex-col min-h-screen items-center bg-cover bg-no-repeat mx-auto w-[90%]">
-          <div className="flex flex-col py-32">
+        <div className="full-screen-section flex flex-col min-h-screen items-center bg-cover bg-no-repeat">
+          <div className="flex flex-col py-32 w-[90%] mx-auto">
             <div className="flex flex-col items-center justify-center mb-6">
               <Typography text_color="black" position="center" variant="block_title">
                 Привилегии сервера
@@ -50,6 +50,8 @@ export default function Donate() {
                   <SubscriptionItem
                     key={idx}
                     id={item.id}
+                    rating={item.rating}
+                    commands={item.commands}
                     origin_name={item.origin_name}
                     name={item.name}
                     description={item.description.text}

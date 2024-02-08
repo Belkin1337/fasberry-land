@@ -42,12 +42,14 @@ type SubItem = {
   id?: number;
   origin_name: string,
   name: string;
+  rating: number,
   description: string;
   price: number;
   old_price?: number;
   servers?: Array<string>;
   updated_at?: string;
   image: string;
+  commands: Array<string>
 };
 
 type RulesList = {

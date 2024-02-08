@@ -21,7 +21,7 @@ export default function Terms() {
             <span>
               Сайт FasberryProject не является средством массовой информации.
             </span>
-            <span className="text-[#fabbfb]">
+            <span className="text-project-color-pink">
               Используя сайт, Вы соглашаетесь с условиями данного соглашения. Если Вы не согласны с условиями данного соглашения, не используйте сайт FasberryProject!
             </span>
           </div>
