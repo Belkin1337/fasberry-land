@@ -113,7 +113,9 @@ export default function General() {
           <div className="w-full h-full absolute top-0 right-0 left-0 bg-no-repeat bg-center bg-cover"
             style={{ backgroundImage: `url("/images/winter.webp")` }}
           />
-          <Overlay variant="default" />
+          <div className="hidden md:flex">
+            <Overlay variant="default" />
+          </div>
         </div>
         <ReqProvider />
         <div className="w-[90%] mx-auto">
