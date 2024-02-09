@@ -11,7 +11,7 @@ export default function Donate() {
   return (
     <>
       <Head>
-        <title>Подписки</title>
+        <title>Fasberry &gt; Подписки</title>
         <meta name="keywords" content="Приобретение привилегий, подписки, fasberry донат, донат minecraft, minecraft fasberry" />
       </Head>
       <MainLayoutPage variant="with_section">
@@ -20,9 +20,7 @@ export default function Donate() {
             backgroundImage:
               `url("https://media.discordapp.net/attachments/904344676587417621/1197251168443834408/2024-01-17_21.42.43.png?ex=65ba960a&is=65a8210a&hm=ed256149a115bd8d84d344c63f2851a0a3ceb31a2b57f107cc04604585f2c3d3&=&format=webp&quality=lossless&width=1193&height=671")`
           }}>
-          <div className="hidden md:flex">
-            <Overlay variant="default" />
-          </div>
+          <Overlay variant="default" />
           <WrapperTitle>
             <div className="flex flex-col items-start justify-center w-full lg:max-w-xl">
               <div className="bg-black/80 rounded-xl p-4 lg:p-6 w-full">

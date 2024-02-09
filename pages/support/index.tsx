@@ -12,7 +12,7 @@ export default function Support() {
   return (
     <>
       <Head>
-        <title>Поддержка сервера</title>
+        <title>Fasberry &gt; Поддержка сервера</title>
         <meta name="keywords" content="поддержка сервера, саппорт, fasberry, minecraft, minecraft fasberry" />
       </Head>
       <MainLayoutPage variant="with_section">
@@ -20,9 +20,7 @@ export default function Support() {
           style={{
             backgroundImage: `url("https://media.discordapp.net/attachments/815672776433074196/1202357279484293161/2024-01-31_13.47.18.png?ex=65d663fa&is=65c3eefa&hm=3ec0a2fe40788531b5977bdf5fda4d5afb6062c252acb4ab9f5d3d3a65857c1e&=&format=webp&quality=lossless&width=1206&height=671")`
           }}>
-          <div className="hidden md:flex">
-            <Overlay variant="default" />
-          </div>
+          <Overlay variant="default" />
           <WrapperTitle>
             <div className="flex flex-col w-full lg:max-w-xl items-start justify-center">
               <div className="bg-black/80 rounded-xl p-4 lg:p-6">
@@ -36,8 +34,8 @@ export default function Support() {
             </div>
           </WrapperTitle>
         </div>
-        <div className="full-screen-section flex flex-col justify-center items-center relative py-24 lg:py-36 w-[90%] mx-auto">
-          <div className="flex flex-col justify-center gap-y-6">
+        <div className="full-screen-section flex flex-col justify-center items-center relative py-24 lg:py-36">
+          <div className="flex flex-col justify-center gap-y-6 w-[90%] mx-auto">
             <div className="flex flex-col justify-center items-center mb-6">
               <Typography variant="block_title" className="text-black dark:text-white">
                 Поддержка проекта

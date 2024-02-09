@@ -10,8 +10,8 @@ import { ruless } from '@/shared/data/rules';
 
 export const RulesList = () => {
   return (
-    <div className="full-screen-section py-32 w-[90%] mx-auto">
-      <div className="flex flex-col gap-y-14">
+    <div className="full-screen-section py-32">
+      <div className="flex flex-col gap-y-14 w-[90%] mx-auto">
         <div className="flex flex-col md:flex-row gap-y-4 border-2 border-transparent
                dark:hover:border-white hover:duration-300 duration-300 lg:gap-y-2 py-4 bg-black/80 dark:bg-transparent p-2 rounded-xl justify-between">
           <div className="flex items-start lg:items-center gap-x-2">

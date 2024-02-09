@@ -1,9 +1,13 @@
+const withMDX = require('@next/mdx')()
+
 /** @type {import('next').NextConfig} */
-module.exports = {
+
+const nextConfig = {
   webpack: (config) => {
     config.externals = [...config.externals, "canvas", "jsdom"];
     return config;
   },
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   images: {
     remotePatterns: [{
       protocol: "https",
@@ -37,4 +41,6 @@ module.exports = {
     }
     ]
   },
-};
+}
+
+module.exports = withMDX(nextConfig)

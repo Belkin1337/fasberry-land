@@ -75,6 +75,15 @@ export const SubscriptionItem = ({ name, origin_name, commands, id, rating, desc
     }
   }, [router, toast, price, id, origin_name]);
 
+  const dont = () => {
+    toast({
+      title: "Покупка временно не доступна!",
+      description: "Следите за новостями в дискорде проекта",
+      variant: "neutral",
+      className: "border border-red"
+    });
+  }
+  
   return (
     <Dialog modal open={state} onOpenChange={setState}>
       <DialogTrigger className="flex flex-col book h-[540px] w-full hover:-translate-y-1 transition ease-out duration-500 cursor-pointer justify-between">
@@ -158,7 +167,7 @@ export const SubscriptionItem = ({ name, origin_name, commands, id, rating, desc
                 <Typography size="xl" position="center" className="mb-4 lg:mb-8">
                   Покупка привилегии ({name})
                 </Typography>
-                <SubForm handlePayment={handlePayment} />
+                <SubForm handlePayment={dont} />
               </Block>
             </DialogContent>
           </Dialog>

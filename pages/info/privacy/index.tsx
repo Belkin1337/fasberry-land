@@ -5,7 +5,7 @@ export default function Privacy() {
   return (
     <>
       <Head>
-        <title>Политика обработки персональных данных</title>
+        <title>Fasberry &gt; Политика обработки персональных данных</title>
       </Head>
       <MainLayoutPage variant="with_section">
         <div className="flex flex-col min-h-screen w-[90%] mx-auto py-36 gap-y-6">

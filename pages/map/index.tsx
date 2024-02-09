@@ -7,7 +7,7 @@ import { MainLayoutPage } from "@/components/layout";
 const serverMap = [
   {
     name: "Bisquite Survival",
-    href: "http://map.fasberry.ru:80",
+    href: "http://map.fasberry.ru",
     image: "/images/minecraft/icons/map_zoom.webp"
   },
 ]
@@ -18,7 +18,7 @@ export default function Map() {
   return (
     <>
       <Head>
-        <title>Карта мира</title>
+        <title>Fasberry &gt; Карта мира</title>
       </Head>
       <MainLayoutPage variant="with_section">
         <div className="bg-right lg:bg-center"

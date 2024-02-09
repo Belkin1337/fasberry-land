@@ -5,7 +5,7 @@ export default function Terms() {
   return (
     <>
       <Head>
-        <title>Пользовательское соглашение</title>
+        <title>Fasberry &gt; Пользовательское соглашение</title>
       </Head>
       <MainLayoutPage variant="with_section">
       <div className="flex flex-col min-h-screen w-[90%] mx-auto py-36 gap-y-6">

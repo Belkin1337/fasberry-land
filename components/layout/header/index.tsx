@@ -14,27 +14,29 @@ export const Header = () => {
 	const router = useRouter();
 	const pathname = usePathname();
 
-	const pathDetect = useMemo(
-		() => (href: string) => {
-			if (pathname === href) {
-				toast({
-					title: "Вы уже на этой странице!",
-					variant: "neutral",
-					action: 
+	const pathDetect = useMemo(() => (href: string) => {
+		if (pathname === href) {
+			toast({
+				title: "Вы уже на этой странице!",
+				variant: "neutral",
+				action:
 					<Image
 						alt="Toast Pic"
 						width={42}
 						height={42}
 						src="/images/minecraft/icons/bell.webp"
 					/>
-				})
-			} else router.push(href);
-		}, [router, pathname, toast])
+			})
+		} else router.push(href);
+	}, [router, pathname, toast])
 
 	return (
 		<>
 			<div className={`header flex items-center justify-between sticky lg:absolute top-0 transition w-full bg-repeat-x z-50`}
-				style={{ backgroundImage: `url("/images/static/cracked_polished_blacked.webp")`, backgroundSize: '160px' }}>
+				style={{
+					backgroundImage: `url("/images/static/cracked_polished_blacked.webp")`,
+					backgroundSize: '160px'
+				}}>
 				<div onClick={() => router.push('/')} className="bg-transparent cursor-pointer relative top-3 xl:-right-20">
 					<Image
 						width={224}
@@ -46,7 +48,13 @@ export const Header = () => {
 				<div className="hidden xl:flex gap-x-4 items-center justify-start pr-[128px]">
 					{headerLinks.map((item, idx) => (
 						<div key={idx} onClick={() => pathDetect(item.href)} className="flex flex-row items-center gap-1 text-lg cursor-pointer">
-							<Image src={item.image} width={20} height={20} alt={item.name} />
+							<Image
+								src={item.image}
+								width={20}
+								height={20}
+								alt={item.name}
+								loading="lazy"
+							/>
 							<Typography className={`hover:brightness-150 text-project-color
           			${router.pathname === item.href && 'brightness-[1.8]'} 
           			${item.name == "Привилегии" && 'text-gold'}`}
@@ -97,7 +105,13 @@ export const Header = () => {
 									setOpen(false);
 								}}
 									className="flex border border-neutral-800 hover:bg-neutral-800 cursor-pointer rounded-md gap-x-6 shadow-[inset_42px_0px_0px_#553C7D] py-2 px-2 w-full">
-									<Image src={item.image}	width={26} height={10} alt={item.name} loading="lazy"	/>
+									<Image
+										src={item.image}
+										width={26}
+										height={10}
+										alt={item.name}
+										loading="lazy"
+									/>
 									<Typography size="lg" className={`text-project-color ${item.name === "Привилегии" && 'text-gold'}`}>
 										{item.name}
 									</Typography>

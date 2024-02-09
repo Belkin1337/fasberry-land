@@ -1,6 +1,6 @@
-import Head from "next/head"
 import { MainLayoutPage } from "@/components/layout";
 import { useRouter } from "next/navigation"
+import Head from "next/head"
 
 export default function Contacts() {
   const router = useRouter();
@@ -8,7 +8,7 @@ export default function Contacts() {
   return (
     <>
       <Head>
-        <title>Контакты</title>
+        <title>Fasberry &gt; Контакты</title>
       </Head>
       <MainLayoutPage variant="with_section">
       <div className="flex flex-col min-h-screen w-[90%] mx-auto py-36 gap-y-6">
@@ -17,7 +17,9 @@ export default function Contacts() {
         </p>
         <div className="flex flex-col gap-y-8 bg-black/80 dark:bg-transparent rounded-md">
           <div className="flex flex-col gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4">
-            <p className="text-project-color text-xl">Социальные сети и мессенджеры</p>
+            <p className="text-project-color text-xl">
+              Социальные сети и мессенджеры
+            </p>
             <div className="flex flex-col text-white text-md lg:text-lg gap-y-4">
               <p>Группа VK: <span 
                 onClick={() => router.push('https://vk.com/fasberry')}
@@ -33,9 +35,13 @@ export default function Contacts() {
             </div>
           </div>
           <div className="flex flex-col gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4">
-            <p className="text-project-color text-xl">Электронная почта</p>
+            <p className="text-project-color text-xl">
+              Электронная почта
+            </p>
             <div className="flex flex-col text-white text-md lg:text-lg gap-y-4">
-              <p>support@fasberry.ru</p>
+              <p>
+                support@fasberry.ru
+              </p>
             </div>
           </div>
         </div>

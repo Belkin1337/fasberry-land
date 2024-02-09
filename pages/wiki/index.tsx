@@ -44,6 +44,7 @@ import { ContentModule } from "@/ui/content-module"
 import { WikiTableComponent } from "@/components/wiki/table/item"
 import { MainLayoutPage } from "@/components/layout"
 import { headers } from "@/shared/data/configs"
+import { WikiNavigationBar } from "@/components/wiki/sidebar"
 
 export default function Wiki() {
   const router = useRouter();
@@ -72,22 +73,15 @@ export default function Wiki() {
   return (
     <>
       <Head>
-        <title>Вики</title>
+        <title>Fasberry &gt; Вики</title>
         <meta name="description" content="Вики проекта Fasberry. Здесь можно узнать о всех аспектах игры на нашем сервере." />
         <meta property="keywords" content="википедия, fasberry, справочник по серверу, minecraft wiki, fasberry wiki, 
         wiki fasberry, вики fasberry, вики фасберри, фасберри сервер" />
       </Head>
       <MainLayoutPage>
-        <Tabs
-          value={valueTab}
-          onValueChange={handleTabChange}
-          defaultValue="general"
-          className="flex flex-col lg:flex-row items-start justify-between bg-transparent w-full gap-x-4">
-          <Block className="w-full overflow-hidden lg:w-auto rounded-xl"
-            border="mini_gray"
-            type="column"
-            rounded="big"
-            size="normal">
+        <Tabs value={valueTab} onValueChange={handleTabChange} defaultValue="general" className="flex flex-col lg:flex-row items-start justify-between bg-transparent w-full gap-x-4">
+          <WikiNavigationBar/>
+          <Block className="w-full overflow-hidden lg:w-auto rounded-xl" border="mini_gray" type="column" rounded="big" size="normal">
             <ContentModule id="general" value="general" role="tab">
               <Typography className="text-5xl mb-8">
                 Основной раздел
@@ -1274,113 +1268,6 @@ export default function Wiki() {
               </TabsList>
             </DialogContent>
           </Dialog>
-          <TabsList className="hidden xl:flex flex-col p-0 rounded-xl w-full xl:w-[30%] items-start sticky top-0">
-            <Block border="mini_gray" className="gap-y-12 h-full" size="normal" rounded="big" type="column">
-              <div className="flex flex-col gap-y-2">
-                <Typography className="text-3xl">
-                  Общая информация
-                </Typography>
-                <div className="flex flex-col gap-y-2">
-                  <div className="flex flex-row justify-between items-center group cursor-pointer">
-                    <TabsTrigger value="general">
-                      <Typography size="xl" hover_effects="pink_drop">
-                        Основной раздел
-                      </Typography>
-                    </TabsTrigger>
-                    <Image
-                      src="/images/minecraft/icons/spyglass_big.webp"
-                      className="group-hover:rotate-45 w-[16px] h-[20px] group-hover:duration-300 duration-300"
-                      width={16}
-                      alt="General"
-                      height={16}
-                    />
-                  </div>
-                  <Accordion type="single" collapsible defaultValue="aspects">
-                    <AccordionItem value="aspects">
-                      <AccordionTrigger className="py-0 my-0 group">
-                        <Typography size="xl" hover_effects="pink_drop">
-                          Аспекты игры
-                        </Typography>
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        {headers.map((item) => (
-                          item.aspect?.map((item, idx) => (
-                            <div key={idx} className="group cursor-pointer">
-                              <TabsTrigger value={item.value}>
-                                <Typography size="base" hover_effects="pink_drop">
-                                  &nbsp;&nbsp;{item.title}
-                                </Typography>
-                              </TabsTrigger>
-                            </div>
-                          ))
-                        ))}
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
-                  {headers.map((item) => (
-                    item.links?.map((item, idx) => (
-                      <div key={idx} className="flex flex-row items-center justify-between group cursor-pointer">
-                        {item.isTab ? (
-                          <TabsTrigger value={item.value}>
-                            <Typography size="xl" hover_effects="pink_drop">
-                              {item.title}
-                            </Typography>
-                          </TabsTrigger>
-                        ) : (
-                          <div onClick={() => router.push(`${item.value}`)}>
-                            <Typography size="xl" hover_effects="pink_drop">
-                              {item.title}
-                            </Typography>
-                          </div>
-                        )}
-                        <Image
-                          src="/images/minecraft/icons/spyglass_big.webp"
-                          className="group-hover:rotate-45 w-[16px] h-[20px] group-hover:duration-300 duration-300"
-                          width={26}
-                          height={16}
-                          alt="Spyglass Down"
-                        />
-                      </div>
-                    ))
-                  ))}
-                </div>
-              </div>
-              <div className="flex flex-col gap-y-2">
-                <Typography className="text-3xl">
-                  Прочее
-                </Typography>
-                <div className="flex flex-col gap-y-4">
-                  <Accordion type="single" collapsible>
-                    <AccordionItem value="servers">
-                      <AccordionTrigger className="py-0 my-0 group">
-                        <Typography size="xl" hover_effects="pink_drop">
-                          Сервера
-                        </Typography>
-                      </AccordionTrigger>
-                      <AccordionContent className="">
-                        {headers.map((item) => (
-                          item.servers?.map((item, idx) => (
-                            <div className="group cursor-pointer" key={idx}>
-                              <TabsTrigger value={item.value}>
-                                <Typography size="xl" hover_effects="pink_drop">
-                                  &nbsp;&nbsp;{item.title}
-                                </Typography>
-                              </TabsTrigger>
-                            </div>
-                          ))
-                        ))}
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
-                </div>
-                <Link href="https://fasberry.ru/wiki/modpack" className="group cursor-pointer">
-                  <Typography size="base" hover_effects="pink_drop">
-                    Сборки модов
-                  </Typography>
-                </Link>
-              </div>
-            </Block>
-          </TabsList>
         </Tabs>
       </MainLayoutPage>
     </>

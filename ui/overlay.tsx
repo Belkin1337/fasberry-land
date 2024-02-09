@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 import { VariantProps } from "class-variance-authority";
 
-const overlayVariants = cva("absolute right-0 left-0 bg-gradient-to-r from-black to-transparent min-h-screen bg-opacity-70", {
+const overlayVariants = cva("hidden md:block absolute right-0 left-0 bg-gradient-to-r from-black to-transparent min-h-screen bg-opacity-70", {
   variants: {
     variant: {
       default: "to-25%",
