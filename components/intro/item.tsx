@@ -1,12 +1,13 @@
 import { Typography } from "@/ui/typography"
 import Image from "next/image"
 
-interface ScreenItem {
-  title: string,
-  src: string
-}
-
-export const ScreenItem = ({ title, src }: ScreenItem) => {
+export const ScreenItem = ({ 
+  title, 
+  src 
+}: { 
+  title: string, 
+  src: string 
+}) => {
   return (
     <>
       <div className="flex flex-row items-end justify-start p-2 absolute top-0 right-0 left-0 z-10 w-full h-full rounded-xl

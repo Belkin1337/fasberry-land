@@ -1,15 +1,5 @@
+import { DataMessage } from "@/types";
 import TelegramBot from "node-telegram-bot-api";
-
-type DataMessage = {
-  us_nickname: string;
-  us_subscription: string;
-  MERCHANT_ID: number;
-  MERCHANT_ORDER_ID: number;
-  SIGN: string;
-  P_EMAIL?: string;
-  P_PHONE?: number;
-  AMOUNT?: number
-};
 
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const ownerID = process.env.TELEGRAM_OWNER_ID;
@@ -43,8 +33,7 @@ await bot.sendMessage(
   Подпись: ${SIGN} 
   Почта: ${P_EMAIL} 
   Телефон: ${P_PHONE}`
-);
-}
+)}
 
 export async function bad(text: string) {
   await bot.sendMessage(ownerID, text)

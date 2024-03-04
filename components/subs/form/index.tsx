@@ -14,29 +14,13 @@ import {
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger
 } from "@/ui/tooltip"
 import { Input } from "@/ui/input"
 import { Typography } from "@/ui/typography"
 import { Checkbox } from "@/ui/checkbox"
-
-const formSchema = z
-  .object({
-    nickname: z.string().transform(value => value.replace(/\s+/g, '')).pipe(z.string().min(1, {
-      message: "Никнейм должен состоять из минимум 1 символов."
-    })),
-    privacy: z.boolean().refine((value) => value === true, {
-      message: 'Вы должны ознакомиться с правилами!',
-    }),
-    email: z.string().email({
-      message: "Поле обязательно!"
-    }).min(5, {
-      message: "Почта должна состоять из минимум 5 символов"
-    }),
-    phone: z.string().transform((value) => value.replace(/[-+()\s]/g, "")).optional()
-    })
-  .required()
+import { Payment } from "@/types"
+import { formSchema } from "@/lib/schemas/payment"
 
 type FormFields = z.infer<typeof formSchema>;
 
@@ -73,26 +57,24 @@ export const SubForm = ({ handlePayment }: SubForm) => {
                 <FormLabel className="text-lg text-white">
                   Игровой никнейм
                 </FormLabel>
-                <TooltipProvider>
-                  <Tooltip delayDuration={1}>
-                    <TooltipTrigger>
-                      <Image
-                        src="/images/minecraft/icons/minecart_chest_big.webp"
-                        width={16}
-                        height={16}
-                        alt="Nickname Requirements"
-                      />
-                    </TooltipTrigger>
-                    <TooltipContent className="flex flex-col gap-y-1">
-                      <Typography size="md" className="text-red">
-                        Пожалуйста, перепроверьте ник перед оплатой!
-                      </Typography>
-                      <Typography size="md" className="text-red">
-                        А также запрещены пробелы в нике!
-                      </Typography>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
+                <Tooltip delayDuration={1}>
+                  <TooltipTrigger>
+                    <Image
+                      src="/images/minecraft/icons/minecart_chest_big.webp"
+                      width={16}
+                      height={16}
+                      alt="Nickname Requirements"
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent className="flex flex-col gap-y-1">
+                    <Typography size="md" className="text-red">
+                      Пожалуйста, перепроверьте ник перед оплатой!
+                    </Typography>
+                    <Typography size="md" className="text-red">
+                      А также запрещены пробелы в нике!
+                    </Typography>
+                  </TooltipContent>
+                </Tooltip>
               </div>
               <FormControl>
                 <Input
@@ -163,7 +145,10 @@ export const SubForm = ({ handlePayment }: SubForm) => {
             </FormItem>
           )}
         />
-        <button className={`text-green-server-color text-lg w-full button px-4 py-1`} type="submit">
+        <button
+          className="text-green-server-color text-lg w-full button px-4 py-1"
+          type="submit"
+        >
           Купить
         </button>
       </form>

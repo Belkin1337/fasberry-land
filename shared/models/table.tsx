@@ -1,3 +1,4 @@
+import { ArmorItem } from "@/types";
 import { Block } from "@/ui/block";
 import {
   Dialog,
@@ -8,7 +9,6 @@ import {
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger,
 } from "@/ui/tooltip";
 import { createColumnHelper } from "@tanstack/react-table";
@@ -16,7 +16,13 @@ import Image from "next/image";
 
 const columnHelper = createColumnHelper<ArmorItem>();
 
-const TableImage = ({ src, alt }: { src: string; alt: string }) => {
+const TableImage = ({
+  src,
+  alt
+}: {
+  src: string;
+  alt: string
+}) => {
   return (
     <Image
       src={`${src}`}
@@ -91,7 +97,7 @@ export const armorColumnsPopulators = [
         header: "Структура",
         cell: (props) => (
           <Dialog modal>
-            {props.getValue()?.populators?.structory ? 
+            {props.getValue()?.populators?.structory ?
               <DialogTrigger>
                 список
               </DialogTrigger> : "-"}
@@ -123,22 +129,20 @@ export const armorColumnsPopulators = [
         id: "Structory_Chance",
         header: "Шанс",
         cell: (props) => (
-          <TooltipProvider>
-            <Tooltip>
-              {props.getValue() ? (
-                <TooltipTrigger>
-                  <span>{props.getValue()?.populators?.chance + "%"}</span>
-                </TooltipTrigger>
-              ) : (
-                "-"
-              )}
-              <TooltipContent className="bg-black/50 backdrop-filter backdrop-blur-md border-none p-2 rounded-xl">
-                <p className="text-neutral-400 text-lg">
-                  Шанс нахождения руды на 1 чанк
-                </p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          <Tooltip>
+            {props.getValue() ? (
+              <TooltipTrigger>
+                <span>{props.getValue()?.populators?.chance + "%"}</span>
+              </TooltipTrigger>
+            ) : (
+              "-"
+            )}
+            <TooltipContent className="bg-black/50 backdrop-filter backdrop-blur-md border-none p-2 rounded-xl">
+              <p className="text-neutral-400 text-lg">
+                Шанс нахождения руды на 1 чанк
+              </p>
+            </TooltipContent>
+          </Tooltip>
         ),
       }),
     ],

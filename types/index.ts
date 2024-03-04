@@ -4,7 +4,7 @@
 //   icon: string,
 // }
 
-type Products = {
+export type Products = {
   response: Array<{
     id: number;
     name: string;
@@ -15,12 +15,12 @@ type Products = {
   }>;
 };
 
-type Player = {
+export type Player = {
   uuid: string;
   name_raw: string;
 };
 
-type Status = {
+export type Status = {
   online: boolean;
   players: {
     online: number;
@@ -29,7 +29,7 @@ type Status = {
   };
 };
 
-type Payment = {
+export type Payment = {
   paymentId?: number,
   amount?: number,
   phone?: string,
@@ -38,7 +38,7 @@ type Payment = {
   us_subscription?: string,
 }
 
-type SubItem = {
+export type SubItem = {
   id?: number;
   origin_name: string,
   name: string;
@@ -52,7 +52,7 @@ type SubItem = {
   commands: Array<string>
 };
 
-type RulesList = {
+export type RulesList = {
   id: string;
   name: string;
   content: Array<{
@@ -63,7 +63,7 @@ type RulesList = {
   }>;
 };
 
-type DonateItem = {
+export type DonateItem = {
   name: string;
   rating: number;
   description: {
@@ -74,7 +74,7 @@ type DonateItem = {
   price: number;
 };
 
-type ArmorItem = {
+export type ArmorItem = {
   attribute: {
     name: string;
     icon?: string;
@@ -146,3 +146,21 @@ type ArmorItem = {
     };
   };
 };
+
+export type DataMessage = {
+  us_nickname: string;
+  us_subscription: string;
+  MERCHANT_ID: number;
+  MERCHANT_ORDER_ID: number;
+  SIGN: string;
+  P_EMAIL?: string;
+  P_PHONE?: number;
+  AMOUNT?: number
+};
+
+export type ScreenshotItem = {
+  title: string,
+  description?: string,
+  createdDate: string,
+  image: string,
+}

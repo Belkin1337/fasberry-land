@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ColumnDef, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table'
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/ui/table"
+import { ArmorItem } from '@/types'
 
 interface TableProps {
   array_name: ArmorItem[],
@@ -14,7 +15,6 @@ export const WikiTableComponent = ({
   table_caption 
 }: TableProps) => {
   const [data, setData] = useState(() => [...array_name])
-  // const rerender = useReducer(() => ({}), {})[1]
 
   const table = useReactTable({
     data,

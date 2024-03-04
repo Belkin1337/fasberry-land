@@ -12,31 +12,37 @@ const nextConfig = {
     remotePatterns: [{
       protocol: "https",
       hostname: "avatars.githubusercontent.com",
-      port: '',
+      port: "",
       pathname: "/**"
     }, 
     {
       protocol: "https",
       hostname: "cdn.discordapp.com",
-      port: '',
+      port: "",
       pathname: "/**"
     },
     {
       protocol: "https",
       hostname: "media.discordapp.net",
-      port: '',
+      port: "",
+      pathname: "/**"
+    },
+    {
+      protocol: "https",
+      hostname: "mc.yandex.ru",
+      port: "",
       pathname: "/**"
     },
     {
       protocol: "https",
       hostname: "lh3.googleusercontent.com",
-      port: '',
+      port: "",
       pathname: "/**"
     },
      {
       protocol: "https",
       hostname: "storage.easyx.ru",
-      port: '',
+      port: "",
       pathname: "/**"
     }
     ]

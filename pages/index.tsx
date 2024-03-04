@@ -19,7 +19,6 @@ import {
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger
 } from '@/ui/tooltip';
 import { Typography } from '@/ui/typography';
@@ -30,9 +29,8 @@ import { Button } from "@/ui/button";
 import { NewsItem } from "@/components/news/item";
 import { Overlay } from "@/ui/overlay";
 import { ScreenItem } from "@/components/intro/item";
-import "keen-slider/keen-slider.min.css"
-import { Status } from "@/components/intro/status/item";
 import { news } from "@/shared/data/news";
+import "keen-slider/keen-slider.min.css"
 
 const ReqProvider = dynamic(() =>
   import('../providers/request-provider')
@@ -40,6 +38,17 @@ const ReqProvider = dynamic(() =>
       default: mod.ReqProvider
     }))
 )
+
+const Status = dynamic(() => 
+  import("@/components/intro/status/item")
+    .then((mod) => ({
+      default: mod.Status
+  }))
+)
+
+const animation = {
+  duration: 72000, easing: (t: number) => t
+}
 
 export default function General() {
   const { toast } = useToast();
@@ -59,10 +68,6 @@ export default function General() {
           src="/images/minecraft/icons/book_big.webp"
         />
     })
-  }
-
-  const animation = {
-    duration: 72000, easing: (t: number) => t
   }
 
   const [sliderRef_carousel] = useKeenSlider<HTMLDivElement>({
@@ -160,47 +165,43 @@ export default function General() {
                         <Typography size="base" className="text-neutral-400">
                           Адрес сервера
                         </Typography>
-                        <TooltipProvider delayDuration={1}>
-                          <Tooltip>
-                            <TooltipTrigger>
-                              <Typography
-                                size="base"
-                                position="left"
-                                onClick={() => actionCopyboard()}
-                                className="cursor-pointer bg-black py-2 px-2 border-2 text-white border-neutral-500 w-100 md:w-96"
-                              >
-                                play.fasberry.ru
-                              </Typography>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                              <Typography size="lg" className="text-neutral-400">
-                                Скопировать IP
-                              </Typography>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
+                        <Tooltip delayDuration={1}>
+                          <TooltipTrigger>
+                            <Typography
+                              size="base"
+                              position="left"
+                              onClick={() => actionCopyboard()}
+                              className="cursor-pointer bg-black py-2 px-2 border-2 text-white border-neutral-500 w-100 md:w-96"
+                            >
+                              play.fasberry.ru
+                            </Typography>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <Typography size="lg" className="text-neutral-400">
+                              Скопировать IP
+                            </Typography>
+                          </TooltipContent>
+                        </Tooltip>
                       </div>
                       <div className="flex flex-col gap-y-2">
-                        <TooltipProvider delayDuration={1}>
-                          <Tooltip>
-                            <TooltipTrigger>
-                              <div className="button w-full md:w-96 px-2 py-1">
-                                <Typography
-                                  shadow="xl"
-                                  className="text-shadow-xl text-[0.8rem] lg:text-base text-white"
-                                  position="center"
-                                >
-                                  Наборы ресурсов: Включены
-                                </Typography>
-                              </div>
-                            </TooltipTrigger>
-                            <TooltipContent className="w-[460px]">
-                              <Typography size="lg" className="text-neutral-400">
-                                На сервере используется свой ресурспак. Эту опцию рекомендуется оставить включенной!
+                        <Tooltip delayDuration={1}>
+                          <TooltipTrigger>
+                            <div className="button w-full md:w-96 px-2 py-1">
+                              <Typography
+                                shadow="xl"
+                                className="text-shadow-xl text-[0.8rem] lg:text-base text-white"
+                                position="center"
+                              >
+                                Наборы ресурсов: Включены
                               </Typography>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent className="w-[460px]">
+                            <Typography size="lg" className="text-neutral-400">
+                              На сервере используется свой ресурспак. Эту опцию рекомендуется оставить включенной!
+                            </Typography>
+                          </TooltipContent>
+                        </Tooltip>
                         <DialogClose>
                           <div className="button w-full md:w-96 px-2 py-1">
                             <Typography className="text-shadow-xl text-[0.8rem] text-white lg:text-base" position="center">

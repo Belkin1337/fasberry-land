@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { NextApiRequest, NextApiResponse } from "next";
 import { report } from "@/lib/telegram-bot";
 import { server } from "@/lib/rcon-protocol";
@@ -14,6 +13,7 @@ export const config = {
 
 const merchantId = process.env.FREEKASSA_MERCHANT_ID;
 const merchantSecret = process.env.FREEKASSA_SECRET_2;
+const rconPassword = process.env.RCON_PASSWORD;
 
 type RconConn = {
   us_nickname: string;
@@ -21,7 +21,7 @@ type RconConn = {
 };
 
 async function rcon_connect({ us_nickname, us_subscription }: RconConn) {
-  await server.authenticate("t016qBPmx5K9ax6n1cU4W9N3nRNjSS1A");
+  await server.authenticate(rconPassword);
 
   await server.execute(`lp user ${us_nickname} parent add ${us_subscription}`);
 
@@ -92,18 +92,6 @@ export default async function handler(
         } else {
           try {
             await rcon_connect(rcon_conn_data)
-              .then(() => {
-                console.log(
-                  "The connection was successfully established and terminated. ✅"
-                );
-              })
-              .catch((error) => {
-                console.error(
-                  "An error occurred while establishing or terminating the connection. ❌",
-                  error
-                );
-              });
-
             report(fields, true);
           } catch (e) {
             return res.status(400).send("Something went wrong during the connection to RCON. ❌");

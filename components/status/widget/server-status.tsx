@@ -1,8 +1,9 @@
 import Image from "next/image"
-import { GetStatus } from '@/hooks/get-status';
+import { useGetStatus } from '@/hooks/use-get-status';
+import { Player } from "@/types";
 
 export const ServerStatus = () => {
-  const { data, isLoading } = GetStatus({ port: "25575"})
+  const { data, isLoading } = useGetStatus({ port: "25575" })
 
   return (
     <div className="rounded-xl p-1 block-item">
@@ -29,13 +30,12 @@ export const ServerStatus = () => {
             {isLoading ? (
               <p className="py-2 px-4 text-lg md:text-xl">...</p>
             ) : (
-              <>
-                {data?.players?.list.map((player: Player) => (
-                  <div key={player.uuid} className="text-white text-xl cursor-pointer rounded-none hover:duration-200 duration-200 hover:bg-neutral-900 py-2 px-4">
-                    {player.name_raw}
-                  </div>
-                ))}
-              </>
+              data?.players?.list.map((player: Player) => (
+                <div key={player.uuid} className="text-white text-xl 
+                cursor-pointer rounded-none hover:duration-200 duration-200 hover:bg-neutral-900 py-2 px-4">
+                  {player.name_raw}
+                </div>
+              ))
             )}
           </div>
         </div>

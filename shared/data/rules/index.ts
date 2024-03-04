@@ -1,3 +1,5 @@
+import { RulesList } from "@/types";
+
 export const ruless: RulesList[] = [
   {
     id: "chat",

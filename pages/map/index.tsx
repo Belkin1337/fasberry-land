@@ -13,7 +13,7 @@ const serverMap = [
 ]
 
 export default function Map() {
-  const router = useRouter();
+  const { push } = useRouter();
 
   return (
     <>
@@ -25,7 +25,7 @@ export default function Map() {
           style={{ backgroundImage: `url("/images/static/dirt.png")` }}>
           <div className="flex flex-row flex-wrap gap-x-12 gap-y-4 items-center justify-center w-full min-h-screen">
             {serverMap.map((item, idx) => (
-              <div key={idx} onClick={() => router.push(`${item.href}`)} className="flex flex-col group cursor-pointer items-center">
+              <div key={idx} onClick={() => push(`${item.href}`)} className="flex flex-col group cursor-pointer items-center">
                 <Image
                   width={420}
                   height={420}

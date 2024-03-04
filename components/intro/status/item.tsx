@@ -1,12 +1,12 @@
 import { useRouter } from "next/navigation"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/ui/hover-card'
-import { Typography } from "../../../ui/typography"
-import { Block } from "../../../ui/block"
-import { GetStatus } from "@/hooks/get-status"
+import { Typography } from "@/ui/typography"
+import { Block } from "@/ui/block"
+import { useGetStatus } from "@/hooks/use-get-status"
 
 export const Status = () => {
-  const router = useRouter();
-  const { data, isLoading } = GetStatus({ 
+  const { push } = useRouter();
+  const { data, isLoading } = useGetStatus({ 
     port: "25565" 
   });
 
@@ -14,7 +14,7 @@ export const Status = () => {
     <HoverCard openDelay={4} closeDelay={1}>
       <HoverCardTrigger>
         <Block
-          onClick={() => router.push('/status')}
+          onClick={() => push('/status')}
           blockItem
           type="column"
           size="normal"

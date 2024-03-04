@@ -12,7 +12,6 @@ import {
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger
 } from "@/ui/tooltip"
 import {
@@ -47,7 +46,7 @@ import { headers } from "@/shared/data/configs"
 import { WikiNavigationBar } from "@/components/wiki/sidebar"
 
 export default function Wiki() {
-  const router = useRouter();
+  const { push } = useRouter();
   const searchParams = useSearchParams();
   const [valueTab, setValueTab] = useState<string>("general");
 
@@ -63,8 +62,8 @@ export default function Wiki() {
   const handleTabChange = useCallback((valueTab: string) => {
     setValueTab(valueTab);
 
-    router.push(`/wiki?tab=${valueTab}`)
-  }, [router])
+    push(`/wiki?tab=${valueTab}`)
+  }, [push])
 
   const redirectToTab = (href: string) => {
     setValueTab(href);
@@ -80,7 +79,7 @@ export default function Wiki() {
       </Head>
       <MainLayoutPage>
         <Tabs value={valueTab} onValueChange={handleTabChange} defaultValue="general" className="flex flex-col lg:flex-row items-start justify-between bg-transparent w-full gap-x-4">
-          <WikiNavigationBar/>
+          <WikiNavigationBar />
           <Block className="w-full overflow-hidden lg:w-auto rounded-xl" border="mini_gray" type="column" rounded="big" size="normal">
             <ContentModule id="general" value="general" role="tab">
               <Typography className="text-5xl mb-8">
@@ -267,18 +266,16 @@ export default function Wiki() {
                   onClick={() => redirectToTab("profile")}
                   className="text-[#00cdb0] cursor-pointer">профиле</span> или скорборде.
               </Typography>
-              <TooltipProvider>
-                <Tooltip delayDuration={1}>
-                  <TooltipTrigger>
-                    <Typography size="xl" >
-                      ...
-                    </Typography>
-                  </TooltipTrigger>
-                  <TooltipContent className="bg-black border-none p-2 rounded-xl">
-                    <p className="text-neutral-400 text-lg">Страница дополняется</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+              <Tooltip delayDuration={1}>
+                <TooltipTrigger>
+                  <Typography size="xl" >
+                    ...
+                  </Typography>
+                </TooltipTrigger>
+                <TooltipContent className="bg-black border-none p-2 rounded-xl">
+                  <p className="text-neutral-400 text-lg">Страница дополняется</p>
+                </TooltipContent>
+              </Tooltip>
             </ContentModule>
             <ContentModule value="pets" role="tab" id="pets" className="flex flex-col gap-y-4 ">
               <Typography className="text-5xl mb-8">
@@ -507,18 +504,16 @@ export default function Wiki() {
                   annotation="Голубой дракон"
                 />
               </div>
-              <TooltipProvider>
-                <Tooltip delayDuration={1}>
-                  <TooltipTrigger>
-                    <Typography size="xl" >
-                      ...
-                    </Typography>
-                  </TooltipTrigger>
-                  <TooltipContent className="bg-black border-none p-2 rounded-xl">
-                    <p className="text-neutral-400 text-lg">Страница дополняется</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+              <Tooltip delayDuration={1}>
+                <TooltipTrigger>
+                  <Typography size="xl" >
+                    ...
+                  </Typography>
+                </TooltipTrigger>
+                <TooltipContent className="bg-black border-none p-2 rounded-xl">
+                  <p className="text-neutral-400 text-lg">Страница дополняется</p>
+                </TooltipContent>
+              </Tooltip>
             </ContentModule>
             <ContentModule value="armor" role="tab" id="armor">
               <Typography className="text-5xl mb-8">
@@ -692,18 +687,16 @@ export default function Wiki() {
                   table_caption="Особенности брони"
                 />
               </div>
-              <TooltipProvider>
-                <Tooltip delayDuration={1}>
-                  <TooltipTrigger>
-                    <Typography size="xl" >
-                      ...
-                    </Typography>
-                  </TooltipTrigger>
-                  <TooltipContent className="bg-black border-none p-2 rounded-xl">
-                    <p className="text-neutral-400 text-lg">Страница дополняется</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+              <Tooltip delayDuration={1}>
+                <TooltipTrigger>
+                  <Typography size="xl" >
+                    ...
+                  </Typography>
+                </TooltipTrigger>
+                <TooltipContent className="bg-black border-none p-2 rounded-xl">
+                  <p className="text-neutral-400 text-lg">Страница дополняется</p>
+                </TooltipContent>
+              </Tooltip>
             </ContentModule>
             <ContentModule value="safety" role="tab" id="safety" className="flex flex-col gap-y-4 ">
               <Typography className="text-5xl mb-8">
@@ -1207,7 +1200,7 @@ export default function Wiki() {
                                   </Typography>
                                 </TabsTrigger>
                               ) : (
-                                <div onClick={() => router.push(`${item.value}`)}>
+                                <div onClick={() => push(`${item.value}`)}>
                                   <Typography size="xl" hover_effects="pink_drop">
                                     {item.title}
                                   </Typography>

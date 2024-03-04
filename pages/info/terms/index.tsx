@@ -1,4 +1,5 @@
 import { MainLayoutPage } from "@/components/layout"
+import { Typography } from "@/ui/typography"
 import Head from "next/head"
 
 export default function Terms() {
@@ -9,9 +10,9 @@ export default function Terms() {
       </Head>
       <MainLayoutPage variant="with_section">
       <div className="flex flex-col min-h-screen w-[90%] mx-auto py-36 gap-y-6">
-        <p className="text-black dark:text-white text-3xl">
+        <Typography className="text-black dark:text-white text-3xl">
           Пользовательское соглашение
-        </p>
+        </Typography>
         <div className="flex flex-col gap-y-8">
           <div className="flex flex-col text-white text-md lg:text-lg gap-y-4 border border-transparent dark:hover:border-white hover:duration-500 duration-500 p-4 bg-black/80 dark:bg-transparent rounded-md">
             <span>

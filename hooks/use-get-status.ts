@@ -9,8 +9,8 @@ interface GetStatusProps {
   port: string;
 }
 
-export function GetStatus({ port }: GetStatusProps) {
-  const { data, mutate, isLoading } = useSWR<Status>(
+export function useGetStatus({ port }: GetStatusProps) {
+  const { data, mutate, isLoading } = useSWR(
     `https://api.mcstatus.io/v2/status/java/play.fasberry.ru:${port}?timeout=2`,
     fetcher,
     {

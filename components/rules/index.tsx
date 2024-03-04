@@ -2,7 +2,6 @@ import { Typography } from '@/ui/typography';
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger
 } from '@/ui/tooltip';
 import { Badge } from '../../ui/Badge';
@@ -15,20 +14,18 @@ export const RulesList = () => {
         <div className="flex flex-col md:flex-row gap-y-4 border-2 border-transparent
                dark:hover:border-white hover:duration-300 duration-300 lg:gap-y-2 py-4 bg-black/80 dark:bg-transparent p-2 rounded-xl justify-between">
           <div className="flex items-start lg:items-center gap-x-2">
-            <TooltipProvider>
-              <Tooltip delayDuration={1}>
-                <TooltipTrigger>
-                  <Typography size="xl">
-                    Теги:
-                  </Typography>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <Typography className="text-neutral-400">
-                    Типа теги, чтобы было круто
-                  </Typography>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
+            <Tooltip delayDuration={1}>
+              <TooltipTrigger>
+                <Typography size="xl">
+                  Теги:
+                </Typography>
+              </TooltipTrigger>
+              <TooltipContent>
+                <Typography className="text-neutral-400">
+                  Типа теги, чтобы было круто
+                </Typography>
+              </TooltipContent>
+            </Tooltip>
             <div className="flex flex-wrap gap-2">
               <Badge>#правила</Badge>
               <Badge variant="destructive">#база</Badge>

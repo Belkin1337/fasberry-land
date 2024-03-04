@@ -1,3 +1,5 @@
+import { ArmorItem } from "@/types";
+
 export const armorList: ArmorItem[] = [
   {
     attribute: {

@@ -1,7 +1,11 @@
 import Head from 'next/head'
-import { Suspense, type ReactElement, type ReactNode } from 'react'
+import { 
+  Suspense, 
+  useState, 
+  type ReactElement, 
+  type ReactNode 
+} from 'react'
 import type { NextPage } from 'next'
-import React from "react"
 import type { AppProps } from 'next/app'
 import {
   HydrationBoundary,
@@ -11,6 +15,7 @@ import {
 import { ThemeProvider } from 'next-themes';
 import { Preloader } from '@/ui/preloader';
 import { Toaster } from '@/ui/toaster';
+import { TooltipProvider } from '@/ui/tooltip'
 import '@/styles/globals.css'
 import '@/styles/minecraft-weather.css'
 import '@/styles/minecraft-theme.css'
@@ -24,7 +29,7 @@ type AppPropsWithLayout = AppProps & {
 }
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const [queryClient] = React.useState(() => new QueryClient())
+  const [queryClient] = useState(() => new QueryClient())
   const getLayout = Component.getLayout ?? ((page) => page)
 
   return getLayout(
@@ -64,12 +69,14 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
           disableTransitionOnChange
           enableSystem
         >
-          <Toaster />
-          <QueryClientProvider client={queryClient}>
-            <HydrationBoundary state={pageProps.dehydratedState}>
-              <Component {...pageProps} />
-            </HydrationBoundary>
-          </QueryClientProvider>
+          <TooltipProvider>
+            <Toaster />
+            <QueryClientProvider client={queryClient}>
+              <HydrationBoundary state={pageProps.dehydratedState}>
+                <Component {...pageProps} />
+              </HydrationBoundary>
+            </QueryClientProvider>
+          </TooltipProvider>
         </ThemeProvider>
       </Suspense>
     </>

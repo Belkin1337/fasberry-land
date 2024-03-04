@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/ui/tooltip";
 import { Typography } from "@/ui/typography";
 import Image from "next/image"
 
@@ -18,7 +18,7 @@ export const ThemeToggle = () => {
   }
 
   return (
-    <TooltipProvider>
+    <>
       <Tooltip delayDuration={1}>
         <TooltipTrigger>
           {theme === "light" && (
@@ -63,6 +63,6 @@ export const ThemeToggle = () => {
           </Typography>
         </TooltipContent>
       </Tooltip>
-    </TooltipProvider>
+    </>
   )
 }

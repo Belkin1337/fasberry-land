@@ -1,4 +1,4 @@
-import { Typography } from "../../ui/typography"
+import { Typography } from "@/ui/typography"
 import Image from "next/image"
 
 interface NewsItemProps {
@@ -8,7 +8,12 @@ interface NewsItemProps {
   date: string
 }
 
-export const NewsItem = ({ image, title, body, date }: NewsItemProps) => {
+export const NewsItem = ({ 
+  image, 
+  title, 
+  body, 
+  date 
+}: NewsItemProps) => {
   return (
     <>
       <div className="h-[220px] sm:h-[360px] md:h-[420px] xl:w-2/3 xl:h-6/7 w-full overflow-hidden">

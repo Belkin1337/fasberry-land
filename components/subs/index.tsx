@@ -18,10 +18,20 @@ import {
   DialogTrigger
 } from "../../ui/dialog"
 import { useToast } from "../../ui/use-toast"
+import { Payment, SubItem } from "@/types"
 
-export const SubscriptionItem = ({ name, origin_name, commands, id, rating, description, price, image }: SubItem) => {
+export const SubscriptionItem = ({ 
+  name, 
+  origin_name, 
+  commands, 
+  id, 
+  rating, 
+  description, 
+  price, 
+  image 
+}: SubItem) => {
   const [state, setState] = useState<boolean>(false);
-  const router = useRouter();
+  const { push } = useRouter();
   const { toast } = useToast();
 
   const handlePayment = useCallback(async (values: Payment) => {
@@ -64,7 +74,7 @@ export const SubscriptionItem = ({ name, origin_name, commands, id, rating, desc
         });
 
 
-        router.push(href);
+        push(href);
       }
     } catch (error) {
       toast({
@@ -73,7 +83,7 @@ export const SubscriptionItem = ({ name, origin_name, commands, id, rating, desc
         className: "border border-red"
       });
     }
-  }, [router, toast, price, id, origin_name]);
+  }, [push, toast, price, id, origin_name]);
 
   const dont = () => {
     toast({
