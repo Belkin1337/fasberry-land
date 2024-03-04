@@ -18,7 +18,7 @@ export default function Donate() {
         <div className="full-screen-section flex items-center justify-start bg-bottom md:bg-center overflow-hidden bg-no-repeat bg-cover"
           style={{
             backgroundImage:
-              `url("https://media.discordapp.net/attachments/904344676587417621/1197251168443834408/2024-01-17_21.42.43.png?ex=65ba960a&is=65a8210a&hm=ed256149a115bd8d84d344c63f2851a0a3ceb31a2b57f107cc04604585f2c3d3&=&format=webp&quality=lossless&width=1193&height=671")`
+              `url("https://cdn.discordapp.com/attachments/904344676587417621/1197251168443834408/2024-01-17_21.42.43.png?ex=65f1f50a&is=65df800a&hm=c1ce071f79f7ff3efffba421f8d5bced41f49c3d35a848d29ddbead07f4291fa&")`
           }}>
           <Overlay variant="default" />
           <WrapperTitle>

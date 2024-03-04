@@ -14,7 +14,7 @@ export default function RulesPage() {
       <MainLayoutPage variant="with_section">
         <div className="full-screen-section flex items-center justify-start bg-bottom md:bg-center"
           style={{
-            backgroundImage: `url("https://cdn.discordapp.com/attachments/904344676587417621/1197634958408290406/minecraft_screen_13.webp?ex=65bbfb79&is=65a98679&hm=4ab397c0c45719831c9d9a56d3cf8f38aba84aa3c8a0fe47697cb841b7722366&")`
+            backgroundImage: `url("https://cdn.discordapp.com/attachments/904344676587417621/1197634958408290406/minecraft_screen_13.webp?ex=65f35a79&is=65e0e579&hm=417563acfe91c37ab7bcede6f71e0c0ece3c701426aaec51c32421b6d2485871&")`
           }}>
           <Overlay variant="default" />
           <WrapperTitle>

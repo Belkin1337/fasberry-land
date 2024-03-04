@@ -112,21 +112,21 @@ const gameplay = [
     description:
       "Несколько валют + система репутации, которая даёт тебе дополнительные возможности в игре.",
     image:
-      "https://cdn.discordapp.com/attachments/903343341561847848/1197680924536615062/2024-01-19_02.15.49.png?ex=65bc2648&is=65a9b148&hm=befb93593b26914e2524e3a77e40b0653827109b9ebb66b2046f64d44ede8cda&",
+      "https://cdn.discordapp.com/attachments/903343341561847848/1197680924536615062/2024-01-19_02.15.49.png?ex=65f38548&is=65e11048&hm=a4699c4d5770ce4a83bb9ef5375674dec9e6bb11ecdf5082b3db9a22e459d346&",
   },
   {
     name: "Питомцы",
     description:
       "Два вида питомцев со своей историей, способностями, характеристиками и поведением.",
     image:
-      "https://cdn.discordapp.com/attachments/904344676587417621/1197667815935713390/pets.png?ex=65bc1a12&is=65a9a512&hm=d4a5c2824ecbed03860d622f26ee70882f97d1f3b0230d0f3f4103c69a5c52f5&",
+      "https://cdn.discordapp.com/attachments/904344676587417621/1197667815935713390/pets.png?ex=65f37912&is=65e10412&hm=140b22d17e0132f05cd01b2cf20bbdbc6e8ef6ab910956d8d9f099557428fbc5&",
   },
   {
     name: "Кастомные вещи",
     description:
       "Новые наборы брони, клинки и многое другое.",
     image:
-      "https://cdn.discordapp.com/attachments/904344676587417621/1203011850975846450/2024-01-31_17.40.24.png?ex=65cf8b18&is=65bd1618&hm=ce1bc6ab0360bb273d2faf6a6487215024b20b593c2b3d8032f5562ab546eb87&",
+      "https://cdn.discordapp.com/attachments/903343341561847848/1197676074750984253/image.png?ex=65f380c3&is=65e10bc3&hm=43de025fdc7c154673f83f705953f54051b7bfdb425f53c540317069fd0f3598&",
   },
 ];
 

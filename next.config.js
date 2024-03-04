@@ -29,6 +29,12 @@ const nextConfig = {
     },
     {
       protocol: "https",
+      hostname: "docs.google.com",
+      port: "",
+      pathname: "/**"
+    },
+    {
+      protocol: "https",
       hostname: "mc.yandex.ru",
       port: "",
       pathname: "/**"

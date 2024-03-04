@@ -18,7 +18,7 @@ export default function Support() {
       <MainLayoutPage variant="with_section">
         <div className="full-screen-section flex items-center justify-start bg-bottom bg-no-repeat bg-cover"
           style={{
-            backgroundImage: `url("https://media.discordapp.net/attachments/815672776433074196/1202357279484293161/2024-01-31_13.47.18.png?ex=65d663fa&is=65c3eefa&hm=3ec0a2fe40788531b5977bdf5fda4d5afb6062c252acb4ab9f5d3d3a65857c1e&=&format=webp&quality=lossless&width=1206&height=671")`
+            backgroundImage: `url("https://cdn.discordapp.com/attachments/904344676587417621/1197251042413379594/minecraft_screen_5.webp?ex=65f1f4ec&is=65df7fec&hm=8255576e2676ae0f734f6e6bb09d9192d0171fa34954b830b6a97f5e1d87eba0&")`
           }}>
           <Overlay variant="default" />
           <WrapperTitle>
